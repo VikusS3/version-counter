@@ -1,11 +1,43 @@
 ---
-import Welcome from '../components/Welcome.astro';
-import Layout from '../layouts/Layout.astro';
+import StatsSection from "../components/StatsSections.astro";
+import Layout from "../layouts/Layout.astro";
+import GameCard from "../components/GameCard.astro";
+import data from "../data/games.json";
 
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+const game = data.games;
 ---
 
-<Layout>
-	<Welcome />
+<Layout
+  title="Version Counter"
+  description="Web para ver cuanto falta para la nueva version de genshin"
+>
+  <main class="max-w-7xl mx-auto w-full px-6 py-10">
+    <!-- Hero -->
+    <section class="mb-10">
+      <h1 class="text-4xl md:text-5xl font-bold mb-2">Update Dashboard</h1>
+      <p class="text-slate-500 dark:text-slate-400 max-w-2xl">
+        Track upcoming maintenance and patch releases for Hoyoverse and Kuro
+        Games titles.
+      </p>
+    </section>
+
+    <!-- Cards -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {
+        game.map((juego) => (
+          <GameCard
+            title={juego.nombre}
+            current={juego.version_actual}
+            upcoming={juego.proxima_version}
+            imagen={juego.imagen}
+            fecha_inicio={juego.fecha_inicio}
+            duracion_dias={juego.duracion_dias}
+            tema={juego.tema}
+          />
+        ))
+      }
+    </section>
+
+    <StatsSection />
+  </main>
 </Layout>

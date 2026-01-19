@@ -1,0 +1,1 @@
+export const MANTENIMIENTO_DURACION_HORAS = 0.001;

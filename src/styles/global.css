@@ -1,0 +1,40 @@
+@import "tailwindcss";
+
+.glass-panel {
+  background: rgba(19, 16, 34, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.countdown-font {
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.05em;
+}
+
+.bg-background-light {
+  background-color: #f6f6f8;
+}
+
+.bg-background-dark {
+  background-color: #0a0a0c;
+}
+
+.bg-primary {
+  background-color: #4b2bee;
+}
+
+.genshin {
+  background-color: #4ade80;
+}
+
+.hsr {
+  background-color: #22d3ee;
+}
+
+.zzz {
+  background-color: #facc15;
+}
+
+.wuwa {
+  background-color: #818cf8;
+}
