@@ -1,0 +1,51 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Privacy"
+  description="Privacy policy for Version Counter"
+  url={`${Astro.site}/privacy`}
+  canonical={`${Astro.site}/privacy`}
+>
+  <main class="max-w-4xl mx-auto w-full px-6 py-10">
+    <h1 class="text-4xl font-bold text-gray-100 mb-8">Privacy Policy</h1>
+
+    <section class="mb-6">
+      <h2 class="text-2xl font-semibold text-gray-200 mb-2">
+        1. No Data Collection
+      </h2>
+      <p class="text-gray-300 leading-relaxed">
+        We do not collect, store, or share any personal data. The application
+        operates entirely on your device.
+      </p>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-2xl font-semibold text-gray-200 mb-2">2. Cookies</h2>
+      <p class="text-gray-300 leading-relaxed">
+        We do not use cookies or any tracking technologies.
+      </p>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-2xl font-semibold text-gray-200 mb-2">
+        3. Third Parties
+      </h2>
+      <p class="text-gray-300 leading-relaxed">
+        We do not share information with third parties, as we do not collect any
+        data in the first place.
+      </p>
+    </section>
+
+    <section class="mb-6">
+      <h2 class="text-2xl font-semibold text-gray-200 mb-2">
+        4. Changes to This Policy
+      </h2>
+      <p class="text-gray-300 leading-relaxed">
+        This policy may change at any time. We recommend reviewing it
+        periodically.
+      </p>
+    </section>
+  </main>
+</Layout>

@@ -7,16 +7,51 @@ import { ClientRouter } from "astro:transitions";
 export interface Props {
   title: string;
   description?: string;
+  image?: string;
+  url?: string;
+  type?: string;
+  keywords?: string;
+  author?: string;
+  canonical?: string;
+  lang?: string;
 }
 
-const { title, description } = Astro.props;
+const {
+  title,
+  description = "Version Counter - Track and manage your game versions",
+  image = "/og-image.webp",
+  url = new URL(Astro.url.pathname, Astro.site).href,
+  type = "website",
+  keywords = `
+game version countdown,
+game update tracker,
+next game version,
+genshin impact version countdown,
+genshin impact update tracker,
+honkai star rail version countdown,
+wuthering waves version countdown,
+zenless zone zero version countdown,
+gacha game updates,
+live service game updates,
+contador de versiones,
+cuenta atras versiones juegos,
+proxima version genshin impact,
+contador version genshin impact,
+proxima version honkai star rail,
+contador version wuthering waves,
+proxima version zenless zone zero
+`,
+  author = "Version Counter",
+  canonical,
+  lang = "en",
+} = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang={lang}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
     <link
@@ -24,6 +59,40 @@ const { title, description } = Astro.props;
       rel="stylesheet"
     />
     <meta name="description" content={description} />
+    <meta name="keywords" content={keywords.replace(/\s+/g, " ").trim()} />
+    <meta name="author" content={author} />
+    <meta name="robots" content="index, follow" />
+    <meta name="theme-color" content="#0f172a" />
+    <link rel="canonical" href={canonical ?? url} />
+
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(image, Astro.site).href} />
+    <meta property="og:locale" content="en_US" />
+
+    <meta property="og:url" content={url} />
+    <meta property="og:site_name" content="Version Counter" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={new URL(image, Astro.site).href} />
+
+    <script
+      type="application/ld+json"
+      set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        name: title,
+        alternateName: "Game Version Countdown Tracker",
+        description: description,
+        url: url,
+        applicationCategory: "GameApplication",
+        operatingSystem: "Any",
+      })}
+    />
+
     <ClientRouter />
   </head>
   <body
