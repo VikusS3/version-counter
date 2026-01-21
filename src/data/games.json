@@ -8,7 +8,13 @@
       "fecha_inicio": "2026-01-14",
       "duracion_dias": 42,
       "tema": "#4ade80",
-      "imagen": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/01/key-art_en.jpg?w=1600&h=900&fit=crop"
+      "imagen": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/01/key-art_en.jpg?w=1600&h=900&fit=crop",
+      "nombre_version_actual": "A traveler on a ",
+      "slogan_name": "Winter's Night",
+      "slogan_desc": "Get ready for the final battle against The Doctor.",
+      "banner_phase_I" :"Columbina and Ineffa",
+       "banner_phase_II" :"Zibai and Nuvillete",
+      "patch_notes": "https://www.hoyolab.com/article_pre/21807"
     },
     {
       "slug": "wuthering-waves",

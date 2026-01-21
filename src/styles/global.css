@@ -5,6 +5,12 @@
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
+.gold-glow {
+  text-shadow: 0 0 10px rgba(212, 173, 106, 0.5);
+}
+.primary-glow {
+  box-shadow: 0 0 20px rgba(75, 43, 238, 0.3);
+}
 
 .countdown-font {
   font-variant-numeric: tabular-nums;

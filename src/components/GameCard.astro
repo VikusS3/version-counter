@@ -5,7 +5,8 @@ const { title, current, upcoming, imagen, fecha_inicio, duracion_dias, tema } =
   Astro.props;
 ---
 
-<div
+<a
+  href="/genshin"
   class="group relative overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-900 h-95 flex flex-col justify-end p-8 transition-all hover:shadow-2xl hover:shadow-genshin/10"
 >
   <div
@@ -40,4 +41,4 @@ const { title, current, upcoming, imagen, fecha_inicio, duracion_dias, tema } =
     class="absolute bottom-0 left-0 h-1 bg-genshin transition-all w-0 group-hover:w-full"
   >
   </div>
-</div>
+</a>

@@ -1,0 +1,129 @@
+---
+import Layout from "../layouts/Layout.astro";
+import data from "../data/games.json";
+import PageCard from "../components/components-pages/PageCard.astro";
+import CardInfo from "../components/components-pages/CardInfo.astro";
+import { Counter } from "../components/react/Counter";
+
+const game = data.games.find((juego) => juego.slug === "genshin-impact");
+---
+
+<Layout
+  title="Genshin Impact"
+  description="Explore the world of Genshin Impact with guides, tips, and updates."
+>
+  <div
+    class="fixed inset-0 z-0 opacity-20 pointer-events-none bg-cover bg-center"
+    data-alt="Stylized landscape of Teyvat mountains at night"
+    style=`background-image:url(${game?.imagen});`
+  >
+  </div>
+  <main class="flex-1 flex flex-col items-center">
+    <!-- HeroSection & Countdown -->
+    <section class="w-full max-w-300 px-6 pt-12">
+      <div class="@container">
+        <div class="flex flex-col items-center justify-center text-center mb-8">
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 border border-primary/40 text-primary text-xs font-bold tracking-widest uppercase mb-4"
+          >
+            <span class="relative flex h-2 w-2">
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"
+              ></span>
+              <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"
+              ></span>
+            </span>
+            Countdown to Version {game?.proxima_version}
+          </div>
+          <h1
+            class="text-white text-4xl md:text-6xl font-black leading-tight tracking-tight mb-4"
+          >
+            {game?.nombre_version_actual}
+            <span class="text-gold italic font-serif">{game?.slogan_name}</span>
+          </h1>
+          <p class="text-slate-400 text-lg max-w-2xl">
+            {game?.slogan_desc}
+          </p>
+        </div>
+        <!-- Large Timer -->
+        <div
+          class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-200 mx-auto py-8"
+        >
+          <Counter
+            client:load
+            fecha_inicio={game?.fecha_inicio}
+            duracion_dias={game?.duracion_dias}
+            variant="full"
+          />
+        </div>
+        <div class="flex justify-center gap-4 mt-8">
+          <a
+            target="_blank"
+            rel="noopener noreferer"
+            href={game?.patch_notes}
+            class="flex items-center gap-2 bg-primary hover:bg-[#4b2bee]/90 text-white px-8 py-3 rounded-xl font-bold transition-all transform hover:scale-105"
+          >
+            <span class="material-symbols-outlined">menu_book</span>
+            View Pre-Patch Notes
+          </a>
+          <button
+            class="flex items-center gap-2 bg-white/5 hover:bg-white/10 text-white border border-white/20 px-8 py-3 rounded-xl font-bold transition-all"
+          >
+            <span class="material-symbols-outlined">share</span>
+            Remind Me
+          </button>
+        </div>
+      </div>
+    </section>
+    <!-- Tabs Section -->
+    <section class="w-full max-w-250 mt-16 px-6">
+      <div
+        class="flex border-b border-white/10 gap-8 mb-8 overflow-x-auto pb-px"
+      >
+        <a
+          class="flex flex-col items-center justify-center border-b-[3px] border-primary text-primary pb-4 min-w-30"
+          href="#"
+        >
+          <p class="text-sm font-bold leading-normal tracking-widest uppercase">
+            Live Content
+          </p>
+        </a>
+      </div>
+      <!-- SectionHeader -->
+      <div class="flex items-center justify-between mb-6">
+        <div>
+          <h2 class="text-white text-2xl font-bold tracking-tight">
+            Current Version {game?.version_actual}
+          </h2>
+          <p class="text-slate-400 text-sm">
+            "{game?.banner_phase_I}" — Phase I ends in 14 days
+          </p>
+        </div>
+        <span
+          class="text-gold text-sm font-bold border border-gold/30 px-3 py-1 rounded uppercase tracking-tighter"
+          >Live Status</span
+        >
+      </div>
+      <!-- Roadmap Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+        <PageCard phase_version_II={game?.banner_phase_II} />
+      </div>
+      <!-- What's Coming Section -->
+      <!-- <div class="mb-20">
+        <div class="flex items-center gap-4 mb-8">
+          <h2
+            class="text-white text-2xl font-bold tracking-tight whitespace-nowrap"
+          >
+            What is coming in {game?.version_actual}?
+          </h2>
+          <div class="h-px w-full bg-linear-to-r from-white/20 to-transparent">
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <CardInfo />
+          <CardInfo />
+        </div>
+      </div> -->
+    </section>
+  </main>
+</Layout>
