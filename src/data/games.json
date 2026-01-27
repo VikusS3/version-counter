@@ -3,48 +3,69 @@
     {
       "slug": "genshin-impact",
       "nombre": "Genshin Impact",
+
       "version_actual": "6.3",
       "proxima_version": "6.4",
-      "fecha_inicio": "2026-01-14",
-      "duracion_dias": 42,
-      "tema": "#4ade80",
-      "imagen": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/01/key-art_en.jpg?w=1600&h=900&fit=crop",
       "nombre_version_actual": "A traveler on a ",
       "slogan_name": "Winter's Night",
       "slogan_desc": "Get ready for the final battle against The Doctor.",
-      "banner_phase_I" :"Columbina and Ineffa",
-       "banner_phase_II" :"Zibai and Nuvillete",
-      "patch_notes": "https://www.hoyolab.com/article_pre/21807"
+
+      "fecha_inicio": "2025-12-26T02:30:00Z",
+      "duracion_dias": 42,
+
+      "banner_phase_I": "Columbina and Ineffa",
+
+      "tema": "#4ade80",
+
+      "imagen": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/01/key-art_en.jpg?w=1600&h=900&fit=crop",
+
+      "patch_notes": "https://www.hoyolab.com/article_pre/21807",
+      "href": "/genshin"
     },
     {
       "slug": "wuthering-waves",
       "nombre": "Wuthering Waves",
       "version_actual": "3.0",
       "proxima_version": "3.1",
-      "fecha_inicio": "2025-12-25",
+      "fecha_inicio": "2025-12-26T01:30:00Z",
+      "nombre_version_actual": "We who see",
+      "slogan_name": "The Stars",
+      "slogan_desc": "Get ready for new region Lahai-Roi.",
       "duracion_dias": 42,
       "tema": "#818cf8",
-      "imagen": "https://i.ytimg.com/vi/1Lr41l-eJUw/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLD7_HieGjOE8tJaEYbJTPcpIr1v3g"
+      "imagen": "https://static0.dualshockersimages.com/wordpress/wp-content/uploads/2025/12/version-3-0-preview-key-art.jpeg?q=70&fit=crop&w=1600&h=900&dpr=1",
+      "href": "/wuwa",
+      "patch_notes": "https://wutheringwaves.kurogames.com/en/main/news/detail/3920"
     },
     {
       "slug": "honkai-star-rail",
       "nombre": "Honkai Star Rail",
       "version_actual": "3.8",
       "proxima_version": "4.0",
-      "fecha_inicio": "2025-12-17",
+      "fecha_inicio": "2025-12-17T02:30:00Z",
+      "nombre_version_actual": "Memories are the Prelude",
+      "slogan_name": "To Dreams",
+      "slogan_desc": "Colonipenal new finale.",
       "duracion_dias": 56,
       "tema": "#22d3ee",
-      "imagen": "https://honkai.gg/wp-content/uploads/featuredImage-107.png"
+      "imagen": "https://honkai.gg/wp-content/uploads/featuredImage-107.png",
+      "href": "/hsr",
+      "patch_notes": "https://hsr.hoyoverse.com/en-us/news/161539"
     },
     {
       "slug": "zenless-zone-zero",
       "nombre": "Zenless Zone Zero",
       "version_actual": "2.5",
       "proxima_version": "2.6",
-      "fecha_inicio": "2025-12-30",
+      "fecha_inicio": "2025-12-30T02:30:00Z",
+      "nombre_version_actual": "To Be Full for",
+      "slogan_name": "The Night",
+      "slogan_desc": "Ye shunguan is coming to New Eridu.",
       "duracion_dias": 42,
       "tema": "#facc15",
-      "imagen": "https://i.ytimg.com/vi/V8iNHiWSQF4/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLD9E4DJBigeR191zwh89XUw-68_kA"
+      "imagen": "https://fastcdn.hoyoverse.com/content-v2/plat/161616/3eac4aa670a780229233fdbbaadaddaa_4154286916300491939.jpeg",
+      "href": "/zzz",
+      "patch_notes": "https://zenless.hoyoverse.com/en-us/news/161728"
     }
   ]
 }

@@ -1,11 +1,9 @@
 import React from "react";
-import { MANTENIMIENTO_DURACION_HORAS } from "../../constants/constantes";
 
-type Estado = "activo" | "mantenimiento" | "finalizado";
 type Variant = "mini" | "full";
 
 interface CounterProps {
-  fecha_inicio?: string;
+  fecha_inicio?: string | Date;
   duracion_dias?: number;
   variant?: Variant;
   onFinalizado?: () => void;
@@ -17,12 +15,10 @@ export const Counter: React.FC<CounterProps> = ({
   variant = "mini",
   onFinalizado,
 }) => {
-  const inicioMs = new Date(`${fecha_inicio}T00:00:00Z`).getTime();
-  const finVersionMs = inicioMs + (duracion_dias ?? 0) * 24 * 60 * 60 * 1000;
-  const finMantenimientoMs =
-    finVersionMs + MANTENIMIENTO_DURACION_HORAS * 60 * 60 * 1000;
+  const inicioMs = new Date(fecha_inicio ?? Date.now()).getTime();
+  const finMs = inicioMs + (duracion_dias ?? 0) * 24 * 60 * 60 * 1000;
 
-  const [estado, setEstado] = React.useState<Estado>("activo");
+  const [finalizado, setFinalizado] = React.useState(false);
   const [tiempo, setTiempo] = React.useState({
     dias: 0,
     horas: 0,
@@ -33,44 +29,32 @@ export const Counter: React.FC<CounterProps> = ({
   React.useEffect(() => {
     const calcular = () => {
       const now = Date.now();
+      const diff = finMs - now;
 
-      if (now < finVersionMs) {
-        setEstado("activo");
-
-        const diff = finVersionMs - now;
-        const totalSeg = Math.floor(diff / 1000);
-
-        setTiempo({
-          dias: Math.floor(totalSeg / (60 * 60 * 24)),
-          horas: Math.floor((totalSeg % (60 * 60 * 24)) / (60 * 60)),
-          minutos: Math.floor((totalSeg % (60 * 60)) / 60),
-          segundos: totalSeg % 60,
-        });
-      } else if (now < finMantenimientoMs) {
-        setEstado("mantenimiento");
-      } else {
-        setEstado("finalizado");
+      if (diff <= 0) {
+        setFinalizado(true);
         onFinalizado?.();
+        return;
       }
+
+      const totalSeg = Math.floor(diff / 1000);
+
+      setTiempo({
+        dias: Math.floor(totalSeg / (60 * 60 * 24)),
+        horas: Math.floor((totalSeg % (60 * 60 * 24)) / (60 * 60)),
+        minutos: Math.floor((totalSeg % (60 * 60)) / 60),
+        segundos: totalSeg % 60,
+      });
     };
 
     calcular();
     const id = setInterval(calcular, 1000);
     return () => clearInterval(id);
-  }, [finVersionMs, finMantenimientoMs, onFinalizado]);
+  }, [finMs, onFinalizado]);
 
   /* ---------- ESTADOS ---------- */
 
-  if (estado === "mantenimiento") {
-    return (
-      <div className="text-sm text-center">
-        <strong>Mantenimiento en curso</strong>
-        <div className="text-xs opacity-80">Duración estimada: 3–5h</div>
-      </div>
-    );
-  }
-
-  if (estado === "finalizado") {
+  if (finalizado) {
     return (
       <span className="text-sm italic opacity-80">Versión finalizada</span>
     );
