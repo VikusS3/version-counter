@@ -25,17 +25,17 @@
     {
       "slug": "wuthering-waves",
       "nombre": "Wuthering Waves",
-      "version_actual": "3.0",
-      "proxima_version": "3.1",
+      "version_actual": "3.1",
+      "proxima_version": "3.2",
       "fecha_inicio": "2025-12-26T01:30:00Z",
-      "nombre_version_actual": "We who see",
-      "slogan_name": "The Stars",
+      "nombre_version_actual": "For You Who",
+      "slogan_name": "Walk in Snow",
       "slogan_desc": "Get ready for new region Lahai-Roi.",
       "duracion_dias": 41,
       "tema": "#818cf8",
-      "imagen": "https://static0.dualshockersimages.com/wordpress/wp-content/uploads/2025/12/version-3-0-preview-key-art.jpeg?q=70&fit=crop&w=1600&h=900&dpr=1",
+      "imagen": "https://pbs.twimg.com/media/HAIxjlTa8AELe_C.jpg",
       "href": "/wuwa",
-      "patch_notes": "https://wutheringwaves.kurogames.com/en/main/news/detail/3920"
+      "patch_notes": "https://wutheringwaves.kurogames.com/es/main/news/detail/4194"
     },
     {
       "slug": "honkai-star-rail",
@@ -61,7 +61,7 @@
       "nombre_version_actual": "To Be Full for",
       "slogan_name": "The Night",
       "slogan_desc": "Ye shunguan is coming to New Eridu.",
-      "duracion_dias": 42,
+      "duracion_dias": 38,
       "tema": "#facc15",
       "imagen": "https://fastcdn.hoyoverse.com/content-v2/plat/161616/3eac4aa670a780229233fdbbaadaddaa_4154286916300491939.jpeg",
       "href": "/zzz",
