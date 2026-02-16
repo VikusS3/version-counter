@@ -40,17 +40,17 @@
     {
       "slug": "honkai-star-rail",
       "nombre": "Honkai Star Rail",
-      "version_actual": "3.8",
-      "proxima_version": "4.0",
-      "fecha_inicio": "2025-12-17T02:30:00Z",
-      "nombre_version_actual": "Memories are the Prelude",
-      "slogan_name": "To Dreams",
-      "slogan_desc": "Colonipenal new finale.",
-      "duracion_dias": 58,
+      "version_actual": "4.0",
+      "proxima_version": "4.1",
+      "fecha_inicio": "2025-12-13T01:30:00Z",
+      "nombre_version_actual": "No Aha At",
+      "slogan_name": "Full Moon",
+      "slogan_desc": "Welcome to Arcadia",
+      "duracion_dias": 41,
       "tema": "#22d3ee",
-      "imagen": "https://lblog.fp.guinfra.com/file/69394cc1c2c6e25f5d29e059L3hLzhSS03",
+      "imagen": "https://fastcdn.hoyoverse.com/content-v2/plat/162682/6d8223c09c58a12bc20a156aef5a22c9_5114567935905946191.jpg",
       "href": "/hsr",
-      "patch_notes": "https://hsr.hoyoverse.com/en-us/news/161539"
+      "patch_notes": "https://www.hoyolab.com/article/43747924"
     },
     {
       "slug": "zenless-zone-zero",
