@@ -19,7 +19,7 @@ export interface Props {
 
 const {
   title,
-  description = "Version Counter - Track and manage your game versions",
+  description = "Gacha Countdown - Track and manage your game versions",
   image = "/og-image.webp",
   url = new URL(Astro.url.pathname, Astro.site).href,
   type = "website",
@@ -42,7 +42,7 @@ proxima version honkai star rail,
 contador version wuthering waves,
 proxima version zenless zone zero
 `,
-  author = "Version Counter",
+  author = "Gacha Countdown Team",
   canonical,
   lang = "en",
 } = Astro.props;
@@ -73,7 +73,7 @@ proxima version zenless zone zero
     <meta property="og:locale" content="en_US" />
 
     <meta property="og:url" content={url} />
-    <meta property="og:site_name" content="Version Counter" />
+    <meta property="og:site_name" content="Gacha Countdown" />
 
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
