@@ -4,22 +4,22 @@
       "slug": "genshin-impact",
       "nombre": "Genshin Impact",
 
-      "version_actual": "6.3",
-      "proxima_version": "6.4",
-      "nombre_version_actual": "A traveler on a ",
-      "slogan_name": "Winter's Night",
-      "slogan_desc": "Get ready for the final battle against The Doctor.",
+      "version_actual": "6.4",
+      "proxima_version": "6.5",
+      "nombre_version_actual": "Homeward, He Who ",
+      "slogan_name": "Caught the Wind",
+      "slogan_desc": "Varka is finally here",
 
-      "fecha_inicio": "2026-01-14T01:30:00Z",
+      "fecha_inicio": "2026-02-24T01:30:00Z",
       "duracion_dias": 42,
 
       "banner_phase_I": "Columbina and Ineffa",
 
       "tema": "#4ade80",
 
-      "imagen": "https://static0.polygonimages.com/wordpress/wp-content/uploads/2026/01/key-art_en.jpg?w=1600&h=900&fit=crop",
+      "imagen": "https://fastcdn.hoyoverse.com/content-v2/plat/162828/c50d8c6e2597e9f88a66e06c3c32c5c5_5184430120368326656.jpg",
 
-      "patch_notes": "https://www.hoyolab.com/article_pre/21807",
+      "patch_notes": "https://genshin.hoyoverse.com/es/news/detail/162806",
       "href": "/genshin"
     },
     {
