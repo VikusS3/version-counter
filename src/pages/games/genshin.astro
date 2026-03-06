@@ -7,7 +7,7 @@ const game = data.games.find((juego) => juego.slug === "genshin-impact");
 ---
 
 <Layout
-  title="Genshin Impact"
+  title=`${game?.nombre}`
   description="Explore the world of Genshin Impact with guides, tips, and updates."
 >
   <div

@@ -6,10 +6,7 @@ import { Counter } from "../../components/react/Counter";
 const game = data.games.find((juego) => juego.slug === "zenless-zone-zero");
 ---
 
-<Layout
-  title="Zenless Zone Zero"
-  description="Zenless Zone Zero 2.7 Countdown for all region like America, Europe, Asia. Zenless Banner Countdown, Patch Notes, and more."
->
+<Layout title=`${game?.nombre}` description=`${game?.descripcion}`>
   <div
     class="fixed inset-0 z-0 opacity-20 pointer-events-none bg-cover bg-center"
     data-alt="Stylized landscape of Teyvat mountains at night"
@@ -65,6 +62,7 @@ const game = data.games.find((juego) => juego.slug === "zenless-zone-zero");
             View Pre-Patch Notes
           </a>
           <button
+            id="copy-button"
             class="flex items-center gap-2 bg-white/5 hover:bg-white/10 text-white border border-white/20 px-8 py-3 rounded-xl font-bold transition-all"
           >
             <span class="material-symbols-outlined">share</span>
@@ -75,3 +73,14 @@ const game = data.games.find((juego) => juego.slug === "zenless-zone-zero");
     </section>
   </main>
 </Layout>
+
+<script>
+  //copiar el link de la url de la pagina actual en el boton remind me
+  const remindButton = document.querySelector("#copy-button");
+  remindButton?.addEventListener("click", () => {
+    const url = window.location.href;
+    navigator.clipboard.writeText(url).then(() => {
+      alert("Link copied to clipboard!");
+    });
+  });
+</script>
