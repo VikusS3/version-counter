@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #4b2bee;
+  --color-primary2: #4b2bee;
   --color-background-dark: #0b0a14;
   --color-card-dark: #161521;
   --color-genshin-teal: #4eb6b9;
@@ -94,4 +94,12 @@
 }
 .card-container {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.nav-link {
+  position: relative;
+}
+
+.nav-link-active {
+  font-weight: 600;
 }

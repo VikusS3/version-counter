@@ -17,7 +17,8 @@
       "patch_notes": "https://genshin.hoyoverse.com/es/news/detail/162806",
       "patch_notes_description": "Latest patch notes for Genshin Impact 6.4",
       "href": "/genshin",
-      "icon": "/genshin-icon.webp"
+      "icon": "/genshin-icon.webp",
+      "tema": "#4ade80"
     },
     {
       "slug": "wuthering-waves",
@@ -36,7 +37,8 @@
       "href": "/wuwa",
       "patch_notes": "https://wutheringwaves.kurogames.com/es/main/news/detail/4194",
       "patch_notes_description": "Latest patch notes for Wuthering Waves 3.1",
-      "icon": "/wuwa-icon.webp"
+      "icon": "/wuwa-icon.webp",
+      "tema": "#60a5fa"
     },
     {
       "slug": "honkai-star-rail",
@@ -55,7 +57,8 @@
       "href": "/hsr",
       "patch_notes": "https://www.hoyolab.com/article/43747924",
       "patch_notes_description": "Latest patch notes for Honkai Star Rail 4.0",
-      "icon": "/honkai-icon.webp"
+      "icon": "/honkai-icon.webp",
+      "tema": "#22d3ee"
     },
     {
       "slug": "zenless-zone-zero",
@@ -74,7 +77,8 @@
       "href": "/zzz",
       "patch_notes": "https://zenless.hoyoverse.com/es-es/news/162562",
       "patch_notes_description": "Latest patch notes for Zenless Zone Zero 2.7",
-      "icon": "/zenless-icon.webp"
+      "icon": "/zenless-icon.webp",
+      "tema": "#facc15"
     }
   ]
 }
