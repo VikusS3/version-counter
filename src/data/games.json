@@ -3,28 +3,27 @@
     {
       "slug": "genshin-impact",
       "nombre": "Genshin Impact New Version Countdown",
-
+      "nombre_oficial": "Genshin Impact",
+      "descripcion": "Genshin Impact 6.4 Countdown for all region like America, Europe, Asia. Genshin Banner Countdown, Patch Notes, and more.",
       "version_actual": "6.4",
       "proxima_version": "6.5",
       "nombre_version_actual": "Homeward, He Who ",
       "slogan_name": "Caught the Wind",
       "slogan_desc": "Varka is finally here",
-
       "fecha_inicio": "2026-02-24T01:30:00Z",
       "duracion_dias": 42,
-
-      "banner_phase_I": "Columbina and Ineffa",
-
-      "tema": "#4ade80",
-
+      "alias": "genshin",
       "imagen": "https://fastcdn.hoyoverse.com/content-v2/plat/162828/c50d8c6e2597e9f88a66e06c3c32c5c5_5184430120368326656.jpg",
-
       "patch_notes": "https://genshin.hoyoverse.com/es/news/detail/162806",
-      "href": "/genshin"
+      "patch_notes_description": "Latest patch notes for Genshin Impact 6.4",
+      "href": "/genshin",
+      "icon": "/genshin-icon.webp"
     },
     {
       "slug": "wuthering-waves",
       "nombre": "Wuthering Waves New Version Countdown",
+      "nombre_oficial": "Wuthering Waves",
+      "descripcion": "Wuthering Waves 3.1 Countdown for all region like America, Europe, Asia. Wuthering Banner Countdown, Patch Notes, and more.",
       "version_actual": "3.1",
       "proxima_version": "3.2",
       "fecha_inicio": "2026-02-04T01:30:00Z",
@@ -32,14 +31,18 @@
       "slogan_name": "Walk in Snow",
       "slogan_desc": "Get ready for new region Lahai-Roi.",
       "duracion_dias": 41,
-      "tema": "#818cf8",
+      "alias": "wuthering",
       "imagen": "https://lblog.fp.guinfra.com/file/695a3e6e1af2b4c8406a06ebvH2k6evE03",
       "href": "/wuwa",
-      "patch_notes": "https://wutheringwaves.kurogames.com/es/main/news/detail/4194"
+      "patch_notes": "https://wutheringwaves.kurogames.com/es/main/news/detail/4194",
+      "patch_notes_description": "Latest patch notes for Wuthering Waves 3.1",
+      "icon": "/wuwa-icon.webp"
     },
     {
       "slug": "honkai-star-rail",
       "nombre": "Honkai Star Rail New Version Countdown",
+      "nombre_oficial": "Honkai Star Rail",
+      "descripcion": "Honkai Star Rail 4.0 Countdown for all region like America, Europe, Asia. Honkai Banner Countdown, Patch Notes, and more.",
       "version_actual": "4.0",
       "proxima_version": "4.1",
       "fecha_inicio": "2026-02-13T01:30:00Z",
@@ -47,14 +50,17 @@
       "slogan_name": "Full Moon",
       "slogan_desc": "Welcome to Arcadia",
       "duracion_dias": 41,
-      "tema": "#22d3ee",
+      "alias": "honkai",
       "imagen": "https://fastcdn.hoyoverse.com/content-v2/plat/162682/6d8223c09c58a12bc20a156aef5a22c9_5114567935905946191.jpg",
       "href": "/hsr",
-      "patch_notes": "https://www.hoyolab.com/article/43747924"
+      "patch_notes": "https://www.hoyolab.com/article/43747924",
+      "patch_notes_description": "Latest patch notes for Honkai Star Rail 4.0",
+      "icon": "/honkai-icon.webp"
     },
     {
       "slug": "zenless-zone-zero",
       "nombre": "Zenless Zone Zero New Version Countdown",
+      "nombre_oficial": "Zenless Zone Zero",
       "descripcion": "Zenless Zone Zero 2.7 Countdown for all region like America, Europe, Asia. Zenless Banner Countdown, Patch Notes, and more.",
       "version_actual": "2.6",
       "proxima_version": "2.7",
@@ -63,10 +69,12 @@
       "slogan_name": "Old Dream",
       "slogan_desc": "Angels of Delusion are coming to New Eridu.",
       "duracion_dias": 46,
-      "tema": "#facc15",
+      "alias": "zenless",
       "imagen": "https://lblog.fp.guinfra.com/file/69807e0e09090c1b8b1bcdb0jfHWI04f03",
       "href": "/zzz",
-      "patch_notes": "https://zenless.hoyoverse.com/es-es/news/162562"
+      "patch_notes": "https://zenless.hoyoverse.com/es-es/news/162562",
+      "patch_notes_description": "Latest patch notes for Zenless Zone Zero 2.7",
+      "icon": "/zenless-icon.webp"
     }
   ]
 }

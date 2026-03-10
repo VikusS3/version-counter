@@ -1,0 +1,52 @@
+---
+import PatchCard from "../../components/patchComponents/PatchCard.astro";
+import Layout from "../../layouts/Layout.astro";
+import data from "../../data/games.json";
+
+const game = data.games;
+---
+
+<Layout
+  title="Patch Notes Database"
+  description="Centralized aggregation for the latest shifts in the meta. Access detailed version logs and character breakdowns."
+>
+  <main class="flex-1 max-w-7xl mx-auto w-full px-6 py-16">
+    <div class="mb-16">
+      <div
+        class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold mb-6"
+      >
+        <span class="relative flex h-2 w-2">
+          <span
+            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"
+          ></span>
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"
+          ></span>
+        </span>
+        LIVE UPDATES
+      </div>
+      <h2
+        class="text-5xl font-black tracking-tighter mb-6 text-white leading-none"
+      >
+        THE DATABASE
+      </h2>
+      <p class="text-slate-400 max-w-2xl leading-relaxed">
+        Centralized aggregation for the latest shifts in the meta. Access
+        detailed version logs and character breakdowns.
+      </p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+      {
+        game.map((juego) => (
+          <PatchCard
+            title={juego.nombre_oficial}
+            currentVersion={juego.version_actual}
+            description={juego.patch_notes_description}
+            patchNotesLink={juego.patch_notes}
+            icon={juego.icon}
+            alias={juego.alias}
+          />
+        ))
+      }
+    </div>
+  </main>
+</Layout>

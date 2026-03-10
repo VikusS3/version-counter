@@ -1,0 +1,77 @@
+---
+interface Props {
+  icon: string;
+  currentVersion: string;
+  title: string;
+  description: string;
+  patchNotesLink: string;
+  alias?: string;
+}
+
+const { icon, currentVersion, title, description, patchNotesLink, alias } =
+  Astro.props;
+
+const colorMap: Record<string, string> = {
+  genshin: "var(--color-genshin-teal)",
+  wuthering: "var(--color-wuwa-blue)",
+  honkai: "var(--color-hsr-purple)",
+  zenless: "var(--color-zzz-yellow)",
+};
+
+const accentColor = (alias && colorMap[alias]) || "var(--color-primary)";
+---
+
+<div
+  class="relative group card-container"
+  style={`--accent-color: ${accentColor}`}
+>
+  <div
+    class="absolute -inset-4 bg-(--accent-color) opacity-0 group-hover:opacity-20 blur-3xl -z-10 transition-opacity duration-700"
+  >
+  </div>
+
+  <div
+    class="border border-white/5 rounded-2xl p-8 hover:border-(--accent-color) transition-all duration-500 flex flex-col h-full shadow-2xl relative overflow-hidden"
+  >
+    <div class="flex justify-between items-start mb-8">
+      <div
+        class="size-16 rounded-2xl overflow-hidden ring-2 ring-white/10 p-1 bg-white/5"
+      >
+        <img
+          class="w-full h-full object-cover rounded-xl"
+          src={icon}
+          alt={title}
+        />
+      </div>
+
+      <span
+        class="px-4 py-1.5 bg-(--accent-color)/10 text-(--accent-color) border border-(--accent-color)/30 text-[10px] font-black rounded-full uppercase tracking-[0.2em]"
+      >
+        VER {currentVersion}
+      </span>
+    </div>
+
+    <h3 class="text-3xl font-bold mb-4 text-white">{title}</h3>
+    <p class="text-slate-400 mb-10 text-lg leading-relaxed">{description}</p>
+
+    <div class="mt-auto">
+      <a
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center justify-center w-full bg-transparent border-2 border-(--accent-color) text-(--accent-color) hover:bg-(--accent-color) hover:text-black font-black py-4 rounded-xl transition-all duration-300 gap-3 group/btn uppercase tracking-tighter"
+        href={patchNotesLink}
+      >
+        Official Patch Notes
+        <span
+          class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform"
+          >arrow_forward</span
+        >
+      </a>
+    </div>
+
+    <div
+      class="absolute top-0 right-0 w-32 h-32 bg-(--accent-color)/5 blur-[80px] -z-10"
+    >
+    </div>
+  </div>
+</div>
