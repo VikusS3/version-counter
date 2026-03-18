@@ -10,21 +10,31 @@ const {
   duracion_dias,
   tema,
   href,
+  alias,
 } = Astro.props;
+
+const colorMap: Record<string, string> = {
+  genshin: "var(--color-genshin)",
+  wuthering: "var(--color-wuwa)",
+  honkai: "var(--color-hsr)",
+  zenless: "var(--color-zzz)",
+};
+
+const accentColor = (alias && colorMap[alias]) || "var(--color-primary)";
 ---
 
 <a
   href=`games${href}`
-  class="group relative overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-900 h-95 flex flex-col justify-end p-8 transition-all hover:shadow-2xl hover:shadow-genshin/10"
+  class="group relative overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-900 h-95 flex flex-col justify-end p-8 transition-all"
 >
   <div
     class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-    data-alt="Lush green landscape of Natlan region in Genshin Impact"
     style=`background-image: linear-gradient(180deg, rgba(10, 10, 12, 0.2) 0%, rgba(10, 10, 12, 0.95) 100%), url(${imagen});`
   >
   </div>
   <div
-    class="absolute top-6 right-6 glass-panel px-3 py-1 rounded-full border-genshin/30"
+    class="absolute top-6 right-6 glass-panel px-3 py-1 rounded-full"
+    style=`border: 1px solid ${accentColor};`
   >
     <span
       class="text-xs font-bold tracking-widest uppercase"
@@ -46,7 +56,8 @@ const {
     />
   </div>
   <div
-    class="absolute bottom-0 left-0 h-1 bg-genshin transition-all w-0 group-hover:w-full"
+    class="absolute bottom-0 left-0 h-1 transition-all w-0 group-hover:w-full"
+    style=`background-color: ${accentColor}`
   >
   </div>
 </a>

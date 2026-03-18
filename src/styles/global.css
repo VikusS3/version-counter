@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary2: #4b2bee;
+  --color-primary: #4b2bee;
   --color-background-dark: #0b0a14;
   --color-card-dark: #161521;
   --color-genshin-teal: #4eb6b9;
@@ -11,6 +11,10 @@
   --color-hsr-purple: #a855f7;
   --color-hsr-silver: #cbd5e1;
 
+  --color-genshin: #4ade80;
+  --color-wuwa: #22d3ee;
+  --color-zzz: #facc15;
+  --color-hsr: #a855f7;
   --color-accent: var(--accent-color);
 
   --radius-default: 0.25rem;
