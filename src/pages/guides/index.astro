@@ -1,17 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import GameFilters from "../../components/guides/GameFilters.astro";
-import GuideVideo from "../../components/guides/GuideVideo.astro";
+import { GuideFilters } from "../../components/react/GuideFilters";
 import { guides } from "../../data/guides";
-
-const gameFilter = Astro.url.searchParams.get("game") || "all";
-const langFilter = Astro.url.searchParams.get("lang") || "all";
-
-const filteredGuides = guides.filter((guide) => {
-  const matchesGame = gameFilter === "all" || guide.game === gameFilter;
-  const matchesLang = langFilter === "all" || guide.language === langFilter;
-  return matchesGame && matchesLang;
-});
 ---
 
 <Layout title="">
@@ -23,20 +13,6 @@ const filteredGuides = guides.filter((guide) => {
         the community.
       </p>
     </div>
-    <div class="flex flex-col gap-6">
-      <GameFilters activeGame={gameFilter} activeLang={langFilter} />
-      <div
-        class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
-      >
-        {filteredGuides.map((guide) => <GuideVideo guide={guide} />)}
-      </div>
-
-      <div class="mt-8 flex justify-center">
-        <button
-          class="px-8 py-3 bg-primary/10 hover:bg-primary/20 text-primary font-bold rounded-xl transition-all"
-          >Load More Guides</button
-        >
-      </div>
-    </div>
+    <GuideFilters client:load guides={guides} />
   </main>
 </Layout>

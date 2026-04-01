@@ -1,13 +1,39 @@
 ---
 const { activeGame, activeLang } = Astro.props;
+
+const currentUrl = Astro.url.pathname;
+
+function getLangUrl(lang: string): string {
+  const params = new URLSearchParams(Astro.url.searchParams);
+  params.set("lang", lang);
+  return `${currentUrl}?${params.toString()}`;
+}
+
+function getAllGamesUrl(): string {
+  const params = new URLSearchParams(Astro.url.searchParams);
+  params.delete("game");
+  return params.toString() ? `${currentUrl}?${params.toString()}` : currentUrl;
+}
+
+function getAllLangUrl(): string {
+  const params = new URLSearchParams(Astro.url.searchParams);
+  params.delete("lang");
+  return params.toString() ? `${currentUrl}?${params.toString()}` : currentUrl;
+}
 ---
 
 <div
   class="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 dark:border-primary/20"
 >
   <div class="flex gap-2 sm:gap-8 overflow-x-auto no-scrollbar">
-    <button
-      class="flex flex-col items-center gap-2 pb-3 pt-2 group relative border-b-2 border-genshin"
+    <a
+      href={activeGame === "genshin" ? "#" : getAllGamesUrl()}
+      class:list={[
+        "flex flex-col items-center gap-2 pb-3 pt-2 group relative border-b-2 transition-all",
+        activeGame === "genshin"
+          ? "border-genshin"
+          : "border-transparent hover:border-genshin/50",
+      ]}
     >
       <div
         class="size-12 rounded-xl bg-genshin/10 flex items-center justify-center text-genshin overflow-hidden border border-genshin/20"
@@ -18,79 +44,115 @@ const { activeGame, activeLang } = Astro.props;
           src="/genshin-icon.webp"
         />
       </div>
-      <span class="text-xs font-bold uppercase tracking-wider text-genshin"
-        >Genshin</span
+      <span
+        class="text-xs font-bold uppercase tracking-wider"
+        class:list={[
+          activeGame === "genshin" ? "text-genshin" : "text-slate-500",
+        ]}>Genshin</span
       >
-    </button>
-    <button
-      class="flex flex-col items-center gap-2 pb-3 pt-2 group relative border-b-2 border-transparent hover:border-wuwa/50 transition-all"
+    </a>
+    <a
+      href={activeGame === "wuwa" ? "#" : getAllGamesUrl()}
+      class:list={[
+        "flex flex-col items-center gap-2 pb-3 pt-2 group relative border-b-2 transition-all",
+        activeGame === "wuwa"
+          ? "border-wuwa"
+          : "border-transparent hover:border-wuwa/50",
+      ]}
     >
       <div
         class="size-12 rounded-xl bg-wuwa/10 flex items-center justify-center text-wuwa overflow-hidden border border-wuwa/20"
       >
         <img
-          class="w-full h-full object-cover opacity-60"
+          class="w-full h-full object-cover"
           data-alt="Wuthering Waves icon showing sound wave logo"
           src="/wuwa-icon.webp"
         />
       </div>
-      <span class="text-xs font-bold uppercase tracking-wider text-slate-500"
+      <span
+        class="text-xs font-bold uppercase tracking-wider"
+        class:list={[activeGame === "wuwa" ? "text-wuwa" : "text-slate-500"]}
         >WuWa</span
       >
-    </button>
-    <button
-      class="flex flex-col items-center gap-2 pb-3 pt-2 group relative border-b-2 border-transparent hover:border-zzz/50 transition-all"
+    </a>
+    <a
+      href={activeGame === "zzz" ? "#" : getAllGamesUrl()}
+      class:list={[
+        "flex flex-col items-center gap-2 pb-3 pt-2 group relative border-b-2 transition-all",
+        activeGame === "zzz"
+          ? "border-zzz"
+          : "border-transparent hover:border-zzz/50",
+      ]}
     >
       <div
         class="size-12 rounded-xl bg-zzz/10 flex items-center justify-center text-zzz overflow-hidden border border-zzz/20"
       >
         <img
-          class="w-full h-full object-cover opacity-60"
+          class="w-full h-full object-cover"
           data-alt="Zenless Zone Zero icon showing urban graffiti style logo"
           src="/zenless-icon.webp"
         />
       </div>
-      <span class="text-xs font-bold uppercase tracking-wider text-slate-500"
+      <span
+        class="text-xs font-bold uppercase tracking-wider"
+        class:list={[activeGame === "zzz" ? "text-zzz" : "text-slate-500"]}
         >ZZZ</span
       >
-    </button>
-    <button
-      class="flex flex-col items-center gap-2 pb-3 pt-2 group relative border-b-2 border-transparent hover:border-hsr/50 transition-all"
+    </a>
+    <a
+      href={activeGame === "hsr" ? "#" : getAllGamesUrl()}
+      class:list={[
+        "flex flex-col items-center gap-2 pb-3 pt-2 group relative border-b-2 transition-all",
+        activeGame === "hsr"
+          ? "border-hsr"
+          : "border-transparent hover:border-hsr/50",
+      ]}
     >
       <div
         class="size-12 rounded-xl bg-hsr/10 flex items-center justify-center text-hsr overflow-hidden border border-hsr/20"
       >
         <img
-          class="w-full h-full object-cover opacity-60"
+          class="w-full h-full object-cover"
           data-alt="Honkai Star Rail icon showing stellar express train"
           src="/honkai-icon.webp"
         />
       </div>
-      <span class="text-xs font-bold uppercase tracking-wider text-slate-500"
+      <span
+        class="text-xs font-bold uppercase tracking-wider"
+        class:list={[activeGame === "hsr" ? "text-hsr" : "text-slate-500"]}
         >HSR</span
       >
-    </button>
+    </a>
   </div>
   <div class="flex items-center gap-3 pb-3">
     <div class="flex bg-slate-100 dark:bg-primary/10 rounded-lg p-1">
-      <button
-        class="px-4 py-1 rounded-md text-xs font-bold bg-white dark:bg-primary shadow-sm"
-        >All</button
+      <a
+        href={activeLang === "all" ? "#" : getAllLangUrl()}
+        class:list={[
+          "px-4 py-1 rounded-md text-xs font-bold transition-all",
+          activeLang === "all"
+            ? "bg-white dark:bg-primary shadow-sm"
+            : "text-slate-500 hover:text-primary",
+        ]}>All</a
       >
-      <button
-        class="px-4 py-1 rounded-md text-xs font-bold text-slate-500 hover:text-primary transition-colors"
-        >EN</button
+      <a
+        href={activeLang === "EN" ? "#" : getLangUrl("EN")}
+        class:list={[
+          "px-4 py-1 rounded-md text-xs font-bold transition-all",
+          activeLang === "EN"
+            ? "bg-white dark:bg-primary shadow-sm"
+            : "text-slate-500 hover:text-primary",
+        ]}>EN</a
       >
-      <button
-        class="px-4 py-1 rounded-md text-xs font-bold text-slate-500 hover:text-primary transition-colors"
-        >ES</button
+      <a
+        href={activeLang === "ES" ? "#" : getLangUrl("ES")}
+        class:list={[
+          "px-4 py-1 rounded-md text-xs font-bold transition-all",
+          activeLang === "ES"
+            ? "bg-white dark:bg-primary shadow-sm"
+            : "text-slate-500 hover:text-primary",
+        ]}>ES</a
       >
     </div>
-    <button
-      class="flex items-center gap-2 px-4 py-1.5 bg-slate-100 dark:bg-primary/10 rounded-lg text-sm font-medium"
-    >
-      <span class="material-symbols-outlined text-lg">filter_list</span>
-      Filter
-    </button>
   </div>
 </div>
