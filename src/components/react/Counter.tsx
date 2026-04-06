@@ -111,22 +111,22 @@ const FullBlock = ({
 }) => (
   <div className="flex flex-col items-center gap-2">
     <div
-      className={`glass-panel w-full aspect-square md:aspect-auto md:h-32 flex flex-col items-center justify-center rounded-2xl primary-glow group hover:border-[#4b2bee] transition-all ${
-        highlight ? "border-[#4b2bee]/50" : ""
+      className={`glass-panel w-full aspect-square md:aspect-auto md:h-32 flex flex-col items-center justify-center rounded-2xl primary-glow group hover:border-primary transition-all ${
+        highlight ? "border-primary/50" : ""
       }`}
     >
       <span
         className={`text-4xl md:text-5xl font-bold transition-colors ${
           highlight
-            ? "text-[#4b2bee] animate-pulse"
-            : "text-white group-hover:text-[#4b2bee]"
+            ? "text-primary animate-pulse"
+            : "text-white group-hover:text-primary"
         }`}
       >
         {String(value).padStart(2, "0")}
       </span>
       <div
         className={`h-1 w-12 rounded-full mt-2 ${
-          highlight ? "bg-[#4b2bee]/60" : "bg-[#d4ad6a]/30"
+          highlight ? "bg-primary/60" : "bg-[#d4ad6a]/30"
         }`}
       ></div>
     </div>
