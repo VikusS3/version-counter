@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://version-counter.netlify.app/sitemap-0.xml

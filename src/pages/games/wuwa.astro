@@ -7,9 +7,27 @@ const game = data.games.find((juego) => juego.slug === "wuthering-waves");
 ---
 
 <Layout
-  title=`${game?.nombre}`
-  description="Explore the world of Wuthering Waves with guides, tips, and updates."
+  title={`Wuthering Waves v${game?.proxima_version} Countdown`}
+  description={`Countdown to Wuthering Waves v${game?.proxima_version} release. Track version updates, maintenance schedules, and patch notes for the popular action RPG.`}
 >
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      name: `Wuthering Waves v${game?.version_actual}`,
+      description: game?.descripcion,
+      url: `${Astro.site?.href}/games/wuwa`,
+      image: game?.imagen,
+      genre: "Action RPG",
+      operatingSystem: "iOS, Android, PC",
+      publisher: {
+        "@type": "Organization",
+        name: "Kuro Games"
+      },
+      version: game?.version_actual
+    })}
+  />
   <div
     class="fixed inset-0 z-0 opacity-30 pointer-events-none bg-cover bg-center"
     data-alt="Stylized landscape of Teyvat mountains at night"

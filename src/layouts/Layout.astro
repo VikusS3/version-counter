@@ -54,7 +54,7 @@ proxima version zenless zone zero
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/logo.ico" />
-    <title>{title}</title>
+    <title>{title} | Gacha Countdown</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
       rel="stylesheet"
@@ -62,7 +62,10 @@ proxima version zenless zone zero
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords.replace(/\s+/g, " ").trim()} />
     <meta name="author" content={author} />
-    <meta name="robots" content="index, follow" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:45"
+    />
     <meta name="theme-color" content="#0f172a" />
     <link rel="canonical" href={canonical ?? url} />
 
@@ -101,13 +104,24 @@ proxima version zenless zone zero
     type="application/ld+json"
     set:html={JSON.stringify({
       "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      name: title,
+      "@type": "WebSite",
+      name: "Gacha Countdown",
       alternateName: "Game Version Countdown Tracker",
-      description: description,
-      url: url,
-      applicationCategory: "GameApplication",
-      operatingSystem: "Any",
+      description:
+        "Track upcoming maintenance and patch releases for Genshin Impact, Honkai Star Rail, Wuthering Waves, and Zenless Zone Zero.",
+      url: Astro.site?.href ?? "https://version-counter.netlify.app",
+      potentialAction: {
+        "@type": "SearchAction",
+        target: {
+          "@type": "EntryPoint",
+          urlTemplate: `${Astro.site?.href ?? "https://version-counter.netlify.app"}?q={search_term_string}`,
+        },
+        "query-input": "required name=search_term_string",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Gacha Countdown Team",
+      },
     })}
   />
 
