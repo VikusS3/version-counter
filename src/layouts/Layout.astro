@@ -85,7 +85,8 @@ proxima version zenless zone zero
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-YXEFY6EQK4"
     ></script>
-    <script>
+
+    <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
@@ -94,23 +95,24 @@ proxima version zenless zone zero
 
       gtag("config", "G-YXEFY6EQK4");
     </script>
-
-    <script
-      type="application/ld+json"
-      set:html={JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "SoftwareApplication",
-        name: title,
-        alternateName: "Game Version Countdown Tracker",
-        description: description,
-        url: url,
-        applicationCategory: "GameApplication",
-        operatingSystem: "Any",
-      })}
-    />
-
-    <ClientRouter />
   </head>
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "SoftwareApplication",
+      name: title,
+      alternateName: "Game Version Countdown Tracker",
+      description: description,
+      url: url,
+      applicationCategory: "GameApplication",
+      operatingSystem: "Any",
+    })}
+  />
+
+  <ClientRouter />
+
   <body
     class="bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col"
   >
