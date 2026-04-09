@@ -3,6 +3,11 @@ import type { Guide } from "../../data/guides";
 
 interface GuideFiltersProps {
   guides: Guide[];
+  labels?: {
+    all: string;
+    noGuidesFound: string;
+    loadMore: string;
+  };
 }
 
 interface FilterBarProps {
@@ -10,7 +15,14 @@ interface FilterBarProps {
   activeLang: string;
   onGameChange: (game: string) => void;
   onLangChange: (lang: string) => void;
+  allLabel: string;
 }
+
+const defaultLabels = {
+  all: "All",
+  noGuidesFound: "No guides found with the selected filters.",
+  loadMore: "Load More Guides",
+};
 
 const games = [
   { id: "all", label: "All", icon: null },
@@ -43,6 +55,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
   activeLang,
   onGameChange,
   onLangChange,
+  allLabel,
 }) => {
   return (
     <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 dark:border-primary/20">
@@ -79,7 +92,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
                 <span
                   className={`text-xs font-bold uppercase tracking-wider ${isActive ? "text-primary" : "text-slate-500"}`}
                 >
-                  {game.label}
+                  {allLabel}
                 </span>
               </button>
             );
@@ -187,7 +200,7 @@ const GuideCard: React.FC<{ guide: Guide }> = ({ guide }) => {
   );
 };
 
-export const GuideFilters: React.FC<GuideFiltersProps> = ({ guides }) => {
+export const GuideFilters: React.FC<GuideFiltersProps> = ({ guides, labels = defaultLabels }) => {
   const [activeGame, setActiveGame] = useState("all");
   const [activeLang, setActiveLang] = useState("all");
   const [visibleCount, setVisibleCount] = useState(8);
@@ -227,6 +240,7 @@ export const GuideFilters: React.FC<GuideFiltersProps> = ({ guides }) => {
         activeLang={activeLang}
         onGameChange={handleGameChange}
         onLangChange={handleLangChange}
+        allLabel={labels.all}
       />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {visibleGuides.length > 0 ? (
@@ -236,7 +250,7 @@ export const GuideFilters: React.FC<GuideFiltersProps> = ({ guides }) => {
         ) : (
           <div className="col-span-full text-center py-12">
             <p className="text-slate-500">
-              No guides found with the selected filters.
+              {labels.noGuidesFound}
             </p>
           </div>
         )}
@@ -247,7 +261,7 @@ export const GuideFilters: React.FC<GuideFiltersProps> = ({ guides }) => {
             onClick={loadMore}
             className="px-8 py-3 bg-primary/10 hover:bg-primary/20 text-primary font-bold rounded-xl transition-all"
           >
-            Load More Guides
+            {labels.loadMore}
           </button>
         </div>
       )}

@@ -1,5 +1,9 @@
 ---
 import { Counter } from "./react/Counter";
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
 
 const {
   title,
@@ -38,7 +42,7 @@ const accentColor = (alias && colorMap[alias]) || "var(--color-primary)";
   >
     <span
       class="text-xs font-bold tracking-widest uppercase"
-      style=`color: ${tema}`>Current: v{current}</span
+      style=`color: ${tema}`>{t.gameCard.current}: v{current}</span
     >
   </div>
   <div class="relative z-10">
@@ -47,12 +51,19 @@ const accentColor = (alias && colorMap[alias]) || "var(--color-primary)";
       <div class="size-2 rounded-full bg-green-500 animate-pulse"></div>
     </div>
     <p class="text-slate-400 text-sm mb-6">
-      Upcoming: <span class="text-white font-medium">v{upcoming} </span>
+      {t.gameCard.upcoming}: <span class="text-white font-medium">v{upcoming} </span>
     </p>
     <Counter
       client:load
       fecha_inicio={fecha_inicio}
       duracion_dias={duracion_dias}
+      labels={{
+        days: t.counter.days,
+        hours: t.counter.hours,
+        minutes: t.counter.minutes,
+        seconds: t.counter.seconds,
+        finished: t.counter.finished,
+      }}
     />
   </div>
   <div

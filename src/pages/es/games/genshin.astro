@@ -1,29 +1,29 @@
 ---
-import Layout from "../../layouts/Layout.astro";
-import { Counter } from "../../components/react/Counter";
-import { getLangFromUrl, useTranslations } from "../../i18n/utils";
-import { getLocalizedGame } from "../../data/translations/getGameData";
+import Layout from "../../../layouts/Layout.astro";
+import { Counter } from "../../../components/react/Counter";
+import { useTranslations } from "../../../i18n/utils";
+import { getLocalizedGame } from "../../../data/translations/getGameData";
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-const game = getLocalizedGame("zenless-zone-zero", lang);
+const t = useTranslations("es");
+const game = getLocalizedGame("genshin-impact", "es");
 ---
 
 <Layout
-  title={`Zenless Zone Zero v${game?.proxima_version} Countdown`}
-  description={`Countdown to Zenless Zone Zero v${game?.proxima_version} release. Track version updates, maintenance schedules, and patch notes for the urban fantasy action game.`}
+  title={`Genshin Impact v${game?.proxima_version} Countdown`}
+  description={`Countdown to Genshin Impact v${game?.proxima_version} release. Track version updates, maintenance schedules, and patch notes for the popular gacha game.`}
+  lang="es"
 >
   <script
     type="application/ld+json"
     set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "VideoGame",
-      name: `Zenless Zone Zero v${game?.version_actual}`,
+      name: `Genshin Impact v${game?.version_actual}`,
       description: game?.descripcion,
-      url: `${Astro.site?.href}/games/zzz`,
+      url: `${Astro.site?.href}/es/games/genshin`,
       image: game?.imagen,
-      genre: "Urban Fantasy Action",
-      operatingSystem: "iOS, Android, PC",
+      genre: "Action RPG",
+      operatingSystem: "iOS, Android, PC, PS5",
       publisher: {
         "@type": "Organization",
         name: "HoYoverse"
@@ -38,7 +38,6 @@ const game = getLocalizedGame("zenless-zone-zero", lang);
   >
   </div>
   <main id="main-content" class="flex-1 flex flex-col items-center">
-    <!-- HeroSection & Countdown -->
     <section class="w-full max-w-300 px-6 pt-12 mb-16">
       <div class="@container">
         <div class="flex flex-col items-center justify-center text-center mb-8">
@@ -64,7 +63,6 @@ const game = getLocalizedGame("zenless-zone-zero", lang);
             {game?.slogan_desc}
           </p>
         </div>
-        <!-- Large Timer -->
         <div
           class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-200 mx-auto py-8"
         >
@@ -93,7 +91,6 @@ const game = getLocalizedGame("zenless-zone-zero", lang);
             {t.gamePage.viewPatchNotes}
           </a>
           <button
-            id="copy-button"
             class="flex items-center gap-2 bg-white/5 hover:bg-white/10 text-white border border-white/20 px-8 py-3 rounded-xl font-bold transition-all"
           >
             <span class="material-symbols-outlined">share</span>
@@ -104,14 +101,3 @@ const game = getLocalizedGame("zenless-zone-zero", lang);
     </section>
   </main>
 </Layout>
-
-<script>
-  //copiar el link de la url de la pagina actual en el boton remind me
-  const remindButton = document.querySelector("#copy-button");
-  remindButton?.addEventListener("click", () => {
-    const url = window.location.href;
-    navigator.clipboard.writeText(url).then(() => {
-      alert("Link copied to clipboard!");
-    });
-  });
-</script>

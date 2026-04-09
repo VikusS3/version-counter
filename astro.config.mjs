@@ -13,4 +13,11 @@ export default defineConfig({
   },
   site: "https://version-counter.netlify.app",
   integrations: [react(), sitemap()],
+  i18n: {
+    defaultLocale: "en",
+    locales: ["en", "es"],
+    routing: {
+      prefixDefaultLocale: false,
+    },
+  },
 });

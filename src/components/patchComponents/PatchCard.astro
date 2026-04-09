@@ -1,4 +1,9 @@
 ---
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 interface Props {
   icon: string;
   currentVersion: string;
@@ -47,7 +52,7 @@ const accentColor = (alias && colorMap[alias]) || "var(--color-primary)";
       <span
         class="px-4 py-1.5 bg-(--accent-color)/10 text-(--accent-color) border border-(--accent-color)/30 text-[10px] font-black rounded-full uppercase tracking-[0.2em]"
       >
-        VER {currentVersion}
+        {t.common.ver} {currentVersion}
       </span>
     </div>
 
@@ -61,7 +66,7 @@ const accentColor = (alias && colorMap[alias]) || "var(--color-primary)";
         class="inline-flex items-center justify-center w-full bg-transparent border-2 border-(--accent-color) text-(--accent-color) hover:bg-(--accent-color) hover:text-black font-black py-4 rounded-xl transition-all duration-300 gap-3 group/btn uppercase tracking-tighter"
         href={patchNotesLink}
       >
-        Official Patch Notes
+        {t.patch.officialPatchNotes}
         <span
           class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform"
           >arrow_forward</span

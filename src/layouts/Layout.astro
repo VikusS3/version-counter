@@ -4,6 +4,7 @@ import "@fontsource-variable/orbitron";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { ClientRouter } from "astro:transitions";
+import { getLangFromUrl, useTranslations, defaultLocale } from "../i18n/utils";
 
 export interface Props {
   title: string;
@@ -17,9 +18,13 @@ export interface Props {
   lang?: string;
 }
 
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const locale = Astro.props.lang ?? lang;
+
 const {
   title,
-  description = "Gacha Countdown - Track and manage your game versions",
+  description = t.meta.description,
   image = "/og-image.webp",
   url = new URL(Astro.url.pathname, Astro.site).href,
   type = "website",
@@ -44,12 +49,17 @@ proxima version zenless zone zero
 `,
   author = "Gacha Countdown Team",
   canonical,
-  lang = "en",
 } = Astro.props;
+
+const ogLocale = locale === "es" ? "es_ES" : "en_US";
+const alternateLocale = locale === "es" ? "en_US" : "es_ES";
+const alternatePath = locale === "es" 
+  ? Astro.url.pathname.replace(/^\/es\//, "/").replace(/^\/es$/, "/")
+  : `/es${Astro.url.pathname}`;
 ---
 
 <!doctype html>
-<html lang={lang}>
+<html lang={locale}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -68,12 +78,14 @@ proxima version zenless zone zero
     />
     <meta name="theme-color" content="#0f172a" />
     <link rel="canonical" href={canonical ?? url} />
+    <link rel="alternate" hreflang="en" href={locale === "es" ? alternatePath : url} />
+    <link rel="alternate" hreflang="es" href={locale === "en" ? `/es${Astro.url.pathname}` : url} />
 
     <meta property="og:type" content={type} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={new URL(image, Astro.site).href} />
-    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale" content={ogLocale} />
 
     <meta property="og:url" content={url} />
     <meta property="og:site_name" content="Gacha Countdown" />

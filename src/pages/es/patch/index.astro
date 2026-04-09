@@ -1,18 +1,14 @@
 ---
-import PatchCard from "../../components/patchComponents/PatchCard.astro";
-import Layout from "../../layouts/Layout.astro";
-import { getLangFromUrl, useTranslations } from "../../i18n/utils";
-import { getLocalizedGames } from "../../data/translations/getGameData";
+import PatchCard from "../../../components/patchComponents/PatchCard.astro";
+import Layout from "../../../layouts/Layout.astro";
+import { useTranslations } from "../../../i18n/utils";
+import { getLocalizedGames } from "../../../data/translations/getGameData";
 
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
-const games = getLocalizedGames(lang);
+const t = useTranslations("es");
+const games = getLocalizedGames("es");
 ---
 
-<Layout
-  title={t.patch.title}
-  description={t.patch.subtitle}
->
+<Layout title={t.patch.title} description={t.patch.subtitle} lang="es">
   <main id="main-content" class="flex-1 max-w-7xl mx-auto w-full px-6 py-16">
     <div class="mb-16">
       <div

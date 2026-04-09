@@ -1,0 +1,71 @@
+export const es = {
+  nav: {
+    dashboard: "Panel Principal",
+    patchNotes: "Notas del Parche",
+    characterGuides: "Guías de Personajes",
+    pullTracker: "Seguimiento de wished",
+  },
+  home: {
+    title: "Gacha Countdown - Rastrea Actualizaciones",
+    subtitle: "Rastrea los próximos mantenimientos y lanzamientos de parches para títulos de Hoyoverse y Kuro Games.",
+    heroTitle: "Panel de Actualizaciones",
+  },
+  counter: {
+    days: "Días",
+    hours: "Horas",
+    minutes: "Mins",
+    seconds: "Segs",
+    minutesFull: "Minutos",
+    secondsFull: "Segundos",
+    finished: "Versión finalizada",
+  },
+  gameCard: {
+    current: "Actual",
+    upcoming: "Próxima",
+  },
+  gamePage: {
+    countdownToVersion: "Cuenta Regresiva Versión",
+    viewPatchNotes: "Ver Notas del Parche",
+    currentVersion: "Versión Actual",
+    nextVersion: "Próxima Versión",
+    remindMe: "Recordarme",
+  },
+  stats: {
+    title: "Estadísticas de Actualización",
+    averagePatchDuration: "Duración Promedio del Parche",
+    totalActiveTimers: "Temporizadores Activos Totales",
+    upcomingMaintenance: "Próximo Mantenimiento",
+    serverStatus: "Estado del Servidor",
+    games: "Juegos",
+    publishers: "Sincronizando con {count} editores",
+    allOperational: "Todo Operativo",
+  },
+  patch: {
+    title: "Base de Datos de Parches",
+    subtitle: "Notas oficiales de parches de todos los juegos gacha",
+    officialPatchNotes: "Notas Oficiales del Parche",
+  },
+  guides: {
+    title: "Guías de Personajes",
+    subtitle: "Las mejores guías para construir tus personajes",
+    noGuidesFound: "No se encontraron guías con los filtros seleccionados.",
+    loadMore: "Cargar Más Guías",
+    all: "Todos",
+    filterByGame: "Filtrar por juego",
+    filterByLanguage: "Filtrar por idioma",
+  },
+  footer: {
+    copyright: "© {year} Gacha Countdown Project. Datos proporcionados como están.",
+    privacy: "Privacidad",
+    terms: "Términos",
+    language: "Idioma",
+  },
+  meta: {
+    description: "Rastrea los próximos mantenimientos y lanzamientos de parches para Genshin Impact, Honkai Star Rail, Wuthering Waves y Zenless Zone Zero.",
+    keywords: "cuenta regresiva versión juego, rastreador actualizaciones juegos, genshin impact, honkai star rail, wuthering waves, zenless zone zero, actualizaciones juegos gacha",
+  },
+  common: {
+    ver: "VER",
+    viewAll: "Ver Todo",
+  },
+} as const;

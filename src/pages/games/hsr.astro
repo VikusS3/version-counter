@@ -1,9 +1,12 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import data from "../../data/games.json";
 import { Counter } from "../../components/react/Counter";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { getLocalizedGame } from "../../data/translations/getGameData";
 
-const game = data.games.find((juego) => juego.slug === "honkai-star-rail");
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const game = getLocalizedGame("honkai-star-rail", lang);
 ---
 
 <Layout
@@ -49,7 +52,7 @@ const game = data.games.find((juego) => juego.slug === "honkai-star-rail");
               <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"
               ></span>
             </span>
-            Countdown to Version {game?.proxima_version}
+            {t.gamePage.countdownToVersion} {game?.proxima_version}
           </div>
           <h1
             class="text-white text-4xl md:text-6xl font-black leading-tight tracking-tight mb-4"
@@ -70,6 +73,13 @@ const game = data.games.find((juego) => juego.slug === "honkai-star-rail");
             fecha_inicio={game?.fecha_inicio}
             duracion_dias={game?.duracion_dias}
             variant="full"
+            labels={{
+              days: t.counter.days,
+              hours: t.counter.hours,
+              minutes: t.counter.minutesFull,
+              seconds: t.counter.secondsFull,
+              finished: t.counter.finished,
+            }}
           />
         </div>
         <div class="flex justify-center gap-4 mt-8">
@@ -80,7 +90,7 @@ const game = data.games.find((juego) => juego.slug === "honkai-star-rail");
             class="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-8 py-3 rounded-xl font-bold transition-all transform hover:scale-105"
           >
             <span class="material-symbols-outlined">menu_book</span>
-            View Pre-Patch Notes
+            {t.gamePage.viewPatchNotes}
           </a>
           <button
             class="flex items-center gap-2 bg-white/5 hover:bg-white/10 text-white border border-white/20 px-8 py-3 rounded-xl font-bold transition-all"

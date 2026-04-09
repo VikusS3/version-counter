@@ -1,4 +1,14 @@
 ---
+import {
+  getLangFromUrl,
+  useTranslations,
+  getLocalizedUrl,
+  defaultLocale,
+} from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
 const currentPath = Astro.url.pathname;
 
 const isActive = (href: string) => {
@@ -7,6 +17,10 @@ const isActive = (href: string) => {
   }
   return currentPath.startsWith(href);
 };
+
+const currentLocale = lang;
+const targetLocale = currentLocale === defaultLocale ? "es" : defaultLocale;
+const localizedHomeUrl = getLocalizedUrl(Astro.url, targetLocale);
 ---
 
 <header
@@ -31,8 +45,9 @@ const isActive = (href: string) => {
           ? "text-primary nav-link-active"
           : "text-slate-500 dark:text-slate-400 hover:text-primary"
       }`}
-      href="/"
-      aria-current={isActive("/") ? "page" : undefined}>Dashboard</a
+      href={currentLocale === defaultLocale ? "/" : "/es/"}
+      aria-current={isActive("/") || isActive("/es/") ? "page" : undefined}
+      >{t.nav.dashboard}</a
     >
     <a
       class={`text-sm font-semibold transition-colors nav-link ${
@@ -40,8 +55,10 @@ const isActive = (href: string) => {
           ? "text-primary nav-link-active"
           : "text-slate-500 dark:text-slate-400 hover:text-primary"
       }`}
-      href="/patch/"
-      aria-current={isActive("/patch/") ? "page" : undefined}>Patch Notes</a
+      href={currentLocale === defaultLocale ? "/patch/" : "/es/patch/"}
+      aria-current={isActive("/patch/") || isActive("/es/patch/")
+        ? "page"
+        : undefined}>{t.nav.patchNotes}</a
     >
     <a
       class={`text-sm font-semibold transition-colors nav-link ${
@@ -49,12 +66,20 @@ const isActive = (href: string) => {
           ? "text-primary nav-link-active"
           : "text-slate-500 dark:text-slate-400 hover:text-primary"
       }`}
-      href="/guides/"
-      aria-current={isActive("/guides/") ? "page" : undefined}>Character Guides</a
+      href={currentLocale === defaultLocale ? "/guides/" : "/es/guides/"}
+      aria-current={isActive("/guides/") || isActive("/es/guides/")
+        ? "page"
+        : undefined}>{t.nav.characterGuides}</a
     >
-    <!-- <a
-      class="text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-primary transition-colors cursor-not-allowed"
-      href="#">Pull Tracker</a
-    > -->
+    <div class="flex items-center gap-4">
+      <a
+        href={localizedHomeUrl}
+        class="text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-primary transition-colors flex items-center gap-1"
+        title={t.footer.language}
+      >
+        <span class="material-symbols-outlined text-lg">language</span>
+        <span class="uppercase text-xs">{currentLocale}</span>
+      </a>
+    </div>
   </nav>
 </header>

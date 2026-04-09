@@ -2,18 +2,36 @@ import React from "react";
 
 type Variant = "mini" | "full";
 
+interface CounterLabels {
+  days: string;
+  hours: string;
+  minutes: string;
+  seconds: string;
+  finished: string;
+}
+
 interface CounterProps {
   fecha_inicio?: string | Date;
   duracion_dias?: number;
   variant?: Variant;
   onFinalizado?: () => void;
+  labels?: CounterLabels;
 }
+
+const defaultLabels: CounterLabels = {
+  days: "Days",
+  hours: "Hours",
+  minutes: "Mins",
+  seconds: "Secs",
+  finished: "Version finished",
+};
 
 export const Counter: React.FC<CounterProps> = ({
   fecha_inicio,
   duracion_dias,
   variant = "mini",
   onFinalizado,
+  labels = defaultLabels,
 }) => {
   const inicioMs = new Date(fecha_inicio ?? Date.now()).getTime();
   const finMs = inicioMs + (duracion_dias ?? 0) * 24 * 60 * 60 * 1000;
@@ -56,7 +74,7 @@ export const Counter: React.FC<CounterProps> = ({
 
   if (finalizado) {
     return (
-      <span className="text-sm italic opacity-80">Versión finalizada</span>
+      <span className="text-sm italic opacity-80">{labels.finished}</span>
     );
   }
 
@@ -65,10 +83,10 @@ export const Counter: React.FC<CounterProps> = ({
   if (variant === "mini") {
     return (
       <div className="grid grid-cols-4 gap-4 max-w-sm">
-        <MiniBlock value={tiempo.dias} label="Days" />
-        <MiniBlock value={tiempo.horas} label="Hours" />
-        <MiniBlock value={tiempo.minutos} label="Mins" />
-        <MiniBlock value={tiempo.segundos} label="Secs" />
+        <MiniBlock value={tiempo.dias} label={labels.days} />
+        <MiniBlock value={tiempo.horas} label={labels.hours} />
+        <MiniBlock value={tiempo.minutos} label={labels.minutes} />
+        <MiniBlock value={tiempo.segundos} label={labels.seconds} />
       </div>
     );
   }
@@ -77,10 +95,10 @@ export const Counter: React.FC<CounterProps> = ({
 
   return (
     <>
-      <FullBlock value={tiempo.dias} label="Days" />
-      <FullBlock value={tiempo.horas} label="Hours" />
-      <FullBlock value={tiempo.minutos} label="Minutes" />
-      <FullBlock value={tiempo.segundos} label="Seconds" highlight />
+      <FullBlock value={tiempo.dias} label={labels.days} />
+      <FullBlock value={tiempo.horas} label={labels.hours} />
+      <FullBlock value={tiempo.minutos} label={labels.minutes} highlight />
+      <FullBlock value={tiempo.segundos} label={labels.seconds} highlight />
     </>
   );
 };
