@@ -190,6 +190,7 @@ const GuideCard: React.FC<{ guide: Guide }> = ({ guide }) => {
 export const GuideFilters: React.FC<GuideFiltersProps> = ({ guides }) => {
   const [activeGame, setActiveGame] = useState("all");
   const [activeLang, setActiveLang] = useState("all");
+  const [visibleCount, setVisibleCount] = useState(8);
 
   const filteredGuides = useMemo(() => {
     return guides.filter((guide) => {
@@ -199,17 +200,37 @@ export const GuideFilters: React.FC<GuideFiltersProps> = ({ guides }) => {
     });
   }, [guides, activeGame, activeLang]);
 
+  const visibleGuides = useMemo(() => {
+    return filteredGuides.slice(0, visibleCount);
+  }, [filteredGuides, visibleCount]);
+
+  const hasMore = visibleCount < filteredGuides.length;
+
+  const handleGameChange = (game: string) => {
+    setActiveGame(game);
+    setVisibleCount(8);
+  };
+
+  const handleLangChange = (lang: string) => {
+    setActiveLang(lang);
+    setVisibleCount(8);
+  };
+
+  const loadMore = () => {
+    setVisibleCount((prev) => prev + 8);
+  };
+
   return (
     <div className="flex flex-col gap-6">
       <FilterBar
         activeGame={activeGame}
         activeLang={activeLang}
-        onGameChange={setActiveGame}
-        onLangChange={setActiveLang}
+        onGameChange={handleGameChange}
+        onLangChange={handleLangChange}
       />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {filteredGuides.length > 0 ? (
-          filteredGuides.map((guide) => (
+        {visibleGuides.length > 0 ? (
+          visibleGuides.map((guide) => (
             <GuideCard key={guide.id} guide={guide} />
           ))
         ) : (
@@ -220,9 +241,12 @@ export const GuideFilters: React.FC<GuideFiltersProps> = ({ guides }) => {
           </div>
         )}
       </div>
-      {filteredGuides.length > 0 && (
+      {hasMore && (
         <div className="mt-8 flex justify-center">
-          <button className="px-8 py-3 bg-primary/10 hover:bg-primary/20 text-primary font-bold rounded-xl transition-all">
+          <button
+            onClick={loadMore}
+            className="px-8 py-3 bg-primary/10 hover:bg-primary/20 text-primary font-bold rounded-xl transition-all"
+          >
             Load More Guides
           </button>
         </div>

@@ -20,6 +20,16 @@ const rawGuides: Array<{
   language: "EN" | "ES";
 }> = [
   {
+    url: "https://www.youtube.com/watch?v=VA74EYiD7Nw",
+    game: "genshin",
+    language: "EN",
+  },
+  {
+    url: "https://www.youtube.com/watch?v=q477DfDdPFs",
+    game: "genshin",
+    language: "ES",
+  },
+  {
     url: "https://www.youtube.com/watch?v=GoDey7703Fw",
     game: "genshin",
     language: "EN",
