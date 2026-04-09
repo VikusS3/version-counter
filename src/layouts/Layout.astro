@@ -53,9 +53,10 @@ proxima version zenless zone zero
 
 const ogLocale = locale === "es" ? "es_ES" : "en_US";
 const alternateLocale = locale === "es" ? "en_US" : "es_ES";
-const alternatePath = locale === "es" 
-  ? Astro.url.pathname.replace(/^\/es\//, "/").replace(/^\/es$/, "/")
-  : `/es${Astro.url.pathname}`;
+const alternatePath =
+  locale === "es"
+    ? Astro.url.pathname.replace(/^\/es\//, "/").replace(/^\/es$/, "/")
+    : `/es${Astro.url.pathname}`;
 ---
 
 <!doctype html>
@@ -64,6 +65,8 @@ const alternatePath = locale === "es"
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/logo.ico" />
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <title>{title} | Gacha Countdown</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
@@ -78,8 +81,16 @@ const alternatePath = locale === "es"
     />
     <meta name="theme-color" content="#0f172a" />
     <link rel="canonical" href={canonical ?? url} />
-    <link rel="alternate" hreflang="en" href={locale === "es" ? alternatePath : url} />
-    <link rel="alternate" hreflang="es" href={locale === "en" ? `/es${Astro.url.pathname}` : url} />
+    <link
+      rel="alternate"
+      hreflang="en"
+      href={locale === "es" ? alternatePath : url}
+    />
+    <link
+      rel="alternate"
+      hreflang="es"
+      href={locale === "en" ? `/es${Astro.url.pathname}` : url}
+    />
 
     <meta property="og:type" content={type} />
     <meta property="og:title" content={title} />
