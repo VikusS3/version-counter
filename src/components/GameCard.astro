@@ -1,6 +1,7 @@
 ---
 import { Counter } from "./react/Counter";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
+import { GAME_COLORS, type GameAlias } from "../types/games";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -15,7 +16,17 @@ const {
   tema,
   href,
   alias,
-} = Astro.props;
+} = Astro.props as {
+  title: string;
+  current: string;
+  upcoming: string;
+  imagen: string;
+  fecha_inicio: string;
+  duracion_dias: number;
+  tema: string;
+  href: string;
+  alias?: GameAlias;
+};
 
 const colorMap: Record<string, string> = {
   genshin: "var(--color-genshin)",
@@ -24,7 +35,7 @@ const colorMap: Record<string, string> = {
   zenless: "var(--color-zzz)",
 };
 
-const accentColor = (alias && colorMap[alias]) || "var(--color-primary)";
+const accentColor = (alias && colorMap[alias]) || GAME_COLORS.genshin;
 ---
 
 <a
@@ -51,7 +62,9 @@ const accentColor = (alias && colorMap[alias]) || "var(--color-primary)";
       <div class="size-2 rounded-full bg-green-500 animate-pulse"></div>
     </div>
     <p class="text-slate-400 text-sm mb-6">
-      {t.gameCard.upcoming}: <span class="text-white font-medium">v{upcoming} </span>
+      {t.gameCard.upcoming}: <span class="text-white font-medium"
+        >v{upcoming}
+      </span>
     </p>
     <Counter
       client:load

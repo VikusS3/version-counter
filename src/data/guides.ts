@@ -25,19 +25,9 @@ const rawGuides: Array<{
     language: "EN",
   },
   {
-    url: "https://www.youtube.com/watch?v=q477DfDdPFs",
-    game: "genshin",
-    language: "ES",
-  },
-  {
     url: "https://www.youtube.com/watch?v=GoDey7703Fw",
     game: "genshin",
     language: "EN",
-  },
-  {
-    url: "https://www.youtube.com/watch?v=Bsaw4ZNZyv4",
-    game: "genshin",
-    language: "ES",
   },
   {
     url: "https://www.youtube.com/watch?v=qY69um-KKh4",
@@ -58,11 +48,6 @@ const rawGuides: Array<{
     url: "https://www.youtube.com/watch?v=XV6VHjFgn2Q",
     game: "zzz",
     language: "EN",
-  },
-  {
-    url: "https://www.youtube.com/watch?v=P0S6KVjLFR4",
-    game: "hsr",
-    language: "ES",
   },
   {
     url: "https://www.youtube.com/watch?v=ChINxrpeGCU",

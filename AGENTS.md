@@ -24,21 +24,13 @@ pnpm preview          # Preview production build
 pnpm astro            # Run astro CLI commands
 pnpm astro check      # Run Astro type checks
 pnpm astro --help     # Show available commands
-```
 
-### Running a Single Test
+# Testing
+pnpm test             # Run all tests once
+pnpm test:watch       # Watch mode for tests
 
-**Note**: This project currently has **no test suite** implemented. Tests would require adding a testing framework (Vitest recommended for Astro/React projects).
-
-To add testing in the future:
-```bash
-# Install Vitest
-pnpm add -D vitest @testing-library/react @testing-library/astro
-
-# Run tests
-pnpm vitest run        # Run all tests once
-pnpm vitest run src/components/react/Counter.test.tsx  # Single file
-pnpm vitest            # Watch mode
+# Type checking
+pnpm check            # Run Astro type checks
 ```
 
 ---
@@ -63,6 +55,7 @@ src/
 ├── utils/            # Helper functions (change-version.ts)
 ├── constants/        # App constants
 ├── data/             # Static data (games.json, guides.ts)
+├── types/            # TypeScript types (games.ts, counter.ts)
 ├── styles/           # Global CSS
 └── assets/           # Static assets (SVG, images)
 ```
@@ -213,3 +206,8 @@ try {
 
 ### Modifying Game Data
 Edit `src/data/games.json` - contains version info, dates, colors per game.
+
+### TypeScript Types
+The project includes shared types in `src/types/`:
+- `src/types/games.ts` - Game interface, aliases, and color constants
+- `src/types/counter.ts` - Counter component types and labels

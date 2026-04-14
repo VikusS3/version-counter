@@ -1,88 +1,99 @@
-import React from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
+import type { CounterTime, CounterProps } from "../../types/counter";
+import { DEFAULT_LABELS } from "../../types/counter";
 
-type Variant = "mini" | "full";
+function calculateTime(finMs: number): {
+  time: CounterTime;
+  finished: boolean;
+} {
+  const now = Date.now();
+  const diff = finMs - now;
 
-interface CounterLabels {
-  days: string;
-  hours: string;
-  minutes: string;
-  seconds: string;
-  finished: string;
+  if (diff <= 0) {
+    return {
+      time: { dias: 0, horas: 0, minutos: 0, segundos: 0 },
+      finished: true,
+    };
+  }
+
+  const totalSeg = Math.floor(diff / 1000);
+
+  return {
+    time: {
+      dias: Math.floor(totalSeg / (60 * 60 * 24)),
+      horas: Math.floor((totalSeg % (60 * 60 * 24)) / (60 * 60)),
+      minutos: Math.floor((totalSeg % (60 * 60)) / 60),
+      segundos: totalSeg % 60,
+    },
+    finished: false,
+  };
 }
-
-interface CounterProps {
-  fecha_inicio?: string | Date;
-  duracion_dias?: number;
-  variant?: Variant;
-  onFinalizado?: () => void;
-  labels?: CounterLabels;
-}
-
-const defaultLabels: CounterLabels = {
-  days: "Days",
-  hours: "Hours",
-  minutes: "Mins",
-  seconds: "Secs",
-  finished: "Version finished",
-};
 
 export const Counter: React.FC<CounterProps> = ({
   fecha_inicio,
   duracion_dias,
   variant = "mini",
   onFinalizado,
-  labels = defaultLabels,
+  labels = DEFAULT_LABELS,
 }) => {
-  const inicioMs = new Date(fecha_inicio ?? Date.now()).getTime();
-  const finMs = inicioMs + (duracion_dias ?? 0) * 24 * 60 * 60 * 1000;
+  const inicioMs = useRef(
+    fecha_inicio ? new Date(fecha_inicio).getTime() : Date.now(),
+  ).current;
+  const finMs = useRef(
+    inicioMs + (duracion_dias ?? 0) * 24 * 60 * 60 * 1000,
+  ).current;
 
-  const [finalizado, setFinalizado] = React.useState(false);
-  const [tiempo, setTiempo] = React.useState({
+  const [finalizado, setFinalizado] = useState(false);
+  const [tiempo, setTiempo] = useState<CounterTime>({
     dias: 0,
     horas: 0,
     minutos: 0,
     segundos: 0,
   });
+  const onFinalizadoRef = useRef(onFinalizado);
 
-  React.useEffect(() => {
-    const calcular = () => {
-      const now = Date.now();
-      const diff = finMs - now;
+  useEffect(() => {
+    onFinalizadoRef.current = onFinalizado;
+  }, [onFinalizado]);
 
-      if (diff <= 0) {
-        setFinalizado(true);
-        onFinalizado?.();
-        return;
-      }
+  const tick = useCallback(() => {
+    const result = calculateTime(finMs);
+    if (result.finished) {
+      setFinalizado(true);
+      onFinalizadoRef.current?.();
+    } else {
+      setTiempo(result.time);
+    }
+  }, [finMs]);
 
-      const totalSeg = Math.floor(diff / 1000);
-
-      setTiempo({
-        dias: Math.floor(totalSeg / (60 * 60 * 24)),
-        horas: Math.floor((totalSeg % (60 * 60 * 24)) / (60 * 60)),
-        minutos: Math.floor((totalSeg % (60 * 60)) / 60),
-        segundos: totalSeg % 60,
-      });
-    };
-
-    calcular();
-    const id = setInterval(calcular, 1000);
+  useEffect(() => {
+    tick();
+    const id = setInterval(tick, 1000);
     return () => clearInterval(id);
-  }, [finMs, onFinalizado]);
-
-  /* ---------- ESTADOS ---------- */
+  }, [tick]);
 
   if (finalizado) {
     return (
-      <span className="text-sm italic opacity-80">{labels.finished}</span>
+      <span
+        className="text-sm italic opacity-80"
+        role="status"
+        aria-live="polite"
+      >
+        {labels.finished}
+      </span>
     );
   }
 
-  /* ---------- VARIANTE MINI (HOME) ---------- */
+  const timeLabel = `${labels.days}: ${tiempo.dias}, ${labels.hours}: ${tiempo.horas}, ${labels.minutes}: ${tiempo.minutos}, ${labels.seconds}: ${tiempo.segundos}`;
 
   if (variant === "mini") {
     return (
-      <div className="grid grid-cols-4 gap-4 max-w-sm">
+      <div
+        className="grid grid-cols-4 gap-4 max-w-sm"
+        role="timer"
+        aria-label={timeLabel}
+        aria-live="polite"
+      >
         <MiniBlock value={tiempo.dias} label={labels.days} />
         <MiniBlock value={tiempo.horas} label={labels.hours} />
         <MiniBlock value={tiempo.minutos} label={labels.minutes} />
@@ -91,23 +102,24 @@ export const Counter: React.FC<CounterProps> = ({
     );
   }
 
-  /* ---------- VARIANTE FULL (/genshin) ---------- */
-
   return (
-    <>
+    <div
+      className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-200 mx-auto py-8"
+      role="timer"
+      aria-label={timeLabel}
+      aria-live="polite"
+    >
       <FullBlock value={tiempo.dias} label={labels.days} />
       <FullBlock value={tiempo.horas} label={labels.hours} />
       <FullBlock value={tiempo.minutos} label={labels.minutes} highlight />
       <FullBlock value={tiempo.segundos} label={labels.seconds} highlight />
-    </>
+    </div>
   );
 };
 
-/* ---------- MINI BLOCK (HOME) ---------- */
-
 const MiniBlock = ({ value, label }: { value: number; label: string }) => (
-  <div className="flex flex-col">
-    <span className="text-3xl font-bold countdown-font">
+  <div className="flex flex-col" aria-label={`${label}: ${value}`}>
+    <span className="text-3xl font-bold countdown-font" aria-hidden="true">
       {String(value).padStart(2, "0")}
     </span>
     <span className="text-[10px] uppercase tracking-widest text-slate-500">
@@ -115,8 +127,6 @@ const MiniBlock = ({ value, label }: { value: number; label: string }) => (
     </span>
   </div>
 );
-
-/* ---------- FULL BLOCK (/GENSHIN) ---------- */
 
 const FullBlock = ({
   value,
@@ -127,7 +137,10 @@ const FullBlock = ({
   label: string;
   highlight?: boolean;
 }) => (
-  <div className="flex flex-col items-center gap-2">
+  <div
+    className="flex flex-col items-center gap-2"
+    aria-label={`${label}: ${value}`}
+  >
     <div
       className={`glass-panel w-full aspect-square md:aspect-auto md:h-32 flex flex-col items-center justify-center rounded-2xl primary-glow group hover:border-primary transition-all ${
         highlight ? "border-primary/50" : ""
@@ -139,6 +152,7 @@ const FullBlock = ({
             ? "text-primary animate-pulse"
             : "text-white group-hover:text-primary"
         }`}
+        aria-hidden="true"
       >
         {String(value).padStart(2, "0")}
       </span>
@@ -146,6 +160,7 @@ const FullBlock = ({
         className={`h-1 w-12 rounded-full mt-2 ${
           highlight ? "bg-primary/60" : "bg-[#d4ad6a]/30"
         }`}
+        aria-hidden="true"
       ></div>
     </div>
     <p className="text-gold font-bold uppercase tracking-widest text-xs mt-2">

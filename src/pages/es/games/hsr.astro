@@ -26,9 +26,9 @@ const game = getLocalizedGame("honkai-star-rail", "es");
       operatingSystem: "iOS, Android, PC, PS5",
       publisher: {
         "@type": "Organization",
-        name: "HoYoverse"
+        name: "HoYoverse",
       },
-      version: game?.version_actual
+      version: game?.version_actual,
     })}
   />
   <div
@@ -51,7 +51,8 @@ const game = getLocalizedGame("honkai-star-rail", "es");
               <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"
               ></span>
             </span>
-            {t.gamePage.countdownToVersion} {game?.proxima_version}
+            {t.gamePage.countdownToVersion}
+            {game?.proxima_version}
           </div>
           <h1
             class="text-white text-4xl md:text-6xl font-black leading-tight tracking-tight mb-4"
@@ -63,9 +64,7 @@ const game = getLocalizedGame("honkai-star-rail", "es");
             {game?.slogan_desc}
           </p>
         </div>
-        <div
-          class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-200 mx-auto py-8"
-        >
+        <div>
           <Counter
             client:load
             fecha_inicio={game?.fecha_inicio}

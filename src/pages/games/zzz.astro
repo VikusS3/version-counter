@@ -26,9 +26,9 @@ const game = getLocalizedGame("zenless-zone-zero", lang);
       operatingSystem: "iOS, Android, PC",
       publisher: {
         "@type": "Organization",
-        name: "HoYoverse"
+        name: "HoYoverse",
       },
-      version: game?.version_actual
+      version: game?.version_actual,
     })}
   />
   <div
@@ -52,7 +52,8 @@ const game = getLocalizedGame("zenless-zone-zero", lang);
               <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"
               ></span>
             </span>
-            {t.gamePage.countdownToVersion} {game?.proxima_version}
+            {t.gamePage.countdownToVersion}
+            {game?.proxima_version}
           </div>
           <h1
             class="text-white text-4xl md:text-6xl font-black leading-tight tracking-tight mb-4"
@@ -65,9 +66,7 @@ const game = getLocalizedGame("zenless-zone-zero", lang);
           </p>
         </div>
         <!-- Large Timer -->
-        <div
-          class="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-200 mx-auto py-8"
-        >
+        <div>
           <Counter
             client:load
             fecha_inicio={game?.fecha_inicio}
