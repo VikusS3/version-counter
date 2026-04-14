@@ -12,7 +12,8 @@ describe("Counter", () => {
   });
 
   it("renders with default labels", () => {
-    render(<Counter />);
+    const futureDate = new Date(Date.now() + 86400000);
+    render(<Counter fecha_inicio={futureDate} duracion_dias={1} />);
     expect(screen.getByText("Days")).toBeDefined();
     expect(screen.getByText("Hours")).toBeDefined();
     expect(screen.getByText("Mins")).toBeDefined();
@@ -20,8 +21,11 @@ describe("Counter", () => {
   });
 
   it("displays custom labels", () => {
+    const futureDate = new Date(Date.now() + 86400000);
     render(
       <Counter
+        fecha_inicio={futureDate}
+        duracion_dias={1}
         labels={{
           days: "Días",
           hours: "Horas",
@@ -48,19 +52,22 @@ describe("Counter", () => {
   });
 
   it("renders mini variant by default", () => {
-    render(<Counter />);
+    const futureDate = new Date(Date.now() + 86400000);
+    render(<Counter fecha_inicio={futureDate} duracion_dias={1} />);
     const container = screen.getByRole("timer");
     expect(container.className).toContain("grid-cols-4");
   });
 
   it("renders full variant", () => {
-    render(<Counter variant="full" />);
+    const futureDate = new Date(Date.now() + 86400000);
+    render(<Counter fecha_inicio={futureDate} duracion_dias={1} variant="full" />);
     const container = screen.getByRole("timer");
     expect(container.className).toContain("grid-cols-2");
   });
 
   it("has proper ARIA attributes", () => {
-    render(<Counter />);
+    const futureDate = new Date(Date.now() + 86400000);
+    render(<Counter fecha_inicio={futureDate} duracion_dias={1} />);
     const timer = screen.getByRole("timer");
     expect(timer.getAttribute("aria-live")).toBe("polite");
   });
