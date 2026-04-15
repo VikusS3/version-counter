@@ -29,6 +29,8 @@ export const es = {
     currentVersion: "Versión Actual",
     nextVersion: "Próxima Versión",
     remindMe: "Recordarme",
+    toastSuccess: "¡Enlace copiado! Compártelo para no perderte ninguna actualización",
+    toastError: "Error al copiar el enlace",
   },
   stats: {
     title: "Estadísticas de Actualización",
@@ -59,6 +61,17 @@ export const es = {
     privacy: "Privacidad",
     terms: "Términos",
     language: "Idioma",
+    contact: "Contacto",
+  },
+  contact: {
+    title: "Contacto",
+    subtitle: "¿Tienes preguntas, sugerencias o encontraste un error? Nos encantaría saber de ti.",
+    github: "Ver en GitHub",
+    description: "Este es un proyecto de código abierto. Puedes reportar errores, contribuir con código o simplemente explorar el proyecto en GitHub.",
+    bugReport: "¿Encontraste un error?",
+    featureRequest: "¿Tienes una sugerencia?",
+    contribute: "¿Quieres contribuir?",
+    footerText: "¡Tu retroalimentación ayuda a mejorar este proyecto para todos!",
   },
   meta: {
     description: "Rastrea los próximos mantenimientos y lanzamientos de parches para Genshin Impact, Honkai Star Rail, Wuthering Waves y Zenless Zone Zero.",

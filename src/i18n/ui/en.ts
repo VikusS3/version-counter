@@ -29,6 +29,8 @@ export const en = {
     currentVersion: "Current Version",
     nextVersion: "Next Version",
     remindMe: "Remind Me",
+    toastSuccess: "Link copied! Share it to never miss an update",
+    toastError: "Failed to copy link",
   },
   stats: {
     title: "Update Statistics",
@@ -59,6 +61,17 @@ export const en = {
     privacy: "Privacy",
     terms: "Terms",
     language: "Language",
+    contact: "Contact",
+  },
+  contact: {
+    title: "Contact",
+    subtitle: "Have questions, suggestions, or found a bug? We'd love to hear from you.",
+    github: "View on GitHub",
+    description: "This is an open source project. You can report issues, contribute code, or simply explore the project on GitHub.",
+    bugReport: "Found a bug?",
+    featureRequest: "Have a suggestion?",
+    contribute: "Want to contribute?",
+    footerText: "Your feedback helps make this project better for everyone!",
   },
   meta: {
     description: "Track upcoming maintenance and patch releases for Genshin Impact, Honkai Star Rail, Wuthering Waves, and Zenless Zone Zero.",

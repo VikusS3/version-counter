@@ -1,0 +1,76 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { useTranslations } from "../../i18n/utils";
+
+const t = useTranslations("es");
+
+const GITHUB_URL = "https://github.com/VikusS3/version-counter";
+---
+
+<Layout
+  title={t.contact.title}
+  description={t.contact.subtitle}
+  url={`${Astro.site}es/contact`}
+  canonical={`${Astro.site}es/contact`}
+  lang="es"
+>
+  <main id="main-content" class="max-w-4xl mx-auto w-full px-6 py-10">
+    <div class="text-center mb-12">
+      <h1 class="text-4xl font-bold text-gray-100 mb-4">{t.contact.title}</h1>
+      <p class="text-gray-300 text-lg max-w-2xl mx-auto">
+        {t.contact.subtitle}
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-6 mb-12">
+      <div class="glass-panel p-6 rounded-xl">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="material-symbols-outlined text-3xl text-primary"
+            >code</span
+          >
+          <h2 class="text-xl font-semibold text-gray-100">
+            {t.contact.contribute}
+          </h2>
+        </div>
+        <p class="text-gray-300 leading-relaxed">{t.contact.description}</p>
+        <a
+          href={GITHUB_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 mt-4 text-primary hover:text-primary/80 font-medium transition-colors"
+        >
+          <span>{t.contact.github}</span>
+          <span class="material-symbols-outlined">open_in_new</span>
+        </a>
+      </div>
+
+      <div class="glass-panel p-6 rounded-xl">
+        <div class="flex items-center gap-3 mb-4">
+          <span class="material-symbols-outlined text-3xl text-primary"
+            >bug_report</span
+          >
+          <h2 class="text-xl font-semibold text-gray-100">
+            {t.contact.bugReport}
+          </h2>
+        </div>
+        <p class="text-gray-300 leading-relaxed">
+          ¡Ayúdanos a mejorar! Si encuentras algún problema o comportamiento
+          inesperado, por favor háznoslo saber para que podamos solucionarlo.
+        </p>
+        <a
+          href={`${GITHUB_URL}/issues`}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="inline-flex items-center gap-2 mt-4 text-primary hover:text-primary/80 font-medium transition-colors"
+        >
+          <span>GitHub Issues</span>
+          <span class="material-symbols-outlined">open_in_new</span>
+        </a>
+      </div>
+    </div>
+
+    <div class="text-center py-8 border-t border-white/10">
+      <p class="text-gray-300">{t.contact.footerText}</p>
+    </div>
+  </main>
+</Layout>

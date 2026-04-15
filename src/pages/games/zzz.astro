@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { Counter } from "../../components/react/Counter";
+import { CopyButton } from "../../components/react/CopyButton";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 import { getLocalizedGame } from "../../data/translations/getGameData";
 
@@ -91,26 +92,14 @@ const game = getLocalizedGame("zenless-zone-zero", lang);
             <span class="material-symbols-outlined">menu_book</span>
             {t.gamePage.viewPatchNotes}
           </a>
-          <button
-            id="copy-button"
-            class="flex items-center gap-2 bg-white/5 hover:bg-white/10 text-white border border-white/20 px-8 py-3 rounded-xl font-bold transition-all"
-          >
-            <span class="material-symbols-outlined">share</span>
-            {t.gamePage.remindMe}
-          </button>
+          <CopyButton 
+            client:load 
+            label={t.gamePage.remindMe}
+            successMessage={t.gamePage.toastSuccess}
+            errorMessage={t.gamePage.toastError}
+          />
         </div>
       </div>
     </section>
   </main>
 </Layout>
-
-<script>
-  //copiar el link de la url de la pagina actual en el boton remind me
-  const remindButton = document.querySelector("#copy-button");
-  remindButton?.addEventListener("click", () => {
-    const url = window.location.href;
-    navigator.clipboard.writeText(url).then(() => {
-      alert("Link copied to clipboard!");
-    });
-  });
-</script>

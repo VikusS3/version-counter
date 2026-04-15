@@ -1,6 +1,7 @@
 ---
 import Layout from "../../../layouts/Layout.astro";
 import { Counter } from "../../../components/react/Counter";
+import { CopyButton } from "../../../components/react/CopyButton";
 import { useTranslations } from "../../../i18n/utils";
 import { getLocalizedGame } from "../../../data/translations/getGameData";
 
@@ -89,12 +90,12 @@ const game = getLocalizedGame("genshin-impact", "es");
             <span class="material-symbols-outlined">menu_book</span>
             {t.gamePage.viewPatchNotes}
           </a>
-          <button
-            class="flex items-center gap-2 bg-white/5 hover:bg-white/10 text-white border border-white/20 px-8 py-3 rounded-xl font-bold transition-all"
-          >
-            <span class="material-symbols-outlined">share</span>
-            {t.gamePage.remindMe}
-          </button>
+          <CopyButton 
+            client:load 
+            label={t.gamePage.remindMe}
+            successMessage={t.gamePage.toastSuccess}
+            errorMessage={t.gamePage.toastError}
+          />
         </div>
       </div>
     </section>
