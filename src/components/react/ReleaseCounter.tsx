@@ -62,7 +62,7 @@ export const ReleaseCounter: React.FC<ReleaseCounterProps> = ({
   labels = DEFAULT_LABELS,
 }) => {
   const fechaSalidaMs = useRef(
-    fecha_salida ? new Date(fecha_salida).getTime() : Date.now()
+    fecha_salida ? new Date(fecha_salida).getTime() : Date.now(),
   ).current;
 
   const [finalizado, setFinalizado] = useState(false);
@@ -127,7 +127,7 @@ export const ReleaseCounter: React.FC<ReleaseCounterProps> = ({
     >
       <FullBlock value={tiempo.dias} label={labels.days} />
       <FullBlock value={tiempo.horas} label={labels.hours} />
-      <FullBlock value={tiempo.minutos} label={labels.minutes} highlight />
+      <FullBlock value={tiempo.minutos} label={labels.minutes} />
       <FullBlock value={tiempo.segundos} label={labels.seconds} highlight />
     </div>
   );
