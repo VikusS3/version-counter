@@ -21,7 +21,7 @@ const game = getLocalizedGame("honkai-star-rail", lang);
       "@type": "VideoGame",
       name: `Honkai Star Rail v${game?.version_actual}`,
       description: game?.descripcion,
-      url: `${Astro.site?.href}/games/hsr`,
+      url: new URL("/games/hsr", Astro.site).href,
       image: game?.imagen,
       genre: "Space Fantasy RPG",
       operatingSystem: "iOS, Android, PC, PS5",

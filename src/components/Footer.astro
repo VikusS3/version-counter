@@ -17,7 +17,7 @@ const localePrefix = lang === defaultLocale ? "" : "/es";
       <p class="text-[11px] text-slate-500 dark:text-slate-500">
         {t.footer.copyright.replace("{year}", String(new Date().getFullYear()))}
       </p>
-      <div class="flex gap-4">
+      <div class="flex gap-4 items-center">
         <a
           class="text-[11px] text-slate-400 hover:text-primary transition-colors"
           href={`${localePrefix}/privacy`}>{t.footer.privacy}</a
@@ -30,6 +30,16 @@ const localePrefix = lang === defaultLocale ? "" : "/es";
           class="text-[11px] text-slate-400 hover:text-primary transition-colors"
           href={`${localePrefix}/contact`}>{t.footer.contact}</a
         >
+        <a
+          class="text-[11px] text-slate-400 hover:text-primary transition-colors flex items-center gap-1"
+          href="https://ko-fi.com/vikus10181"
+          target="_blank"
+          rel="noopener noreferer"
+          title="Support on Ko-fi"
+        >
+          <span class="material-symbols-outlined text-sm">favorite</span>
+          Ko-fi
+        </a>
       </div>
     </div>
   </div>

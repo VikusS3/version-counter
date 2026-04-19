@@ -1,0 +1,38 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import ReleaseCard from "../../components/ReleaseCard.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { getLocalizedReleases } from "../../data/translations/getReleaseData";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const releases = getLocalizedReleases(lang);
+---
+
+<Layout title={t.releases.title} description={t.releases.subtitle}>
+  <main id="main-content" class="max-w-7xl mx-auto w-full px-6 py-10">
+    <!-- Hero -->
+    <section class="mb-10">
+      <h1 class="text-4xl md:text-5xl font-bold mb-2">{t.releases.heroTitle}</h1>
+      <p class="text-slate-500 dark:text-slate-400 max-w-2xl">
+        {t.releases.subtitle}
+      </p>
+    </section>
+
+    <!-- Cards -->
+    <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {
+        releases.map((release) => (
+          <ReleaseCard
+            title={release.nombre_oficial}
+            imagen={release.imagen}
+            fecha_salida={release.fecha_salida}
+            tema={release.tema}
+            href={release.href}
+            alias={release.alias}
+          />
+        ))
+      }
+    </section>
+  </main>
+</Layout>

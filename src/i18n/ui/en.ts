@@ -4,11 +4,17 @@ export const en = {
     patchNotes: "Patch Notes",
     characterGuides: "Character Guides",
     pullTracker: "Pull Tracker",
+    releases: "Upcoming Releases",
   },
   home: {
     title: "Gacha Countdown - Track Game Updates",
     subtitle: "Track upcoming maintenance and patch releases for Hoyoverse and Kuro Games titles.",
     heroTitle: "Update Dashboard",
+  },
+  releases: {
+    title: "Upcoming Releases - Track Launch Dates",
+    subtitle: "Track upcoming game releases, launch dates, and countdowns for gacha games.",
+    heroTitle: "Upcoming Releases",
   },
   counter: {
     days: "Days",
@@ -19,9 +25,20 @@ export const en = {
     secondsFull: "Seconds",
     finished: "Version finished",
   },
+  release: {
+    releaseDate: "Release Date",
+    daysUntilRelease: "Days Until Release",
+    released: "Released",
+    comingSoon: "Coming Soon",
+    countDownToRelease: "Countdown to Release",
+  },
   gameCard: {
     current: "Current",
     upcoming: "Upcoming",
+  },
+  releaseCard: {
+    releaseDate: "Release Date",
+    daysUntil: "Days Until",
   },
   gamePage: {
     countdownToVersion: "Countdown to Version",

@@ -21,7 +21,7 @@ const game = getLocalizedGame("wuthering-waves", lang);
       "@type": "VideoGame",
       name: `Wuthering Waves v${game?.version_actual}`,
       description: game?.descripcion,
-      url: `${Astro.site?.href}/games/wuwa`,
+      url: new URL("/games/wuwa", Astro.site).href,
       image: game?.imagen,
       genre: "Action RPG",
       operatingSystem: "iOS, Android, PC",

@@ -21,7 +21,7 @@ const game = getLocalizedGame("genshin-impact", lang);
       "@type": "VideoGame",
       name: `Genshin Impact v${game?.version_actual}`,
       description: game?.descripcion,
-      url: `${Astro.site?.href}/games/genshin`,
+      url: new URL("/games/genshin", Astro.site).href,
       image: game?.imagen,
       genre: "Action RPG",
       operatingSystem: "iOS, Android, PC, PS5",

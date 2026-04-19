@@ -137,12 +137,12 @@ const alternatePath =
       alternateName: "Game Version Countdown Tracker",
       description:
         "Track upcoming maintenance and patch releases for Genshin Impact, Honkai Star Rail, Wuthering Waves, and Zenless Zone Zero.",
-      url: Astro.site?.href ?? "https://version-counter.netlify.app",
+      url: new URL(Astro.url.pathname, Astro.site).href,
       potentialAction: {
         "@type": "SearchAction",
         target: {
           "@type": "EntryPoint",
-          urlTemplate: `${Astro.site?.href ?? "https://version-counter.netlify.app"}?q={search_term_string}`,
+          urlTemplate: `${new URL("/", Astro.site).href}?q={search_term_string}`,
         },
         "query-input": "required name=search_term_string",
       },

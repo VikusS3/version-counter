@@ -4,11 +4,17 @@ export const es = {
     patchNotes: "Notas del Parche",
     characterGuides: "Guías de Personajes",
     pullTracker: "Seguimiento de wished",
+    releases: "Próximos Estrenos",
   },
   home: {
     title: "Gacha Countdown - Rastrea Actualizaciones",
     subtitle: "Rastrea los próximos mantenimientos y lanzamientos de parches para títulos de Hoyoverse y Kuro Games.",
     heroTitle: "Panel de Actualizaciones",
+  },
+  releases: {
+    title: "Próximos Estrenos - Rastrea Fechas de Lanzamiento",
+    subtitle: "Rastrea los próximos lanzamientos de juegos, fechas de estreno y cuentas regresivas para juegos gacha.",
+    heroTitle: "Próximos Estrenos",
   },
   counter: {
     days: "Días",
@@ -19,9 +25,20 @@ export const es = {
     secondsFull: "Segundos",
     finished: "Versión finalizada",
   },
+  release: {
+    releaseDate: "Fecha de Estreno",
+    daysUntilRelease: "Días para el Estreno",
+    released: "Estrenado",
+    comingSoon: "Próximamente",
+    countDownToRelease: "Cuenta Regresiva al Estreno",
+  },
   gameCard: {
     current: "Actual",
     upcoming: "Próxima",
+  },
+  releaseCard: {
+    releaseDate: "Fecha de Estreno",
+    daysUntil: "Días para el Estreno",
   },
   gamePage: {
     countdownToVersion: "Cuenta Regresiva Versión",

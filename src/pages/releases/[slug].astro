@@ -1,0 +1,102 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { ReleaseCounter } from "../../components/react/ReleaseCounter";
+import { CopyButton } from "../../components/react/CopyButton";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { getLocalizedRelease } from "../../data/translations/getReleaseData";
+
+export function getStaticPaths() {
+  return [
+    { params: { slug: "neverness-to-everness" } },
+  ];
+}
+
+const { slug } = Astro.params;
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const release = getLocalizedRelease(slug!, lang);
+
+if (!release) {
+  return Astro.redirect("/releases");
+}
+---
+
+<Layout
+  title={`${release?.nombre_oficial} Release Date Countdown`}
+  description={`Countdown to ${release?.nombre_oficial} release. Track the launch date and official information.`}
+>
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "VideoGame",
+      name: release?.nombre_oficial,
+      description: release?.descripcion,
+      url: new URL(`/releases/${slug}`, Astro.site).href,
+      image: release?.imagen,
+      genre: "Action RPG",
+      operatingSystem: "iOS, Android, PC, PS5",
+      publisher: {
+        "@type": "Organization",
+        name: "Hotta Studio",
+      },
+    })}
+  />
+  <div
+    class="fixed inset-0 z-0 opacity-30 pointer-events-none bg-cover bg-center"
+    data-alt="Neverness to Everness game artwork"
+    style=`background-image:url(${release?.imagen});`
+  >
+  </div>
+  <main id="main-content" class="flex-1 flex flex-col items-center">
+    <section class="w-full max-w-300 px-6 pt-12 mb-16">
+      <div class="@container">
+        <div class="flex flex-col items-center justify-center text-center mb-8">
+          <div
+            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/50 border border-purple-400/40 text-white text-sm font-bold tracking-widest uppercase mb-4"
+          >
+            <span class="relative flex h-2 w-2">
+              <span
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"
+              ></span>
+              <span
+                class="relative inline-flex rounded-full h-2 w-2 bg-purple-400"
+              ></span>
+            </span>
+            {t.release.comingSoon}
+          </div>
+          <h1
+            class="text-white text-4xl md:text-6xl font-black leading-tight tracking-tight mb-4"
+          >
+            {release?.nombre_oficial}
+          </h1>
+          <p class="text-slate-400 text-lg max-w-2xl">
+            {release?.descripcion}
+          </p>
+        </div>
+        <div>
+          <ReleaseCounter
+            client:load
+            fecha_salida={release.fecha_salida}
+            variant="full"
+            labels={{
+              days: t.counter.days,
+              hours: t.counter.hours,
+              minutes: t.counter.minutesFull,
+              seconds: t.counter.secondsFull,
+              finished: t.release.released,
+            }}
+          />
+        </div>
+        <div class="flex justify-center gap-4 mt-8">
+          <CopyButton
+            client:load
+            label={t.gamePage.remindMe}
+            successMessage={t.gamePage.toastSuccess}
+            errorMessage={t.gamePage.toastError}
+          />
+        </div>
+      </div>
+    </section>
+  </main>
+</Layout>

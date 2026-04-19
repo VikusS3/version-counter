@@ -10,10 +10,7 @@ const t = useTranslations(lang);
 const games = getLocalizedGames(lang);
 ---
 
-<Layout
-  title={t.home.title}
-  description={t.home.subtitle}
->
+<Layout title={t.home.title} description={t.home.subtitle}>
   <main id="main-content" class="max-w-7xl mx-auto w-full px-6 py-10">
     <!-- Hero -->
     <section class="mb-10">
@@ -41,7 +38,6 @@ const games = getLocalizedGames(lang);
         ))
       }
     </section>
-
     <StatsSection />
   </main>
 </Layout>
