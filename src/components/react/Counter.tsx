@@ -111,7 +111,7 @@ export const Counter: React.FC<CounterProps> = ({
     >
       <FullBlock value={tiempo.dias} label={labels.days} />
       <FullBlock value={tiempo.horas} label={labels.hours} />
-      <FullBlock value={tiempo.minutos} label={labels.minutes} highlight />
+      <FullBlock value={tiempo.minutos} label={labels.minutes} />
       <FullBlock value={tiempo.segundos} label={labels.seconds} highlight />
     </div>
   );
