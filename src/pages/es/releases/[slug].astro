@@ -76,7 +76,7 @@ if (!release) {
         </div>
         <div>
           <ReleaseCounter
-            client:load
+            client:only="react"
             fecha_salida={release.fecha_salida}
             variant="full"
             labels={{
@@ -90,7 +90,7 @@ if (!release) {
         </div>
         <div class="flex justify-center gap-4 mt-8">
           <CopyButton
-            client:load
+            client:only="react"
             label={t.gamePage.remindMe}
             successMessage={t.gamePage.toastSuccess}
             errorMessage={t.gamePage.toastError}

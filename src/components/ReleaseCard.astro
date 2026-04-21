@@ -49,7 +49,7 @@ const accentColor = (alias && colorMap[alias]) || tema;
       {t.releaseCard.daysUntil}
     </p>
     <ReleaseCounter
-      client:load
+      client:only="react"
       fecha_salida={fecha_salida}
       labels={{
         days: t.counter.days,

@@ -20,7 +20,7 @@ const t = useTranslations(lang);
       </p>
     </div>
     <GuideFilters 
-      client:load 
+      client:only="react"
       guides={guides} 
       labels={{
         all: t.guides.all,

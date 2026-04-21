@@ -69,7 +69,7 @@ const game = getLocalizedGame("genshin-impact", lang);
         <!-- Large Timer -->
         <div>
           <Counter
-            client:load
+            client:only="react"
             fecha_inicio={game?.fecha_inicio}
             duracion_dias={game?.duracion_dias}
             variant="full"
@@ -93,7 +93,7 @@ const game = getLocalizedGame("genshin-impact", lang);
             {t.gamePage.viewPatchNotes}
           </a>
           <CopyButton 
-            client:load 
+            client:only="react"
             label={t.gamePage.remindMe}
             successMessage={t.gamePage.toastSuccess}
             errorMessage={t.gamePage.toastError}
