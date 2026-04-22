@@ -25,7 +25,7 @@ export const gamesTranslations: Record<string, GameTranslation> = {
     nombre: "Cuenta Regresiva Nueva Versión Honkai Star Rail",
     descripcion:
       "Cuenta regresiva Honkai Star Rail 4.3 para todas las regiones como América, Europa, Asia. Cuenta regresiva de banners, notas del parche y más.",
-    slogan_desc: "Silver Wolf lv999 is now available, new region, and more.",
+    slogan_desc: "Silver Wolf lv999 esta ahora disponible, nueva región y más.",
     patch_notes_description:
       "Últimas notas del parche para Honkai Star Rail 4.2",
   },
