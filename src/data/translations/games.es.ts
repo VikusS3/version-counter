@@ -24,10 +24,10 @@ export const gamesTranslations: Record<string, GameTranslation> = {
   "honkai-star-rail": {
     nombre: "Cuenta Regresiva Nueva Versión Honkai Star Rail",
     descripcion:
-      "Cuenta regresiva Honkai Star Rail 4.2 para todas las regiones como América, Europa, Asia. Cuenta regresiva de banners, notas del parche y más.",
-    slogan_desc: "Bienvenido a Arcadia",
+      "Cuenta regresiva Honkai Star Rail 4.3 para todas las regiones como América, Europa, Asia. Cuenta regresiva de banners, notas del parche y más.",
+    slogan_desc: "Silver Wolf lv999 is now available, new region, and more.",
     patch_notes_description:
-      "Últimas notas del parche para Honkai Star Rail 4.1",
+      "Últimas notas del parche para Honkai Star Rail 4.2",
   },
   "zenless-zone-zero": {
     nombre: "Cuenta Regresiva Nueva Versión Zenless Zone Zero",
