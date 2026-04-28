@@ -98,4 +98,9 @@ export const es = {
     ver: "VER",
     viewAll: "Ver Todo",
   },
+  noGames: {
+    title: "¡Todo al Día!",
+    description: "No hay próximas versiones de juegos en este momento. Vuelve pronto para nuevas actualizaciones.",
+    waiting: "Esperando actualizaciones",
+  },
 } as const;

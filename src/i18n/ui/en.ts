@@ -98,6 +98,11 @@ export const en = {
     ver: "VER",
     viewAll: "View All",
   },
+  noGames: {
+    title: "All Caught Up!",
+    description: "No upcoming game versions at the moment. Check back soon for new updates.",
+    waiting: "Waiting for updates",
+  },
 } as const;
 
 export type TranslationKeys = typeof en;
