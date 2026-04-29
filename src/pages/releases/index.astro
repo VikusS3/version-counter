@@ -3,6 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import ReleaseCard from "../../components/ReleaseCard.astro";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 import { getLocalizedReleases } from "../../data/translations/getReleaseData";
+import NoGames from "../../components/NoGames.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -13,14 +14,21 @@ const releases = getLocalizedReleases(lang);
   <main id="main-content" class="max-w-7xl mx-auto w-full px-6 py-10">
     <!-- Hero -->
     <section class="mb-10">
-      <h1 class="text-4xl md:text-5xl font-bold mb-2">{t.releases.heroTitle}</h1>
+      <h1 class="text-4xl md:text-5xl font-bold mb-2">
+        {t.releases.heroTitle}
+      </h1>
       <p class="text-slate-500 dark:text-slate-400 max-w-2xl">
         {t.releases.subtitle}
       </p>
     </section>
 
+    <!-- No Games -->
+    <section class="flex items-center justify-center">
+      <NoGames />
+    </section>
+
     <!-- Cards -->
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
       {
         releases.map((release) => (
           <ReleaseCard
@@ -33,6 +41,6 @@ const releases = getLocalizedReleases(lang);
           />
         ))
       }
-    </section>
+    </section> -->
   </main>
 </Layout>
