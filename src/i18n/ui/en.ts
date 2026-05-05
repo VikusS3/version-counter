@@ -8,12 +8,14 @@ export const en = {
   },
   home: {
     title: "Gacha Countdown - Track Game Updates",
-    subtitle: "Track upcoming maintenance and patch releases for Hoyoverse and Kuro Games titles.",
+    subtitle:
+      "Track upcoming maintenance and patch releases for Hoyoverse and Kuro Games titles.",
     heroTitle: "Update Dashboard",
   },
   releases: {
     title: "Upcoming Releases - Track Launch Dates",
-    subtitle: "Track upcoming game releases, launch dates, and countdowns for gacha games.",
+    subtitle:
+      "Track upcoming game releases, launch dates, and countdowns for gacha games.",
     heroTitle: "Upcoming Releases",
   },
   counter: {
@@ -42,7 +44,7 @@ export const en = {
   },
   gamePage: {
     countdownToVersion: "Countdown to Version",
-    viewPatchNotes: "View Pre-Patch Notes",
+    viewPatchNotes: "View Patch Notes",
     currentVersion: "Current Version",
     nextVersion: "Next Version",
     remindMe: "Remind Me",
@@ -82,17 +84,21 @@ export const en = {
   },
   contact: {
     title: "Contact",
-    subtitle: "Have questions, suggestions, or found a bug? We'd love to hear from you.",
+    subtitle:
+      "Have questions, suggestions, or found a bug? We'd love to hear from you.",
     github: "View on GitHub",
-    description: "This is an open source project. You can report issues, contribute code, or simply explore the project on GitHub.",
+    description:
+      "This is an open source project. You can report issues, contribute code, or simply explore the project on GitHub.",
     bugReport: "Found a bug?",
     featureRequest: "Have a suggestion?",
     contribute: "Want to contribute?",
     footerText: "Your feedback helps make this project better for everyone!",
   },
   meta: {
-    description: "Track upcoming maintenance and patch releases for Genshin Impact, Honkai Star Rail, Wuthering Waves, and Zenless Zone Zero.",
-    keywords: "game version countdown, game update tracker, genshin impact, honkai star rail, wuthering waves, zenless zone zero, gacha game updates",
+    description:
+      "Track upcoming maintenance and patch releases for Genshin Impact, Honkai Star Rail, Wuthering Waves, and Zenless Zone Zero.",
+    keywords:
+      "game version countdown, game update tracker, genshin impact, honkai star rail, wuthering waves, zenless zone zero, gacha game updates",
   },
   common: {
     ver: "VER",
@@ -100,7 +106,8 @@ export const en = {
   },
   noGames: {
     title: "All Caught Up!",
-    description: "No upcoming game versions at the moment. Check back soon for new updates.",
+    description:
+      "No upcoming game versions at the moment. Check back soon for new updates.",
     waiting: "Waiting for updates",
   },
 } as const;
