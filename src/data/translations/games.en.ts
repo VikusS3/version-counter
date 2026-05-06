@@ -31,8 +31,8 @@ export const gamesTranslations: Record<string, GameTranslation> = {
   "zenless-zone-zero": {
     nombre: "Zenless Zone Zero New Version Countdown",
     descripcion:
-      "Zenless Zone Zero 2.8 Countdown for all region like America, Europe, Asia. Zenless Banner Countdown, Patch Notes, and more.",
-    slogan_desc: "A new mission arrives in zzz",
-    patch_notes_description: "Latest patch notes for Zenless Zone Zero 2.7",
+      "Zenless Zone Zero 3.0 Countdown for all region like America, Europe, Asia. Zenless Banner Countdown, Patch Notes, and more.",
+    slogan_desc: "Billy and Promeia are now available, new maps, and more.",
+    patch_notes_description: "Latest patch notes for Zenless Zone Zero 2.8",
   },
 };

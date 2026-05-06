@@ -33,9 +33,9 @@ export const gamesTranslations: Record<string, GameTranslation> = {
   "zenless-zone-zero": {
     nombre: "Cuenta Regresiva Nueva Versión Zenless Zone Zero",
     descripcion:
-      "Cuenta regresiva Zenless Zone Zero 2.8 para todas las regiones como América, Europa, Asia. Cuenta regresiva de banners, notas del parche y más.",
-    slogan_desc: "Una nueva misión llega a zzz",
+      "Cuenta regresiva Zenless Zone Zero 3.0 para todas las regiones como América, Europa, Asia. Cuenta regresiva de banners, notas del parche y más.",
+    slogan_desc: "Billy y Promeia están ahora disponibles, nuevos mapas y más.",
     patch_notes_description:
-      "Últimas notas del parche para Zenless Zone Zero 2.7",
+      "Últimas notas del parche para Zenless Zone Zero 2.8",
   },
 };
