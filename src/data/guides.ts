@@ -20,6 +20,21 @@ const rawGuides: Array<{
   language: "EN" | "ES";
 }> = [
   {
+    url: "https://www.youtube.com/watch?v=p14lmvnUqTc",
+    game: "zzz",
+    language: "ES",
+  },
+  {
+    url: "https://www.youtube.com/watch?v=Dhg-uuYRYWU",
+    game: "zzz",
+    language: "EN",
+  },
+  {
+    url: "https://www.youtube.com/watch?v=JygB1TcL4uI",
+    game: "wuwa",
+    language: "EN",
+  },
+  {
     url: "https://www.youtube.com/watch?v=MmPGrOv2cyM",
     game: "hsr",
     language: "EN",
