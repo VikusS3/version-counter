@@ -160,23 +160,30 @@ const localizedHomeUrl = getLocalizedUrl(Astro.url, targetLocale);
     const menuBtn = document.getElementById("mobile-menu-btn");
     const mobileMenu = document.getElementById("mobile-menu");
 
-    function closeMenu() {
-      mobileMenu?.classList.add("hidden");
-      menuBtn?.setAttribute("aria-expanded", "false");
-      menuBtn?.setAttribute("aria-label", "Open menu");
+    if (!menuBtn || !mobileMenu) return;
+
+    const closeMenu = () => {
+      mobileMenu.classList.add("hidden");
+      menuBtn.setAttribute("aria-expanded", "false");
+      menuBtn.setAttribute("aria-label", "Open menu");
+      menuBtn.innerHTML = '<span class="material-symbols-outlined text-2xl">menu</span>';
       document.body.style.overflow = "";
-    }
+    };
 
-    menuBtn?.addEventListener("click", () => {
-      const isOpen = !mobileMenu?.classList.contains("hidden");
+    const openMenu = () => {
+      mobileMenu.classList.remove("hidden");
+      menuBtn.setAttribute("aria-expanded", "true");
+      menuBtn.setAttribute("aria-label", "Close menu");
+      menuBtn.innerHTML = '<span class="material-symbols-outlined text-2xl">close</span>';
+      document.body.style.overflow = "hidden";
+    };
 
+    menuBtn.addEventListener("click", () => {
+      const isOpen = !mobileMenu.classList.contains("hidden");
       if (isOpen) {
         closeMenu();
       } else {
-        mobileMenu?.classList.remove("hidden");
-        menuBtn?.setAttribute("aria-expanded", "true");
-        menuBtn?.setAttribute("aria-label", "Close menu");
-        document.body.style.overflow = "hidden";
+        openMenu();
       }
     });
 
@@ -186,7 +193,6 @@ const localizedHomeUrl = getLocalizedUrl(Astro.url, targetLocale);
   }
 
   document.addEventListener("astro:page-load", initMobileMenu);
-  initMobileMenu();
 </script>
 
 <style>
