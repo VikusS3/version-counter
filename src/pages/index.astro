@@ -41,6 +41,47 @@ const dashboardLabels = {
 ---
 
 <Layout title={t.home.title} description={t.home.subtitle}>
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "How do version countdowns work?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Version countdowns show the time remaining until the next game update or patch release. Each game has a typical patch cycle of 6 weeks for Honkai games and Kuro games.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Which games are supported?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "We track Genshin Impact, Honkai Star Rail, Wuthering Waves, Zenless Zone Zero, Arknights Endfield, and Neverness to Everness.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Are the countdowns accurate for all regions?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Our countdowns are based on official patch schedules. Times are typically consistent across all servers as game companies usually release updates simultaneously worldwide.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "Can I get notified before a version releases?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Yes! You can use the 'Remind Me' button on each game page to copy the link and share it, or simply bookmark the page.",
+          },
+        },
+      ],
+    })}
+  />
   <main
     id="main-content"
     class="max-w-7xl mx-auto w-full px-4 md:px-6 py-8 md:py-10"

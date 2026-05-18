@@ -44,7 +44,8 @@ if (!release) {
   />
   <div
     class="fixed inset-0 z-0 opacity-30 pointer-events-none bg-cover bg-center"
-    data-alt="Neverness to Everness game artwork"
+    role="img"
+    aria-label={`Background artwork for ${release?.nombre_oficial}`}
     style=`background-image:url(${release?.imagen});`
   >
   </div>

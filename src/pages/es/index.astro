@@ -40,6 +40,47 @@ const dashboardLabels = {
 ---
 
 <Layout title={t.home.title} description={t.home.subtitle} lang="es">
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: [
+        {
+          "@type": "Question",
+          name: "¿Cómo funcionan los contadores de versiones?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Los contadores de versiones muestran el tiempo restante hasta la próxima actualización o lanzamiento de parche de cada juego. Cada juego tiene un ciclo típico de parches de 6 semanas.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "¿Qué juegos son compatibles?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Rastreamos Genshin Impact, Honkai Star Rail, Wuthering Waves, Zenless Zone Zero, Arknights Endfield y Neverness to Everness.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "¿Los contadores son precisos para todas las regiones?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "Nuestros contadores se basan en los horarios oficiales de parches. Los tiempos suelen ser consistentes en todos los servidores.",
+          },
+        },
+        {
+          "@type": "Question",
+          name: "¿Puedo recibir una notificación antes del lanzamiento de una versión?",
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: "¡Sí! Puedes usar el botón 'Recordarme' en cada página del juego para copiar el enlace y compartirlo, o simplemente marca la página.",
+          },
+        },
+      ],
+    })}
+  />
   <main id="main-content" class="max-w-7xl mx-auto w-full px-6 py-10">
     <section class="mb-10">
       <h1 class="text-4xl md:text-5xl font-bold mb-2">{t.home.heroTitle}</h1>

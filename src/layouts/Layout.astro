@@ -61,6 +61,55 @@ const alternatePath =
   locale === "es"
     ? Astro.url.pathname.replace(/^\/es\//, "/").replace(/^\/es$/, "/")
     : `/es${Astro.url.pathname}`;
+
+const pathSegments = Astro.url.pathname.split("/").filter(Boolean);
+const breadcrumbItems = [
+  {
+    "@type": "ListItem",
+    position: 1,
+    name: locale === "es" ? "Inicio" : "Home",
+    item: new URL("/", Astro.site).href,
+  },
+];
+
+let currentPath = "";
+pathSegments.forEach((segment, index) => {
+  currentPath += `/${segment}`;
+  const position = index + 2;
+  let name = segment;
+
+  if (segment === "games") {
+    name = locale === "es" ? "Juegos" : "Games";
+  } else if (segment === "patch") {
+    name = locale === "es" ? "Notas del Parche" : "Patch Notes";
+  } else if (segment === "guides") {
+    name = locale === "es" ? "Guías" : "Guides";
+  } else if (segment === "releases") {
+    name = locale === "es" ? "Próximos Estrenos" : "Upcoming Releases";
+  } else if (segment === "contact") {
+    name = locale === "es" ? "Contacto" : "Contact";
+  } else if (segment === "es") {
+    return;
+  } else {
+    name = segment
+      .split("-")
+      .map((word) => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(" ");
+  }
+
+  breadcrumbItems.push({
+    "@type": "ListItem",
+    position,
+    name,
+    item: new URL(currentPath, Astro.site).href,
+  });
+});
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: breadcrumbItems,
+};
 ---
 
 <!doctype html>
@@ -153,6 +202,11 @@ const alternatePath =
         name: "Gacha Countdown Team",
       },
     })}
+  />
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify(breadcrumbSchema)}
   />
 
   <ClientRouter />
