@@ -104,12 +104,13 @@ function GameCardComponent({ game, isVisible, labels }: CardProps) {
           ? "opacity-100 transform scale-100"
           : "opacity-0 transform scale-95 pointer-events-none absolute -z-10"
       }`}
-      style={{
-        backgroundImage: `linear-gradient(180deg, rgba(10, 10, 12, 0.2) 0%, rgba(10, 10, 12, 0.95) 100%), url(${game.imagen})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-      }}
     >
+      <div
+        className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+        style={{
+          backgroundImage: `linear-gradient(180deg, rgba(10, 10, 12, 0.2) 0%, rgba(10, 10, 12, 0.95) 100%), url(${game.imagen})`,
+        }}
+      ></div>
       <div
         className="absolute top-6 right-6 glass-panel px-3 py-1 rounded-full"
         style={{ border: `1px solid ${accentColor}` }}
@@ -123,12 +124,16 @@ function GameCardComponent({ game, isVisible, labels }: CardProps) {
       </div>
       <div className="relative z-10">
         <div className="flex items-center gap-2 mb-2">
-          <h3 className="text-2xl font-bold text-white">{game.nombre_oficial}</h3>
+          <h3 className="text-2xl font-bold text-white">
+            {game.nombre_oficial}
+          </h3>
           <div className="size-2 rounded-full bg-green-500 animate-pulse" />
         </div>
         <p className="text-slate-400 text-sm mb-6">
           {labels.upcoming}:{" "}
-          <span className="text-white font-medium">v{game.proxima_version}</span>
+          <span className="text-white font-medium">
+            v{game.proxima_version}
+          </span>
         </p>
         {!timeLeft.finished ? (
           <div className="grid grid-cols-4 gap-4 max-w-sm">
@@ -167,7 +172,8 @@ export function GameDashboard({
   labels,
   storageKey = "game-visibility",
 }: GameDashboardProps) {
-  const [visibility, setVisibility] = useState<VisibilityState>(DEFAULT_VISIBILITY);
+  const [visibility, setVisibility] =
+    useState<VisibilityState>(DEFAULT_VISIBILITY);
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -202,8 +208,8 @@ export function GameDashboard({
     setVisibility(
       games.reduce(
         (acc, game) => ({ ...acc, [game.alias]: true }),
-        {} as VisibilityState
-      )
+        {} as VisibilityState,
+      ),
     );
   }, [games]);
 
@@ -211,8 +217,8 @@ export function GameDashboard({
     setVisibility(
       games.reduce(
         (acc, game) => ({ ...acc, [game.alias]: false }),
-        {} as VisibilityState
-      )
+        {} as VisibilityState,
+      ),
     );
   }, [games]);
 
@@ -333,7 +339,9 @@ export function GameDashboard({
       </div>
 
       {allHidden && (
-        <p className="text-center text-slate-500 text-sm mb-6">{labels.allHidden}</p>
+        <p className="text-center text-slate-500 text-sm mb-6">
+          {labels.allHidden}
+        </p>
       )}
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
