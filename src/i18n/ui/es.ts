@@ -103,4 +103,13 @@ export const es = {
     description: "No hay próximas versiones de juegos en este momento. Vuelve pronto para nuevas actualizaciones.",
     waiting: "Esperando actualizaciones",
   },
+  gameFilter: {
+    filterTitle: "Filtrar Juegos",
+    showAll: "Mostrar Todo",
+    hideAll: "Ocultar Todo",
+    gameVisibility: "Alternar visibilidad del juego",
+    gameHidden: "Oculto",
+    gameVisible: "Visible",
+    allHidden: "No hay juegos visibles. Haz clic en los iconos de arriba para mostrar juegos.",
+  },
 } as const;

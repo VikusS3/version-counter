@@ -1,13 +1,43 @@
 ---
 import StatsSection from "../components/StatsSections.astro";
 import Layout from "../layouts/Layout.astro";
-import GameCard from "../components/GameCard.astro";
+import { GameDashboard } from "../components/react/GameDashboard";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 import { getLocalizedGames } from "../data/translations/getGameData";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const games = getLocalizedGames(lang);
+
+const gameData = games.map((juego) => ({
+  alias: juego.alias,
+  icon: juego.icon,
+  tema: juego.tema,
+  href: juego.href,
+  nombre_oficial: juego.nombre_oficial,
+  version_actual: juego.version_actual,
+  proxima_version: juego.proxima_version,
+  imagen: juego.imagen,
+  fecha_inicio: juego.fecha_inicio,
+  duracion_dias: juego.duracion_dias,
+}));
+
+const dashboardLabels = {
+  filterTitle: t.gameFilter.filterTitle,
+  showAll: t.gameFilter.showAll,
+  hideAll: t.gameFilter.hideAll,
+  gameVisibility: t.gameFilter.gameVisibility,
+  gameHidden: t.gameFilter.gameHidden,
+  gameVisible: t.gameFilter.gameVisible,
+  allHidden: t.gameFilter.allHidden,
+  current: t.gameCard.current,
+  upcoming: t.gameCard.upcoming,
+  days: t.counter.days,
+  hours: t.counter.hours,
+  minutes: t.counter.minutes,
+  seconds: t.counter.seconds,
+  finished: t.counter.finished,
+};
 ---
 
 <Layout title={t.home.title} description={t.home.subtitle}>
@@ -27,24 +57,9 @@ const games = getLocalizedGames(lang);
       </p>
     </section>
 
-    <!-- Cards -->
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {
-        games.map((juego) => (
-          <GameCard
-            title={juego.nombre_oficial}
-            current={juego.version_actual}
-            upcoming={juego.proxima_version}
-            imagen={juego.imagen}
-            fecha_inicio={juego.fecha_inicio}
-            duracion_dias={juego.duracion_dias}
-            tema={juego.tema}
-            href={juego.href}
-            alias={juego.alias}
-          />
-        ))
-      }
-    </section>
+    <!-- Game Dashboard with Filter -->
+    <GameDashboard client:load games={gameData} labels={dashboardLabels} />
+
     <StatsSection />
   </main>
 </Layout>

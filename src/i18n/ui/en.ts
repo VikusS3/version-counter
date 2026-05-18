@@ -110,6 +110,15 @@ export const en = {
       "No upcoming game versions at the moment. Check back soon for new updates.",
     waiting: "Waiting for updates",
   },
+  gameFilter: {
+    filterTitle: "Filter Games",
+    showAll: "Show All",
+    hideAll: "Hide All",
+    gameVisibility: "Toggle game visibility",
+    gameHidden: "Hidden",
+    gameVisible: "Visible",
+    allHidden: "No games visible. Click the icons above to show games.",
+  },
 } as const;
 
 export type TranslationKeys = typeof en;

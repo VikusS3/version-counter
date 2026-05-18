@@ -35,4 +35,18 @@ export const gamesTranslations: Record<string, GameTranslation> = {
     slogan_desc: "Billy and Promeia are now available, new maps, and more.",
     patch_notes_description: "Latest patch notes for Zenless Zone Zero 2.8",
   },
+  "arknights-endfield": {
+    nombre: "Arknights Endfield New Version Countdown",
+    descripcion:
+      "Arknights Endfield 1.3 Countdown for all region like America, Europe, Asia. Arknights Banner Countdown, Patch Notes, and more.",
+    slogan_desc: "Version 1.2 is now available, new characters, and more.",
+    patch_notes_description: "Latest patch notes for Arknights Endfield 1.2",
+  },
+  "neverness-to-everness": {
+    nombre: "Neverness to Everness New Version Countdown",
+    descripcion:
+      "Neverness to Everness 1.1 Countdown for all region like America, Europe, Asia. Genshin Banner Countdown, Patch Notes, and more.",
+    slogan_desc: "Celebrate the release of Neverness to Everness with new characters, a new zone, and more.",
+    patch_notes_description: "Latest patch notes for Neverness to Everness 1.0",
+  },
 };
