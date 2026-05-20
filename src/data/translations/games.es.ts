@@ -9,9 +9,10 @@ export const gamesTranslations: Record<string, GameTranslation> = {
   "genshin-impact": {
     nombre: "Cuenta Regresiva Nueva Versión Genshin Impact",
     descripcion:
-      "Cuenta regresiva Genshin Impact 6.6 para todas las regiones como América, Europa, Asia. Cuenta regresiva de banners, notas del parche y más.",
-    slogan_desc: "Nueva zona en Mondstadt, nuevos personajes y más.",
-    patch_notes_description: "Últimas notas del parche para Genshin Impact 6.5",
+      "Cuenta regresiva Genshin Impact 6.7 para todas las regiones como América, Europa, Asia. Cuenta regresiva de banners, notas del parche y más.",
+    slogan_desc:
+      "Nicole y una nueva misión de historia están ahora disponibles.",
+    patch_notes_description: "Últimas notas del parche para Genshin Impact 6.6",
   },
   "wuthering-waves": {
     nombre: "Cuenta Regresiva Nueva Versión Wuthering Waves",
@@ -43,13 +44,16 @@ export const gamesTranslations: Record<string, GameTranslation> = {
     descripcion:
       "Cuenta regresiva Arknights Endfield 1.3 para todas las regiones como América, Europa, Asia. Cuenta regresiva de banners, notas del parche y más.",
     slogan_desc: "La versión 1.2 ya está disponible, nuevos personajes y más.",
-    patch_notes_description: "Últimas notas del parche para Arknights Endfield 1.2",
+    patch_notes_description:
+      "Últimas notas del parche para Arknights Endfield 1.2",
   },
   "neverness-to-everness": {
     nombre: "Cuenta Regresiva Nueva Versión Neverness to Everness",
     descripcion:
       "Cuenta regresiva Neverness to Everness 1.1 para todas las regiones como América, Europa, Asia. Cuenta regresiva de banners, notas del parche y más.",
-    slogan_desc: "Celebra el lanzamiento de Neverness to Everness con nuevos personajes, una nueva zona y más.",
-    patch_notes_description: "Últimas notas del parche para Neverness to Everness 1.0",
+    slogan_desc:
+      "Celebra el lanzamiento de Neverness to Everness con nuevos personajes, una nueva zona y más.",
+    patch_notes_description:
+      "Últimas notas del parche para Neverness to Everness 1.0",
   },
 };

@@ -9,9 +9,9 @@ export const gamesTranslations: Record<string, GameTranslation> = {
   "genshin-impact": {
     nombre: "Genshin Impact New Version Countdown",
     descripcion:
-      "Genshin Impact 6.6 Countdown for all region like America, Europe, Asia. Genshin Banner Countdown, Patch Notes, and more.",
-    slogan_desc: "New zone in Mondstadt, new characters, and more.",
-    patch_notes_description: "Latest patch notes for Genshin Impact 6.5",
+      "Genshin Impact 6.7 Countdown for all region like America, Europe, Asia. Genshin Banner Countdown, Patch Notes, and more.",
+    slogan_desc: "Nicole and a new story quest are now available.",
+    patch_notes_description: "Latest patch notes for Genshin Impact 6.6",
   },
   "wuthering-waves": {
     nombre: "Wuthering Waves New Version Countdown",
@@ -46,7 +46,8 @@ export const gamesTranslations: Record<string, GameTranslation> = {
     nombre: "Neverness to Everness New Version Countdown",
     descripcion:
       "Neverness to Everness 1.1 Countdown for all region like America, Europe, Asia. Genshin Banner Countdown, Patch Notes, and more.",
-    slogan_desc: "Celebrate the release of Neverness to Everness with new characters, a new zone, and more.",
+    slogan_desc:
+      "Celebrate the release of Neverness to Everness with new characters, a new zone, and more.",
     patch_notes_description: "Latest patch notes for Neverness to Everness 1.0",
   },
 };
