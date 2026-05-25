@@ -20,6 +20,16 @@ const rawGuides: Array<{
   language: "EN" | "ES";
 }> = [
   {
+    url: "https://www.youtube.com/watch?v=zMovmSz0UYc",
+    game: "wuwa",
+    language: "EN",
+  },
+  {
+    url: "https://www.youtube.com/watch?v=Enm_H7ejMEc",
+    game: "wuwa",
+    language: "ES",
+  },
+  {
     url: "https://www.youtube.com/watch?v=p14lmvnUqTc",
     game: "zzz",
     language: "ES",
@@ -68,16 +78,6 @@ const rawGuides: Array<{
     url: "https://www.youtube.com/watch?v=y-fMoi12vD0",
     game: "zzz",
     language: "ES",
-  },
-  {
-    url: "https://www.youtube.com/watch?v=XV6VHjFgn2Q",
-    game: "zzz",
-    language: "EN",
-  },
-  {
-    url: "https://www.youtube.com/watch?v=ChINxrpeGCU",
-    game: "hsr",
-    language: "EN",
   },
 ];
 

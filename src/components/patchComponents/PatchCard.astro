@@ -21,6 +21,8 @@ const colorMap: Record<string, string> = {
   wuthering: "var(--color-wuwa-blue)",
   honkai: "var(--color-hsr-purple)",
   zenless: "var(--color-zzz-yellow)",
+  nte: "var(--color-nte-cyan)",
+  arknights: "var(--color-arknights-gold)",
 };
 
 const accentColor = (alias && colorMap[alias]) || "var(--color-primary)";
@@ -52,7 +54,8 @@ const accentColor = (alias && colorMap[alias]) || "var(--color-primary)";
       <span
         class="px-4 py-1.5 bg-(--accent-color)/10 text-(--accent-color) border border-(--accent-color)/30 text-[10px] font-black rounded-full uppercase tracking-[0.2em]"
       >
-        {t.common.ver} {currentVersion}
+        {t.common.ver}
+        {currentVersion}
       </span>
     </div>
 
