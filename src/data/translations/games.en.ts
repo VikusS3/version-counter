@@ -24,9 +24,9 @@ export const gamesTranslations: Record<string, GameTranslation> = {
   "honkai-star-rail": {
     nombre: "Honkai Star Rail New Version Countdown",
     descripcion:
-      "Honkai Star Rail 4.3 Countdown for all region like America, Europe, Asia. Honkai Banner Countdown, Patch Notes, and more.",
-    slogan_desc: "Silver Wolf lv999 is now available, new region, and more.",
-    patch_notes_description: "Latest patch notes for Honkai Star Rail 4.2",
+      "Honkai Star Rail 4.4 Countdown for all region like America, Europe, Asia. Honkai Banner Countdown, Patch Notes, and more.",
+    slogan_desc: "Mortenax Blade is now available, new mission, and more.",
+    patch_notes_description: "Latest patch notes for Honkai Star Rail 4.3",
   },
   "zenless-zone-zero": {
     nombre: "Zenless Zone Zero New Version Countdown",
