@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import "@fontsource-variable/orbitron";
+import "material-symbols/outlined.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { ClientRouter } from "astro:transitions";
@@ -121,10 +121,6 @@ const breadcrumbSchema = {
     <link rel="icon" href="/favicon.ico" sizes="any" />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <title>{title} | Gacha Countdown</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
-      rel="stylesheet"
-    />
     <meta name="description" content={description} />
     <meta name="keywords" content={keywords.replace(/\s+/g, " ").trim()} />
     <meta name="author" content={author} />
@@ -137,12 +133,12 @@ const breadcrumbSchema = {
     <link
       rel="alternate"
       hreflang="en"
-      href={locale === "es" ? alternatePath : url}
+      href={locale === "es" ? new URL(alternatePath, Astro.site).href : url}
     />
     <link
       rel="alternate"
       hreflang="es"
-      href={locale === "en" ? `/es${Astro.url.pathname}` : url}
+      href={locale === "en" ? new URL(`/es${Astro.url.pathname}`, Astro.site).href : url}
     />
 
     <meta property="og:type" content={type} />
@@ -212,11 +208,11 @@ const breadcrumbSchema = {
   <ClientRouter />
 
   <body
-    class="bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex flex-col"
+    class="bg-background-dark text-slate-900 dark:text-slate-100 min-h-dvh flex flex-col"
   >
     <a
       href="#main-content"
-      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-2 focus:bg-primary focus:text-white focus:rounded-lg focus:font-bold"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-3 focus:bg-primary focus:text-white focus:rounded-lg focus:font-bold focus:min-w-[48px] focus:min-h-[48px]"
     >
       Skip to main content
     </a>

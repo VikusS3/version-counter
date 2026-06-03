@@ -34,19 +34,18 @@ const game = getLocalizedGame("neverness-to-everness", "es");
   />
   <div
     class="fixed inset-0 z-0 opacity-30 pointer-events-none bg-cover bg-center"
-    role="img"
-    aria-label="Imagen de fondo para Neverness to Everness"
+    aria-hidden="true"
     style=`background-image:url(${game?.imagen});`
   >
   </div>
   <main id="main-content" class="flex-1 flex flex-col items-center">
-    <section class="w-full max-w-300 px-6 pt-12 mb-16">
+    <section class="w-full max-w-300 px-4 sm:px-6 pt-8 sm:pt-12 mb-12 sm:mb-16">
       <div class="@container">
-        <div class="flex flex-col items-center justify-center text-center mb-8">
+        <div class="flex flex-col items-center justify-center text-center mb-6 sm:mb-8">
           <div
-            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/50 border border-primary/40 text-white text-sm font-bold tracking-widest uppercase mb-4"
+            class="inline-flex items-center gap-2 px-2.5 sm:px-3 py-1 rounded-full bg-primary/50 border border-primary/40 text-white text-[11px] sm:text-sm font-bold tracking-widest uppercase mb-3 sm:mb-4"
           >
-            <span class="relative flex h-2 w-2">
+            <span class="relative flex h-2 w-2" aria-hidden="true">
               <span
                 class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"
               ></span>
@@ -57,12 +56,12 @@ const game = getLocalizedGame("neverness-to-everness", "es");
             {game?.proxima_version}
           </div>
           <h1
-            class="text-white text-4xl md:text-6xl font-black leading-tight tracking-tight mb-4"
+            class="text-white text-3xl sm:text-4xl md:text-6xl font-black leading-tight tracking-tight mb-3 sm:mb-4"
           >
             {game?.nombre_version_actual}
             <span class="text-gold italic font-serif">{game?.slogan_name}</span>
           </h1>
-          <p class="text-slate-400 text-lg max-w-2xl">
+          <p class="text-slate-400 text-sm sm:text-base md:text-lg max-w-2xl">
             {game?.slogan_desc}
           </p>
         </div>
@@ -81,7 +80,7 @@ const game = getLocalizedGame("neverness-to-everness", "es");
             }}
           />
         </div>
-        <div class="flex justify-center gap-4 mt-8">
+        <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-6 sm:mt-8">
           <CopyButton
             client:only="react"
             label={t.gamePage.remindMe}

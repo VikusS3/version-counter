@@ -5,23 +5,23 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 ---
 
-<section class="mt-16">
-  <div class="flex items-center justify-between mb-6">
-    <h3 class="text-xl font-bold flex items-center gap-2">
-      <span class="material-symbols-outlined text-primary">analytics</span>
+<section class="mt-12 sm:mt-16">
+  <div class="flex items-center justify-between mb-4 sm:mb-6">
+    <h3 class="text-lg sm:text-xl font-bold flex items-center gap-2">
+      <span class="material-symbols-outlined text-primary" aria-hidden="true">analytics</span>
       {t.stats.title}
     </h3>
   </div>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
     <div
-      class="bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 p-5 rounded-xl"
+      class="bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 p-4 sm:p-5 rounded-xl"
     >
       <p
-        class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1"
+        class="text-slate-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1"
       >
         {t.stats.averagePatchDuration}
       </p>
-      <h4 class="text-2xl font-bold">42 {t.counter.days}</h4>
+      <h4 class="text-xl sm:text-2xl font-bold">42 {t.counter.days}</h4>
       <div
         class="w-full bg-slate-200 dark:bg-slate-800 h-1 mt-3 rounded-full overflow-hidden"
       >
@@ -29,40 +29,40 @@ const t = useTranslations(lang);
       </div>
     </div>
     <div
-      class="bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 p-5 rounded-xl"
+      class="bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 p-4 sm:p-5 rounded-xl"
     >
       <p
-        class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1"
+        class="text-slate-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1"
       >
         {t.stats.totalActiveTimers}
       </p>
-      <h4 class="text-2xl font-bold">04 {t.stats.games}</h4>
+      <h4 class="text-xl sm:text-2xl font-bold">04 {t.stats.games}</h4>
       <p class="text-[10px] text-slate-400 mt-2 italic">
         {t.stats.publishers.replace("{count}", "2")}
       </p>
     </div>
     <div
-      class="bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 p-5 rounded-xl"
+      class="bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 p-4 sm:p-5 rounded-xl"
     >
       <p
-        class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1"
+        class="text-slate-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1"
       >
         {t.stats.upcomingMaintenance}
       </p>
-      <h4 class="text-2xl font-bold">Jun 3</h4>
+      <h4 class="text-xl sm:text-2xl font-bold">Jun 3</h4>
       <p class="text-[10px] text-primary mt-2 font-bold uppercase">NTE v1.1</p>
     </div>
     <div
-      class="bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 p-5 rounded-xl"
+      class="bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 p-4 sm:p-5 rounded-xl"
     >
       <p
-        class="text-slate-400 text-xs font-bold uppercase tracking-widest mb-1"
+        class="text-slate-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1"
       >
         {t.stats.serverStatus}
       </p>
       <div class="flex items-center gap-2 mt-2">
         <span class="size-3 bg-green-500 rounded-full"></span>
-        <h4 class="text-lg font-bold">{t.stats.allOperational}</h4>
+        <h4 class="text-base sm:text-lg font-bold">{t.stats.allOperational}</h4>
       </div>
     </div>
   </div>

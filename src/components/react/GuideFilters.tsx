@@ -58,8 +58,8 @@ const FilterBar: React.FC<FilterBarProps> = ({
   allLabel,
 }) => {
   return (
-    <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 dark:border-primary/20">
-      <div className="flex gap-2 sm:gap-8 overflow-x-auto no-scrollbar">
+    <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 dark:border-primary/20" role="tablist" aria-label="Filter guides by game">
+      <div className="flex gap-2 sm:gap-8 overflow-x-auto no-scrollbar -mb-px">
         {games.map((game) => {
           const isActive = activeGame === game.id;
           const style = gameStyles[game.id];
@@ -67,19 +67,23 @@ const FilterBar: React.FC<FilterBarProps> = ({
             return (
               <button
                 key={game.id}
+                role="tab"
+                aria-selected={isActive}
+                aria-label="Show all games"
                 onClick={() => onGameChange(game.id)}
-                className={`flex flex-col items-center gap-2 pb-3 pt-2 group relative border-b-2 transition-all ${
+                className={`flex flex-col items-center gap-2 pb-3 pt-2 group relative border-b-2 transition-all min-w-[64px] ${
                   isActive
                     ? "border-primary"
                     : "border-transparent hover:border-primary/50"
                 }`}
               >
-                <div className="size-12 rounded-xl flex items-center justify-center overflow-hidden border bg-slate-100 dark:bg-primary/10 border-slate-200 dark:border-primary/20">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center overflow-hidden border bg-slate-100 dark:bg-primary/10 border-slate-200 dark:border-primary/20">
                   <svg
-                    className="w-6 h-6 text-slate-500"
+                    className="w-5 h-5 sm:w-6 sm:h-6 text-slate-500"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
+                    aria-hidden="true"
                   >
                     <path
                       strokeLinecap="round"
@@ -90,7 +94,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
                   </svg>
                 </div>
                 <span
-                  className={`text-xs font-bold uppercase tracking-wider ${isActive ? "text-primary" : "text-slate-500"}`}
+                  className={`text-[10px] sm:text-xs font-bold uppercase tracking-wider ${isActive ? "text-primary" : "text-slate-500"}`}
                 >
                   {allLabel}
                 </span>
@@ -100,14 +104,17 @@ const FilterBar: React.FC<FilterBarProps> = ({
           return (
             <button
               key={game.id}
+              role="tab"
+              aria-selected={isActive}
+              aria-label={`Show ${game.label} guides`}
               onClick={() => onGameChange(game.id)}
-              className="flex flex-col items-center gap-2 pb-3 pt-2 group relative border-b-2 transition-all"
+              className="flex flex-col items-center gap-2 pb-3 pt-2 group relative border-b-2 transition-all min-w-[64px]"
               style={{
                 borderColor: isActive ? style.border : "transparent",
               }}
             >
               <div
-                className="size-12 rounded-xl flex items-center justify-center overflow-hidden border"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center overflow-hidden border"
                 style={{
                   backgroundColor: isActive ? style.bg : "",
                   borderColor: isActive ? style.border : undefined,
@@ -116,11 +123,11 @@ const FilterBar: React.FC<FilterBarProps> = ({
                 <img
                   className="w-full h-full object-cover"
                   src={game.icon!}
-                  alt={game.label}
+                  alt=""
                 />
               </div>
               <span
-                className="text-xs font-bold uppercase tracking-wider"
+                className="text-[10px] sm:text-xs font-bold uppercase tracking-wider"
                 style={{ color: isActive ? style.text : "#64748b" }}
               >
                 {game.label}
@@ -129,13 +136,16 @@ const FilterBar: React.FC<FilterBarProps> = ({
           );
         })}
       </div>
-      <div className="flex items-center gap-3 pb-3">
+      <div className="flex items-center gap-3 pb-3" role="tablist" aria-label="Filter by language">
         <div className="flex bg-slate-100 dark:bg-primary/10 rounded-lg p-1">
           {languages.map((lang) => (
             <button
               key={lang.id}
+              role="tab"
+              aria-selected={activeLang === lang.id}
+              aria-label={`Show ${lang.label} language guides`}
               onClick={() => onLangChange(lang.id)}
-              className={`px-4 py-1 rounded-md text-xs font-bold transition-all ${
+              className={`px-3 sm:px-4 py-1.5 rounded-md text-[11px] sm:text-xs font-bold transition-all min-h-[36px] ${
                 activeLang === lang.id
                   ? "bg-white dark:bg-primary shadow-sm"
                   : "text-slate-500 hover:text-primary"
@@ -259,7 +269,8 @@ export const GuideFilters: React.FC<GuideFiltersProps> = ({ guides, labels = def
         <div className="mt-8 flex justify-center">
           <button
             onClick={loadMore}
-            className="px-8 py-3 bg-primary/10 hover:bg-primary/20 text-primary font-bold rounded-xl transition-all"
+            className="px-6 sm:px-8 py-3 min-h-[48px] bg-primary/10 hover:bg-primary/20 text-primary font-bold rounded-xl transition-all"
+            aria-label={`${labels.loadMore} (${visibleGuides.length} of ${filteredGuides.length} shown)`}
           >
             {labels.loadMore}
           </button>

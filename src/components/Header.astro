@@ -101,94 +101,209 @@ const localizedHomeUrl = getLocalizedUrl(Astro.url, targetLocale);
   <!-- Mobile Menu Button -->
   <button
     id="mobile-menu-btn"
-    class="md:hidden p-2 text-slate-500 dark:text-slate-400 hover:text-primary transition-colors"
+    class="md:hidden p-3 text-slate-500 dark:text-slate-400 hover:text-primary transition-colors min-w-[48px] min-h-[48px] flex items-center justify-center"
     aria-label="Open menu"
     aria-expanded="false"
     aria-controls="mobile-menu"
   >
-    <span class="material-symbols-outlined text-2xl">menu</span>
+    <span class="material-symbols-outlined text-2xl" aria-hidden="true"
+      >menu</span
+    >
   </button>
 </header>
+
+<!-- Mobile Menu Backdrop -->
+<div
+  id="mobile-backdrop"
+  class="md:hidden fixed inset-0 bg-black/60 z-40 hidden"
+  aria-hidden="true"
+>
+</div>
 
 <!-- Mobile Menu Panel -->
 <div
   id="mobile-menu"
-  class="md:hidden fixed inset-0 top-14.25 bg-background-dark/95 backdrop-blur-lg z-40 hidden"
+  class="md:hidden fixed top-0 right-0 h-full w-[85vw] max-w-sm bg-background-dark/98 backdrop-blur-xl z-50 translate-x-full transition-transform duration-300 ease-out"
   role="dialog"
   aria-label="Mobile navigation"
+  aria-modal="true"
 >
-  <nav class="flex flex-col px-6 py-8 gap-2">
+  <div class="flex items-center justify-between px-6 pt-4 pb-2 safe-top">
+    <span class="text-sm font-bold text-slate-500 uppercase tracking-widest"
+      >{t.nav.dashboard}</span
+    >
+    <button
+      id="mobile-close-btn"
+      class="p-3 text-slate-400 hover:text-primary transition-colors min-w-[48px] min-h-[48px] flex items-center justify-center"
+      aria-label="Close menu"
+    >
+      <span class="material-symbols-outlined text-2xl" aria-hidden="true"
+        >close</span
+      >
+    </button>
+  </div>
+  <nav
+    class="flex flex-col px-6 py-4 gap-1 overflow-y-auto max-h-[calc(100vh-5rem)]"
+    aria-label="Mobile"
+  >
     <a
-      class={`mobile-nav-link text-2xl font-bold py-4 border-b border-slate-800 ${
-        isActive("/") ? "text-primary" : "text-slate-300"
+      class={`mobile-nav-link text-xl md:text-2xl font-bold py-4 px-3 rounded-xl transition-colors ${
+        isActive("/")
+          ? "text-primary bg-primary/10"
+          : "text-slate-300 hover:bg-white/5"
       }`}
-      href={currentLocale === defaultLocale ? "/" : "/es/"}>{t.nav.dashboard}</a
+      href={currentLocale === defaultLocale ? "/" : "/es/"}
+      tabindex="0">{t.nav.dashboard}</a
     >
     <a
-      class={`mobile-nav-link text-2xl font-bold py-4 border-b border-slate-800 ${
-        isActive("/patch/") ? "text-primary" : "text-slate-300"
+      class={`mobile-nav-link text-xl md:text-2xl font-bold py-4 px-3 rounded-xl transition-colors ${
+        isActive("/patch/")
+          ? "text-primary bg-primary/10"
+          : "text-slate-300 hover:bg-white/5"
       }`}
       href={currentLocale === defaultLocale ? "/patch/" : "/es/patch/"}
-      >{t.nav.patchNotes}</a
+      tabindex="0">{t.nav.patchNotes}</a
     >
     <a
-      class={`mobile-nav-link text-2xl font-bold py-4 border-b border-slate-800 ${
-        isActive("/guides/") ? "text-primary" : "text-slate-300"
+      class={`mobile-nav-link text-xl md:text-2xl font-bold py-4 px-3 rounded-xl transition-colors ${
+        isActive("/guides/")
+          ? "text-primary bg-primary/10"
+          : "text-slate-300 hover:bg-white/5"
       }`}
       href={currentLocale === defaultLocale ? "/guides/" : "/es/guides/"}
-      >{t.nav.characterGuides}</a
+      tabindex="0">{t.nav.characterGuides}</a
     >
     <a
-      class={`mobile-nav-link text-2xl font-bold py-4 border-b border-slate-800 ${
-        isActive("/releases/") ? "text-primary" : "text-slate-300"
+      class={`mobile-nav-link text-xl md:text-2xl font-bold py-4 px-3 rounded-xl transition-colors ${
+        isActive("/releases/")
+          ? "text-primary bg-primary/10"
+          : "text-slate-300 hover:bg-white/5"
       }`}
       href={currentLocale === defaultLocale ? "/releases/" : "/es/releases/"}
-      >{t.nav.releases}</a
+      tabindex="0">{t.nav.releases}</a
     >
-    <a
-      class="mobile-nav-link text-2xl font-bold py-4 border-b border-slate-800 text-slate-300 flex items-center gap-2"
-      href={localizedHomeUrl}
-    >
-      <span class="material-symbols-outlined">language</span>
-      <span class="uppercase">{currentLocale}</span>
-    </a>
+    <div class="mt-4 pt-4 border-t border-slate-800">
+      <a
+        class="mobile-nav-link text-xl font-bold py-4 px-3 rounded-xl text-slate-300 hover:bg-white/5 flex items-center gap-3 transition-colors"
+        href={localizedHomeUrl}
+        tabindex="0"
+      >
+        <span class="material-symbols-outlined" aria-hidden="true"
+          >language</span
+        >
+        <span class="uppercase">{currentLocale}</span>
+      </a>
+    </div>
   </nav>
 </div>
 
 <script>
   function initMobileMenu() {
-    const menuBtn = document.getElementById("mobile-menu-btn");
-    const mobileMenu = document.getElementById("mobile-menu");
+    const menuBtn = document.getElementById(
+      "mobile-menu-btn",
+    ) as HTMLButtonElement | null;
+    const closeBtn = document.getElementById(
+      "mobile-close-btn",
+    ) as HTMLButtonElement | null;
+    const mobileMenu = document.getElementById(
+      "mobile-menu",
+    ) as HTMLElement | null;
+    const backdrop = document.getElementById(
+      "mobile-backdrop",
+    ) as HTMLElement | null;
 
-    if (!menuBtn || !mobileMenu) return;
+    if (!menuBtn || !mobileMenu || !backdrop) return;
+
+    function getFocusable(): HTMLElement[] {
+      return Array.from(
+        mobileMenu!.querySelectorAll<HTMLElement>(
+          "a[href], button:not([disabled])",
+        ),
+      );
+    }
+
+    let previousActiveElement: HTMLElement | null = null;
 
     const closeMenu = () => {
-      mobileMenu.classList.add("hidden");
+      mobileMenu.classList.remove("translate-x-0");
+
+      mobileMenu.classList.add("translate-x-full");
+
+      backdrop.classList.add("hidden");
+
       menuBtn.setAttribute("aria-expanded", "false");
+
       menuBtn.setAttribute("aria-label", "Open menu");
-      menuBtn.innerHTML = '<span class="material-symbols-outlined text-2xl">menu</span>';
+
+      menuBtn.focus();
       document.body.style.overflow = "";
+
+      if (previousActiveElement) {
+        previousActiveElement.focus();
+        previousActiveElement = null;
+      }
     };
 
     const openMenu = () => {
-      mobileMenu.classList.remove("hidden");
+      previousActiveElement = document.activeElement as HTMLElement | null;
+
+      backdrop.classList.remove("hidden");
+
+      mobileMenu.classList.remove("translate-x-full");
+
+      mobileMenu.classList.add("translate-x-0");
+
       menuBtn.setAttribute("aria-expanded", "true");
+
       menuBtn.setAttribute("aria-label", "Close menu");
-      menuBtn.innerHTML = '<span class="material-symbols-outlined text-2xl">close</span>';
       document.body.style.overflow = "hidden";
+      const focusable = getFocusable();
+      if (focusable.length > 0) {
+        setTimeout(() => focusable[0].focus(), 100);
+      }
     };
 
-    menuBtn.addEventListener("click", () => {
-      const isOpen = !mobileMenu.classList.contains("hidden");
-      if (isOpen) {
-        closeMenu();
-      } else {
-        openMenu();
-      }
+    menuBtn.addEventListener("click", (e) => {
+      e.stopPropagation();
+
+      const isOpen = mobileMenu.classList.contains("translate-x-0");
+      if (isOpen) closeMenu();
+      else openMenu();
     });
+
+    if (closeBtn) closeBtn.addEventListener("click", closeMenu);
+
+    backdrop.addEventListener("click", closeMenu);
 
     document.querySelectorAll(".mobile-nav-link").forEach((link) => {
       link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (
+        e.key === "Escape" &&
+        mobileMenu.classList.contains("translate-x-0")
+      ) {
+        closeMenu();
+      }
+
+      if (e.key === "Tab" && mobileMenu.classList.contains("translate-x-0")) {
+        const focusable = getFocusable();
+        if (focusable.length === 0) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
+    });
+
+    window.addEventListener("popstate", () => {
+      if (mobileMenu.classList.contains("translate-x-0")) closeMenu();
     });
   }
 
@@ -197,34 +312,34 @@ const localizedHomeUrl = getLocalizedUrl(Astro.url, targetLocale);
 
 <style>
   .mobile-nav-link {
-    animation: slideIn 0.3s ease-out forwards;
     opacity: 0;
+    animation: fadeInUp 0.25s ease-out forwards;
   }
 
   .mobile-nav-link:nth-child(1) {
     animation-delay: 0.05s;
   }
   .mobile-nav-link:nth-child(2) {
-    animation-delay: 0.1s;
+    animation-delay: 0.08s;
   }
   .mobile-nav-link:nth-child(3) {
-    animation-delay: 0.15s;
+    animation-delay: 0.11s;
   }
   .mobile-nav-link:nth-child(4) {
-    animation-delay: 0.2s;
+    animation-delay: 0.14s;
   }
   .mobile-nav-link:nth-child(5) {
-    animation-delay: 0.25s;
+    animation-delay: 0.17s;
   }
 
-  @keyframes slideIn {
+  @keyframes fadeInUp {
     from {
       opacity: 0;
-      transform: translateX(-20px);
+      transform: translateY(8px);
     }
     to {
       opacity: 1;
-      transform: translateX(0);
+      transform: translateY(0);
     }
   }
 </style>

@@ -38,11 +38,11 @@ const accentColor = (alias && colorMap[alias]) || "var(--color-primary)";
   </div>
 
   <div
-    class="border border-white/5 rounded-2xl p-8 hover:border-(--accent-color) transition-all duration-500 flex flex-col h-full shadow-2xl relative overflow-hidden"
+    class="border border-white/5 rounded-2xl p-4 sm:p-8 hover:border-(--accent-color) transition-all duration-500 flex flex-col h-full shadow-2xl relative overflow-hidden"
   >
-    <div class="flex justify-between items-start mb-8">
+    <div class="flex justify-between items-start mb-6 sm:mb-8">
       <div
-        class="size-16 rounded-2xl overflow-hidden ring-2 ring-white/10 p-1 bg-white/5"
+        class="size-12 sm:size-16 rounded-2xl overflow-hidden ring-2 ring-white/10 p-1 bg-white/5"
       >
         <img
           class="w-full h-full object-cover rounded-xl"
@@ -52,26 +52,27 @@ const accentColor = (alias && colorMap[alias]) || "var(--color-primary)";
       </div>
 
       <span
-        class="px-4 py-1.5 bg-(--accent-color)/10 text-(--accent-color) border border-(--accent-color)/30 text-[10px] font-black rounded-full uppercase tracking-[0.2em]"
+        class="px-3 sm:px-4 py-1 sm:py-1.5 bg-(--accent-color)/10 text-(--accent-color) border border-(--accent-color)/30 text-[10px] font-black rounded-full uppercase tracking-[0.2em]"
       >
         {t.common.ver}
         {currentVersion}
       </span>
     </div>
 
-    <h3 class="text-3xl font-bold mb-4 text-white">{title}</h3>
-    <p class="text-slate-400 mb-10 text-lg leading-relaxed">{description}</p>
+    <h3 class="text-2xl sm:text-3xl font-bold mb-3 sm:mb-4 text-white">{title}</h3>
+    <p class="text-slate-400 mb-6 sm:mb-10 text-sm sm:text-lg leading-relaxed">{description}</p>
 
     <div class="mt-auto">
       <a
         target="_blank"
         rel="noopener noreferrer"
-        class="inline-flex items-center justify-center w-full bg-transparent border-2 border-(--accent-color) text-(--accent-color) hover:bg-(--accent-color) hover:text-black font-black py-4 rounded-xl transition-all duration-300 gap-3 group/btn uppercase tracking-tighter"
+        class="inline-flex items-center justify-center w-full bg-transparent border-2 border-(--accent-color) text-(--accent-color) hover:bg-(--accent-color) hover:text-black font-black py-3 sm:py-4 min-h-[48px] rounded-xl transition-all duration-300 gap-3 group/btn uppercase tracking-tighter text-sm sm:text-base"
         href={patchNotesLink}
       >
         {t.patch.officialPatchNotes}
         <span
-          class="material-symbols-outlined text-xl group-hover:translate-x-1 transition-transform"
+          class="material-symbols-outlined text-lg sm:text-xl group-hover:translate-x-1 transition-transform"
+          aria-hidden="true"
           >arrow_forward</span
         >
       </a>

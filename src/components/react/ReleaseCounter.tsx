@@ -105,7 +105,7 @@ export const ReleaseCounter: React.FC<ReleaseCounterProps> = ({
   if (variant === "mini") {
     return (
       <div
-        className="grid grid-cols-4 gap-4 max-w-sm"
+        className="grid grid-cols-4 gap-2 sm:gap-4 max-w-xs"
         role="timer"
         aria-label={timeLabel}
         aria-live="polite"
@@ -120,7 +120,7 @@ export const ReleaseCounter: React.FC<ReleaseCounterProps> = ({
 
   return (
     <div
-      className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-8 max-w-200 mx-auto py-8"
+      className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 md:gap-8 max-w-200 mx-auto py-6 md:py-8"
       role="timer"
       aria-label={timeLabel}
       aria-live="polite"
@@ -135,10 +135,10 @@ export const ReleaseCounter: React.FC<ReleaseCounterProps> = ({
 
 const MiniBlock = ({ value, label }: { value: number; label: string }) => (
   <div className="flex flex-col" aria-label={`${label}: ${value}`}>
-    <span className="text-3xl font-bold countdown-font" aria-hidden="true">
+    <span className="text-2xl sm:text-3xl font-bold countdown-font leading-none" aria-hidden="true">
       {String(value).padStart(2, "0")}
     </span>
-    <span className="text-[10px] uppercase tracking-widest text-slate-500">
+    <span className="text-[10px] uppercase tracking-widest text-slate-500 mt-1">
       {label}
     </span>
   </div>
@@ -158,14 +158,14 @@ const FullBlock = ({
     aria-label={`${label}: ${value}`}
   >
     <div
-      className={`glass-panel w-full aspect-square md:aspect-auto md:h-32 flex flex-col items-center justify-center rounded-2xl primary-glow group hover:border-primary transition-all ${
+      className={`glass-panel w-full aspect-square md:aspect-auto md:h-28 lg:h-32 flex flex-col items-center justify-center rounded-2xl primary-glow group hover:border-primary transition-all ${
         highlight ? "border-primary/50" : ""
       }`}
     >
       <span
-        className={`text-4xl md:text-5xl font-bold transition-colors ${
+        className={`text-3xl sm:text-4xl md:text-5xl font-bold transition-colors leading-none ${
           highlight
-            ? "text-primary animate-pulse"
+            ? "text-primary"
             : "text-white group-hover:text-primary"
         }`}
         aria-hidden="true"
@@ -173,13 +173,13 @@ const FullBlock = ({
         {String(value).padStart(2, "0")}
       </span>
       <div
-        className={`h-1 w-12 rounded-full mt-2 ${
+        className={`h-0.5 w-8 md:w-12 rounded-full mt-1.5 md:mt-2 ${
           highlight ? "bg-primary/60" : "bg-[#d4ad6a]/30"
         }`}
         aria-hidden="true"
       ></div>
     </div>
-    <p className="text-gold font-bold uppercase tracking-widest text-xs mt-2">
+    <p className="text-gold font-bold uppercase tracking-widest text-[10px] md:text-xs mt-1 md:mt-2">
       {label}
     </p>
   </div>

@@ -56,7 +56,7 @@ export function Toast({ message, type = "success", duration = 3500, onClose }: T
       aria-live="polite"
       aria-atomic="true"
       className={`
-        fixed bottom-6 right-6 z-50
+        fixed bottom-4 right-4 left-4 sm:bottom-6 sm:right-6 sm:left-auto z-50
         transition-all duration-300 ease-out
         ${isVisible && !isLeaving ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
       `}
@@ -66,10 +66,10 @@ export function Toast({ message, type = "success", duration = 3500, onClose }: T
           ${style.bg} ${style.border}
           backdrop-blur-sm
           border-b-4
-          text-white px-5 py-4 rounded-xl
+          text-white px-4 sm:px-5 py-3.5 sm:py-4 rounded-xl
           shadow-2xl ${style.shadow}
           flex items-center gap-3
-          min-w-[280px] max-w-[400px]
+          w-full sm:min-w-[280px] sm:max-w-[400px]
         `}
       >
         <span 
