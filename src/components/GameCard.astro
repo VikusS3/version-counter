@@ -44,15 +44,11 @@ const accentColor = (alias && colorMap[alias]) || GAME_COLORS.genshin;
   href=`games${href}`
   class="group relative overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-900 h-95 flex flex-col justify-end p-4 sm:p-8 transition-all"
 >
-  <div class="absolute inset-0 overflow-hidden">
-    <img
-      src={imagen}
-      alt=""
-      fetchpriority="high"
-      class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-    />
-    <div class="absolute inset-0 bg-linear-to-b from-black/20 to-black/95">
-    </div>
+  <div
+    class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+    style=`background-image: linear-gradient(180deg, rgba(10, 10, 12, 0.2) 0%, rgba(10, 10, 12, 0.95) 100%), url(${imagen});`
+    aria-hidden="true"
+  >
   </div>
   <div
     class="absolute top-4 sm:top-6 right-4 sm:right-6 glass-panel px-2.5 sm:px-3 py-1 rounded-full"
