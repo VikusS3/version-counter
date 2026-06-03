@@ -61,7 +61,8 @@ function useTimer(fecha_inicio: string, duracion_dias: number) {
   const [timeLeft, setTimeLeft] = useState(() => {
     const now = Date.now();
     const diff = finMs - now;
-    if (diff <= 0) return { dias: 0, horas: 0, minutos: 0, segundos: 0, finished: true };
+    if (diff <= 0)
+      return { dias: 0, horas: 0, minutos: 0, segundos: 0, finished: true };
     const totalSeg = Math.floor(diff / 1000);
     return {
       dias: Math.floor(totalSeg / (60 * 60 * 24)),
@@ -77,7 +78,13 @@ function useTimer(fecha_inicio: string, duracion_dias: number) {
       const now = Date.now();
       const diff = finMs - now;
       if (diff <= 0) {
-        setTimeLeft({ dias: 0, horas: 0, minutos: 0, segundos: 0, finished: true });
+        setTimeLeft({
+          dias: 0,
+          horas: 0,
+          minutos: 0,
+          segundos: 0,
+          finished: true,
+        });
         clearInterval(id);
         return;
       }
@@ -97,7 +104,11 @@ function useTimer(fecha_inicio: string, duracion_dias: number) {
   return timeLeft;
 }
 
-function GameCardComponent({ game, isVisible, labels }: {
+function GameCardComponent({
+  game,
+  isVisible,
+  labels,
+}: {
   game: GameItem;
   isVisible: boolean;
   labels: GameDashboardProps["labels"];
@@ -205,7 +216,9 @@ export function GameDashboard({
   const [visibility, setVisibility] =
     useState<VisibilityState>(DEFAULT_VISIBILITY);
   const [isLoaded, setIsLoaded] = useState(false);
-  const saveTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
+  const saveTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(
+    undefined,
+  );
 
   useEffect(() => {
     try {
