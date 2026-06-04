@@ -216,6 +216,7 @@ export function GameDashboard({
   const [visibility, setVisibility] =
     useState<VisibilityState>(DEFAULT_VISIBILITY);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [filterOpen, setFilterOpen] = useState(false);
   const saveTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(
     undefined,
   );
@@ -291,9 +292,28 @@ export function GameDashboard({
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <h2 className="text-base sm:text-lg font-semibold text-slate-200">
-          {labels.filterTitle}
-        </h2>
+        <button
+          onClick={() => setFilterOpen(!filterOpen)}
+          className="flex items-center gap-2 cursor-pointer text-left"
+          aria-expanded={filterOpen}
+          aria-controls="filter-controls"
+          type="button"
+        >
+          <h2 className="text-base sm:text-lg font-semibold text-slate-200">
+            {labels.filterTitle}
+          </h2>
+          <svg
+            className={`w-4 h-4 text-slate-500 transition-transform duration-300 ${
+              filterOpen ? "rotate-180" : ""
+            }`}
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" />
+          </svg>
+        </button>
         <div className="flex gap-2">
           <button
             onClick={showAll}
@@ -312,60 +332,69 @@ export function GameDashboard({
         </div>
       </div>
 
-      <div className="flex flex-wrap gap-2 sm:gap-3 justify-center mb-6 sm:mb-8">
-        {games.map((game) => {
-          const isVisible = visibility[game.alias];
-          const accentColor = game.tema || "#4ade80";
+      <div
+        id="filter-controls"
+        className={`grid transition-[grid-template-rows] duration-300 ease-in-out ${
+          filterOpen ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        }`}
+      >
+        <div className="overflow-hidden">
+          <div className="flex flex-wrap gap-2 sm:gap-3 justify-center mb-6 sm:mb-8">
+            {games.map((game) => {
+              const isVisible = visibility[game.alias];
+              const accentColor = game.tema || "#4ade80";
 
-          return (
-            <button
-              key={game.alias}
-              onClick={() => toggleGame(game.alias)}
-              className={`group relative flex flex-col items-center gap-1.5 sm:gap-2 p-2 sm:p-3 rounded-xl transition-all duration-300 cursor-pointer ${
-                isVisible
-                  ? "bg-slate-800/80 hover:bg-slate-700/80"
-                  : "bg-slate-900/50 opacity-40 hover:opacity-60"
-              }`}
-              style={{
-                borderColor: isVisible ? accentColor : "transparent",
-                borderWidth: "1px",
-              }}
-              aria-label={`${game.nombre_oficial}: ${
-                isVisible ? labels.gameVisible : labels.gameHidden
-              }`}
-              aria-pressed={!isVisible}
-            >
-              <div
-                className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg overflow-hidden transition-transform duration-200 group-hover:scale-105 ${
-                  !isVisible ? "grayscale opacity-50" : ""
-                }`}
-              >
-                <img
-                  src={game.icon}
-                  alt=""
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-              </div>
-              <span
-                className={`text-[10px] sm:text-xs font-medium transition-colors ${
-                  isVisible ? "text-slate-200" : "text-slate-500"
-                }`}
-              >
-                {game.nombre_oficial.length > 10
-                  ? game.nombre_oficial.slice(0, 10) + "..."
-                  : game.nombre_oficial}
-              </span>
-              <div
-                className={`absolute top-1 right-1 w-2 h-2 rounded-full transition-all ${
-                  isVisible ? "scale-100" : "scale-0"
-                }`}
-                style={{ backgroundColor: accentColor }}
-                aria-hidden="true"
-              />
-            </button>
-          );
-        })}
+              return (
+                <button
+                  key={game.alias}
+                  onClick={() => toggleGame(game.alias)}
+                  className={`group relative flex flex-col items-center gap-1.5 sm:gap-2 p-2 sm:p-3 rounded-xl transition-all duration-300 cursor-pointer ${
+                    isVisible
+                      ? "bg-slate-800/80 hover:bg-slate-700/80"
+                      : "bg-slate-900/50 opacity-40 hover:opacity-60"
+                  }`}
+                  style={{
+                    borderColor: isVisible ? accentColor : "transparent",
+                    borderWidth: "1px",
+                  }}
+                  aria-label={`${game.nombre_oficial}: ${
+                    isVisible ? labels.gameVisible : labels.gameHidden
+                  }`}
+                  aria-pressed={!isVisible}
+                >
+                  <div
+                    className={`w-10 h-10 sm:w-12 sm:h-12 rounded-lg overflow-hidden transition-transform duration-200 group-hover:scale-105 ${
+                      !isVisible ? "grayscale opacity-50" : ""
+                    }`}
+                  >
+                    <img
+                      src={game.icon}
+                      alt=""
+                      className="w-full h-full object-cover"
+                      loading="lazy"
+                    />
+                  </div>
+                  <span
+                    className={`text-[10px] sm:text-xs font-medium transition-colors ${
+                      isVisible ? "text-slate-200" : "text-slate-500"
+                    }`}
+                  >
+                    {game.nombre_oficial.length > 10
+                      ? game.nombre_oficial.slice(0, 10) + "..."
+                      : game.nombre_oficial}
+                  </span>
+                  <div
+                    className={`absolute top-1 right-1 w-2 h-2 rounded-full transition-all ${
+                      isVisible ? "scale-100" : "scale-0"
+                    }`}
+                    style={{ backgroundColor: accentColor }}
+                    aria-hidden="true"
+                  />
+                </button>
+              );
+            })}
+          </div>
+        </div>
       </div>
 
       {allHidden && (
