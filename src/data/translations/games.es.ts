@@ -42,10 +42,10 @@ export const gamesTranslations: Record<string, GameTranslation> = {
   "arknights-endfield": {
     nombre: "Cuenta Regresiva Nueva Versión Arknights Endfield",
     descripcion:
-      "Cuenta regresiva Arknights Endfield 1.3 para todas las regiones como América, Europa, Asia. Cuenta regresiva de banners, notas del parche y más.",
-    slogan_desc: "La versión 1.2 ya está disponible, nuevos personajes y más.",
+      "Cuenta regresiva Arknights Endfield 1.4 para todas las regiones como América, Europa, Asia. Cuenta regresiva de banners, notas del parche y más.",
+    slogan_desc: "La versión 1.3 ya está disponible, nuevos personajes y más.",
     patch_notes_description:
-      "Últimas notas del parche para Arknights Endfield 1.2",
+      "Últimas notas del parche para Arknights Endfield 1.3",
   },
   "neverness-to-everness": {
     nombre: "Cuenta Regresiva Nueva Versión Neverness to Everness",
