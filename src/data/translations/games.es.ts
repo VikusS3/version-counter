@@ -17,11 +17,11 @@ export const gamesTranslations: Record<string, GameTranslation> = {
   "wuthering-waves": {
     nombre: "Cuenta Regresiva Nueva Versión Wuthering Waves",
     descripcion:
-      "Cuenta regresiva Wuthering Waves 3.4 para todas las regiones como América, Europa, Asia. Cuenta regresiva de banners, notas del parche y más.",
+      "Cuenta regresiva Wuthering Waves 3.5 para todas las regiones como América, Europa, Asia. Cuenta regresiva de banners, notas del parche y más.",
     slogan_desc:
-      "Hiyuki esta ahora disponible en wuthering waves, nuevos mapas y más.",
+      "Lucy y Rebeca están ahora disponibles en wuthering waves, nuevos mapas y más.",
     patch_notes_description:
-      "Últimas notas del parche para Wuthering Waves 3.3",
+      "Últimas notas del parche para Wuthering Waves 3.4",
   },
   "honkai-star-rail": {
     nombre: "Cuenta Regresiva Nueva Versión Honkai Star Rail",
