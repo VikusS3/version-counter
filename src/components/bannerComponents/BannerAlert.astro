@@ -1,0 +1,65 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { bannersData } from "../../data/banners";
+
+interface Props {
+  game: string;
+  color?: string;
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { game, color = "var(--color-primary)" } = Astro.props;
+
+const gameBanners = bannersData.find((g) => g.game === game);
+const hasBanners = gameBanners && gameBanners.banners.length > 0;
+---
+
+{
+  hasBanners && (
+    <a
+      href={lang === "en" ? `/banners/#${game}` : `/es/banners/#${game}`}
+      class="block group"
+      aria-label={t.banner.bannerAlert}
+    >
+      <div
+        class="glass-panel rounded-xl p-3 sm:p-4 flex items-center gap-3 hover:bg-white/5 transition-all duration-300 border border-white/5 hover:border-(--alert-color)/30"
+        style={`--alert-color: ${color}`}
+      >
+        <div
+          class="size-9 sm:size-10 rounded-lg flex items-center justify-center shrink-0"
+          style={`background: ${color}20`}
+        >
+          <span
+            class="material-symbols-outlined text-lg sm:text-xl"
+            style={`color: ${color}`}
+            aria-hidden="true"
+          >
+            trophy
+          </span>
+        </div>
+        <div class="flex-1 min-w-0">
+          <p
+            class="text-white text-xs sm:text-sm font-bold leading-tight"
+          >
+            {t.banner.bannerAlert}
+          </p>
+          <p
+            class="text-slate-500 text-[10px] sm:text-xs leading-tight mt-0.5"
+          >
+            {t.banner.bannerAlertDesc}
+          </p>
+        </div>
+        <div
+          class="text-(--alert-color) text-xs sm:text-sm font-bold flex items-center gap-1 group-hover:gap-2 transition-all shrink-0"
+          style={`color: ${color}`}
+        >
+          {t.banner.viewNow}
+          <span class="material-symbols-outlined text-sm sm:text-base" aria-hidden="true"
+            >arrow_forward</span
+          >
+        </div>
+      </div>
+    </a>
+  )
+}

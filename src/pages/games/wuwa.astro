@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import { Counter } from "../../components/react/Counter";
 import { CopyButton } from "../../components/react/CopyButton";
+import BannerAlert from "../../components/bannerComponents/BannerAlert.astro";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 import { getLocalizedGame } from "../../data/translations/getGameData";
 
@@ -82,7 +83,10 @@ const game = getLocalizedGame("wuthering-waves", lang);
             }}
           />
         </div>
-        <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-6 sm:mt-8">
+        <div class="mt-6 sm:mt-8">
+          <BannerAlert game="wuthering-waves" color="var(--color-wuwa-blue)" />
+        </div>
+        <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-3 sm:mt-4">
           <a
             target="_blank"
             rel="noopener noreferer"

@@ -55,14 +55,14 @@ const localizedHomeUrl = getLocalizedUrl(Astro.url, targetLocale);
     >
     <a
       class={`text-sm font-semibold transition-colors nav-link ${
-        isActive("/patch/")
+        isActive("/banners/")
           ? "text-primary nav-link-active"
           : "text-slate-500 dark:text-slate-400 hover:text-primary"
       }`}
-      href={currentLocale === defaultLocale ? "/patch/" : "/es/patch/"}
-      aria-current={isActive("/patch/") || isActive("/es/patch/")
+      href={currentLocale === defaultLocale ? "/banners/" : "/es/banners/"}
+      aria-current={isActive("/banners/") || isActive("/es/banners/")
         ? "page"
-        : undefined}>{t.nav.patchNotes}</a
+        : undefined}>{t.nav.currentBanners}</a
     >
     <a
       class={`text-sm font-semibold transition-colors nav-link ${
@@ -101,7 +101,7 @@ const localizedHomeUrl = getLocalizedUrl(Astro.url, targetLocale);
   <!-- Mobile Menu Button -->
   <button
     id="mobile-menu-btn"
-    class="md:hidden p-3 text-slate-500 dark:text-slate-400 hover:text-primary transition-colors min-w-[48px] min-h-[48px] flex items-center justify-center"
+    class="md:hidden p-3 text-slate-500 dark:text-slate-400 hover:text-primary transition-colors min-w-[48px] min-h-12 flex items-center justify-center"
     aria-label="Open menu"
     aria-expanded="false"
     aria-controls="mobile-menu"
@@ -134,7 +134,7 @@ const localizedHomeUrl = getLocalizedUrl(Astro.url, targetLocale);
     >
     <button
       id="mobile-close-btn"
-      class="p-3 text-slate-400 hover:text-primary transition-colors min-w-[48px] min-h-[48px] flex items-center justify-center"
+      class="p-3 text-slate-400 hover:text-primary transition-colors min-w-12 min-h-12 flex items-center justify-center"
       aria-label="Close menu"
     >
       <span class="material-symbols-outlined text-2xl" aria-hidden="true"
@@ -157,12 +157,12 @@ const localizedHomeUrl = getLocalizedUrl(Astro.url, targetLocale);
     >
     <a
       class={`mobile-nav-link text-xl md:text-2xl font-bold py-4 px-3 rounded-xl transition-colors ${
-        isActive("/patch/")
+        isActive("/banners/")
           ? "text-primary bg-primary/10"
           : "text-slate-300 hover:bg-white/5"
       }`}
-      href={currentLocale === defaultLocale ? "/patch/" : "/es/patch/"}
-      tabindex="0">{t.nav.patchNotes}</a
+      href={currentLocale === defaultLocale ? "/banners/" : "/es/banners/"}
+      tabindex="0">{t.nav.currentBanners}</a
     >
     <a
       class={`mobile-nav-link text-xl md:text-2xl font-bold py-4 px-3 rounded-xl transition-colors ${

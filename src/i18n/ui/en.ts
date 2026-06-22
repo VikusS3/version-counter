@@ -1,6 +1,7 @@
 export const en = {
   nav: {
     dashboard: "Dashboard",
+    currentBanners: "Current Banners",
     patchNotes: "Patch Notes",
     characterGuides: "Character Guides",
     pullTracker: "Pull Tracker",
@@ -61,6 +62,24 @@ export const en = {
     publishers: "Syncing across {count} publishers",
     allOperational: "All Operational",
   },
+  banner: {
+    title: "Current Banners & Warps - Gacha Game Banner Schedule",
+    subtitle: "Track active and upcoming character event warps, weapon banners, and limited-time banners for Wuthering Waves, Genshin Impact, Honkai Star Rail, Zenless Zone Zero, and more gacha games.",
+    liveBanners: "LIVE BANNERS",
+    active: "Active",
+    upcoming: "Upcoming",
+    ended: "Ended",
+    characterBanner: "Character",
+    weaponBanner: "Weapon",
+    featuredBanner: "Featured",
+    banner: "Banner",
+    banners: "Banners",
+    noBanners: "No active banners at the moment. Check back soon!",
+    viewBanners: "View Current Banners",
+    bannerAlert: "Active Banners Available",
+    bannerAlertDesc: "Check out current warps and limited-time banners",
+    viewNow: "View Now",
+  },
   patch: {
     title: "Patch Notes Database",
     subtitle: "Official patch notes from all gacha games",
@@ -96,9 +115,9 @@ export const en = {
   },
   meta: {
     description:
-      "Track upcoming maintenance and patch releases for Genshin Impact, Honkai Star Rail, Wuthering Waves, and Zenless Zone Zero.",
+      "Track gacha game banners, version countdowns, and patch releases for Genshin Impact, Honkai Star Rail, Wuthering Waves, and Zenless Zone Zero.",
     keywords:
-      "game version countdown, game update tracker, genshin impact, honkai star rail, wuthering waves, zenless zone zero, gacha game updates",
+      "gacha banners, game version countdown, game update tracker, genshin impact banners, honkai star rail warps, wuthering waves banners, zenless zone zero banners, gacha game updates",
   },
   common: {
     ver: "VER",

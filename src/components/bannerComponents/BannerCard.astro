@@ -1,0 +1,143 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { getBannerStatus, formatDate } from "../../types/banners";
+import type { Banner } from "../../types/banners";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+interface Props {
+  banner: Banner;
+  gameColor: string;
+}
+
+const { banner, gameColor } = Astro.props;
+const status = getBannerStatus(banner);
+
+const statusConfig = {
+  active: {
+    label: t.banner.active,
+    class: "bg-emerald-500/15 text-emerald-400 border-emerald-500/25",
+    dot: "bg-emerald-400",
+    glow: "shadow-emerald-500/20",
+  },
+  upcoming: {
+    label: t.banner.upcoming,
+    class: "bg-amber-500/15 text-amber-400 border-amber-500/25",
+    dot: "bg-amber-400",
+    glow: "shadow-amber-500/15",
+  },
+  ended: {
+    label: t.banner.ended,
+    class: "bg-white/[0.03] text-slate-500 border-white/[0.06]",
+    dot: "bg-slate-500",
+    glow: "shadow-transparent",
+  },
+}[status];
+
+const typeLabel =
+  banner.type === "character"
+    ? t.banner.characterBanner
+    : banner.type === "weapon"
+      ? t.banner.weaponBanner
+      : t.banner.featuredBanner;
+
+const typeIcon =
+  banner.type === "character"
+    ? "person"
+    : banner.type === "weapon"
+      ? "swords"
+      : "stars";
+---
+
+<div
+  class="banner-card relative group"
+  style={`--accent: ${gameColor}`}
+>
+  <!-- Hover glow -->
+  <div
+    class="absolute -inset-3 rounded-3xl opacity-0 group-hover:opacity-100 blur-3xl transition-all duration-700 pointer-events-none"
+    style={`background: radial-gradient(circle at 50% 50%, ${gameColor}22, transparent 70%)`}
+  />
+
+  <!-- Card frame -->
+  <div
+    class="relative rounded-2xl overflow-hidden bg-card-dark border border-white/[0.06] group-hover:border-white/[0.12] transition-all duration-500 shadow-lg shadow-black/30"
+  >
+    <!-- Accent bar - always visible, brighter on hover -->
+    <div
+      class="absolute top-0 left-0 right-0 h-[2px] z-10 transition-all duration-500"
+      style="background: linear-gradient(90deg, var(--accent), var(--accent), transparent)"
+    />
+
+    <!-- Image container with stronger gradient overlay -->
+    <div class="relative overflow-hidden">
+      <img
+        class="w-full aspect-[4/5] sm:aspect-[3/4] object-cover transition-all duration-700 ease-out group-hover:scale-105 group-hover:brightness-110"
+        src={banner.image}
+        alt={banner.title}
+        loading="lazy"
+        sizes="(max-width: 768px) 50vw, (max-width: 1280px) 33vw, 25vw"
+      />
+
+      <!-- Richer gradient overlay -->
+      <div
+        class="absolute inset-0 bg-gradient-to-t from-background-dark via-background-dark/30 to-transparent"
+      />
+      <div
+        class="absolute inset-0 bg-gradient-to-b from-background-dark/10 via-transparent to-transparent"
+      />
+    </div>
+
+    <!-- Phase badge (if exists) -->
+    {
+      banner.phase && (
+        <div class="absolute top-3 left-3">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.12em] rounded-md bg-black/60 text-white/60 border border-white/[0.06] backdrop-blur-sm font-mono">
+            {banner.phase}
+          </span>
+        </div>
+      )
+    }
+
+    <!-- Type badge -->
+    <div class="absolute top-3 right-3">
+      <span class="inline-flex items-center gap-1.5 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.15em] rounded-md bg-black/60 border border-white/[0.06] text-slate-400 backdrop-blur-sm">
+        <span class="material-symbols-outlined text-[10px]" aria-hidden="true">{typeIcon}</span>
+        {typeLabel}
+      </span>
+    </div>
+
+    <!-- Status badge - bottom right on image -->
+    <div class="absolute bottom-0 right-0 m-3">
+      <span class={`inline-flex items-center gap-1.5 px-2.5 py-1 text-[9px] font-bold uppercase tracking-[0.15em] rounded-md border backdrop-blur-sm ${statusConfig.class} shadow-lg ${statusConfig.glow}`}>
+        <span class="relative flex h-1.5 w-1.5" aria-hidden="true">
+          {status === "active" && (
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+          )}
+          <span class={`relative inline-flex rounded-full h-1.5 w-1.5 ${statusConfig.dot}`} />
+        </span>
+        {statusConfig.label}
+      </span>
+    </div>
+
+    <!-- Bottom content -->
+    <div class="relative p-4 pt-3.5">
+      <h3 class="text-base sm:text-lg md:text-xl font-black text-white leading-tight mb-2.5 line-clamp-2">
+        {banner.title}
+      </h3>
+
+      <!-- Date line -->
+      <div class="flex items-center gap-1.5 text-[11px] sm:text-xs text-slate-600">
+        <span class="material-symbols-outlined text-[12px]" aria-hidden="true">schedule</span>
+        <span class="font-medium text-slate-500">{formatDate(banner.startDate, lang)}</span>
+        <span class="text-slate-700">—</span>
+        <span class="font-medium text-slate-500">{formatDate(banner.endDate, lang)}</span>
+      </div>
+    </div>
+
+    <!-- Bottom accent glow -->
+    <div class="absolute bottom-0 left-0 right-0 h-[1px] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+      style="background: linear-gradient(90deg, transparent, var(--accent), transparent)" />
+  </div>
+</div>

@@ -1,0 +1,21 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import BannerTracker from "../../components/bannerComponents/BannerTracker.astro";
+import { bannersData } from "../../data/banners";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+---
+
+<Layout
+  title={t.banner.title}
+  description={t.banner.subtitle}
+>
+  <main
+    id="main-content"
+    class="flex-1 w-full px-4 sm:px-6 lg:px-8 py-10 sm:py-14"
+  >
+    <BannerTracker games={bannersData} />
+  </main>
+</Layout>

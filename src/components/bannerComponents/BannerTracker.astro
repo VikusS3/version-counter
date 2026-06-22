@@ -1,0 +1,305 @@
+---
+import { getLangFromUrl, useTranslations } from "../../i18n/utils";
+import { getBannerStatus, formatDate } from "../../types/banners";
+import type { GameBanners } from "../../types/banners";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+interface Props {
+  games: GameBanners[];
+}
+
+const { games } = Astro.props;
+const totalBanners = games.reduce((acc, g) => acc + g.banners.length, 0);
+---
+
+<section class="banner-tracker w-full max-w-5xl mx-auto">
+  <!-- Warm noise overlay -->
+  <div class="fixed inset-0 pointer-events-none z-50 opacity-[0.025]" aria-hidden="true"
+    style="background-image: url('data:image/svg+xml,%3Csvg viewBox=\'0 0 256 256\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noise\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.7\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noise)\' opacity=\'1\'/%3E%3C/svg%3E')">
+  </div>
+
+  <!-- Header -->
+  <div class="flex items-center justify-between mb-6 sm:mb-8">
+    <div class="flex items-center gap-3">
+      <div class="relative flex h-2 w-2">
+        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
+        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400 shadow-[0_0_6px_rgba(52,211,153,0.5)]" />
+      </div>
+      <h2 class="text-white font-bold text-sm sm:text-base tracking-wide">
+        {t.banner.title}
+      </h2>
+    </div>
+    <span class="text-[11px] sm:text-xs text-slate-600 font-mono tabular-nums">
+      {totalBanners} {totalBanners === 1 ? t.banner.banner : t.banner.banners}
+    </span>
+  </div>
+
+  <!-- Game Tab Bar -->
+  <div class="overflow-x-auto no-scrollbar -mx-4 sm:-mx-0 mb-6">
+    <div class="flex gap-2 px-4 sm:px-0 min-w-max">
+      {games.map((game, idx) => {
+        const activeBanners = game.banners.filter((b) => getBannerStatus(b) === "active").length;
+        return (
+          <a
+            href={`#${game.game}`}
+            class="game-tab group relative flex items-center gap-2.5 px-3.5 py-2 rounded-xl transition-all duration-300 border border-white/[0.04]"
+            style={`--game-color: ${game.gameColor}`}
+          >
+            <div class="size-6 rounded-md overflow-hidden shrink-0 ring-1 ring-white/[0.06]">
+              <img
+                class="w-full h-full object-cover"
+                src={game.icon}
+                alt=""
+                loading="lazy"
+              />
+            </div>
+            <span class="text-xs font-semibold text-slate-300 group-hover:text-white transition-colors whitespace-nowrap">
+              {game.gameTitle}
+            </span>
+            {activeBanners > 0 && (
+              <span class="text-[9px] font-bold px-1.5 py-0.5 rounded-md bg-emerald-500/15 text-emerald-400/80 border border-emerald-500/20 leading-none">
+                {activeBanners}
+              </span>
+            )}
+            <!-- Active indicator -->
+            <div
+              class="absolute bottom-0 left-2 right-2 h-[2px] rounded-full opacity-0 group-target:opacity-100 transition-opacity"
+              style="background: var(--game-color)"
+            />
+          </a>
+        );
+      })}
+    </div>
+  </div>
+
+  <!-- Game Sections -->
+  <div class="space-y-8">
+    {games.map((gameSection, idx) => {
+      const activeBanners = gameSection.banners.filter((b) => getBannerStatus(b) === "active");
+      return (
+        <article
+          id={gameSection.game}
+          class="game-section scroll-mt-20 rounded-2xl border border-white/[0.04] bg-white/[0.015] p-5 sm:p-6"
+          style={`--game-color: ${gameSection.gameColor}; --delay: ${idx * 0.08}s`}
+        >
+          <!-- Section ambient -->
+          <div class="absolute inset-0 pointer-events-none overflow-hidden rounded-2xl" aria-hidden="true">
+            <div class="absolute -top-20 -right-20 w-60 h-60 rounded-full opacity-[0.03]"
+              style={`background: radial-gradient(circle, ${gameSection.gameColor}, transparent 70%)`} />
+          </div>
+
+          <!-- Game header row -->
+          <div class="flex items-center justify-between mb-3">
+            <div class="flex items-center gap-3">
+              <div class="size-10 sm:size-11 rounded-xl overflow-hidden ring-1 ring-white/[0.06] shrink-0">
+                <img
+                  class="w-full h-full object-cover"
+                  src={gameSection.icon}
+                  alt={gameSection.gameTitle}
+                  loading="lazy"
+                />
+              </div>
+              <div>
+                <h3 class="text-base sm:text-lg font-bold text-white leading-tight">
+                  {gameSection.gameTitle}
+                </h3>
+                <p class="text-xs sm:text-sm text-slate-600 font-mono">
+                  {gameSection.banners.length} {gameSection.banners.length === 1 ? t.banner.banner : t.banner.banners}
+                  {activeBanners.length > 0 && (
+                    <> &middot; <span class="text-emerald-400/70">{activeBanners.length} {t.banner.active.toLowerCase()}</span></>
+                  )}
+                </p>
+              </div>
+            </div>
+            <span class="text-xs sm:text-sm font-mono text-slate-600 tabular-nums border border-white/[0.04] px-2.5 py-1 rounded-md">
+              {String(idx + 1).padStart(2, "0")}/{String(games.length).padStart(2, "0")}
+            </span>
+          </div>
+
+          <!-- Accent divider -->
+          <div class="h-px w-full mb-5 opacity-30"
+            style={`background: linear-gradient(90deg, ${gameSection.gameColor}, transparent)`} />
+
+          <!-- Banner Cards -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {gameSection.banners.map((banner) => {
+              const status = getBannerStatus(banner);
+              return (
+                <div
+                  class="compact-card group relative flex items-start gap-4 rounded-xl p-4 border transition-all duration-300"
+                  class:list={[
+                    "border-white/[0.04] bg-white/[0.02]",
+                    status === "active" && "hover:border-emerald-500/20 hover:bg-emerald-500/[0.02]",
+                    status === "upcoming" && "hover:border-amber-500/20 hover:bg-amber-500/[0.02]",
+                    status === "ended" && "hover:border-white/[0.06] hover:bg-white/[0.02]",
+                  ]}
+                >
+                  <!-- Status stripe -->
+                  <div
+                    class="absolute left-0 top-3 bottom-3 w-[3px] rounded-full transition-colors"
+                    class:list={[
+                      status === "active" && "bg-emerald-500/60",
+                      status === "upcoming" && "bg-amber-500/50",
+                      status === "ended" && "bg-white/[0.06]",
+                    ]}
+                  />
+
+                  <!-- Thumbnail -->
+                  <div class="relative size-24 sm:size-28 rounded-xl overflow-hidden shrink-0 ring-1 ring-white/[0.06]">
+                    <img
+                      class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      src={banner.image}
+                      alt=""
+                      loading="lazy"
+                    />
+                    <div class="absolute inset-0 bg-gradient-to-t from-background-dark/50 to-transparent" />
+                  </div>
+
+                  <!-- Info -->
+                  <div class="flex-1 min-w-0 pt-1">
+                    <div class="flex items-start justify-between gap-2">
+                      <h4 class="text-base sm:text-lg font-bold text-white leading-tight truncate">
+                        {banner.title}
+                      </h4>
+                      <span class="shrink-0 relative flex h-2 w-2 mt-2"
+                        class:list={[
+                          status === "active" && "",
+                          status === "upcoming" && "",
+                          status === "ended" && "opacity-30",
+                        ]}
+                      >
+                        {status === "active" && (
+                          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
+                        )}
+                        <span class="relative inline-flex rounded-full h-2 w-2"
+                          class:list={[
+                            status === "active" && "bg-emerald-400",
+                            status === "upcoming" && "bg-amber-400",
+                            status === "ended" && "bg-white/[0.15]",
+                          ]}
+                        />
+                      </span>
+                    </div>
+
+                    <div class="flex flex-wrap items-center gap-1.5 mt-2">
+                      <span class="text-[10px] sm:text-[11px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-md border"
+                        class:list={[
+                          banner.type === "character" && "text-sky-400/80 border-sky-400/15 bg-sky-400/5",
+                          banner.type === "weapon" && "text-violet-400/80 border-violet-400/15 bg-violet-400/5",
+                          banner.type === "featured" && "text-amber-400/80 border-amber-400/15 bg-amber-400/5",
+                        ]}
+                      >
+                        {banner.type === "character" ? t.banner.characterBanner
+                          : banner.type === "weapon" ? t.banner.weaponBanner
+                          : t.banner.featuredBanner}
+                      </span>
+                      {banner.phase && (
+                        <span class="text-[10px] sm:text-[11px] font-mono text-slate-500 px-2 py-0.5 rounded-md border border-white/[0.04] bg-white/[0.02]">
+                          {banner.phase}
+                        </span>
+                      )}
+                    </div>
+
+                    <div class="flex items-center gap-1.5 mt-2.5 text-xs sm:text-sm text-slate-600">
+                      <span class="material-symbols-outlined text-[13px] sm:text-sm" aria-hidden="true">calendar_month</span>
+                      <span>{formatDate(banner.startDate, lang)}</span>
+                      <span class="text-slate-700">&rarr;</span>
+                      <span>{formatDate(banner.endDate, lang)}</span>
+                    </div>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+
+          <!-- Section page dots (mobile) -->
+          {games.length > 1 && (
+            <div class="flex items-center justify-center gap-1.5 mt-4 sm:hidden">
+              {games.map((_, dotIdx) => (
+                <a
+                  href={`#${games[dotIdx].game}`}
+                  class="block w-1.5 h-1.5 rounded-full transition-all duration-300"
+                  class:list={[
+                    dotIdx === idx ? "bg-white/30" : "bg-white/[0.06] hover:bg-white/20",
+                  ]}
+                  aria-label={`${games[dotIdx].gameTitle} section`}
+                />
+              ))}
+            </div>
+          )}
+        </article>
+      );
+    })}
+  </div>
+
+  <!-- Empty state -->
+  {games.length === 0 && (
+    <div class="rounded-2xl border border-white/[0.04] bg-white/[0.015] p-8 sm:p-10 text-center">
+      <div class="inline-flex items-center justify-center size-10 rounded-xl bg-white/[0.03] border border-white/[0.06] mb-3">
+        <span class="material-symbols-outlined text-lg text-slate-500" aria-hidden="true">info</span>
+      </div>
+      <p class="text-slate-500 text-sm leading-relaxed">
+        {t.banner.noBanners}
+      </p>
+    </div>
+  )}
+</section>
+
+<style>
+  .game-section {
+    position: relative;
+    opacity: 0;
+    transform: translateY(12px);
+    animation: sectionIn 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: var(--delay, 0s);
+  }
+
+  @keyframes sectionIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .compact-card {
+    position: relative;
+    opacity: 0;
+    transform: translateY(8px);
+    animation: cardIn 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    animation-delay: calc(var(--delay, 0s) + 0.1s);
+  }
+
+  .compact-card:nth-child(2) { animation-delay: calc(var(--delay, 0s) + 0.15s); }
+  .compact-card:nth-child(3) { animation-delay: calc(var(--delay, 0s) + 0.2s); }
+  .compact-card:nth-child(4) { animation-delay: calc(var(--delay, 0s) + 0.25s); }
+
+  @keyframes cardIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .game-section,
+    .compact-card {
+      opacity: 1;
+      transform: none;
+      animation: none;
+    }
+  }
+</style>
+
+<script>
+  if (window.location.hash) {
+    const id = window.location.hash.slice(1);
+    const el = document.getElementById(id);
+    if (el) {
+      setTimeout(() => {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }, 300);
+    }
+  }
+</script>

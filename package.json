@@ -12,20 +12,20 @@
     "test:watch": "vitest"
   },
   "dependencies": {
-    "@astrojs/react": "^5.0.3",
-    "@astrojs/sitemap": "^3.7.0",
+    "@astrojs/react": "5.0.7",
+    "@astrojs/sitemap": "3.7.3",
     "@fontsource-variable/orbitron": "^5.2.8",
     "@tailwindcss/vite": "^4.1.18",
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
-    "astro": "^5.16.7",
+    "astro": "6.4.7",
     "material-symbols": "^0.44.11",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "tailwindcss": "^4.1.18"
   },
   "devDependencies": {
-    "@astrojs/check": "^0.9.8",
+    "@astrojs/check": "^0.9.9",
     "@eslint/js": "^10.0.1",
     "@testing-library/react": "^16.3.2",
     "eslint": "^10.2.0",

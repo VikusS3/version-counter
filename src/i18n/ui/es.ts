@@ -1,6 +1,7 @@
 export const es = {
   nav: {
     dashboard: "Panel Principal",
+    currentBanners: "Banners Actuales",
     patchNotes: "Notas del Parche",
     characterGuides: "Guías de Personajes",
     pullTracker: "Seguimiento de wished",
@@ -59,6 +60,24 @@ export const es = {
     publishers: "Sincronizando con {count} editores",
     allOperational: "Todo Operativo",
   },
+  banner: {
+    title: "Banners Actuales - Calendario de Banners Gacha",
+    subtitle: "Rastrea los banners de personaje y armas activos y próximos para Wuthering Waves, Genshin Impact, Honkai Star Rail, Zenless Zone Zero y más juegos gacha.",
+    liveBanners: "BANNERS EN VIVO",
+    active: "Activo",
+    upcoming: "Próximo",
+    ended: "Finalizado",
+    characterBanner: "Personaje",
+    weaponBanner: "Arma",
+    featuredBanner: "Destacado",
+    banner: "Banner",
+    banners: "Banners",
+    noBanners: "No hay banners activos en este momento. ¡Vuelve pronto!",
+    viewBanners: "Ver Banners Actuales",
+    bannerAlert: "Banners Activos Disponibles",
+    bannerAlertDesc: "Revisa los warps actuales y banners por tiempo limitado",
+    viewNow: "Ver Ahora",
+  },
   patch: {
     title: "Base de Datos de Parches",
     subtitle: "Notas oficiales de parches de todos los juegos gacha",
@@ -91,8 +110,8 @@ export const es = {
     footerText: "¡Tu retroalimentación ayuda a mejorar este proyecto para todos!",
   },
   meta: {
-    description: "Rastrea los próximos mantenimientos y lanzamientos de parches para Genshin Impact, Honkai Star Rail, Wuthering Waves y Zenless Zone Zero.",
-    keywords: "cuenta regresiva versión juego, rastreador actualizaciones juegos, genshin impact, honkai star rail, wuthering waves, zenless zone zero, actualizaciones juegos gacha",
+    description: "Rastrea banners gacha, cuentas regresivas de versiones y parches para Genshin Impact, Honkai Star Rail, Wuthering Waves y Zenless Zone Zero.",
+    keywords: "banners gacha, banners genshin impact, banners wuthering waves, banners honkai star rail, banners zenless zone zero, cuenta regresiva versión juego, rastreador actualizaciones juegos",
   },
   common: {
     ver: "VER",
