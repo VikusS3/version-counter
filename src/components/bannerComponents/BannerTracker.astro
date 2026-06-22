@@ -37,17 +37,17 @@ const totalBanners = games.reduce((acc, g) => acc + g.banners.length, 0);
   </div>
 
   <!-- Game Tab Bar -->
-  <div class="overflow-x-auto no-scrollbar -mx-4 sm:-mx-0 mb-6">
+  <div class="overflow-x-auto no-scrollbar -mx-4 sm:mx-0 mb-6">
     <div class="flex gap-2 px-4 sm:px-0 min-w-max">
       {games.map((game, idx) => {
         const activeBanners = game.banners.filter((b) => getBannerStatus(b) === "active").length;
         return (
           <a
             href={`#${game.game}`}
-            class="game-tab group relative flex items-center gap-2.5 px-3.5 py-2 rounded-xl transition-all duration-300 border border-white/[0.04]"
+            class="game-tab group relative flex items-center gap-2.5 px-3.5 py-2 rounded-xl transition-all duration-300 border border-white/4"
             style={`--game-color: ${game.gameColor}`}
           >
-            <div class="size-6 rounded-md overflow-hidden shrink-0 ring-1 ring-white/[0.06]">
+            <div class="size-6 rounded-md overflow-hidden shrink-0 ring-1 ring-white/6">
               <img
                 class="w-full h-full object-cover"
                 src={game.icon}
@@ -65,7 +65,7 @@ const totalBanners = games.reduce((acc, g) => acc + g.banners.length, 0);
             )}
             <!-- Active indicator -->
             <div
-              class="absolute bottom-0 left-2 right-2 h-[2px] rounded-full opacity-0 group-target:opacity-100 transition-opacity"
+              class="absolute bottom-0 left-2 right-2 h-0.5 rounded-full opacity-0 group-target:opacity-100 transition-opacity"
               style="background: var(--game-color)"
             />
           </a>
@@ -81,7 +81,7 @@ const totalBanners = games.reduce((acc, g) => acc + g.banners.length, 0);
       return (
         <article
           id={gameSection.game}
-          class="game-section scroll-mt-20 rounded-2xl border border-white/[0.04] bg-white/[0.015] p-5 sm:p-6"
+          class="game-section scroll-mt-20 rounded-2xl border border-white/4 bg-white/1.5 p-5 sm:p-6"
           style={`--game-color: ${gameSection.gameColor}; --delay: ${idx * 0.08}s`}
         >
           <!-- Section ambient -->
@@ -93,7 +93,7 @@ const totalBanners = games.reduce((acc, g) => acc + g.banners.length, 0);
           <!-- Game header row -->
           <div class="flex items-center justify-between mb-3">
             <div class="flex items-center gap-3">
-              <div class="size-10 sm:size-11 rounded-xl overflow-hidden ring-1 ring-white/[0.06] shrink-0">
+              <div class="size-10 sm:size-11 rounded-xl overflow-hidden ring-1 ring-white/6 shrink-0">
                 <img
                   class="w-full h-full object-cover"
                   src={gameSection.icon}

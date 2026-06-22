@@ -94,7 +94,7 @@ export const bannersData: GameBanners[] = [
         title: "Mavuika",
         image: "/banners/genshin-impact/mavuika-banner.webp",
         startDate: "2026-06-17T01:30:00Z",
-        endDate: "2026-07-01T03:30:00Z",
+        endDate: "2026-07-0T03:30:00Z",
         type: "character",
         game: "genshin-impact",
       },
