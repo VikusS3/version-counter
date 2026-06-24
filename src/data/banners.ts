@@ -112,7 +112,7 @@ export const bannersData: GameBanners[] = [
         title: "Mortenax Blade",
         image: "/banners/honkai-star-rail/mortenax-blade-banner.webp",
         startDate: "2026-06-17T01:30:00Z",
-        endDate: "2026-07-08T03:30:00Z",
+        endDate: "2026-06-24T03:30:00Z",
         type: "character",
         game: "honkai-star-rail",
       },
