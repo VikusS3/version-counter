@@ -9,9 +9,9 @@ export const gamesTranslations: Record<string, GameTranslation> = {
   "genshin-impact": {
     nombre: "Genshin Impact New Version Countdown",
     descripcion:
-      "Genshin Impact 6.7 Countdown for all region like America, Europe, Asia. Genshin Banner Countdown, Patch Notes, and more.",
-    slogan_desc: "Nicole and a new story quest are now available.",
-    patch_notes_description: "Latest patch notes for Genshin Impact 6.6",
+      "Genshin Impact 7.0 Countdown for all region like America, Europe, Asia. Genshin Banner Countdown, Patch Notes, and more.",
+    slogan_desc: "Sandrone and a new story quest are now available.",
+    patch_notes_description: "Latest patch notes for Genshin Impact 6.7",
   },
   "wuthering-waves": {
     nombre: "Wuthering Waves New Version Countdown",
