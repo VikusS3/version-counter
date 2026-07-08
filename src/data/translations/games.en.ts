@@ -45,9 +45,9 @@ export const gamesTranslations: Record<string, GameTranslation> = {
   "neverness-to-everness": {
     nombre: "Neverness to Everness New Version Countdown",
     descripcion:
-      "Neverness to Everness 1.2 Countdown for all region like America, Europe, Asia. Genshin Banner Countdown, Patch Notes, and more.",
+      "Neverness to Everness 1.3 Countdown for all region like America, Europe, Asia. Genshin Banner Countdown, Patch Notes, and more.",
     slogan_desc:
-      "Nerver to Everness 1.1 is now available, new characters, and more.",
-    patch_notes_description: "Latest patch notes for Neverness to Everness 1.1",
+      "Nerver to Everness 1.2 is now available, new characters, and more.",
+    patch_notes_description: "Latest patch notes for Neverness to Everness 1.2",
   },
 };
