@@ -12,6 +12,31 @@ const t = useTranslations(lang);
   title={t.banner.title}
   description={t.banner.subtitle}
 >
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: t.banner.title,
+      description: t.banner.subtitle,
+      url: new URL("/banners", Astro.site).href,
+      mainEntity: bannersData.flatMap((game) =>
+        game.banners.map((banner) => ({
+          "@type": "Event",
+          name: banner.title,
+          description: `${banner.title} - ${game.gameTitle} banner`,
+          startDate: banner.startDate,
+          endDate: banner.endDate,
+          image: banner.image,
+          eventStatus: banner.startDate <= new Date().toISOString() && banner.endDate >= new Date().toISOString()
+            ? "https://schema.org/EventScheduled"
+            : banner.endDate < new Date().toISOString()
+            ? "https://schema.org/EventEnded"
+            : "https://schema.org/EventScheduled",
+        }))
+      ),
+    })}
+  />
   <main
     id="main-content"
     class="flex-1 w-full px-4 sm:px-6 lg:px-8 py-10 sm:py-14"

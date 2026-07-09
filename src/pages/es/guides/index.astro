@@ -8,6 +8,29 @@ const t = useTranslations("es");
 ---
 
 <Layout title={t.guides.title} description={t.guides.subtitle} lang="es">
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: t.guides.title,
+      description: t.guides.subtitle,
+      url: new URL("/es/guides", Astro.site).href,
+      mainEntity: {
+        "@type": "ItemList",
+        itemListElement: guides.map((guide, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          item: {
+            "@type": "VideoObject",
+            name: guide.title,
+            url: guide.youtubeUrl,
+            thumbnailUrl: guide.thumbnail,
+          },
+        })),
+      },
+    })}
+  />
   <main id="main-content" class="grow max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 w-full">
     <div class="mb-6 sm:mb-8">
       <h1 class="text-3xl sm:text-4xl font-bold mb-2">{t.guides.title}</h1>

@@ -51,7 +51,7 @@ const totalBanners = games.reduce((acc, g) => acc + g.banners.length, 0);
               <img
                 class="img-fade w-full h-full object-cover"
                 src={game.icon}
-                alt=""
+                alt={game.gameTitle}
                 loading="lazy"
                 decoding="async"
               />

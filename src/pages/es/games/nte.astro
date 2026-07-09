@@ -11,8 +11,8 @@ const game = getLocalizedGame("neverness-to-everness", "es");
 ---
 
 <Layout
-  title={`Neverness to Everness v${game?.proxima_version} Countdown`}
-  description={`Countdown to Neverness to Everness v${game?.proxima_version} release. Track version updates, maintenance schedules, and patch notes for the popular gacha game.`}
+  title={`Cuenta Regresiva Neverness to Everness v${game?.proxima_version}`}
+  description={`Cuenta regresiva para Neverness to Everness v${game?.proxima_version}. Rastrea actualizaciones de versión, mantenimientos y notas del parche del popular juego gacha.`}
   lang="es"
 >
   <script
@@ -31,11 +31,14 @@ const game = getLocalizedGame("neverness-to-everness", "es");
         name: "Hotta Studio",
       },
       version: game?.version_actual,
+      datePublished: game?.fecha_inicio,
+      applicationDate: game?.fecha_inicio,
     })}
   />
   <div
     class="fixed inset-0 z-0 opacity-30 pointer-events-none bg-cover bg-center"
-    aria-hidden="true"
+    role="img"
+    aria-label="Neverness to Everness versión {game?.version_actual}"
     style=`background-image:url(${game?.imagen});`
   >
   </div>
@@ -85,6 +88,15 @@ const game = getLocalizedGame("neverness-to-everness", "es");
           <BannerAlert game="neverness-to-everness" color="var(--color-nte-cyan)" />
         </div>
         <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-3 sm:mt-4">
+          <a
+            target="_blank"
+            rel="noopener noreferer"
+            href={game?.patch_notes}
+            class="flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white px-6 sm:px-8 py-3 min-h-[48px] rounded-xl font-bold transition-all transform hover:scale-105"
+          >
+            <span class="material-symbols-outlined" aria-hidden="true">menu_book</span>
+            {t.gamePage.viewPatchNotes}
+          </a>
           <CopyButton
             client:only="react"
             label={t.gamePage.remindMe}

@@ -31,11 +31,14 @@ const game = getLocalizedGame("arknights-endfield", lang);
         name: "Hypergryph ",
       },
       version: game?.version_actual,
+      datePublished: game?.fecha_inicio,
+      applicationDate: game?.fecha_inicio,
     })}
   />
   <div
     class="fixed inset-0 z-0 opacity-30 pointer-events-none bg-cover bg-center"
-    aria-hidden="true"
+    role="img"
+    aria-label="Arknights Endfield version {game?.version_actual} background artwork"
     style=`background-image:url(${game?.imagen});`
   >
   </div>
@@ -87,6 +90,15 @@ const game = getLocalizedGame("arknights-endfield", lang);
           <BannerAlert game="arknights-endfield" color="var(--color-arknights-gold)" />
         </div>
         <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-3 sm:mt-4">
+          <a
+            target="_blank"
+            rel="noopener noreferer"
+            href={game?.patch_notes}
+            class="flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white px-6 sm:px-8 py-3 min-h-[48px] rounded-xl font-bold transition-all transform hover:scale-105"
+          >
+            <span class="material-symbols-outlined" aria-hidden="true">menu_book</span>
+            {t.gamePage.viewPatchNotes}
+          </a>
           <CopyButton
             client:only="react"
             label={t.gamePage.remindMe}

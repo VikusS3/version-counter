@@ -31,11 +31,14 @@ const game = getLocalizedGame("zenless-zone-zero", lang);
         name: "HoYoverse",
       },
       version: game?.version_actual,
+      datePublished: game?.fecha_inicio,
+      applicationDate: game?.fecha_inicio,
     })}
   />
   <div
     class="fixed inset-0 z-0 opacity-30 pointer-events-none bg-cover bg-center"
-    aria-hidden="true"
+    role="img"
+    aria-label="Zenless Zone Zero version {game?.version_actual} background artwork"
     style=`background-image:url(${game?.imagen});`
   >
   </div>

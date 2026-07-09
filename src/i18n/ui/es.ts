@@ -9,7 +9,7 @@ export const es = {
   },
   home: {
     title: "Gacha Countdown - Rastrea Actualizaciones",
-    subtitle: "Rastrea los próximos mantenimientos y lanzamientos de parches para títulos de Hoyoverse y Kuro Games.",
+    subtitle: "Rastrea cuentas regresivas de versiones, banners y parches para Genshin Impact, Honkai Star Rail, Wuthering Waves, Zenless Zone Zero y más juegos gacha.",
     heroTitle: "Panel de Actualizaciones",
   },
   releases: {
@@ -32,6 +32,8 @@ export const es = {
     released: "Estrenado",
     comingSoon: "Próximamente",
     countDownToRelease: "Cuenta Regresiva al Estreno",
+    registrationsOpen: "Inscripciones Abiertas",
+    registerNow: "Regístrate Ahora",
   },
   gameCard: {
     current: "Actual",
@@ -110,7 +112,7 @@ export const es = {
     footerText: "¡Tu retroalimentación ayuda a mejorar este proyecto para todos!",
   },
   meta: {
-    description: "Rastrea banners gacha, cuentas regresivas de versiones y parches para Genshin Impact, Honkai Star Rail, Wuthering Waves y Zenless Zone Zero.",
+    description: "Rastrea banners gacha, cuentas regresivas de versiones y parches para Genshin Impact, Honkai Star Rail, Wuthering Waves, Zenless Zone Zero, Arknights Endfield y Neverness to Everness.",
     keywords: "banners gacha, banners genshin impact, banners wuthering waves, banners honkai star rail, banners zenless zone zero, cuenta regresiva versión juego, rastreador actualizaciones juegos",
   },
   common: {

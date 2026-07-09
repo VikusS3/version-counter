@@ -45,7 +45,7 @@ export function CopyButton({
         onClick={handleClick}
         type="button"
         aria-label={`${label} - Copies current page URL to clipboard`}
-        className="flex items-center justify-center gap-2 bg-gradient-to-r from-amber-600 to-yellow-500 text-gray-900 px-6 sm:px-8 py-3 min-h-[48px] rounded-xl font-bold transition-all transform hover:scale-105"
+        className="flex items-center justify-center gap-2 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 text-white px-6 sm:px-8 py-3 min-h-[48px] rounded-xl font-bold transition-all transform hover:scale-105"
       >
         <span className="material-symbols-outlined" aria-hidden="true">notifications_active</span>
         <span>{label}</span>

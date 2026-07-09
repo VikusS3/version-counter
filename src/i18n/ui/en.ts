@@ -10,7 +10,7 @@ export const en = {
   home: {
     title: "Gacha Countdown - Track Game Updates",
     subtitle:
-      "Track upcoming maintenance and patch releases for Hoyoverse and Kuro Games titles.",
+      "Track version countdowns, banners, and patch releases for Genshin Impact, Honkai Star Rail, Wuthering Waves, Zenless Zone Zero, and more gacha games.",
     heroTitle: "Update Dashboard",
   },
   releases: {
@@ -34,6 +34,8 @@ export const en = {
     released: "Released",
     comingSoon: "Coming Soon",
     countDownToRelease: "Countdown to Release",
+    registrationsOpen: "Registrations Open",
+    registerNow: "Register Now",
   },
   gameCard: {
     current: "Current",
@@ -115,7 +117,7 @@ export const en = {
   },
   meta: {
     description:
-      "Track gacha game banners, version countdowns, and patch releases for Genshin Impact, Honkai Star Rail, Wuthering Waves, and Zenless Zone Zero.",
+      "Track gacha game banners, version countdowns, and patch releases for Genshin Impact, Honkai Star Rail, Wuthering Waves, Zenless Zone Zero, Arknights Endfield, and Neverness to Everness.",
     keywords:
       "gacha banners, game version countdown, game update tracker, genshin impact banners, honkai star rail warps, wuthering waves banners, zenless zone zero banners, gacha game updates",
   },

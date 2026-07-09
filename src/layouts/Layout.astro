@@ -126,7 +126,7 @@ const breadcrumbSchema = {
     <meta name="author" content={author} />
     <meta
       name="robots"
-      content="index, follow, max-image-preview:large, max-snippet:45"
+      content="index, follow, max-image-preview:large, max-snippet:-1"
     />
     <meta name="theme-color" content="#0f172a" />
     <link rel="canonical" href={canonical ?? url} />
@@ -140,6 +140,7 @@ const breadcrumbSchema = {
       hreflang="es"
       href={locale === "en" ? new URL(`/es${Astro.url.pathname}`, Astro.site).href : url}
     />
+    <link rel="alternate" hreflang="x-default" href={new URL(Astro.url.pathname.replace(/^\/es\//, "/").replace(/^\/es$/, "/"), Astro.site).href} />
 
     <meta property="og:type" content={type} />
     <meta property="og:title" content={title} />

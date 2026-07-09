@@ -11,8 +11,8 @@ const game = getLocalizedGame("honkai-star-rail", "es");
 ---
 
 <Layout
-  title={`Honkai Star Rail v${game?.proxima_version} Countdown`}
-  description={`Countdown to Honkai Star Rail v${game?.proxima_version} release. Track version updates, maintenance schedules, and patch notes for the space fantasy RPG.`}
+  title={`Cuenta Regresiva Honkai Star Rail v${game?.proxima_version}`}
+  description={`Cuenta regresiva para Honkai Star Rail v${game?.proxima_version}. Rastrea actualizaciones de versión, mantenimientos y notas del parche del space fantasy RPG.`}
   lang="es"
 >
   <script
@@ -31,11 +31,14 @@ const game = getLocalizedGame("honkai-star-rail", "es");
         name: "HoYoverse",
       },
       version: game?.version_actual,
+      datePublished: game?.fecha_inicio,
+      applicationDate: game?.fecha_inicio,
     })}
   />
   <div
     class="fixed inset-0 z-0 opacity-30 pointer-events-none bg-cover bg-center"
-    aria-hidden="true"
+    role="img"
+    aria-label="Honkai Star Rail versión {game?.version_actual}"
     style=`background-image:url(${game?.imagen});`
   >
   </div>

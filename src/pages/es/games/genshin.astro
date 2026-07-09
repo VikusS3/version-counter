@@ -11,8 +11,8 @@ const game = getLocalizedGame("genshin-impact", "es");
 ---
 
 <Layout
-  title={`Genshin Impact v${game?.proxima_version} Countdown`}
-  description={`Countdown to Genshin Impact v${game?.proxima_version} release. Track version updates, maintenance schedules, and patch notes for the popular gacha game.`}
+  title={`Cuenta Regresiva Genshin Impact v${game?.proxima_version}`}
+  description={`Cuenta regresiva para Genshin Impact v${game?.proxima_version}. Rastrea actualizaciones de versión, mantenimientos y notas del parche del popular juego gacha.`}
   lang="es"
 >
   <script
@@ -31,11 +31,14 @@ const game = getLocalizedGame("genshin-impact", "es");
         name: "HoYoverse",
       },
       version: game?.version_actual,
+      datePublished: game?.fecha_inicio,
+      applicationDate: game?.fecha_inicio,
     })}
   />
   <div
     class="fixed inset-0 z-0 opacity-30 pointer-events-none bg-cover bg-center"
-    aria-hidden="true"
+    role="img"
+    aria-label="Genshin Impact versión {game?.version_actual}"
     style=`background-image:url(${game?.imagen});`
   >
   </div>
