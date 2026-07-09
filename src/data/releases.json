@@ -1,15 +1,16 @@
 {
   "releases": [
     {
-      "slug": "neverness-to-everness",
-      "nombre_oficial": "Neverness to Everness (NTE)",
-      "descripcion": "El RPG de mundo abierto urbano estará disponible en PC, PS5, iOS y Android. Se espera un lanzamiento simultáneo en todas las plataformas con soporte multiplataforma, precedido por un estreno en China el 23 de abril. ",
+      "slug": "silver-palace",
+      "nombre_oficial": "Silver Palace",
+      "descripcion": "Las inscripciones para la beta de Silver Palace ya están abiertas. ¡Regístrate ahora y sé uno de los primeros en experimentar la emoción de este nuevo juego! Descubre un mundo lleno de aventuras, desafíos y recompensas exclusivas. No pierdas la oportunidad de formar parte de la comunidad de Silver Palace desde el principio.",
       "fecha_salida": "2026-04-29T00:00:00Z",
-      "alias": "NTE",
-      "imagen": "https://pbs.twimg.com/media/HB_z3CXagAA1jeR.jpg",
-      "href": "/neverness-to-everness",
-      "icon": "/neverness-to-everness-icon.webp",
-      "tema": "#a78bfa"
+      "alias": "SP",
+      "imagen": "/releases/silver-palace.webp",
+      "href": "/silver-palace",
+      "icon": "/silver-palace-icon.webp",
+      "tema": "#a78bfa",
+      "url": "https://urlhe.com/afivh"
     }
   ]
 }

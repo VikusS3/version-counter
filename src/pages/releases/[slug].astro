@@ -8,6 +8,7 @@ import { getLocalizedRelease } from "../../data/translations/getReleaseData";
 export function getStaticPaths() {
   return [
     { params: { slug: "neverness-to-everness" } },
+    { params: { slug: "silver-palace" } },
   ];
 }
 
@@ -19,11 +20,19 @@ const release = getLocalizedRelease(slug!, lang);
 if (!release) {
   return Astro.redirect("/releases");
 }
+
+const now = new Date();
+const releaseDate = new Date(release.fecha_salida);
+const isReleased = releaseDate <= now;
 ---
 
 <Layout
-  title={`${release?.nombre_oficial} Release Date Countdown`}
-  description={`Countdown to ${release?.nombre_oficial} release. Track the launch date and official information.`}
+  title={isReleased
+    ? `${release?.nombre_oficial} - ${t.release.registrationsOpen}`
+    : `${release?.nombre_oficial} Release Date Countdown`}
+  description={isReleased
+    ? `${t.release.registrationsOpen} for ${release?.nombre_oficial} beta. Sign up now to secure your spot!`
+    : `Countdown to ${release?.nombre_oficial} release. Track the launch date and official information.`}
 >
   <script
     type="application/ld+json"
@@ -38,7 +47,7 @@ if (!release) {
       operatingSystem: "iOS, Android, PC, PS5",
       publisher: {
         "@type": "Organization",
-        name: "Hotta Studio",
+        name: "Silver Studio",
       },
     })}
   />
@@ -53,19 +62,25 @@ if (!release) {
     <section class="w-full max-w-300 px-6 pt-12 mb-16">
       <div class="@container">
         <div class="flex flex-col items-center justify-center text-center mb-8">
-          <div
-            class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/50 border border-purple-400/40 text-white text-sm font-bold tracking-widest uppercase mb-4"
-          >
-            <span class="relative flex h-2 w-2">
-              <span
-                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"
-              ></span>
-              <span
-                class="relative inline-flex rounded-full h-2 w-2 bg-purple-400"
-              ></span>
-            </span>
-            {t.release.comingSoon}
-          </div>
+          {
+            isReleased ? (
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#503596]/50 border border-[#503596]/40 text-white text-sm font-bold tracking-widest uppercase mb-4">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#503596] opacity-75" />
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-[#503596]" />
+                </span>
+                {t.release.registrationsOpen}
+              </div>
+            ) : (
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/50 border border-purple-400/40 text-white text-sm font-bold tracking-widest uppercase mb-4">
+                <span class="relative flex h-2 w-2">
+                  <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75" />
+                  <span class="relative inline-flex rounded-full h-2 w-2 bg-purple-400" />
+                </span>
+                {t.release.comingSoon}
+              </div>
+            )
+          }
           <h1
             class="text-white text-4xl md:text-6xl font-black leading-tight tracking-tight mb-4"
           >
@@ -75,28 +90,48 @@ if (!release) {
             {release?.descripcion}
           </p>
         </div>
-        <div>
-          <ReleaseCounter
-            client:only="react"
-            fecha_salida={release.fecha_salida}
-            variant="full"
-            labels={{
-              days: t.counter.days,
-              hours: t.counter.hours,
-              minutes: t.counter.minutesFull,
-              seconds: t.counter.secondsFull,
-              finished: t.release.released,
-            }}
-          />
-        </div>
-        <div class="flex justify-center gap-4 mt-8">
-          <CopyButton
-            client:only="react"
-            label={t.gamePage.remindMe}
-            successMessage={t.gamePage.toastSuccess}
-            errorMessage={t.gamePage.toastError}
-          />
-        </div>
+        {
+          isReleased ? (
+            <div class="flex justify-center mt-8">
+              <a
+                href={release?.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#503596] hover:bg-[#6b4db8] text-white text-lg font-bold transition-all"
+              >
+                <span class="material-symbols-outlined" aria-hidden="true">
+                  login
+                </span>
+                {t.release.registerNow}
+              </a>
+            </div>
+          ) : (
+            <>
+              <div>
+                <ReleaseCounter
+                  client:only="react"
+                  fecha_salida={release.fecha_salida}
+                  variant="full"
+                  labels={{
+                    days: t.counter.days,
+                    hours: t.counter.hours,
+                    minutes: t.counter.minutesFull,
+                    seconds: t.counter.secondsFull,
+                    finished: t.release.released,
+                  }}
+                />
+              </div>
+              <div class="flex justify-center gap-4 mt-8">
+                <CopyButton
+                  client:only="react"
+                  label={t.gamePage.remindMe}
+                  successMessage={t.gamePage.toastSuccess}
+                  errorMessage={t.gamePage.toastError}
+                />
+              </div>
+            </>
+          )
+        }
       </div>
     </section>
   </main>

@@ -5,13 +5,15 @@ import { getLangFromUrl, useTranslations } from "../i18n/utils";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
-const { title, imagen, fecha_salida, tema, href, alias } = Astro.props as {
+const { title, imagen, fecha_salida, tema, href, alias, registrationUrl, slug } = Astro.props as {
   title: string;
   imagen: string;
   fecha_salida: string;
   tema: string;
   href: string;
   alias?: string;
+  registrationUrl?: string;
+  slug?: string;
 };
 
 const colorMap: Record<string, string> = {
@@ -20,50 +22,103 @@ const colorMap: Record<string, string> = {
 };
 
 const accentColor = (alias && colorMap[alias]) || tema;
+
+const now = new Date();
+const releaseDate = new Date(fecha_salida);
+const isReleased = releaseDate <= now;
 ---
 
-<a
-  href={`/releases${href}`}
-  class="group relative overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-900 h-95 flex flex-col justify-end p-4 sm:p-8 transition-all"
->
-  <div
-    class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
-    style=`background-image: linear-gradient(180deg, rgba(10, 10, 12, 0.2) 0%, rgba(10, 10, 12, 0.95) 100%), url(${imagen});`
-    aria-hidden="true"
-  >
-  </div>
-  <div
-    class="absolute top-4 sm:top-6 right-4 sm:right-6 glass-panel px-2.5 sm:px-3 py-1 rounded-full"
-    style=`border: 1px solid ${accentColor};`
-  >
-    <span
-      class="text-[10px] sm:text-xs font-bold tracking-widest uppercase"
-      style=`color: ${tema}`>{t.releaseCard.releaseDate}</span
+{
+  registrationUrl && isReleased ? (
+    <div
+      onclick={`window.location.href='/releases${href}'`}
+      onkeydown={`if(event.key==='Enter'||event.key===' '){event.preventDefault();window.location.href='/releases${href}'}`}
+      role="link"
+      tabindex="0"
+      class="group relative overflow-hidden rounded-xl border border-[#503596] bg-slate-900 h-95 flex flex-col justify-end p-4 sm:p-8 transition-all cursor-pointer"
     >
-  </div>
-  <div class="relative z-10">
-    <div class="flex items-center gap-2 mb-2">
-      <h3 class="text-xl sm:text-2xl font-bold">{title}</h3>
-      <div class="size-2 rounded-full bg-purple-500 animate-pulse"></div>
+      <div
+        class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+        style=`background-image: linear-gradient(180deg, rgba(10, 10, 12, 0.2) 0%, rgba(10, 10, 12, 0.95) 100%), url(${imagen});`
+        aria-hidden="true"
+      >
+      </div>
+      <div
+        class="absolute top-4 sm:top-6 right-4 sm:right-6 glass-panel px-2.5 sm:px-3 py-1 rounded-full"
+        style=`border: 1px solid #503596;`
+      >
+        <span
+          class="text-[10px] sm:text-xs font-bold tracking-widest uppercase text-white"
+        >{t.release.registrationsOpen}</span
+        >
+        
+      </div>
+      <div class="relative z-10">
+        <div class="flex items-center gap-2 mb-4">
+          <h3 class="text-xl sm:text-2xl font-bold">{title}</h3>
+          <div class="size-2 rounded-full bg-[#503596] animate-pulse"></div>
+        </div>
+        <a
+          href={registrationUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          onclick="event.stopPropagation()"
+          class="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-[#503596] hover:bg-[#6b4db8] text-white text-sm font-bold transition-all"
+        >
+          <span class="material-symbols-outlined text-base" aria-hidden="true">login</span>
+          {t.release.registerNow}
+        </a>
+      </div>
+      <div
+        class="absolute bottom-0 left-0 h-1 transition-all w-0 group-hover:w-full bg-[#503596]"
+      >
+      </div>
     </div>
-    <p class="text-slate-400 text-xs sm:text-sm mb-4 sm:mb-6">
-      {t.releaseCard.daysUntil}
-    </p>
-    <ReleaseCounter
-      client:only="react"
-      fecha_salida={fecha_salida}
-      labels={{
-        days: t.counter.days,
-        hours: t.counter.hours,
-        minutes: t.counter.minutes,
-        seconds: t.counter.seconds,
-        finished: t.release.released,
-      }}
-    />
-  </div>
-  <div
-    class="absolute bottom-0 left-0 h-1 transition-all w-0 group-hover:w-full"
-    style=`background-color: ${accentColor}`
-  >
-  </div>
-</a>
+  ) : (
+    <a
+      href={`/releases${href}`}
+      class="group relative overflow-hidden rounded-xl border border-slate-200 dark:border-slate-800 bg-slate-900 h-95 flex flex-col justify-end p-4 sm:p-8 transition-all"
+    >
+      <div
+        class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+        style=`background-image: linear-gradient(180deg, rgba(10, 10, 12, 0.2) 0%, rgba(10, 10, 12, 0.95) 100%), url(${imagen});`
+        aria-hidden="true"
+      >
+      </div>
+      <div
+        class="absolute top-4 sm:top-6 right-4 sm:right-6 glass-panel px-2.5 sm:px-3 py-1 rounded-full"
+        style=`border: 1px solid ${accentColor};`
+      >
+        <span
+          class="text-[10px] sm:text-xs font-bold tracking-widest uppercase"
+          style=`color: ${tema}`>{t.releaseCard.releaseDate}</span
+        >
+      </div>
+      <div class="relative z-10">
+        <div class="flex items-center gap-2 mb-2">
+          <h3 class="text-xl sm:text-2xl font-bold">{title}</h3>
+          <div class="size-2 rounded-full bg-purple-500 animate-pulse"></div>
+        </div>
+        <p class="text-slate-400 text-xs sm:text-sm mb-4 sm:mb-6">
+          {t.releaseCard.daysUntil}
+        </p>
+        <ReleaseCounter
+          client:only="react"
+          fecha_salida={fecha_salida}
+          labels={{
+            days: t.counter.days,
+            hours: t.counter.hours,
+            minutes: t.counter.minutes,
+            seconds: t.counter.seconds,
+            finished: t.release.released,
+          }}
+        />
+      </div>
+      <div
+        class="absolute bottom-0 left-0 h-1 transition-all w-0 group-hover:w-full"
+        style=`background-color: ${accentColor}`
+      >
+      </div>
+    </a>
+  )
+}
