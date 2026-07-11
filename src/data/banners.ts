@@ -27,9 +27,9 @@ export const bannersData: GameBanners[] = [
         game: "wuthering-waves",
       },
       {
-        id: "aemeth",
-        title: "Aemeth",
-        image: "/banners/wuthering-waves/aemeth-banner.webp",
+        id: "lynae",
+        title: "Lynae",
+        image: "/banners/wuthering-waves/lynae-banner.webp",
         startDate: "2026-07-10T01:30:00Z",
         endDate: "2026-08-01T03:30:00Z",
         type: "character",
