@@ -23,9 +23,9 @@ export const gamesTranslations: Record<string, GameTranslation> = {
   "honkai-star-rail": {
     nombre: "Honkai Star Rail New Version Countdown",
     descripcion:
-      "Honkai Star Rail 4.4 Countdown for all region like America, Europe, Asia. Honkai Banner Countdown, Patch Notes, and more.",
-    slogan_desc: "Mortenax Blade is now available, new mission, and more.",
-    patch_notes_description: "Latest patch notes for Honkai Star Rail 4.3",
+      "Honkai Star Rail 4.5 Countdown for all region like America, Europe, Asia. Honkai Banner Countdown, Patch Notes, and more.",
+    slogan_desc: "Himeko Nova and Fate Collab part 2 are coming soon!",
+    patch_notes_description: "Latest patch notes for Honkai Star Rail 4.4",
   },
   "zenless-zone-zero": {
     nombre: "Zenless Zone Zero New Version Countdown",
