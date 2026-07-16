@@ -37,9 +37,9 @@ export const gamesTranslations: Record<string, GameTranslation> = {
   "arknights-endfield": {
     nombre: "Arknights Endfield New Version Countdown",
     descripcion:
-      "Arknights Endfield 1.4 Countdown for all region like America, Europe, Asia. Arknights Banner Countdown, Patch Notes, and more.",
-    slogan_desc: "Version 1.3 is now available, new characters, and more.",
-    patch_notes_description: "Latest patch notes for Arknights Endfield 1.3",
+      "Arknights Endfield 1.5 Countdown for all region like America, Europe, Asia. Arknights Banner Countdown, Patch Notes, and more.",
+    slogan_desc: "Version 1.4 is now available, new characters, and more.",
+    patch_notes_description: "Latest patch notes for Arknights Endfield 1.4",
   },
   "neverness-to-everness": {
     nombre: "Neverness to Everness New Version Countdown",

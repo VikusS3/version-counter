@@ -99,24 +99,6 @@ export const bannersData: GameBanners[] = [
     icon: "/honkai-icon.webp",
     banners: [
       {
-        id: "cyrene",
-        title: "Cyrene",
-        image: "/banners/honkai-star-rail/cyrene-banner.webp",
-        startDate: "2026-06-24T01:30:00Z",
-        endDate: "2026-07-14T03:30:00Z",
-        type: "character",
-        game: "honkai-star-rail",
-      },
-      {
-        id: "phainon",
-        title: "Phainon",
-        image: "/banners/honkai-star-rail/phainon-banner.webp",
-        startDate: "2026-06-24T01:30:00Z",
-        endDate: "2026-07-14T03:30:00Z",
-        type: "character",
-        game: "honkai-star-rail",
-      },
-      {
         id: "himeko-nova",
         title: "Himeko Nova",
         image: "/banners/honkai-star-rail/himeko-nova-banner.webp",
