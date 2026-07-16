@@ -2,6 +2,7 @@
 import StatsSection from "../components/StatsSections.astro";
 import Layout from "../layouts/Layout.astro";
 import { GameDashboard } from "../components/react/GameDashboard";
+import { PromotionalPopup } from "../components/react/PromotionalPopup";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 import { getLocalizedGames } from "../data/translations/getGameData";
 
@@ -103,4 +104,19 @@ const dashboardLabels = {
 
     <StatsSection />
   </main>
+
+  <PromotionalPopup
+    client:load
+    campaign={{
+      storageKey: "promo-honkai-event",
+      videoSrc: "/videos/honkai/promo.mp4",
+      posterSrc: "/version-images/honkai-star-rail-4.4.webp",
+      title: "Honkai Star Rail: Fate's Collab",
+      description:
+        "Don't miss the limited-time collaboration event. Dive into the cosmos and claim exclusive rewards before time runs out.",
+      ctaLabel: "Explore the Event →",
+      ctaHref: "/games/hsr",
+      accentColor: "#a855f7",
+    }}
+  />
 </Layout>

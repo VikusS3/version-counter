@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import StatsSection from "../../components/StatsSections.astro";
 import { GameDashboard } from "../../components/react/GameDashboard";
+import { PromotionalPopup } from "../../components/react/PromotionalPopup";
 import { useTranslations } from "../../i18n/utils";
 import { getLocalizedGames } from "../../data/translations/getGameData";
 
@@ -93,4 +94,19 @@ const dashboardLabels = {
 
     <StatsSection />
   </main>
+
+  <PromotionalPopup
+    client:load
+    campaign={{
+      storageKey: "promo-honkai-event",
+      videoSrc: "/videos/honkai/collab-fate.mp4",
+      posterSrc: "/version-images/honkai-star-rail-4.4.webp",
+      title: "Honkai Star Rail: Colaboración Estelar",
+      description:
+        "No te pierdas el evento de colaboración por tiempo limitado. Adéntrate en el cosmos y reclama recompensas exclusivas antes de que se acabe el tiempo.",
+      ctaLabel: "Explorar el Evento →",
+      ctaHref: "/es/games/hsr",
+      accentColor: "#a855f7",
+    }}
+  />
 </Layout>

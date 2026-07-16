@@ -138,9 +138,18 @@ const breadcrumbSchema = {
     <link
       rel="alternate"
       hreflang="es"
-      href={locale === "en" ? new URL(`/es${Astro.url.pathname}`, Astro.site).href : url}
+      href={locale === "en"
+        ? new URL(`/es${Astro.url.pathname}`, Astro.site).href
+        : url}
     />
-    <link rel="alternate" hreflang="x-default" href={new URL(Astro.url.pathname.replace(/^\/es\//, "/").replace(/^\/es$/, "/"), Astro.site).href} />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href={new URL(
+        Astro.url.pathname.replace(/^\/es\//, "/").replace(/^\/es$/, "/"),
+        Astro.site,
+      ).href}
+    />
 
     <meta property="og:type" content={type} />
     <meta property="og:title" content={title} />
