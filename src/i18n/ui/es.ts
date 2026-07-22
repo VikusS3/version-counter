@@ -9,12 +9,14 @@ export const es = {
   },
   home: {
     title: "Gacha Countdown - Rastrea Actualizaciones",
-    subtitle: "Rastrea cuentas regresivas de versiones, banners y parches para Genshin Impact, Honkai Star Rail, Wuthering Waves, Zenless Zone Zero y más juegos gacha.",
+    subtitle:
+      "Rastrea cuentas regresivas de versiones, banners y parches para Genshin Impact, Honkai Star Rail, Wuthering Waves, Zenless Zone Zero y más juegos gacha.",
     heroTitle: "Panel de Actualizaciones",
   },
   releases: {
     title: "Próximos Estrenos - Rastrea Fechas de Lanzamiento",
-    subtitle: "Rastrea los próximos lanzamientos de juegos, fechas de estreno y cuentas regresivas para juegos gacha.",
+    subtitle:
+      "Rastrea los próximos lanzamientos de juegos, fechas de estreno y cuentas regresivas para juegos gacha.",
     heroTitle: "Próximos Estrenos",
   },
   counter: {
@@ -49,8 +51,15 @@ export const es = {
     currentVersion: "Versión Actual",
     nextVersion: "Próxima Versión",
     remindMe: "Recordarme",
-    toastSuccess: "¡Enlace copiado! Compártelo para no perderte ninguna actualización",
+    toastSuccess:
+      "¡Enlace copiado! Compártelo para no perderte ninguna actualización",
     toastError: "Error al copiar el enlace",
+  },
+  event: {
+    limited: "Evento Limitado",
+    name: "Fate Collab Parte 2",
+    startsIn: "El evento empieza en",
+    liveNow: "¡Ya disponible!",
   },
   stats: {
     title: "Estadísticas de Actualización",
@@ -64,7 +73,8 @@ export const es = {
   },
   banner: {
     title: "Banners Actuales - Calendario de Banners Gacha",
-    subtitle: "Rastrea los banners de personaje y armas activos y próximos para Wuthering Waves, Genshin Impact, Honkai Star Rail, Zenless Zone Zero y más juegos gacha.",
+    subtitle:
+      "Rastrea los banners de personaje y armas activos y próximos para Wuthering Waves, Genshin Impact, Honkai Star Rail, Zenless Zone Zero y más juegos gacha.",
     liveBanners: "BANNERS EN VIVO",
     active: "Activo",
     upcoming: "Próximo",
@@ -95,7 +105,8 @@ export const es = {
     filterByLanguage: "Filtrar por idioma",
   },
   footer: {
-    copyright: "© {year} Gacha Countdown Project. Datos proporcionados como están.",
+    copyright:
+      "© {year} Gacha Countdown Project. Datos proporcionados como están.",
     privacy: "Privacidad",
     terms: "Términos",
     language: "Idioma",
@@ -103,17 +114,22 @@ export const es = {
   },
   contact: {
     title: "Contacto",
-    subtitle: "¿Tienes preguntas, sugerencias o encontraste un error? Nos encantaría saber de ti.",
+    subtitle:
+      "¿Tienes preguntas, sugerencias o encontraste un error? Nos encantaría saber de ti.",
     github: "Ver en GitHub",
-    description: "Este es un proyecto de código abierto. Puedes reportar errores, contribuir con código o simplemente explorar el proyecto en GitHub.",
+    description:
+      "Este es un proyecto de código abierto. Puedes reportar errores, contribuir con código o simplemente explorar el proyecto en GitHub.",
     bugReport: "¿Encontraste un error?",
     featureRequest: "¿Tienes una sugerencia?",
     contribute: "¿Quieres contribuir?",
-    footerText: "¡Tu retroalimentación ayuda a mejorar este proyecto para todos!",
+    footerText:
+      "¡Tu retroalimentación ayuda a mejorar este proyecto para todos!",
   },
   meta: {
-    description: "Rastrea banners gacha, cuentas regresivas de versiones y parches para Genshin Impact, Honkai Star Rail, Wuthering Waves, Zenless Zone Zero, Arknights Endfield y Neverness to Everness.",
-    keywords: "banners gacha, banners genshin impact, banners wuthering waves, banners honkai star rail, banners zenless zone zero, cuenta regresiva versión juego, rastreador actualizaciones juegos",
+    description:
+      "Rastrea banners gacha, cuentas regresivas de versiones y parches para Genshin Impact, Honkai Star Rail, Wuthering Waves, Zenless Zone Zero, Arknights Endfield y Neverness to Everness.",
+    keywords:
+      "banners gacha, banners genshin impact, banners wuthering waves, banners honkai star rail, banners zenless zone zero, cuenta regresiva versión juego, rastreador actualizaciones juegos",
   },
   common: {
     ver: "VER",
@@ -121,7 +137,8 @@ export const es = {
   },
   noGames: {
     title: "¡Todo al Día!",
-    description: "No hay próximas versiones de juegos en este momento. Vuelve pronto para nuevas actualizaciones.",
+    description:
+      "No hay próximas versiones de juegos en este momento. Vuelve pronto para nuevas actualizaciones.",
     waiting: "Esperando actualizaciones",
   },
   gameFilter: {
@@ -131,6 +148,7 @@ export const es = {
     gameVisibility: "Alternar visibilidad del juego",
     gameHidden: "Oculto",
     gameVisible: "Visible",
-    allHidden: "No hay juegos visibles. Haz clic en los iconos de arriba para mostrar juegos.",
+    allHidden:
+      "No hay juegos visibles. Haz clic en los iconos de arriba para mostrar juegos.",
   },
 } as const;

@@ -54,6 +54,12 @@ export const en = {
     toastSuccess: "Link copied! Share it to never miss an update",
     toastError: "Failed to copy link",
   },
+  event: {
+    limited: "Limited Event",
+    name: "Fate's Collab Part 2",
+    startsIn: "Event starts in",
+    liveNow: "Live Now!",
+  },
   stats: {
     title: "Update Statistics",
     averagePatchDuration: "Average Patch Duration",
@@ -66,7 +72,8 @@ export const en = {
   },
   banner: {
     title: "Current Banners & Warps - Gacha Game Banner Schedule",
-    subtitle: "Track active and upcoming character event warps, weapon banners, and limited-time banners for Wuthering Waves, Genshin Impact, Honkai Star Rail, Zenless Zone Zero, and more gacha games.",
+    subtitle:
+      "Track active and upcoming character event warps, weapon banners, and limited-time banners for Wuthering Waves, Genshin Impact, Honkai Star Rail, Zenless Zone Zero, and more gacha games.",
     liveBanners: "LIVE BANNERS",
     active: "Active",
     upcoming: "Upcoming",

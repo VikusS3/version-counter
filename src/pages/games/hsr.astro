@@ -1,6 +1,7 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { Counter } from "../../components/react/Counter";
+import { ReleaseCounter } from "../../components/react/ReleaseCounter";
 import { CopyButton } from "../../components/react/CopyButton";
 import BannerAlert from "../../components/bannerComponents/BannerAlert.astro";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
@@ -46,7 +47,9 @@ const game = getLocalizedGame("honkai-star-rail", lang);
     <!-- HeroSection & Countdown -->
     <section class="w-full max-w-300 px-4 sm:px-6 pt-8 sm:pt-12 mb-12 sm:mb-16">
       <div class="@container">
-        <div class="flex flex-col items-center justify-center text-center mb-6 sm:mb-8">
+        <div
+          class="flex flex-col items-center justify-center text-center mb-6 sm:mb-8"
+        >
           <div
             class="inline-flex items-center gap-2 px-2.5 sm:px-3 py-1 rounded-full bg-primary/50 border border-primary/40 text-white text-[11px] sm:text-sm font-bold tracking-widest uppercase mb-3 sm:mb-4"
           >
@@ -70,6 +73,56 @@ const game = getLocalizedGame("honkai-star-rail", lang);
             {game?.slogan_desc}
           </p>
         </div>
+
+        <!-- Collab Event Countdown -->
+        <div class="mt-8 sm:mt-10 w-full max-w-xs mx-auto">
+          <div
+            class="relative glass-panel rounded-2xl p-4 sm:p-5 border border-purple-500/25 shadow-[0_0_20px_-8px_var(--color-hsr-purple)]"
+          >
+            <div
+              class="absolute top-0 left-4 right-4 h-px bg-gradient-to-r from-transparent via-purple-500/60 to-transparent"
+            >
+            </div>
+            <div class="flex items-center justify-center gap-1.5 mb-2.5">
+              <span class="relative flex h-2 w-2">
+                <span
+                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"
+                ></span>
+                <span
+                  class="relative inline-flex rounded-full h-2 w-2 bg-purple-400"
+                ></span>
+              </span>
+              <span
+                class="text-[10px] font-bold tracking-widest uppercase text-purple-300"
+                >{t.event.limited}</span
+              >
+            </div>
+            <h3 class="text-white text-sm font-bold text-center mb-2">
+              {t.event.name}
+            </h3>
+            <div
+              class="w-8 h-px bg-linear-to-r from-transparent via-amber-400/50 to-transparent mx-auto mb-2.5"
+            >
+            </div>
+            <p
+              class="text-[9px] uppercase tracking-[0.2em] font-semibold text-center text-amber-400/80 mb-2.5"
+            >
+              {t.event.startsIn}
+            </p>
+            <ReleaseCounter
+              client:only="react"
+              fecha_salida="2026-07-24T12:00:00Z"
+              variant="mini"
+              labels={{
+                days: t.counter.days,
+                hours: t.counter.hours,
+                minutes: t.counter.minutes,
+                seconds: t.counter.seconds,
+                finished: t.event.liveNow,
+              }}
+            />
+          </div>
+        </div>
         <!-- Large Timer -->
         <div>
           <Counter
@@ -87,16 +140,23 @@ const game = getLocalizedGame("honkai-star-rail", lang);
           />
         </div>
         <div class="mt-6 sm:mt-8">
-          <BannerAlert game="honkai-star-rail" color="var(--color-hsr-purple)" />
+          <BannerAlert
+            game="honkai-star-rail"
+            color="var(--color-hsr-purple)"
+          />
         </div>
-        <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-3 sm:mt-4">
+        <div
+          class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-3 sm:mt-4"
+        >
           <a
             target="_blank"
             rel="noopener noreferer"
             href={game?.patch_notes}
             class="flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white px-6 sm:px-8 py-3 min-h-[48px] rounded-xl font-bold transition-all transform hover:scale-105"
           >
-            <span class="material-symbols-outlined" aria-hidden="true">menu_book</span>
+            <span class="material-symbols-outlined" aria-hidden="true"
+              >menu_book</span
+            >
             {t.gamePage.viewPatchNotes}
           </a>
           <CopyButton
@@ -109,5 +169,4 @@ const game = getLocalizedGame("honkai-star-rail", lang);
       </div>
     </section>
   </main>
-
 </Layout>
