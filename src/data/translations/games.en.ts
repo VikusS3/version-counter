@@ -17,7 +17,7 @@ export const gamesTranslations: Record<string, GameTranslation> = {
     nombre: "Wuthering Waves New Version Countdown",
     descripcion:
       "Wuthering Waves 3.6 Countdown for all region like America, Europe, Asia. Wuthering Banner Countdown, Patch Notes, and more.",
-    slogan_desc: "YangYang Xualing is now available, new mission, and more.",
+    slogan_desc: "Version 3.5 is now available, new mission, and more.",
     patch_notes_description: "Latest patch notes for Wuthering Waves 3.5",
   },
   "honkai-star-rail": {
