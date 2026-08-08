@@ -5,6 +5,7 @@ import {
   getLocalizedUrl,
   defaultLocale,
 } from "../i18n/utils";
+import { ENLACE_LOOTBAR } from "../constants/constantes";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -87,6 +88,22 @@ const localizedHomeUrl = getLocalizedUrl(Astro.url, targetLocale);
         : undefined}>{t.nav.releases}</a
     >
     <div class="flex items-center gap-4">
+      <a
+        href={ENLACE_LOOTBAR}
+        target="_blank"
+        rel="noopener noreferrer"
+        title="LootBar - Top Up"
+        class="flex items-center gap-1.5 rounded-full bg-primary/10 hover:bg-primary/20 border border-primary/30 px-3 py-1.5 transition-colors"
+      >
+        <img
+          src="/logo-lootbar.webp"
+          alt="LootBar"
+          class="h-5 w-auto rounded"
+          loading="lazy"
+          width="80"
+          height="20"
+        />
+      </a>
       <a
         href={localizedHomeUrl}
         class="text-sm font-semibold text-slate-500 dark:text-slate-400 hover:text-primary transition-colors flex items-center gap-1"
@@ -183,6 +200,22 @@ const localizedHomeUrl = getLocalizedUrl(Astro.url, targetLocale);
       tabindex="0">{t.nav.releases}</a
     >
     <div class="mt-4 pt-4 border-t border-slate-800">
+      <a
+        class="mobile-nav-link text-xl font-bold py-4 px-3 rounded-xl text-slate-300 hover:bg-white/5 flex items-center gap-3 transition-colors"
+        href={ENLACE_LOOTBAR}
+        target="_blank"
+        rel="noopener noreferrer"
+        tabindex="0"
+      >
+        <img
+          src="/logo-lootbar.webp"
+          alt="LootBar"
+          class="h-6 w-auto rounded"
+          loading="lazy"
+          width="96"
+          height="24"
+        />
+      </a>
       <a
         class="mobile-nav-link text-xl font-bold py-4 px-3 rounded-xl text-slate-300 hover:bg-white/5 flex items-center gap-3 transition-colors"
         href={localizedHomeUrl}
@@ -330,6 +363,9 @@ const localizedHomeUrl = getLocalizedUrl(Astro.url, targetLocale);
   }
   .mobile-nav-link:nth-child(5) {
     animation-delay: 0.17s;
+  }
+  .mobile-nav-link:nth-child(6) {
+    animation-delay: 0.2s;
   }
 
   @keyframes fadeInUp {
