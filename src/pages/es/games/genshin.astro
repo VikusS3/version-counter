@@ -8,11 +8,59 @@ import { getLocalizedGame } from "../../../data/translations/getGameData";
 
 const t = useTranslations("es");
 const game = getLocalizedGame("genshin-impact", "es");
+
+const nextVersionDate = new Date(
+  Date.parse(game?.fecha_inicio ?? "") +
+    (game?.duracion_dias ?? 42) * 24 * 60 * 60 * 1000
+);
+const nextVersionDateText = nextVersionDate.toLocaleDateString("es-ES", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+
+const faqItems = [
+  {
+    question: "¿Cuándo sale la versión 7.0 de Genshin Impact?",
+    answer: `Se espera que la actualización ${game?.proxima_version} de Genshin Impact salga alrededor del ${nextVersionDateText}, siguiendo el ciclo de parches estándar de 42 días. La hora exacta de lanzamiento se muestra en la cuenta regresiva en vivo.`,
+  },
+  {
+    question: "¿En qué versión está Genshin Impact ahora mismo?",
+    answer: `Genshin Impact se encuentra actualmente en la versión ${game?.version_actual}, y la próxima actualización importante es la versión ${game?.proxima_version}.`,
+  },
+  {
+    question: "¿Dónde puedo ver las notas del parche oficiales de Genshin Impact 7.0?",
+    answer:
+      'Puedes leer las notas del parche oficiales de Genshin Impact en Hoyolab, enlazadas desde el botón "Ver Notas del Parche" de esta página.',
+  },
+  {
+    question: "¿Cuáles son los horarios de mantenimiento de los servidores de Genshin Impact?",
+    answer:
+      "El mantenimiento de Genshin Impact suele comenzar unas horas antes del lanzamiento de la versión. La cuenta regresiva de esta página rastrea la hora exacta de actualización para los servidores de América, Europa y Asia.",
+  },
+];
+
+const gameCanonicalUrl = new URL("/es/games/genshin", Astro.site).href;
+const gameImage = new URL(game?.imagen ?? "/og-image.webp", Astro.site).href;
 ---
 
 <Layout
-  title={`Cuenta Regresiva Genshin Impact v${game?.proxima_version}`}
-  description={`Cuenta regresiva para Genshin Impact v${game?.proxima_version}. Rastrea actualizaciones de versión, mantenimientos y notas del parche del popular juego gacha.`}
+  title={`Cuenta Regresiva Genshin Impact ${game?.proxima_version} - Banners y Notas del Parche`}
+  description={`Cuenta regresiva para el lanzamiento de Genshin Impact ${game?.proxima_version} en servidores de América, Europa y Asia. Sigue la hora de la actualización, los banners, el mantenimiento y las notas del parche oficiales.`}
+  keywords={`
+    cuenta regresiva genshin impact,
+    genshin impact 7.0,
+    cuando sale genshin impact 7.0,
+    proxima actualizacion genshin impact,
+    fecha de lanzamiento genshin impact 7.0,
+    hora del mantenimiento genshin impact,
+    banners genshin impact 7.0,
+    personajes genshin impact 7.0,
+    notas del parche genshin impact,
+    proximas versiones genshin impact,
+    cuenta regresiva servidor america genshin impact,
+    genshin impact 6.7
+  `}
   lang="es"
 >
   <script
@@ -20,19 +68,50 @@ const game = getLocalizedGame("genshin-impact", "es");
     set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "VideoGame",
+      "@id": gameCanonicalUrl,
       name: `Genshin Impact v${game?.version_actual}`,
+      alternatename: `Genshin Impact ${game?.proxima_version}`,
       description: game?.descripcion,
-      url: new URL("/es/games/genshin", Astro.site).href,
-      image: game?.imagen,
+      url: gameCanonicalUrl,
+      image: gameImage,
       genre: "Action RPG",
+      applicationCategory: "GameApplication",
       operatingSystem: "iOS, Android, PC, PS5",
       publisher: {
         "@type": "Organization",
         name: "HoYoverse",
+        url: "https://www.hoyoverse.com",
       },
       version: game?.version_actual,
       datePublished: game?.fecha_inicio,
       applicationDate: game?.fecha_inicio,
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": gameCanonicalUrl,
+      },
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+        url: gameCanonicalUrl,
+      },
+      inLanguage: "es",
+    })}
+  />
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqItems.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
     })}
   />
   <div
@@ -90,8 +169,9 @@ const game = getLocalizedGame("genshin-impact", "es");
         <div class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-3 sm:mt-4">
           <a
             target="_blank"
-            rel="noopener noreferer"
+            rel="noopener noreferrer"
             href={game?.patch_notes}
+            title="Notas del parche oficiales de Genshin Impact en Hoyolab"
             class="flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white px-6 sm:px-8 py-3 min-h-[48px] rounded-xl font-bold transition-all transform hover:scale-105"
           >
             <span class="material-symbols-outlined" aria-hidden="true">menu_book</span>
@@ -103,6 +183,44 @@ const game = getLocalizedGame("genshin-impact", "es");
             successMessage={t.gamePage.toastSuccess}
             errorMessage={t.gamePage.toastError}
           />
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ / SEO section -->
+    <section class="w-full max-w-300 px-4 sm:px-6 pb-12 sm:pb-16">
+      <div class="glass-panel rounded-2xl p-6 sm:p-8 border border-white/10">
+        <h2 class="text-white text-2xl sm:text-3xl font-bold mb-6 text-center">
+          Preguntas Frecuentes Genshin Impact {game?.proxima_version}
+        </h2>
+        <div class="grid gap-4 sm:grid-cols-2">
+          {
+            faqItems.map((item) => (
+              <details class="group rounded-xl bg-white/5 border border-white/10 p-4 sm:p-5">
+                <summary
+                  class="cursor-pointer list-none flex items-center justify-between gap-3 font-semibold text-white text-sm sm:text-base"
+                >
+                  {item.question}
+                  <span
+                    class="shrink-0 text-gold transition-transform group-open:rotate-45"
+                    aria-hidden="true"
+                  >+</span>
+                </summary>
+                <p class="mt-3 text-slate-300 text-sm leading-relaxed">
+                  {item.answer}
+                </p>
+              </details>
+            ))
+          }
+        </div>
+        <div class="mt-8 text-center">
+          <a
+            href="/es/banners"
+            class="inline-flex items-center gap-2 text-blue-300 hover:text-blue-200 font-semibold text-sm sm:text-base"
+          >
+            {t.banner.viewBanners}
+            <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+          </a>
         </div>
       </div>
     </section>

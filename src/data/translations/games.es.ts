@@ -7,12 +7,13 @@ export interface GameTranslation {
 
 export const gamesTranslations: Record<string, GameTranslation> = {
   "genshin-impact": {
-    nombre: "Cuenta Regresiva Nueva Versión Genshin Impact",
+    nombre: "Cuenta Regresiva Genshin Impact - Próxima Versión, Banners y Parche",
     descripcion:
-      "Cuenta regresiva Genshin Impact 7.0 para todas las regiones como América, Europa, Asia. Cuenta regresiva de banners, notas del parche y más.",
+      "Cuenta regresiva para el lanzamiento de Genshin Impact 7.0 en todas las regiones como América, Europa, Asia. Sigue la hora de la próxima actualización de Genshin Impact, los banners de personajes, el mantenimiento y las notas del parche oficiales.",
     slogan_desc:
       "Sandrone y una nueva misión de historia están ahora disponibles.",
-    patch_notes_description: "Últimas notas del parche para Genshin Impact 6.7",
+    patch_notes_description:
+      "Últimas notas del parche oficiales de Genshin Impact 6.7 en Hoyolab",
   },
   "wuthering-waves": {
     nombre: "Cuenta Regresiva Nueva Versión Wuthering Waves",

@@ -7,11 +7,12 @@ export interface GameTranslation {
 
 export const gamesTranslations: Record<string, GameTranslation> = {
   "genshin-impact": {
-    nombre: "Genshin Impact New Version Countdown",
+    nombre: "Genshin Impact Release Countdown - Next Version, Banners & Patch Notes",
     descripcion:
-      "Genshin Impact 7.0 Countdown for all region like America, Europe, Asia. Genshin Banner Countdown, Patch Notes, and more.",
+      "Genshin Impact 7.0 release countdown for all regions like America, Europe, Asia. Track the next Genshin Impact update time, character banner schedule, maintenance, and official patch notes.",
     slogan_desc: "Sandrone and a new story quest are now available.",
-    patch_notes_description: "Latest patch notes for Genshin Impact 6.7",
+    patch_notes_description:
+      "Latest official patch notes for Genshin Impact 6.7 on Hoyolab",
   },
   "wuthering-waves": {
     nombre: "Wuthering Waves New Version Countdown",
