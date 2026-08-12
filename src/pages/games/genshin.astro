@@ -22,15 +22,15 @@ const nextVersionDateText = nextVersionDate.toLocaleDateString("en-US", {
 
 const faqItems = [
   {
-    question: "When does Genshin Impact 7.0 release?",
-    answer: `The Genshin Impact 7.0 update is expected to release around ${nextVersionDateText}, following the standard 42-day patch cycle. The exact release time is shown in the live countdown above.`,
+    question: `When does Genshin Impact ${game?.proxima_version} release?`,
+    answer: `The Genshin Impact ${game?.proxima_version} update is expected to release around ${nextVersionDateText}, following the standard 42-day patch cycle. The exact release time is shown in the live countdown above.`,
   },
   {
     question: "What version is Genshin Impact on right now?",
     answer: `Genshin Impact is currently on version ${game?.version_actual}, and the next major update is version ${game?.proxima_version}.`,
   },
   {
-    question: "Where can I check the official Genshin Impact 7.0 patch notes?",
+    question: `Where can I check the official Genshin Impact ${game?.version_actual} patch notes?`,
     answer:
       'You can read the official Genshin Impact patch notes on Hoyolab, linked from the "View Patch Notes" button on this page.',
   },
@@ -43,27 +43,31 @@ const faqItems = [
 
 const gameCanonicalUrl = new URL("/games/genshin", Astro.site).href;
 const gameImage = new URL(game?.imagen ?? "/og-image.webp", Astro.site).href;
+
+const gameKeywords = `
+  genshin impact ${game?.proxima_version} countdown,
+  genshin impact ${game?.proxima_version} release date,
+  genshin impact ${game?.proxima_version} release time,
+  genshin impact update time,
+  genshin impact banner schedule,
+  genshin impact next version,
+  genshin impact maintenance schedule,
+  genshin impact patch notes,
+  genshin impact ${game?.version_actual} banners,
+  genshin impact ${game?.version_actual} characters,
+  genshin impact primogems,
+  when is genshin impact ${game?.proxima_version} coming out,
+  genshin impact america server countdown,
+  genshin impact version ${game?.version_actual}
+`;
 ---
 
 <Layout
   title={`Genshin Impact ${game?.proxima_version} Release Countdown - Banners & Patch Notes`}
   description={`Genshin Impact ${game?.proxima_version} countdown to release for America, Europe, and Asia servers. Track the update time, banner schedule, maintenance, and official patch notes.`}
-  keywords={`
-    genshin impact 7.0 countdown,
-    genshin impact release date,
-    genshin impact 7.0 release time,
-    genshin impact update time,
-    genshin impact banner schedule,
-    genshin impact next version,
-    genshin impact maintenance schedule,
-    genshin impact patch notes,
-    genshin impact 7.0 banners,
-    genshin impact 7.0 characters,
-    genshin impact primogems,
-    when is genshin impact 7.0 coming out,
-    genshin impact america server countdown,
-    genshin impact 6.7
-  `}
+  keywords={gameKeywords}
+  image={gameImage}
+  canonical={gameCanonicalUrl}
 >
   <script
     type="application/ld+json"

@@ -21,7 +21,7 @@ const nextVersionDateText = nextVersionDate.toLocaleDateString("es-ES", {
 
 const faqItems = [
   {
-    question: "¿Cuándo sale la versión 7.0 de Genshin Impact?",
+    question: `¿Cuándo sale la versión ${game?.proxima_version} de Genshin Impact?`,
     answer: `Se espera que la actualización ${game?.proxima_version} de Genshin Impact salga alrededor del ${nextVersionDateText}, siguiendo el ciclo de parches estándar de 42 días. La hora exacta de lanzamiento se muestra en la cuenta regresiva en vivo.`,
   },
   {
@@ -29,7 +29,7 @@ const faqItems = [
     answer: `Genshin Impact se encuentra actualmente en la versión ${game?.version_actual}, y la próxima actualización importante es la versión ${game?.proxima_version}.`,
   },
   {
-    question: "¿Dónde puedo ver las notas del parche oficiales de Genshin Impact 7.0?",
+    question: `¿Dónde puedo ver las notas del parche oficiales de Genshin Impact ${game?.version_actual}?`,
     answer:
       'Puedes leer las notas del parche oficiales de Genshin Impact en Hoyolab, enlazadas desde el botón "Ver Notas del Parche" de esta página.',
   },
@@ -42,25 +42,28 @@ const faqItems = [
 
 const gameCanonicalUrl = new URL("/es/games/genshin", Astro.site).href;
 const gameImage = new URL(game?.imagen ?? "/og-image.webp", Astro.site).href;
+
+const gameKeywords = `
+  cuenta regresiva genshin impact,
+  genshin impact ${game?.proxima_version},
+  cuando sale genshin impact ${game?.proxima_version},
+  proxima actualizacion genshin impact,
+  fecha de lanzamiento genshin impact ${game?.proxima_version},
+  hora del mantenimiento genshin impact,
+  banners genshin impact ${game?.version_actual},
+  personajes genshin impact ${game?.version_actual},
+  notas del parche genshin impact,
+  proximas versiones genshin impact,
+  cuenta regresiva servidor america genshin impact,
+  genshin impact version ${game?.version_actual}
+`;
 ---
 
 <Layout
   title={`Cuenta Regresiva Genshin Impact ${game?.proxima_version} - Banners y Notas del Parche`}
   description={`Cuenta regresiva para el lanzamiento de Genshin Impact ${game?.proxima_version} en servidores de América, Europa y Asia. Sigue la hora de la actualización, los banners, el mantenimiento y las notas del parche oficiales.`}
-  keywords={`
-    cuenta regresiva genshin impact,
-    genshin impact 7.0,
-    cuando sale genshin impact 7.0,
-    proxima actualizacion genshin impact,
-    fecha de lanzamiento genshin impact 7.0,
-    hora del mantenimiento genshin impact,
-    banners genshin impact 7.0,
-    personajes genshin impact 7.0,
-    notas del parche genshin impact,
-    proximas versiones genshin impact,
-    cuenta regresiva servidor america genshin impact,
-    genshin impact 6.7
-  `}
+  keywords={gameKeywords}
+  image={gameImage}
   lang="es"
 >
   <script
