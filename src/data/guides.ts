@@ -18,7 +18,12 @@ const rawGuides: Array<{
   url: string;
   game: "genshin" | "wuwa" | "zzz" | "hsr";
   language: "EN" | "ES";
-}> = [ 
+}> = [
+  {
+    url: "https://www.youtube.com/watch?v=f8FMC1xfntA",
+    game: "genshin",
+    language: "EN",
+  },
   {
     url: "https://www.youtube.com/watch?v=wA5ph7YoaQg",
     game: "zzz",
