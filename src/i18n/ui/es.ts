@@ -90,6 +90,12 @@ export const es = {
     bannerAlertDesc: "Revisa los warps actuales y banners por tiempo limitado",
     viewNow: "Ver Ahora",
   },
+  gachaSells: {
+    title: "Ingresos de Banners",
+    description: "Explora los datos de ventas de banners de este juego",
+    cta: "Ver Ventas",
+    ariaLabel: "Ver ventas de banners de {game} en Gacha Sells",
+  },
   patch: {
     title: "Base de Datos de Parches",
     subtitle: "Notas oficiales de parches de todos los juegos gacha",

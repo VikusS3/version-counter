@@ -3,6 +3,7 @@ import Layout from "../../../layouts/Layout.astro";
 import { Counter } from "../../../components/react/Counter";
 import { CopyButton } from "../../../components/react/CopyButton";
 import BannerAlert from "../../../components/bannerComponents/BannerAlert.astro";
+import GachaSalesBanner from "../../../components/bannerComponents/GachaSalesBanner.astro";
 import { useTranslations } from "../../../i18n/utils";
 import { getLocalizedGame } from "../../../data/translations/getGameData";
 
@@ -180,6 +181,7 @@ const gameKeywords = `
             <span class="material-symbols-outlined" aria-hidden="true">menu_book</span>
             {t.gamePage.viewPatchNotes}
           </a>
+          <GachaSalesBanner game="wuthering-waves" color="var(--color-wuwa-blue)" />
           <CopyButton 
             client:only="react"
             label={t.gamePage.remindMe}

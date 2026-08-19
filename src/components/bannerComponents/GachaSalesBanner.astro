@@ -1,0 +1,52 @@
+---
+import { getGachaSellsUrl } from "../../constants/gachaSells";
+import {
+  getLangFromUrl,
+  replaceParams,
+  useTranslations,
+} from "../../i18n/utils";
+import { getLocalizedGame } from "../../data/translations/getGameData";
+
+interface Props {
+  game: string;
+  color?: string;
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const { game, color = "var(--color-primary)" } = Astro.props;
+
+const url = getGachaSellsUrl(game);
+const localizedGame = getLocalizedGame(game, lang);
+const gameName = localizedGame?.nombre_oficial ?? game;
+const ariaLabel = replaceParams(t.gachaSells.ariaLabel, { game: gameName });
+---
+
+{
+  url && (
+    <a
+      href={url}
+      target="_blank"
+      rel="noopener noreferrer"
+      title={ariaLabel}
+      aria-label={ariaLabel}
+      class="flex items-center justify-center gap-2 bg-(--sales-color)/15 hover:bg-(--sales-color)/25 text-white px-5 sm:px-6 py-3 min-h-12 rounded-xl font-bold transition-all transform hover:scale-105 border border-(--sales-color)/35 hover:border-(--sales-color)/60 shadow-[0_0_24px_-12px_var(--sales-color)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-(--sales-color)"
+      style={`--sales-color: ${color}`}
+    >
+      <span
+        class="material-symbols-outlined text-base sm:text-lg"
+        style={`color: ${color}`}
+        aria-hidden="true"
+      >
+        leaderboard
+      </span>
+      {t.gachaSells.cta}
+      <span
+        class="material-symbols-outlined text-sm sm:text-base"
+        aria-hidden="true"
+      >
+        open_in_new
+      </span>
+    </a>
+  )
+}
