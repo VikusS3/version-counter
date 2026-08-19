@@ -1,7 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
 import { Counter } from "../../components/react/Counter";
-import { ReleaseCounter } from "../../components/react/ReleaseCounter";
 import { CopyButton } from "../../components/react/CopyButton";
 import BannerAlert from "../../components/bannerComponents/BannerAlert.astro";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
@@ -10,30 +9,114 @@ import { getLocalizedGame } from "../../data/translations/getGameData";
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const game = getLocalizedGame("honkai-star-rail", lang);
+
+const nextVersionDate = new Date(
+  Date.parse(game?.fecha_inicio ?? "") +
+    (game?.duracion_dias ?? 42) * 24 * 60 * 60 * 1000
+);
+const nextVersionDateText = nextVersionDate.toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+
+const faqItems = [
+  {
+    question: `When does Honkai Star Rail ${game?.proxima_version} release?`,
+    answer: `The Honkai Star Rail ${game?.proxima_version} update is expected to release around ${nextVersionDateText}, following the standard ${game?.duracion_dias}-day patch cycle. The exact release time is shown in the live countdown above.`,
+  },
+  {
+    question: "What version is Honkai Star Rail on right now?",
+    answer: `Honkai Star Rail is currently on version ${game?.version_actual}, and the next major update is version ${game?.proxima_version}.`,
+  },
+  {
+    question: `Where can I check the official Honkai Star Rail ${game?.version_actual} patch notes?`,
+    answer:
+      'You can read the official Honkai Star Rail patch notes on Hoyolab, linked from the "View Patch Notes" button on this page.',
+  },
+  {
+    question: "What are the scheduled server maintenance times for Honkai Star Rail?",
+    answer:
+      "Honkai Star Rail maintenance usually starts a few hours before version release. The countdown on this page tracks the exact update time for the America, Europe, and Asia servers.",
+  },
+];
+
+const gameCanonicalUrl = new URL("/games/hsr", Astro.site).href;
+const gameImage = new URL(game?.imagen ?? "/og-image.webp", Astro.site).href;
+
+const gameKeywords = `
+  honkai star rail ${game?.proxima_version} countdown,
+  honkai star rail ${game?.proxima_version} release date,
+  honkai star rail ${game?.proxima_version} release time,
+  honkai star rail update time,
+  honkai star rail banner schedule,
+  honkai star rail next version,
+  honkai star rail maintenance schedule,
+  honkai star rail patch notes,
+  honkai star rail ${game?.version_actual} banners,
+  honkai star rail ${game?.version_actual} characters,
+  honkai star rail stellar jades,
+  when is honkai star rail ${game?.proxima_version} coming out,
+  honkai star rail america server countdown,
+  honkai star rail version ${game?.version_actual}
+`;
 ---
 
 <Layout
-  title={`Honkai Star Rail v${game?.proxima_version} Countdown`}
-  description={`Countdown to Honkai Star Rail v${game?.proxima_version} release. Track version updates, maintenance schedules, and patch notes for the space fantasy RPG.`}
+  title={`Honkai Star Rail ${game?.proxima_version} Release Countdown - Banners & Patch Notes`}
+  description={`Honkai Star Rail ${game?.proxima_version} countdown to release for America, Europe, and Asia servers. Track the update time, banner schedule, maintenance, and official patch notes.`}
+  keywords={gameKeywords}
+  image={gameImage}
+  canonical={gameCanonicalUrl}
 >
   <script
     type="application/ld+json"
     set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "VideoGame",
+      "@id": gameCanonicalUrl,
       name: `Honkai Star Rail v${game?.version_actual}`,
+      alternatename: `Honkai Star Rail ${game?.proxima_version}`,
       description: game?.descripcion,
-      url: new URL("/games/hsr", Astro.site).href,
-      image: game?.imagen,
+      url: gameCanonicalUrl,
+      image: gameImage,
       genre: "Space Fantasy RPG",
+      applicationCategory: "GameApplication",
       operatingSystem: "iOS, Android, PC, PS5",
       publisher: {
         "@type": "Organization",
         name: "HoYoverse",
+        url: "https://www.hoyoverse.com",
       },
       version: game?.version_actual,
       datePublished: game?.fecha_inicio,
       applicationDate: game?.fecha_inicio,
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": gameCanonicalUrl,
+      },
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+        availability: "https://schema.org/InStock",
+        url: gameCanonicalUrl,
+      },
+    })}
+  />
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqItems.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
     })}
   />
   <div
@@ -150,8 +233,9 @@ const game = getLocalizedGame("honkai-star-rail", lang);
         >
           <a
             target="_blank"
-            rel="noopener noreferer"
+            rel="noopener noreferrer"
             href={game?.patch_notes}
+            title="Official Honkai Star Rail patch notes on Hoyolab"
             class="flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white px-6 sm:px-8 py-3 min-h-[48px] rounded-xl font-bold transition-all transform hover:scale-105"
           >
             <span class="material-symbols-outlined" aria-hidden="true"
@@ -165,6 +249,44 @@ const game = getLocalizedGame("honkai-star-rail", lang);
             successMessage={t.gamePage.toastSuccess}
             errorMessage={t.gamePage.toastError}
           />
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ / SEO section -->
+    <section class="w-full max-w-300 px-4 sm:px-6 pb-12 sm:pb-16">
+      <div class="glass-panel rounded-2xl p-6 sm:p-8 border border-white/10">
+        <h2 class="text-white text-2xl sm:text-3xl font-bold mb-6 text-center">
+          Honkai Star Rail {game?.proxima_version} FAQ
+        </h2>
+        <div class="grid gap-4 sm:grid-cols-2">
+          {
+            faqItems.map((item) => (
+              <details class="group rounded-xl bg-white/5 border border-white/10 p-4 sm:p-5">
+                <summary
+                  class="cursor-pointer list-none flex items-center justify-between gap-3 font-semibold text-white text-sm sm:text-base"
+                >
+                  {item.question}
+                  <span
+                    class="shrink-0 text-gold transition-transform group-open:rotate-45"
+                    aria-hidden="true"
+                  >+</span>
+                </summary>
+                <p class="mt-3 text-slate-300 text-sm leading-relaxed">
+                  {item.answer}
+                </p>
+              </details>
+            ))
+          }
+        </div>
+        <div class="mt-8 text-center">
+          <a
+            href="/banners"
+            class="inline-flex items-center gap-2 text-blue-300 hover:text-blue-200 font-semibold text-sm sm:text-base"
+          >
+            {t.banner.viewBanners}
+            <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+          </a>
         </div>
       </div>
     </section>
