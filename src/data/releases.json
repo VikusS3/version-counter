@@ -1,16 +1,16 @@
 {
   "releases": [
     {
-      "slug": "silver-palace",
-      "nombre_oficial": "Silver Palace",
-      "descripcion": "Las inscripciones para la beta de Silver Palace ya están abiertas. ¡Regístrate ahora y sé uno de los primeros en experimentar la emoción de este nuevo juego! Descubre un mundo lleno de aventuras, desafíos y recompensas exclusivas. No pierdas la oportunidad de formar parte de la comunidad de Silver Palace desde el principio.",
-      "fecha_salida": "2026-04-29T00:00:00Z",
-      "alias": "SP",
-      "imagen": "/releases/silver-palace.webp",
-      "href": "/silver-palace",
-      "icon": "/silver-palace-icon.webp",
-      "tema": "#a78bfa",
-      "url": "https://urlhe.com/afivh"
+      "slug": "ananta",
+      "nombre_oficial": "Ananta",
+      "descripcion": "Ananta es un RPG de acción free-to-play de mundo abierto urbano desarrollado por Naked Rain y publicado por NetEase Games. Explora una enorme ciudad moderna llena de eventos sobrenaturales, balancéate entre rascacielos y conduce cualquier vehículo que encuentres. Su lanzamiento mundial está previsto para el 15 de enero de 2027 en PC, PS5, iOS y Android.",
+      "fecha_salida": "2027-01-15T00:00:00Z",
+      "alias": "ananta",
+      "imagen": "/releases/ananta.webp",
+      "href": "/ananta",
+      "icon": "/releases/ananta.webp",
+      "tema": "#fb923c",
+      "publisher": "NetEase Games"
     }
   ]
 }

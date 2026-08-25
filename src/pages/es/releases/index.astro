@@ -22,27 +22,28 @@ const releases = getLocalizedReleases(lang);
       </p>
     </section>
 
-    <!-- No Games -->
-    <section class="flex items-center justify-center">
-      <NoGames />
-    </section>
-
-    <!-- Cards -->
-    <!-- <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {
-        releases.map((release) => (
-          <ReleaseCard
-            title={release.nombre_oficial}
-            imagen={release.imagen}
-            fecha_salida={release.fecha_salida}
-            tema={release.tema}
-            href={release.href}
-            alias={release.alias}
-            slug={release.slug}
-            registrationUrl={release.url}
-          />
-        ))
-      }
-    </section> -->
+    <!-- Cards / No Games -->
+    {
+      releases.length === 0 ? (
+        <section class="flex items-center justify-center">
+          <NoGames />
+        </section>
+      ) : (
+        <section class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {releases.map((release) => (
+            <ReleaseCard
+              title={release.nombre_oficial}
+              imagen={release.imagen}
+              fecha_salida={release.fecha_salida}
+              tema={release.tema}
+              href={release.href}
+              alias={release.alias}
+              slug={release.slug}
+              registrationUrl={release.url}
+            />
+          ))}
+        </section>
+      )
+    }
   </main>
 </Layout>

@@ -5,13 +5,14 @@ import { useTranslations } from "../../i18n/utils";
 const t = useTranslations("es");
 
 const GITHUB_URL = "https://github.com/VikusS3/version-counter";
+const canonicalUrl = new URL("/es/contact", Astro.site).href;
 ---
 
 <Layout
   title={t.contact.title}
   description={t.contact.subtitle}
-  url={`${Astro.site}es/contact`}
-  canonical={`${Astro.site}es/contact`}
+  url={canonicalUrl}
+  canonical={canonicalUrl}
   lang="es"
 >
   <main id="main-content" class="max-w-4xl mx-auto w-full px-4 sm:px-6 py-8 sm:py-10">

@@ -1,12 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const canonicalUrl = new URL("/terminos", Astro.site).href;
 ---
 
 <Layout
   title="Terms of Use"
   description="Terms of use for Gacha Countdown. Free application, no warranties, and no data collection. Learn about your rights and responsibilities."
-  url={`${Astro.site}/terminos`}
-  canonical={`${Astro.site}/terminos`}
+  url={canonicalUrl}
+  canonical={canonicalUrl}
 >
   <main id="main-content" class="max-w-4xl mx-auto w-full px-4 sm:px-6 py-8 sm:py-10">
     <h1 class="text-3xl sm:text-4xl font-bold text-gray-100 mb-6 sm:mb-8">Terms of Use</h1>

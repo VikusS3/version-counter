@@ -9,6 +9,7 @@ export function getStaticPaths() {
   return [
     { params: { slug: "neverness-to-everness" } },
     { params: { slug: "silver-palace" } },
+    { params: { slug: "ananta" } },
   ];
 }
 
@@ -24,6 +25,49 @@ if (!release) {
 const now = new Date();
 const releaseDate = new Date(release.fecha_salida);
 const isReleased = releaseDate <= now;
+
+const releaseCanonicalUrl = new URL(`/releases/${slug}`, Astro.site).href;
+const releaseImage = new URL(release.imagen ?? "/og-image.webp", Astro.site).href;
+
+const releaseDateText = releaseDate.toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+const gameName = release.nombre_oficial;
+const gameNameLower = gameName.toLowerCase();
+
+const faqItems = [
+  {
+    question: `When does ${gameName} release?`,
+    answer: `${gameName} is scheduled to release on ${releaseDateText}. The live countdown above tracks the exact time left until launch for your region.`,
+  },
+  {
+    question: `Which platforms will ${gameName} be available on?`,
+    answer: `${gameName} is planned for PC, PlayStation 5, iOS, and Android with cross-platform progression support.`,
+  },
+  {
+    question: `Is ${gameName} free to play?`,
+    answer: `Yes, ${gameName} is a free-to-play game with optional in-game purchases.`,
+  },
+  {
+    question: `What is ${gameName}?`,
+    answer: release.descripcion,
+  },
+];
+
+const releaseKeywords = `
+  ${gameNameLower} release date,
+  ${gameNameLower} countdown,
+  when does ${gameNameLower} come out,
+  ${gameNameLower} launch time,
+  ${gameNameLower} platforms,
+  ${gameNameLower} pc ps5 ios android,
+  is ${gameNameLower} free to play,
+  ${gameNameLower} open world rpg,
+  ${gameNameLower} upcoming games 2027,
+  ${slug} release countdown
+`;
 ---
 
 <Layout
@@ -32,23 +76,59 @@ const isReleased = releaseDate <= now;
     : `${release?.nombre_oficial} Release Date Countdown`}
   description={isReleased
     ? `${t.release.registrationsOpen} for ${release?.nombre_oficial} beta. Sign up now to secure your spot!`
-    : `Countdown to ${release?.nombre_oficial} release. Track the launch date and official information.`}
+    : `Countdown to ${release?.nombre_oficial} release on ${releaseDateText}. Track the launch date, platforms, and official information.`}
+  keywords={releaseKeywords}
+  image={releaseImage}
+  canonical={releaseCanonicalUrl}
 >
   <script
     type="application/ld+json"
     set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "VideoGame",
+      "@id": releaseCanonicalUrl,
       name: release?.nombre_oficial,
+      alternatename: release?.nombre,
       description: release?.descripcion,
-      url: new URL(`/releases/${slug}`, Astro.site).href,
-      image: release?.imagen,
+      url: releaseCanonicalUrl,
+      image: releaseImage,
       genre: "Action RPG",
+      applicationCategory: "GameApplication",
       operatingSystem: "iOS, Android, PC, PS5",
       publisher: {
         "@type": "Organization",
-        name: "Silver Studio",
+        name: release?.publisher ?? "Silver Studio",
       },
+      datePublished: release?.fecha_salida,
+      playMode: "MultiPlayer",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+        availability: isReleased
+          ? "https://schema.org/InStock"
+          : "https://schema.org/PreOrder",
+        url: releaseCanonicalUrl,
+      },
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": releaseCanonicalUrl,
+      },
+    })}
+  />
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqItems.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
     })}
   />
   <div
@@ -132,6 +212,35 @@ const isReleased = releaseDate <= now;
             </>
           )
         }
+      </div>
+    </section>
+
+    <!-- FAQ / SEO section -->
+    <section class="w-full max-w-300 px-4 sm:px-6 pb-12 sm:pb-16">
+      <div class="glass-panel rounded-2xl p-6 sm:p-8 border border-white/10">
+        <h2 class="text-white text-2xl sm:text-3xl font-bold mb-6 text-center">
+          {release?.nombre_oficial} FAQ
+        </h2>
+        <div class="grid gap-4 sm:grid-cols-2">
+          {
+            faqItems.map((item) => (
+              <details class="group rounded-xl bg-white/5 border border-white/10 p-4 sm:p-5">
+                <summary
+                  class="cursor-pointer list-none flex items-center justify-between gap-3 font-semibold text-white text-sm sm:text-base"
+                >
+                  {item.question}
+                  <span
+                    class="shrink-0 text-gold transition-transform group-open:rotate-45"
+                    aria-hidden="true"
+                  >+</span>
+                </summary>
+                <p class="mt-3 text-slate-300 text-sm leading-relaxed">
+                  {item.answer}
+                </p>
+              </details>
+            ))
+          }
+        </div>
       </div>
     </section>
   </main>

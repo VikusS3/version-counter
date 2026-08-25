@@ -1,12 +1,14 @@
 ---
 import Layout from "../../layouts/Layout.astro";
+
+const canonicalUrl = new URL("/es/terminos", Astro.site).href;
 ---
 
 <Layout
   title="Términos de Uso"
   description="Términos de uso de Gacha Countdown. Aplicación gratuita, sin garantías, y sin recolección de datos personales. Conoce tus derechos y responsabilidades."
-  url={`${Astro.site}/es/terminos`}
-  canonical={`${Astro.site}/es/terminos`}
+  url={canonicalUrl}
+  canonical={canonicalUrl}
   lang="es"
 >
   <main id="main-content" class="max-w-4xl mx-auto w-full px-4 sm:px-6 py-8 sm:py-10">

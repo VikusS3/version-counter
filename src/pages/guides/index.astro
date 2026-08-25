@@ -6,6 +6,7 @@ import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
+const guidesCanonicalUrl = new URL("/guides", Astro.site).href;
 ---
 
 <Layout
@@ -19,7 +20,7 @@ const t = useTranslations(lang);
       "@type": "CollectionPage",
       name: t.guides.title,
       description: t.guides.subtitle,
-      url: new URL("/guides", Astro.site).href,
+      url: guidesCanonicalUrl,
       mainEntity: {
         "@type": "ItemList",
         itemListElement: guides.map((guide, index) => ({

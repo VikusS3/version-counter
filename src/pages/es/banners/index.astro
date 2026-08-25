@@ -5,6 +5,7 @@ import BannerTracker from "../../../components/bannerComponents/BannerTracker.as
 import { bannersData } from "../../../data/banners";
 
 const t = useTranslations("es");
+const bannerCanonicalUrl = new URL("/es/banners", Astro.site).href;
 ---
 
 <Layout
@@ -19,7 +20,7 @@ const t = useTranslations("es");
       "@type": "CollectionPage",
       name: t.banner.title,
       description: t.banner.subtitle,
-      url: new URL("/es/banners", Astro.site).href,
+      url: bannerCanonicalUrl,
       mainEntity: bannersData.flatMap((game) =>
         game.banners.map((banner) => ({
           "@type": "Event",

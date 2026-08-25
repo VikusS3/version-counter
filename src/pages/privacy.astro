@@ -1,12 +1,14 @@
 ---
 import Layout from "../layouts/Layout.astro";
+
+const canonicalUrl = new URL("/privacy", Astro.site).href;
 ---
 
 <Layout
   title="Privacy Policy"
   description="Privacy policy for Gacha Countdown. We do not collect, store, or share any personal data. Learn how your privacy is protected."
-  url={`${Astro.site}/privacy`}
-  canonical={`${Astro.site}/privacy`}
+  url={canonicalUrl}
+  canonical={canonicalUrl}
 >
   <main id="main-content" class="max-w-4xl mx-auto w-full px-4 sm:px-6 py-8 sm:py-10">
     <h1 class="text-3xl sm:text-4xl font-bold text-gray-100 mb-6 sm:mb-8">Privacy Policy</h1>

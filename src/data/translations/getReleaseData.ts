@@ -20,6 +20,7 @@ export interface LocalizedRelease {
   icon: string;
   tema: string;
   url?: string;
+  publisher?: string;
 }
 
 export function getLocalizedReleases(locale: Locale): LocalizedRelease[] {

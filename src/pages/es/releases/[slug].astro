@@ -9,6 +9,7 @@ export function getStaticPaths() {
   return [
     { params: { slug: "neverness-to-everness" } },
     { params: { slug: "silver-palace" } },
+    { params: { slug: "ananta" } },
   ];
 }
 
@@ -24,27 +25,105 @@ if (!release) {
 const now = new Date();
 const releaseDate = new Date(release.fecha_salida);
 const isReleased = releaseDate <= now;
+
+const releaseCanonicalUrl = new URL(`/es/releases/${slug}`, Astro.site).href;
+const releaseImage = new URL(release.imagen ?? "/og-image.webp", Astro.site).href;
+
+const releaseDateText = releaseDate.toLocaleDateString("es-ES", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+const gameName = release.nombre_oficial;
+
+const faqItems = [
+  {
+    question: `¿Cuándo sale ${gameName}?`,
+    answer: `${gameName} tiene fecha de lanzamiento prevista para el ${releaseDateText}. La cuenta regresiva en vivo de arriba muestra el tiempo exacto que falta para el estreno.`,
+  },
+  {
+    question: `¿En qué plataformas estará disponible ${gameName}?`,
+    answer: `${gameName} está previsto para PC, PlayStation 5, iOS y Android con progreso multiplataforma.`,
+  },
+  {
+    question: `¿Es gratis ${gameName}?`,
+    answer: `Sí, ${gameName} es free-to-play con compras opcionales dentro del juego.`,
+  },
+  {
+    question: `¿Qué es ${gameName}?`,
+    answer: release.descripcion,
+  },
+];
+
+const releaseKeywords = `
+  ${gameName.toLowerCase()} fecha de lanzamiento,
+  ${gameName.toLowerCase()} cuenta regresiva,
+  cuando sale ${gameName.toLowerCase()},
+  hora de lanzamiento ${gameName.toLowerCase()},
+  plataformas ${gameName.toLowerCase()},
+  ${gameName.toLowerCase()} pc ps5 ios android,
+  es gratis ${gameName.toLowerCase()},
+  ${gameName.toLowerCase()} rpg mundo abierto,
+  juegos nuevos 2027,
+  cuenta atras lanzamiento ${slug}
+`;
 ---
 
 <Layout
   title={isReleased ? `${release?.nombre_oficial} - ${t.release.registrationsOpen}` : `${release?.nombre_oficial} Cuenta Regresiva Fecha de Estreno`}
-  description={isReleased ? `${t.release.registrationsOpen} para la beta de ${release?.nombre_oficial}. ¡Regístrate ahora para asegurar tu lugar!` : `Cuenta regresiva para el estreno de ${release?.nombre_oficial}. Rastrea la fecha de lanzamiento e información oficial.`}
+  description={isReleased ? `${t.release.registrationsOpen} para la beta de ${release?.nombre_oficial}. ¡Regístrate ahora para asegurar tu lugar!` : `Cuenta regresiva para el estreno de ${release?.nombre_oficial} el ${releaseDateText}. Rastrea la fecha de lanzamiento, plataformas e información oficial.`}
+  keywords={releaseKeywords}
+  image={releaseImage}
+  canonical={releaseCanonicalUrl}
 >
   <script
     type="application/ld+json"
     set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "VideoGame",
+      "@id": releaseCanonicalUrl,
       name: release?.nombre_oficial,
+      alternatename: release?.nombre,
       description: release?.descripcion,
-      url: new URL(`/es/releases/${slug}`, Astro.site).href,
-      image: release?.imagen,
+      url: releaseCanonicalUrl,
+      image: releaseImage,
       genre: "Action RPG",
+      applicationCategory: "GameApplication",
       operatingSystem: "iOS, Android, PC, PS5",
       publisher: {
         "@type": "Organization",
-        name: "Silver Studio",
+        name: release?.publisher ?? "Silver Studio",
       },
+      datePublished: release?.fecha_salida,
+      playMode: "MultiPlayer",
+      offers: {
+        "@type": "Offer",
+        price: "0",
+        priceCurrency: "USD",
+        availability: isReleased
+          ? "https://schema.org/InStock"
+          : "https://schema.org/PreOrder",
+        url: releaseCanonicalUrl,
+      },
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": releaseCanonicalUrl,
+      },
+    })}
+  />
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqItems.map((item) => ({
+        "@type": "Question",
+        name: item.question,
+        acceptedAnswer: {
+          "@type": "Answer",
+          text: item.answer,
+        },
+      })),
     })}
   />
   <div
@@ -138,6 +217,35 @@ const isReleased = releaseDate <= now;
             </>
           )
         }
+      </div>
+    </section>
+
+    <!-- FAQ / SEO section -->
+    <section class="w-full max-w-300 px-4 sm:px-6 pb-12 sm:pb-16">
+      <div class="glass-panel rounded-2xl p-6 sm:p-8 border border-white/10">
+        <h2 class="text-white text-2xl sm:text-3xl font-bold mb-6 text-center">
+          {release?.nombre_oficial}: Preguntas Frecuentes
+        </h2>
+        <div class="grid gap-4 sm:grid-cols-2">
+          {
+            faqItems.map((item) => (
+              <details class="group rounded-xl bg-white/5 border border-white/10 p-4 sm:p-5">
+                <summary
+                  class="cursor-pointer list-none flex items-center justify-between gap-3 font-semibold text-white text-sm sm:text-base"
+                >
+                  {item.question}
+                  <span
+                    class="shrink-0 text-gold transition-transform group-open:rotate-45"
+                    aria-hidden="true"
+                  >+</span>
+                </summary>
+                <p class="mt-3 text-slate-300 text-sm leading-relaxed">
+                  {item.answer}
+                </p>
+              </details>
+            ))
+          }
+        </div>
       </div>
     </section>
   </main>
