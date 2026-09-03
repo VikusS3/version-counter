@@ -29,22 +29,28 @@ export function Toast({ message, type = "success", duration = 3500, onClose }: T
 
   const typeStyles = {
     success: {
-      bg: "bg-emerald-600",
-      border: "border-emerald-400/30",
+      bg: "bg-[#090a16]/95",
+      border: "border-emerald-500/40",
+      accent: "text-emerald-400",
+      iconBg: "bg-emerald-500/20",
       icon: "check_circle",
-      shadow: "shadow-emerald-500/20",
+      shadow: "shadow-[0_0_30px_rgba(16,185,129,0.25)]",
     },
     error: {
-      bg: "bg-rose-600",
-      border: "border-rose-400/30",
+      bg: "bg-[#090a16]/95",
+      border: "border-rose-500/40",
+      accent: "text-rose-400",
+      iconBg: "bg-rose-500/20",
       icon: "error",
-      shadow: "shadow-rose-500/20",
+      shadow: "shadow-[0_0_30px_rgba(244,63,94,0.25)]",
     },
     info: {
-      bg: "bg-sky-600",
-      border: "border-sky-400/30",
+      bg: "bg-[#090a16]/95",
+      border: "border-indigo-500/40",
+      accent: "text-indigo-400",
+      iconBg: "bg-indigo-500/20",
       icon: "info",
-      shadow: "shadow-sky-500/20",
+      shadow: "shadow-[0_0_30px_rgba(99,102,241,0.25)]",
     },
   };
 
@@ -58,27 +64,29 @@ export function Toast({ message, type = "success", duration = 3500, onClose }: T
       className={`
         fixed bottom-4 right-4 left-4 sm:bottom-6 sm:right-6 sm:left-auto z-50
         transition-all duration-300 ease-out
-        ${isVisible && !isLeaving ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}
+        ${isVisible && !isLeaving ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-4 scale-95"}
       `}
     >
       <div 
         className={`
           ${style.bg} ${style.border}
-          backdrop-blur-sm
-          border-b-4
-          text-white px-4 sm:px-5 py-3.5 sm:py-4 rounded-xl
-          shadow-2xl ${style.shadow}
-          flex items-center gap-3
-          w-full sm:min-w-[280px] sm:max-w-[400px]
+          backdrop-blur-2xl
+          border
+          text-white px-4 sm:px-5 py-3.5 sm:py-4 rounded-2xl
+          ${style.shadow}
+          flex items-center gap-3.5
+          w-full sm:min-w-[300px] sm:max-w-[420px]
         `}
       >
-        <span 
-          className="material-symbols-outlined text-xl shrink-0"
-          aria-hidden="true"
-        >
-          {style.icon}
-        </span>
-        <span className="font-medium text-sm leading-relaxed flex-1">
+        <div className={`size-8 rounded-lg flex items-center justify-center shrink-0 ${style.iconBg} ${style.accent}`}>
+          <span 
+            className="material-symbols-outlined text-lg"
+            aria-hidden="true"
+          >
+            {style.icon}
+          </span>
+        </div>
+        <span className="font-mono text-xs sm:text-sm leading-relaxed flex-1 text-slate-200">
           {message}
         </span>
         <button

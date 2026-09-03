@@ -1,4 +1,4 @@
----
+﻿---
 import "../styles/global.css";
 import "material-symbols/outlined.css";
 import Header from "../components/Header.astro";
@@ -91,9 +91,9 @@ pathSegments.forEach((segment, index) => {
   } else if (segment === "banners") {
     name = locale === "es" ? "Banners Actuales" : "Current Banners";
   } else if (segment === "guides") {
-    name = locale === "es" ? "Guías" : "Guides";
+    name = locale === "es" ? "GuÃ­as" : "Guides";
   } else if (segment === "releases") {
-    name = locale === "es" ? "Próximos Estrenos" : "Upcoming Releases";
+    name = locale === "es" ? "PrÃ³ximos Estrenos" : "Upcoming Releases";
   } else if (segment === "contact") {
     name = locale === "es" ? "Contacto" : "Contact";
   } else if (segment === "es") {
@@ -191,7 +191,17 @@ const breadcrumbSchema = {
 
       gtag("config", "G-YXEFY6EQK4");
     </script>
-  </head>
+
+    <!-- Fix: Re-initialize astro-islands (React client:only components) after View Transitions swap -->
+    <script is:inline>
+      // After each View Transition page swap, force astro-islands to re-initialize
+      // This fixes React components (client:only) that use setInterval/useEffect
+      document.addEventListener("astro:after-swap", () => {
+        // Astro's island runtime re-initializes automatically, but we dispatch
+        // a custom event that React components can listen to for cleanup/restart
+        window.dispatchEvent(new CustomEvent("astro:react-remount"));
+      });
+    </script>  </head>
 
   <script
     type="application/ld+json"
@@ -226,15 +236,19 @@ const breadcrumbSchema = {
   <ClientRouter />
 
   <body
-    class="bg-background-dark text-slate-900 dark:text-slate-100 min-h-dvh flex flex-col"
+    class="bg-background-dark text-slate-100 min-h-dvh flex flex-col relative selection:bg-indigo-500/30 selection:text-indigo-200"
   >
+    <!-- Gamer Background Atmosphere -->
+    <div class="fixed inset-0 cyber-grid opacity-35 pointer-events-none z-0" aria-hidden="true"></div>
+    <div class="fixed inset-0 cyber-radial-glow pointer-events-none z-0" aria-hidden="true"></div>
+
     <a
       href="#main-content"
       class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 focus:z-50 focus:px-4 focus:py-3 focus:bg-primary focus:text-white focus:rounded-lg focus:font-bold focus:min-w-[48px] focus:min-h-[48px]"
     >
       Skip to main content
     </a>
-    <div class="text-white relative flex h-full grow flex-col">
+    <div class="text-white relative z-10 flex h-full grow flex-col">
       <Header />
       <slot />
       <Footer />
@@ -242,8 +256,3 @@ const breadcrumbSchema = {
   </body>
 </html>
 
-<style>
-  body {
-    font-family: "Orbitron Variable", sans-serif;
-  }
-</style>

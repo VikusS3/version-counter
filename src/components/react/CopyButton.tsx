@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import { useState, useCallback } from "react";
 import { Toast } from "./Toast";
 
 interface CopyButtonProps {
@@ -45,9 +45,11 @@ export function CopyButton({
         onClick={handleClick}
         type="button"
         aria-label={`${label} - Copies current page URL to clipboard`}
-        className="flex items-center justify-center gap-2 bg-gradient-to-r from-violet-600 to-fuchsia-600 hover:from-violet-500 hover:to-fuchsia-500 text-white px-6 sm:px-8 py-3 min-h-[48px] rounded-xl font-bold transition-all transform hover:scale-105"
+        className={`flex items-center justify-center gap-2.5 bg-gradient-to-r from-indigo-600 via-purple-600 to-pink-600 hover:from-indigo-500 hover:to-pink-500 text-white px-6 sm:px-8 py-3 min-h-[48px] rounded-xl font-display text-xs sm:text-sm font-bold tracking-wider uppercase transition-all transform border border-white/20 shadow-[0_0_24px_rgba(168,85,247,0.35)] cursor-pointer ${
+          isPressed ? "scale-95 brightness-125" : "hover:scale-105"
+        }`}
       >
-        <span className="material-symbols-outlined" aria-hidden="true">notifications_active</span>
+        <span className="material-symbols-outlined text-lg" aria-hidden="true">notifications_active</span>
         <span>{label}</span>
       </button>
       {toast && (

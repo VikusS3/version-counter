@@ -2,40 +2,56 @@
 @import "@fontsource-variable/orbitron";
 
 @theme {
-  --color-primary: #4b2bee;
-  --color-background-dark: #0b0a14;
-  --color-card-dark: #161521;
-  --color-genshin-teal: #4eb6b9;
-  --color-genshin-gold: #e2b354;
-  --color-wuwa-blue: #009dbd;
-  --color-zzz-yellow: #b7bd11;
-  --color-hsr-purple: #a855f7;
-  --color-hsr-silver: #cbd5e1;
-  --color-nte-cyan: #75fff2;
-  --color-arknights-gold: #d1a406;
+  --color-primary: #6366f1;
+  --color-primary-glow: #818cf8;
+  --color-background-dark: #07080f;
+  --color-background-panel: #0d0e1a;
+  --color-card-dark: #121324;
+  
+  --color-genshin-teal: #2dd4bf;
+  --color-genshin-gold: #fbbf24;
+  --color-wuwa-blue: #06b6d4;
+  --color-zzz-yellow: #facc15;
+  --color-hsr-purple: #c084fc;
+  --color-hsr-silver: #e2e8f0;
+  --color-nte-cyan: #67e8f9;
+  --color-arknights-gold: #eab308;
 
-  --color-genshin: #4ade80;
+  --color-genshin: #34d399;
   --color-wuwa: #22d3ee;
   --color-zzz: #facc15;
-  --color-hsr: #a855f7;
-  --color-nte: #95f5fc;
-  --color-arknights: #969511;
+  --color-hsr: #c084fc;
+  --color-nte: #67e8f9;
+  --color-arknights: #eab308;
   --color-accent: var(--accent-color);
 
-  --radius-default: 0.25rem;
-  --radius-lg: 0.5rem;
-  --radius-xl: 0.75rem;
+  --radius-default: 0.375rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
   --radius-full: 9999px;
 }
 
+/* Typography Utility Classes */
+.font-display {
+  font-family: "Orbitron Variable", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.countdown-font {
+  font-family: "Orbitron Variable", monospace, sans-serif;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.08em;
+}
+
+/* Accessibility Focus States */
 *:focus-visible {
-  outline: 2px solid #4b2bee;
+  outline: 2px solid #818cf8;
   outline-offset: 2px;
 }
 
 @supports not selector(:focus-visible) {
   *:focus {
-    outline: 2px solid #4b2bee;
+    outline: 2px solid #818cf8;
     outline-offset: 2px;
   }
 }
@@ -52,19 +68,44 @@
   border: 0;
 }
 
+/* Smooth Scrolling & Touch Tweaks */
 html {
   -webkit-overflow-scrolling: touch;
   -webkit-tap-highlight-color: transparent;
+  color-scheme: dark;
 }
 
 body {
   overscroll-behavior: none;
+  background-color: var(--color-background-dark);
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
 @media (min-width: 768px) {
   body {
     overscroll-behavior: auto;
   }
+}
+
+/* Gamer Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #07080f;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1e213a;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #31365c;
+  border-color: rgba(99, 102, 241, 0.4);
 }
 
 .no-scrollbar {
@@ -95,81 +136,75 @@ body {
   }
 }
 
+/* Gamer Atmosphere & Tech Grids */
+.cyber-grid {
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+.cyber-radial-glow {
+  background: radial-gradient(circle at 50% 0%, rgba(99, 102, 241, 0.15) 0%, transparent 60%);
+}
+
+/* Glass Panels & HUD Elements */
 .glass-panel {
-  background: rgba(19, 16, 34, 0.7);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(13, 14, 26, 0.75);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
+
+.glass-panel-glow {
+  background: rgba(13, 14, 26, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+}
+
+.hud-panel {
+  position: relative;
+  background: linear-gradient(135deg, rgba(18, 19, 36, 0.9) 0%, rgba(10, 11, 20, 0.95) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.hud-badge {
+  font-family: "Orbitron Variable", monospace, sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+/* Glowing Neon Accents */
 .gold-glow {
-  text-shadow: 0 0 10px rgba(212, 173, 106, 0.5);
+  text-shadow: 0 0 12px rgba(251, 191, 36, 0.6);
 }
+
 .primary-glow {
-  box-shadow: 0 0 20px rgba(75, 43, 238, 0.3);
+  box-shadow: 0 0 25px rgba(99, 102, 241, 0.25);
 }
 
-.countdown-font {
-  font-variant-numeric: tabular-nums;
-  letter-spacing: 0.05em;
+.text-gold {
+  color: #fbbf24;
 }
 
-.bg-background-light {
-  background-color: #f6f6f8;
-}
-
-.bg-background-dark {
-  background-color: #0a0a0c;
-}
-
-.bg-primary {
-  background-color: #4b2bee;
-}
-
-.genshin {
-  background-color: #4ade80;
-}
-
-.hsr {
-  background-color: #22d3ee;
-}
-
-.zzz {
-  background-color: #facc15;
-}
-
-.wuwa {
-  background-color: #818cf8;
-}
-
+/* Game Specific Glow Gradients */
 .glow-genshin {
-  background: radial-gradient(
-    circle,
-    rgba(78, 182, 185, 0.25) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle, rgba(52, 211, 153, 0.25) 0%, transparent 70%);
 }
 .glow-wuthering {
-  background: radial-gradient(
-    circle,
-    rgba(0, 210, 255, 0.2) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle, rgba(34, 211, 238, 0.22) 0%, transparent 70%);
 }
 .glow-zenless {
-  background: radial-gradient(
-    circle,
-    rgba(250, 255, 0, 0.15) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle, rgba(250, 204, 21, 0.2) 0%, transparent 70%);
 }
 .glow-honkai {
-  background: radial-gradient(
-    circle,
-    rgba(168, 85, 247, 0.2) 0%,
-    transparent 70%
-  );
+  background: radial-gradient(circle, rgba(192, 132, 252, 0.25) 0%, transparent 70%);
 }
+
 .card-container {
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .nav-link {
@@ -177,5 +212,5 @@ body {
 }
 
 .nav-link-active {
-  font-weight: 600;
+  font-weight: 700;
 }

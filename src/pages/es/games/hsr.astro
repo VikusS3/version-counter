@@ -119,90 +119,43 @@ const gameKeywords = `
     })}
   />
   <div
-    class="fixed inset-0 z-0 opacity-30 pointer-events-none bg-cover bg-center"
+    class="fixed inset-0 z-0 opacity-20 pointer-events-none bg-cover bg-center filter blur-[2px]"
     role="img"
     aria-label="Honkai Star Rail versión {game?.version_actual}"
     style=`background-image:url(${game?.imagen});`
   >
   </div>
   <main id="main-content" class="flex-1 flex flex-col items-center">
-    <section class="w-full max-w-300 px-4 sm:px-6 pt-8 sm:pt-12 mb-12 sm:mb-16">
+    <section class="w-full max-w-5xl px-4 sm:px-6 pt-8 sm:pt-12 mb-12 sm:mb-16">
       <div class="@container">
         <div
           class="flex flex-col items-center justify-center text-center mb-6 sm:mb-8"
         >
           <div
-            class="inline-flex items-center gap-2 px-2.5 sm:px-3 py-1 rounded-full bg-primary/50 border border-primary/40 text-white text-[11px] sm:text-sm font-bold tracking-widest uppercase mb-3 sm:mb-4"
+            class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 border border-purple-500/40 text-purple-300 text-xs sm:text-sm font-mono font-bold tracking-widest uppercase mb-4 backdrop-blur-md shadow-[0_0_16px_rgba(192,132,252,0.2)]"
           >
             <span class="relative flex h-2 w-2" aria-hidden="true">
               <span
-                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"
+                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"
               ></span>
-              <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"
+              <span
+                class="relative inline-flex rounded-full h-2 w-2 bg-purple-400"
               ></span>
             </span>
             {t.gamePage.countdownToVersion}
             {game?.proxima_version}
           </div>
           <h1
-            class="text-white text-3xl sm:text-4xl md:text-6xl font-black leading-tight tracking-tight mb-3 sm:mb-4"
+            class="text-white font-display text-3xl sm:text-5xl md:text-6xl font-black leading-tight tracking-tight mb-4"
           >
             {game?.nombre_version_actual}
-            <span class="text-gold italic font-serif">{game?.slogan_name}</span>
+            <span class="text-gold italic font-serif ml-2">{game?.slogan_name}</span>
           </h1>
-          <p class="text-slate-400 text-sm sm:text-base md:text-lg max-w-2xl">
+          <p class="text-slate-400 text-sm sm:text-base md:text-lg max-w-2xl font-medium">
             {game?.slogan_desc}
           </p>
         </div>
-        <!-- Collab Event Countdown -->
-        <!-- <div class="mt-8 sm:mt-10 w-full max-w-xs mx-auto">
-          <div
-            class="relative glass-panel rounded-2xl p-4 sm:p-5 border border-purple-500/25 shadow-[0_0_20px_-8px_var(--color-hsr-purple)]"
-          >
-            <div
-              class="absolute top-0 left-4 right-4 h-px bg-gradient-to-r from-transparent via-purple-500/60 to-transparent"
-            >
-            </div>
-            <div class="flex items-center justify-center gap-1.5 mb-2.5">
-              <span class="relative flex h-2 w-2">
-                <span
-                  class="animate-ping absolute inline-flex h-full w-full rounded-full bg-purple-400 opacity-75"
-                ></span>
-                <span
-                  class="relative inline-flex rounded-full h-2 w-2 bg-purple-400"
-                ></span>
-              </span>
-              <span
-                class="text-[10px] font-bold tracking-widest uppercase text-purple-300"
-                >{t.event.limited}</span
-              >
-            </div>
-            <h3 class="text-white text-sm font-bold text-center mb-2">
-              {t.event.name}
-            </h3>
-            <div
-              class="w-8 h-px bg-linear-to-r from-transparent via-amber-400/50 to-transparent mx-auto mb-2.5"
-            >
-            </div>
-            <p
-              class="text-[9px] uppercase tracking-[0.2em] font-semibold text-center text-amber-400/80 mb-2.5"
-            >
-              {t.event.startsIn}
-            </p>
-            <ReleaseCounter
-              client:only="react"
-              fecha_salida="2026-07-24T12:00:00Z"
-              variant="mini"
-              labels={{
-                days: t.counter.days,
-                hours: t.counter.hours,
-                minutes: t.counter.minutes,
-                seconds: t.counter.seconds,
-                finished: t.event.liveNow,
-              }}
-            />
-          </div>
-        </div> -->
+
         <div>
           <Counter
             client:only="react"
@@ -225,16 +178,16 @@ const gameKeywords = `
           />
         </div>
         <div
-          class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-3 sm:mt-4"
+          class="flex flex-col sm:flex-row justify-center gap-3 sm:gap-4 mt-6"
         >
           <a
             target="_blank"
             rel="noopener noreferrer"
             href={game?.patch_notes}
             title="Notas del parche oficiales de Honkai Star Rail en Hoyolab"
-            class="flex items-center justify-center gap-2 bg-primary hover:bg-primary/90 text-white px-6 sm:px-8 py-3 min-h-[48px] rounded-xl font-bold transition-all transform hover:scale-105"
+            class="flex items-center justify-center gap-2 bg-gradient-to-r from-purple-600 to-indigo-600 hover:from-purple-500 hover:to-indigo-500 text-white px-6 sm:px-8 py-3 min-h-[48px] rounded-xl font-display text-xs sm:text-sm font-bold uppercase tracking-wider transition-all transform hover:scale-105 shadow-[0_0_24px_rgba(192,132,252,0.3)] border border-white/20 cursor-pointer"
           >
-            <span class="material-symbols-outlined" aria-hidden="true"
+            <span class="material-symbols-outlined text-lg" aria-hidden="true"
               >menu_book</span
             >
             {t.gamePage.viewPatchNotes}
@@ -251,21 +204,24 @@ const gameKeywords = `
     </section>
 
     <!-- FAQ / SEO section -->
-    <section class="w-full max-w-300 px-4 sm:px-6 pb-12 sm:pb-16">
-      <div class="glass-panel rounded-2xl p-6 sm:p-8 border border-white/10">
-        <h2 class="text-white text-2xl sm:text-3xl font-bold mb-6 text-center">
-          Preguntas Frecuentes Honkai Star Rail {game?.proxima_version}
-        </h2>
+    <section class="w-full max-w-5xl px-4 sm:px-6 pb-12 sm:pb-16">
+      <div class="rounded-3xl p-6 sm:p-10 border border-white/10 bg-[#0a0b16]/90 backdrop-blur-2xl shadow-2xl">
+        <div class="flex items-center justify-center gap-2.5 mb-8">
+          <span class="size-2 rounded-full bg-purple-400 shadow-[0_0_8px_#c084fc]"></span>
+          <h2 class="font-display text-white text-xl sm:text-3xl font-black uppercase tracking-wider text-center">
+            Preguntas Frecuentes Honkai Star Rail {game?.proxima_version}
+          </h2>
+        </div>
         <div class="grid gap-4 sm:grid-cols-2">
           {
             faqItems.map((item) => (
-              <details class="group rounded-xl bg-white/5 border border-white/10 p-4 sm:p-5">
+              <details class="group rounded-2xl bg-white/[0.03] border border-white/10 p-5 transition-all hover:border-purple-500/40 open:border-purple-500/50 open:bg-white/[0.05]">
                 <summary
-                  class="cursor-pointer list-none flex items-center justify-between gap-3 font-semibold text-white text-sm sm:text-base"
+                  class="cursor-pointer list-none flex items-center justify-between gap-3 font-display font-bold text-white text-sm sm:text-base"
                 >
                   {item.question}
                   <span
-                    class="shrink-0 text-gold transition-transform group-open:rotate-45"
+                    class="shrink-0 text-purple-400 font-mono text-lg transition-transform duration-300 group-open:rotate-45"
                     aria-hidden="true"
                   >+</span>
                 </summary>
@@ -279,10 +235,10 @@ const gameKeywords = `
         <div class="mt-8 text-center">
           <a
             href="/es/banners"
-            class="inline-flex items-center gap-2 text-blue-300 hover:text-blue-200 font-semibold text-sm sm:text-base"
+            class="inline-flex items-center gap-2 font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-purple-300 hover:text-purple-200 transition-colors px-4 py-2 rounded-xl bg-white/[0.04] border border-white/10 hover:border-purple-500/30"
           >
             {t.banner.viewBanners}
-            <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+            <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
           </a>
         </div>
       </div>

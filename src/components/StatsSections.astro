@@ -6,67 +6,81 @@ const t = useTranslations(lang);
 ---
 
 <section class="mt-12 sm:mt-16">
-  <div class="flex items-center justify-between mb-4 sm:mb-6">
-    <h3 class="text-lg sm:text-xl font-bold flex items-center gap-2">
-      <span class="material-symbols-outlined text-primary" aria-hidden="true"
-        >analytics</span
-      >
+  <div class="flex items-center justify-between mb-4 sm:mb-6 pb-2 border-b border-white/[0.06]">
+    <h3 class="font-display text-base sm:text-lg font-bold text-white uppercase tracking-wider flex items-center gap-2.5">
+      <div class="p-1.5 rounded-lg bg-indigo-500/15 border border-indigo-500/30 text-indigo-400">
+        <span class="material-symbols-outlined text-base sm:text-lg block" aria-hidden="true">query_stats</span>
+      </div>
       {t.stats.title}
     </h3>
+    <span class="text-[10px] sm:text-xs font-mono text-slate-500 uppercase tracking-widest">
+      TELEMETRY V2.4
+    </span>
   </div>
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3.5 sm:gap-4">
+    <!-- Metric 1 -->
     <div
-      class="bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 p-4 sm:p-5 rounded-xl"
+      class="group rounded-2xl border border-white/10 bg-gradient-to-b from-[#101224]/80 to-[#090a16]/90 backdrop-blur-xl p-5 hover:border-indigo-500/40 transition-all duration-300 shadow-lg"
     >
-      <p
-        class="text-slate-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1"
-      >
-        {t.stats.averagePatchDuration}
+      <p class="text-slate-400 text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-widest mb-1.5 flex items-center justify-between">
+        <span>{t.stats.averagePatchDuration}</span>
+        <span class="text-indigo-400 font-mono">AVG</span>
       </p>
-      <h4 class="text-xl sm:text-2xl font-bold">42 {t.counter.days}</h4>
-      <div
-        class="w-full bg-slate-200 dark:bg-slate-800 h-1 mt-3 rounded-full overflow-hidden"
-      >
-        <div class="bg-primary h-full w-[85%]"></div>
+      <h4 class="font-display text-2xl sm:text-3xl font-black text-white group-hover:text-indigo-200 transition-colors">
+        42 <span class="text-sm font-mono font-normal text-slate-400">{t.counter.days}</span>
+      </h4>
+      <div class="w-full bg-black/50 h-1.5 mt-3.5 rounded-full overflow-hidden border border-white/5 p-0.5">
+        <div class="bg-gradient-to-r from-indigo-500 to-cyan-400 h-full w-[85%] rounded-full shadow-[0_0_8px_#818cf8]"></div>
       </div>
     </div>
+
+    <!-- Metric 2 -->
     <div
-      class="bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 p-4 sm:p-5 rounded-xl"
+      class="group rounded-2xl border border-white/10 bg-gradient-to-b from-[#101224]/80 to-[#090a16]/90 backdrop-blur-xl p-5 hover:border-indigo-500/40 transition-all duration-300 shadow-lg"
     >
-      <p
-        class="text-slate-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1"
-      >
-        {t.stats.totalActiveTimers}
+      <p class="text-slate-400 text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-widest mb-1.5 flex items-center justify-between">
+        <span>{t.stats.totalActiveTimers}</span>
+        <span class="text-cyan-400 font-mono">LIVE</span>
       </p>
-      <h4 class="text-xl sm:text-2xl font-bold">04 {t.stats.games}</h4>
-      <p class="text-[10px] text-slate-400 mt-2 italic">
-        {t.stats.publishers.replace("{count}", "2")}
+      <h4 class="font-display text-2xl sm:text-3xl font-black text-white group-hover:text-cyan-200 transition-colors">
+        06 <span class="text-sm font-mono font-normal text-slate-400">{t.stats.games}</span>
+      </h4>
+      <p class="text-[11px] text-slate-500 mt-2.5 font-mono">
+        {t.stats.publishers.replace("{count}", "4")}
       </p>
     </div>
+
+    <!-- Metric 3 -->
     <div
-      class="bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 p-4 sm:p-5 rounded-xl"
+      class="group rounded-2xl border border-white/10 bg-gradient-to-b from-[#101224]/80 to-[#090a16]/90 backdrop-blur-xl p-5 hover:border-indigo-500/40 transition-all duration-300 shadow-lg"
     >
-      <p
-        class="text-slate-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1"
-      >
-        {t.stats.upcomingMaintenance}
+      <p class="text-slate-400 text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-widest mb-1.5 flex items-center justify-between">
+        <span>{t.stats.upcomingMaintenance}</span>
+        <span class="text-amber-400 font-mono">ALERT</span>
       </p>
-      <h4 class="text-xl sm:text-2xl font-bold">Sept 02</h4>
-      <p class="text-[10px] text-primary mt-2 font-bold uppercase">
+      <h4 class="font-display text-2xl sm:text-3xl font-black text-amber-300">Sept 02</h4>
+      <p class="text-[11px] text-amber-400/90 mt-2.5 font-mono font-bold uppercase tracking-tight truncate">
         Arknights Endfield v1.5
       </p>
     </div>
+
+    <!-- Metric 4 -->
     <div
-      class="bg-white dark:bg-slate-900/40 border border-slate-200 dark:border-slate-800 p-4 sm:p-5 rounded-xl"
+      class="group rounded-2xl border border-white/10 bg-gradient-to-b from-[#101224]/80 to-[#090a16]/90 backdrop-blur-xl p-5 hover:border-emerald-500/40 transition-all duration-300 shadow-lg"
     >
-      <p
-        class="text-slate-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest mb-1"
-      >
-        {t.stats.serverStatus}
+      <p class="text-slate-400 text-[10px] sm:text-[11px] font-mono font-bold uppercase tracking-widest mb-1.5 flex items-center justify-between">
+        <span>{t.stats.serverStatus}</span>
+        <span class="text-emerald-400 font-mono">ONLINE</span>
       </p>
-      <div class="flex items-center gap-2 mt-2">
-        <span class="size-3 bg-green-500 rounded-full"></span>
-        <h4 class="text-base sm:text-lg font-bold">{t.stats.allOperational}</h4>
+      <div class="flex items-center gap-2.5 mt-2">
+        <span class="relative flex h-2.5 w-2.5 shrink-0">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+          <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-emerald-400 shadow-[0_0_8px_#34d399]"></span>
+        </span>
+        <h4 class="font-display text-base sm:text-lg font-bold text-white uppercase tracking-wide truncate">
+          {t.stats.allOperational}
+        </h4>
       </div>
     </div>
   </div>

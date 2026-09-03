@@ -127,34 +127,34 @@ const releaseKeywords = `
     })}
   />
   <div
-    class="fixed inset-0 z-0 opacity-30 pointer-events-none bg-cover bg-center"
+    class="fixed inset-0 z-0 opacity-20 pointer-events-none bg-cover bg-center filter blur-[2px]"
     role="img"
     aria-label={`Imagen de fondo para ${release?.nombre_oficial}`}
     style=`background-image:url(${release?.imagen});`
   >
   </div>
   <main id="main-content" class="flex-1 flex flex-col items-center">
-    <section class="w-full max-w-300 px-6 pt-12 mb-16">
+    <section class="w-full max-w-5xl px-4 sm:px-6 pt-8 sm:pt-12 mb-12 sm:mb-16">
       <div class="@container">
         <div class="flex flex-col items-center justify-center text-center mb-8">
           {
             isReleased ? (
               <div
-                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#503596]/50 border border-[#503596]/40 text-white text-sm font-bold tracking-widest uppercase mb-4"
+                class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 border border-emerald-500/40 text-emerald-300 text-xs sm:text-sm font-mono font-bold tracking-widest uppercase mb-4 backdrop-blur-md shadow-[0_0_16px_rgba(52,211,153,0.2)]"
               >
                 <span class="relative flex h-2 w-2">
                   <span
-                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#503596] opacity-75"
+                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"
                   ></span>
                   <span
-                    class="relative inline-flex rounded-full h-2 w-2 bg-[#503596]"
+                    class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"
                   ></span>
                 </span>
                 {t.release.registrationsOpen}
               </div>
             ) : (
               <div
-                class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-purple-500/50 border border-purple-400/40 text-white text-sm font-bold tracking-widest uppercase mb-4"
+                class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/60 border border-purple-500/40 text-purple-300 text-xs sm:text-sm font-mono font-bold tracking-widest uppercase mb-4 backdrop-blur-md shadow-[0_0_16px_rgba(168,85,247,0.25)]"
               >
                 <span class="relative flex h-2 w-2">
                   <span
@@ -169,11 +169,11 @@ const releaseKeywords = `
             )
           }
           <h1
-            class="text-white text-4xl md:text-6xl font-black leading-tight tracking-tight mb-4"
+            class="text-white font-display text-4xl sm:text-5xl md:text-6xl font-black leading-tight tracking-tight mb-4"
           >
             {release?.nombre_oficial}
           </h1>
-          <p class="text-slate-400 text-lg max-w-2xl">
+          <p class="text-slate-400 text-base sm:text-lg max-w-2xl font-medium">
             {release?.descripcion}
           </p>
         </div>
@@ -184,9 +184,9 @@ const releaseKeywords = `
                 href={release?.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[#503596] hover:bg-[#6b4db8] text-white text-lg font-bold transition-all"
+                class="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-500 hover:to-teal-500 text-white font-display text-sm sm:text-base font-bold uppercase tracking-wider transition-all transform hover:scale-105 shadow-[0_0_24px_rgba(52,211,153,0.35)] border border-white/20 cursor-pointer"
               >
-                <span class="material-symbols-outlined" aria-hidden="true">login</span>
+                <span class="material-symbols-outlined text-lg" aria-hidden="true">login</span>
                 {t.release.registerNow}
               </a>
             </div>
@@ -221,21 +221,24 @@ const releaseKeywords = `
     </section>
 
     <!-- FAQ / SEO section -->
-    <section class="w-full max-w-300 px-4 sm:px-6 pb-12 sm:pb-16">
-      <div class="glass-panel rounded-2xl p-6 sm:p-8 border border-white/10">
-        <h2 class="text-white text-2xl sm:text-3xl font-bold mb-6 text-center">
-          {release?.nombre_oficial}: Preguntas Frecuentes
-        </h2>
+    <section class="w-full max-w-5xl px-4 sm:px-6 pb-12 sm:pb-16">
+      <div class="rounded-3xl p-6 sm:p-10 border border-white/10 bg-[#0a0b16]/90 backdrop-blur-2xl shadow-2xl">
+        <div class="flex items-center justify-center gap-2.5 mb-8">
+          <span class="size-2 rounded-full bg-purple-400 shadow-[0_0_8px_#c084fc]"></span>
+          <h2 class="font-display text-white text-xl sm:text-3xl font-black uppercase tracking-wider text-center">
+            {release?.nombre_oficial}: Preguntas Frecuentes
+          </h2>
+        </div>
         <div class="grid gap-4 sm:grid-cols-2">
           {
             faqItems.map((item) => (
-              <details class="group rounded-xl bg-white/5 border border-white/10 p-4 sm:p-5">
+              <details class="group rounded-2xl bg-white/[0.03] border border-white/10 p-5 transition-all hover:border-purple-500/40 open:border-purple-500/50 open:bg-white/[0.05]">
                 <summary
-                  class="cursor-pointer list-none flex items-center justify-between gap-3 font-semibold text-white text-sm sm:text-base"
+                  class="cursor-pointer list-none flex items-center justify-between gap-3 font-display font-bold text-white text-sm sm:text-base"
                 >
                   {item.question}
                   <span
-                    class="shrink-0 text-gold transition-transform group-open:rotate-45"
+                    class="shrink-0 text-purple-400 font-mono text-lg transition-transform duration-300 group-open:rotate-45"
                     aria-hidden="true"
                   >+</span>
                 </summary>

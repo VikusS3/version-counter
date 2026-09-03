@@ -58,8 +58,8 @@ const FilterBar: React.FC<FilterBarProps> = ({
   allLabel,
 }) => {
   return (
-    <div className="flex flex-wrap items-center justify-between gap-4 border-b border-slate-200 dark:border-primary/20" role="tablist" aria-label="Filter guides by game">
-      <div className="flex gap-2 sm:gap-8 overflow-x-auto no-scrollbar -mb-px">
+    <div className="flex flex-wrap items-center justify-between gap-4 border-b border-white/10 pb-2" role="tablist" aria-label="Filter guides by game">
+      <div className="flex gap-2 sm:gap-6 overflow-x-auto no-scrollbar -mb-px">
         {games.map((game) => {
           const isActive = activeGame === game.id;
           const style = gameStyles[game.id];
@@ -71,15 +71,15 @@ const FilterBar: React.FC<FilterBarProps> = ({
                 aria-selected={isActive}
                 aria-label="Show all games"
                 onClick={() => onGameChange(game.id)}
-                className={`flex flex-col items-center gap-2 pb-3 pt-2 group relative border-b-2 transition-all min-w-[64px] ${
+                className={`flex flex-col items-center gap-2 pb-3 pt-2 group relative border-b-2 transition-all min-w-[64px] cursor-pointer ${
                   isActive
-                    ? "border-primary"
-                    : "border-transparent hover:border-primary/50"
+                    ? "border-indigo-400 shadow-[0_4px_12px_-2px_rgba(99,102,241,0.5)]"
+                    : "border-transparent hover:border-white/20"
                 }`}
               >
-                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center overflow-hidden border bg-slate-100 dark:bg-primary/10 border-slate-200 dark:border-primary/20">
+                <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center overflow-hidden border bg-white/[0.04] border-white/10 group-hover:border-white/20 transition-all">
                   <svg
-                    className="w-5 h-5 sm:w-6 sm:h-6 text-slate-500"
+                    className={`w-5 h-5 transition-colors ${isActive ? "text-indigo-300" : "text-slate-400"}`}
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -94,7 +94,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
                   </svg>
                 </div>
                 <span
-                  className={`text-[10px] sm:text-xs font-bold uppercase tracking-wider ${isActive ? "text-primary" : "text-slate-500"}`}
+                  className={`text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider ${isActive ? "text-indigo-300" : "text-slate-400"}`}
                 >
                   {allLabel}
                 </span>
@@ -108,27 +108,28 @@ const FilterBar: React.FC<FilterBarProps> = ({
               aria-selected={isActive}
               aria-label={`Show ${game.label} guides`}
               onClick={() => onGameChange(game.id)}
-              className="flex flex-col items-center gap-2 pb-3 pt-2 group relative border-b-2 transition-all min-w-[64px]"
+              className="flex flex-col items-center gap-2 pb-3 pt-2 group relative border-b-2 transition-all min-w-[64px] cursor-pointer"
               style={{
                 borderColor: isActive ? style.border : "transparent",
               }}
             >
               <div
-                className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center overflow-hidden border"
+                className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl flex items-center justify-center overflow-hidden border transition-all p-0.5"
                 style={{
-                  backgroundColor: isActive ? style.bg : "",
-                  borderColor: isActive ? style.border : undefined,
+                  backgroundColor: isActive ? style.bg : "rgba(255,255,255,0.03)",
+                  borderColor: isActive ? style.border : "rgba(255,255,255,0.1)",
+                  boxShadow: isActive ? `0 0 12px ${style.border}40` : "none",
                 }}
               >
                 <img
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover rounded-lg"
                   src={game.icon!}
                   alt=""
                 />
               </div>
               <span
-                className="text-[10px] sm:text-xs font-bold uppercase tracking-wider"
-                style={{ color: isActive ? style.text : "#64748b" }}
+                className="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-wider"
+                style={{ color: isActive ? style.text : "#94a3b8" }}
               >
                 {game.label}
               </span>
@@ -137,7 +138,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
         })}
       </div>
       <div className="flex items-center gap-3 pb-3" role="tablist" aria-label="Filter by language">
-        <div className="flex bg-slate-100 dark:bg-primary/10 rounded-lg p-1">
+        <div className="flex bg-[#090a16] border border-white/10 rounded-xl p-1 shadow-inner">
           {languages.map((lang) => (
             <button
               key={lang.id}
@@ -145,10 +146,10 @@ const FilterBar: React.FC<FilterBarProps> = ({
               aria-selected={activeLang === lang.id}
               aria-label={`Show ${lang.label} language guides`}
               onClick={() => onLangChange(lang.id)}
-              className={`px-3 sm:px-4 py-1.5 rounded-md text-[11px] sm:text-xs font-bold transition-all min-h-[36px] ${
+              className={`px-3 sm:px-4 py-1.5 rounded-lg font-mono text-[11px] sm:text-xs font-bold uppercase tracking-wider transition-all min-h-[34px] cursor-pointer ${
                 activeLang === lang.id
-                  ? "bg-white dark:bg-primary shadow-sm"
-                  : "text-slate-500 hover:text-primary"
+                  ? "bg-white/15 text-white shadow-[0_0_12px_rgba(255,255,255,0.2)] border border-white/20"
+                  : "text-slate-400 hover:text-white"
               }`}
             >
               {lang.label}
@@ -168,42 +169,45 @@ const GuideCard: React.FC<{ guide: Guide }> = ({ guide }) => {
       href={guide.youtubeUrl}
       target="_blank"
       rel="noopener noreferrer"
-      className="group block bg-slate-900/50 dark:bg-slate-800/50 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-700 hover:border-primary/50 transition-all"
+      className="group block bg-[#0c0d18] rounded-2xl overflow-hidden border border-white/10 hover:border-white/25 transition-all duration-300 shadow-xl hover:shadow-2xl"
     >
       <div className="relative aspect-video overflow-hidden">
         <img
-          className="w-full h-full object-cover transition-transform group-hover:scale-105"
+          className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           src={guide.thumbnail}
           alt={guide.title}
         />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0c0d18] via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
         {guide.duration && (
-          <span className="absolute bottom-2 right-2 px-2 py-1 bg-black/80 text-white text-xs font-medium rounded">
+          <span className="absolute bottom-2 right-2 px-2 py-0.5 bg-black/80 text-white font-mono text-[10px] font-bold rounded border border-white/15 backdrop-blur-sm">
             {guide.duration}
           </span>
         )}
       </div>
       <div className="p-4">
-        <div className="flex items-center gap-2 mb-2">
+        <div className="flex items-center gap-2 mb-2.5">
           <span
-            className="px-2 py-0.5 text-xs font-bold uppercase rounded"
-            style={{ backgroundColor: gameStyle.bg, color: gameStyle.text }}
+            className="px-2 py-0.5 font-mono text-[10px] font-bold uppercase rounded border"
+            style={{ backgroundColor: gameStyle.bg, color: gameStyle.text, borderColor: `${gameStyle.border}40` }}
           >
             {guide.game}
           </span>
-          <span className="px-2 py-0.5 text-xs font-bold uppercase rounded bg-slate-700 text-slate-300">
+          <span className="px-2 py-0.5 font-mono text-[10px] font-bold uppercase rounded bg-white/[0.06] text-slate-300 border border-white/10">
             {guide.language}
           </span>
         </div>
-        <h3 className="font-bold text-sm line-clamp-2 mb-2">{guide.title}</h3>
+        <h3 className="font-display font-bold text-sm text-white group-hover:text-indigo-200 transition-colors line-clamp-2 mb-3">
+          {guide.title}
+        </h3>
         <div className="flex items-center gap-2">
           {guide.creator.avatar && (
             <img
-              className="w-6 h-6 rounded-full object-cover"
+              className="w-5 h-5 rounded-full object-cover ring-1 ring-white/20"
               src={guide.creator.avatar}
               alt={guide.creator.name}
             />
           )}
-          <span className="text-xs text-slate-500">{guide.creator.name}</span>
+          <span className="font-mono text-xs text-slate-400 font-medium">{guide.creator.name}</span>
         </div>
       </div>
     </a>
@@ -258,8 +262,8 @@ export const GuideFilters: React.FC<GuideFiltersProps> = ({ guides, labels = def
             <GuideCard key={guide.id} guide={guide} />
           ))
         ) : (
-          <div className="col-span-full text-center py-12">
-            <p className="text-slate-500">
+          <div className="col-span-full text-center py-12 rounded-2xl bg-white/[0.02] border border-white/5">
+            <p className="font-mono text-sm text-slate-400">
               {labels.noGuidesFound}
             </p>
           </div>
@@ -269,7 +273,7 @@ export const GuideFilters: React.FC<GuideFiltersProps> = ({ guides, labels = def
         <div className="mt-8 flex justify-center">
           <button
             onClick={loadMore}
-            className="px-6 sm:px-8 py-3 min-h-[48px] bg-primary/10 hover:bg-primary/20 text-primary font-bold rounded-xl transition-all"
+            className="px-6 sm:px-8 py-3 min-h-[48px] bg-white/[0.05] hover:bg-white/[0.1] text-white font-display text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl transition-all border border-white/15 hover:border-indigo-400/40 shadow-lg cursor-pointer"
             aria-label={`${labels.loadMore} (${visibleGuides.length} of ${filteredGuides.length} shown)`}
           >
             {labels.loadMore}
