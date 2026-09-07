@@ -2,7 +2,6 @@
 import StatsSection from "../components/StatsSections.astro";
 import Layout from "../layouts/Layout.astro";
 import { GameDashboard } from "../components/react/GameDashboard";
-import { PromotionalPopup } from "../components/react/PromotionalPopup";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 import { getLocalizedGames } from "../data/translations/getGameData";
 
@@ -104,7 +103,7 @@ const dashboardLabels = {
 
     <StatsSection />
   </main>
-<!-- 
+  <!-- 
   <PromotionalPopup
     client:load
     campaign={{
