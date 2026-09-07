@@ -11,7 +11,7 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()],
   },
-  site: "https://version-counter.netlify.app",
+  site: "https://gachacountdown.online/",
   integrations: [react(), sitemap()],
   i18n: {
     defaultLocale: "en",
