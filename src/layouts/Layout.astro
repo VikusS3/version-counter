@@ -179,9 +179,8 @@ const breadcrumbSchema = {
     <link rel="sitemap" href="/sitemap-index.xml" />
 
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-YXEFY6EQK4"
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DE7X8J5NY6"
     ></script>
-
     <script is:inline>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
@@ -189,7 +188,7 @@ const breadcrumbSchema = {
       }
       gtag("js", new Date());
 
-      gtag("config", "G-YXEFY6EQK4");
+      gtag("config", "G-DE7X8J5NY6");
     </script>
 
     <!-- Fix: Re-initialize astro-islands (React client:only components) after View Transitions swap -->
@@ -201,7 +200,8 @@ const breadcrumbSchema = {
         // a custom event that React components can listen to for cleanup/restart
         window.dispatchEvent(new CustomEvent("astro:react-remount"));
       });
-    </script>  </head>
+    </script>
+  </head>
 
   <script
     type="application/ld+json"
@@ -239,8 +239,16 @@ const breadcrumbSchema = {
     class="bg-background-dark text-slate-100 min-h-dvh flex flex-col relative selection:bg-indigo-500/30 selection:text-indigo-200"
   >
     <!-- Gamer Background Atmosphere -->
-    <div class="fixed inset-0 cyber-grid opacity-35 pointer-events-none z-0" aria-hidden="true"></div>
-    <div class="fixed inset-0 cyber-radial-glow pointer-events-none z-0" aria-hidden="true"></div>
+    <div
+      class="fixed inset-0 cyber-grid opacity-35 pointer-events-none z-0"
+      aria-hidden="true"
+    >
+    </div>
+    <div
+      class="fixed inset-0 cyber-radial-glow pointer-events-none z-0"
+      aria-hidden="true"
+    >
+    </div>
 
     <a
       href="#main-content"
@@ -255,4 +263,3 @@ const breadcrumbSchema = {
     </div>
   </body>
 </html>
-
