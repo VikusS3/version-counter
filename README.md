@@ -7,6 +7,10 @@
 
 Aplicación web de código abierto que muestra contadores regresivos en tiempo real para las próximas actualizaciones de versiones de juegos **gacha** populares.
 
+> **GachaCountdown** · Sitio oficial
+>
+> Actualmente `gachacountdown.online` y `version-counter.netlify.app` corresponden al mismo sitio web.
+
 ## Acerca del Proyecto
 
 **Version Counter** te permite estar al día con las fechas de actualización de tus juegos gacha favoritos. La aplicación muestra:

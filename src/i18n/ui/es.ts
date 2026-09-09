@@ -113,6 +113,8 @@ export const es = {
   footer: {
     copyright:
       "© {year} Gacha Countdown Project. Datos proporcionados como están.",
+    officialSite: "GachaCountdown · Sitio oficial",
+    officialSiteSame: "corresponden al mismo sitio web.",
     privacy: "Privacidad",
     terms: "Términos",
     language: "Idioma",
