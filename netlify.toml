@@ -1,0 +1,10 @@
+# ============================================================
+# REDIRECT: version-counter.netlify.app -> gachacountdown.online
+# Para desactivar: comentar las 4 lineas de abajo con #
+# Para activar: descomentar las 4 lineas de abajo
+# ============================================================
+[[redirects]]
+   from = "https://version-counter.netlify.app/*"
+   to = "https://gachacountdown.online/:splat"
+   status = 301
+   force = true
