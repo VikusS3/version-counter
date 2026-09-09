@@ -174,7 +174,10 @@ const breadcrumbSchema = {
     <meta name="twitter:image" content={new URL(image, Astro.site).href} />
 
     <!--meta AdSense -->
-    <meta name="google-adsense-account" content="ca-pub-1296222480269245" />
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1296222480269245"
+      crossorigin="anonymous"></script>
 
     <link rel="sitemap" href="/sitemap-index.xml" />
 
@@ -193,13 +196,30 @@ const breadcrumbSchema = {
 
     <!-- Fix: Re-initialize astro-islands (React client:only components) after View Transitions swap -->
     <script is:inline>
-      // After each View Transition page swap, force astro-islands to re-initialize
-      // This fixes React components (client:only) that use setInterval/useEffect
       document.addEventListener("astro:after-swap", () => {
-        // Astro's island runtime re-initializes automatically, but we dispatch
-        // a custom event that React components can listen to for cleanup/restart
         window.dispatchEvent(new CustomEvent("astro:react-remount"));
+        reloadAdsense();
       });
+
+      function reloadAdsense() {
+        const adSlot = document.querySelector("ins.adsbygoogle");
+        const adScript = document.querySelector(
+          'script[src*="adsbygoogle.js"]',
+        );
+        if (!adSlot || !adScript) return;
+
+        document
+          .querySelectorAll('script[src*="adsbygoogle.js"]')
+          .forEach((s) => s.remove());
+
+        const newScript = document.createElement("script");
+        newScript.async = true;
+        newScript.src = adScript.src;
+        newScript.crossOrigin = "anonymous";
+        document.head.appendChild(newScript);
+
+        (window.adsbygoogle = window.adsbygoogle || []).push({});
+      }
     </script>
   </head>
 
