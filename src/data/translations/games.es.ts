@@ -35,10 +35,10 @@ export const gamesTranslations: Record<string, GameTranslation> = {
   "zenless-zone-zero": {
     nombre: "Cuenta Regresiva Nueva Versión Zenless Zone Zero",
     descripcion:
-      "Cuenta regresiva Zenless Zone Zero 3.1 para todas las regiones como América, Europa, Asia. Cuenta regresiva de banners, notas del parche y más.",
+      "Cuenta regresiva Zenless Zone Zero 3.3 para todas las regiones como América, Europa, Asia. Cuenta regresiva de banners, notas del parche y más.",
     slogan_desc: "Agonista de la Vacuidad Remille llego a ZZZ",
     patch_notes_description:
-      "Últimas notas del parche para Zenless Zone Zero 3.1",
+      "Últimas notas del parche para Zenless Zone Zero 3.2",
   },
   "arknights-endfield": {
     nombre: "Cuenta Regresiva Nueva Versión Arknights Endfield",

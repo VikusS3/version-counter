@@ -13,7 +13,7 @@ const game = getLocalizedGame("honkai-star-rail", lang);
 
 const nextVersionDate = new Date(
   Date.parse(game?.fecha_inicio ?? "") +
-    (game?.duracion_dias ?? 42) * 24 * 60 * 60 * 1000
+    (game?.duracion_dias ?? 42) * 24 * 60 * 60 * 1000,
 );
 const nextVersionDateText = nextVersionDate.toLocaleDateString("en-US", {
   year: "numeric",
@@ -36,7 +36,8 @@ const faqItems = [
       'You can read the official Honkai Star Rail patch notes on Hoyolab, linked from the "View Patch Notes" button on this page.',
   },
   {
-    question: "What are the scheduled server maintenance times for Honkai Star Rail?",
+    question:
+      "What are the scheduled server maintenance times for Honkai Star Rail?",
     answer:
       "Honkai Star Rail maintenance usually starts a few hours before version release. The countdown on this page tracks the exact update time for the America, Europe, and Asia servers.",
   },
@@ -145,16 +146,20 @@ const gameKeywords = `
                 class="relative inline-flex rounded-full h-2 w-2 bg-purple-400"
               ></span>
             </span>
-            {t.gamePage.countdownToVersion}
+            {t.gamePage.countdownToVersion}{" "}
             {game?.proxima_version}
           </div>
           <h1
             class="text-white font-display text-3xl sm:text-5xl md:text-6xl font-black leading-tight tracking-tight mb-4"
           >
             {game?.nombre_version_actual}
-            <span class="text-gold italic font-serif ml-2">{game?.slogan_name}</span>
+            <span class="text-gold italic font-serif ml-2"
+              >{game?.slogan_name}</span
+            >
           </h1>
-          <p class="text-slate-400 text-sm sm:text-base md:text-lg max-w-2xl font-medium">
+          <p
+            class="text-slate-400 text-sm sm:text-base md:text-lg max-w-2xl font-medium"
+          >
             {game?.slogan_desc}
           </p>
         </div>
@@ -195,7 +200,10 @@ const gameKeywords = `
             >
             {t.gamePage.viewPatchNotes}
           </a>
-          <GachaSalesBanner game="honkai-star-rail" color="var(--color-hsr-purple)" />
+          <GachaSalesBanner
+            game="honkai-star-rail"
+            color="var(--color-hsr-purple)"
+          />
           <CopyButton
             client:only="react"
             label={t.gamePage.remindMe}
@@ -208,10 +216,16 @@ const gameKeywords = `
 
     <!-- FAQ / SEO section -->
     <section class="w-full max-w-5xl px-4 sm:px-6 pb-12 sm:pb-16">
-      <div class="rounded-3xl p-6 sm:p-10 border border-white/10 bg-[#0a0b16]/90 backdrop-blur-2xl shadow-2xl">
+      <div
+        class="rounded-3xl p-6 sm:p-10 border border-white/10 bg-[#0a0b16]/90 backdrop-blur-2xl shadow-2xl"
+      >
         <div class="flex items-center justify-center gap-2.5 mb-8">
-          <span class="size-2 rounded-full bg-purple-400 shadow-[0_0_8px_#c084fc]"></span>
-          <h2 class="font-display text-white text-xl sm:text-3xl font-black uppercase tracking-wider text-center">
+          <span
+            class="size-2 rounded-full bg-purple-400 shadow-[0_0_8px_#c084fc]"
+          ></span>
+          <h2
+            class="font-display text-white text-xl sm:text-3xl font-black uppercase tracking-wider text-center"
+          >
             Honkai Star Rail {game?.proxima_version} FAQ
           </h2>
         </div>
@@ -219,14 +233,14 @@ const gameKeywords = `
           {
             faqItems.map((item) => (
               <details class="group rounded-2xl bg-white/[0.03] border border-white/10 p-5 transition-all hover:border-purple-500/40 open:border-purple-500/50 open:bg-white/[0.05]">
-                <summary
-                  class="cursor-pointer list-none flex items-center justify-between gap-3 font-display font-bold text-white text-sm sm:text-base"
-                >
+                <summary class="cursor-pointer list-none flex items-center justify-between gap-3 font-display font-bold text-white text-sm sm:text-base">
                   {item.question}
                   <span
                     class="shrink-0 text-purple-400 font-mono text-lg transition-transform duration-300 group-open:rotate-45"
                     aria-hidden="true"
-                  >+</span>
+                  >
+                    +
+                  </span>
                 </summary>
                 <p class="mt-3 text-slate-300 text-sm leading-relaxed">
                   {item.answer}
@@ -241,7 +255,9 @@ const gameKeywords = `
             class="inline-flex items-center gap-2 font-mono text-xs sm:text-sm font-bold uppercase tracking-wider text-purple-300 hover:text-purple-200 transition-colors px-4 py-2 rounded-xl bg-white/[0.04] border border-white/10 hover:border-purple-500/30"
           >
             {t.banner.viewBanners}
-            <span class="material-symbols-outlined text-base" aria-hidden="true">arrow_forward</span>
+            <span class="material-symbols-outlined text-base" aria-hidden="true"
+              >arrow_forward</span
+            >
           </a>
         </div>
       </div>

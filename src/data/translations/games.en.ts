@@ -32,9 +32,9 @@ export const gamesTranslations: Record<string, GameTranslation> = {
   "zenless-zone-zero": {
     nombre: "Zenless Zone Zero New Version Countdown",
     descripcion:
-      "Zenless Zone Zero 3.2 Countdown for all region like America, Europe, Asia. Zenless Banner Countdown, Patch Notes, and more.",
-    slogan_desc: "Void Hunter Remille is coming in ZZZ",
-    patch_notes_description: "Latest patch notes for Zenless Zone Zero 3.1",
+      "Zenless Zone Zero 3.3 Countdown for all region like America, Europe, Asia. Zenless Banner Countdown, Patch Notes, and more.",
+    slogan_desc: "Claret is now available, new characters, and more.",
+    patch_notes_description: "Latest patch notes for Zenless Zone Zero 3.2",
   },
   "arknights-endfield": {
     nombre: "Arknights Endfield New Version Countdown",
