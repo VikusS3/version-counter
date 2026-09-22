@@ -24,3 +24,9 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# output of 'npm pack'
+output/
+
+#carpeta docs
+docs/
