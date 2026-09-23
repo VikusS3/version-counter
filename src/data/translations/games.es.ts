@@ -10,10 +10,10 @@ export const gamesTranslations: Record<string, GameTranslation> = {
     nombre:
       "Cuenta Regresiva Genshin Impact - Próxima Versión, Banners y Parche",
     descripcion:
-      "Cuenta regresiva para el lanzamiento de Genshin Impact 7.1 en todas las regiones como América, Europa, Asia. Sigue la hora de la próxima actualización de Genshin Impact, los banners de personajes, el mantenimiento y las notas del parche oficiales.",
-    slogan_desc: "Snezhnaya's está ahora disponible, nuevos personajes y más.",
+      "Cuenta regresiva para el lanzamiento de Genshin Impact 7.2 en todas las regiones como América, Europa, Asia. Sigue la hora de la próxima actualización de Genshin Impact, los banners de personajes, el mantenimiento y las notas del parche oficiales.",
+    slogan_desc: "La batalla final contra Ronova",
     patch_notes_description:
-      "Últimas notas del parche oficiales de Genshin Impact 7.0 en Hoyolab",
+      "Últimas notas del parche oficiales de Genshin Impact 7.1 en Hoyolab",
   },
   "wuthering-waves": {
     nombre: "Cuenta Regresiva Nueva Versión Wuthering Waves",
