@@ -6,6 +6,8 @@ export const en = {
     characterGuides: "Character Guides",
     pullTracker: "Pull Tracker",
     releases: "Upcoming Releases",
+    about: "About Us",
+    blog: "Blog",
   },
   home: {
     title: "Gacha Countdown - Track Game Updates",
@@ -117,6 +119,14 @@ export const en = {
     terms: "Terms",
     language: "Language",
     contact: "Contact",
+    about: "About Us",
+  },
+  cookie: {
+    message:
+      "We use cookies to serve ads (Google AdSense) and analyze traffic (Google Analytics). By clicking Accept, you agree to our Privacy Policy.",
+    accept: "Accept",
+    reject: "Reject",
+    readMore: "Read our Privacy Policy",
   },
   contact: {
     title: "Contact",

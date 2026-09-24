@@ -18,6 +18,7 @@ export interface GameBanners {
   gameAlias: string;
   gameColor: string;
   icon: string;
+  gamePagePath: string;
   banners: Banner[];
 }
 

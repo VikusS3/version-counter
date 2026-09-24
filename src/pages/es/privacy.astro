@@ -6,7 +6,7 @@ const canonicalUrl = new URL("/es/privacidad", Astro.site).href;
 
 <Layout
   title="Política de Privacidad"
-  description="Política de privacidad de Gacha Countdown. No recolectamos, almacenamos ni compartimos datos personales. Conoce cómo protegemos tu privacidad."
+  description="Política de privacidad de Gacha Countdown. Usamos Google AdSense para mostrar anuncios y Google Analytics para analizar el tráfico. Conoce cómo se manejan tus datos y cómo puedes rechazar el rastreo."
   url={canonicalUrl}
   canonical={canonicalUrl}
   lang="es"
@@ -16,39 +16,118 @@ const canonicalUrl = new URL("/es/privacidad", Astro.site).href;
 
     <section class="mb-5 sm:mb-6">
       <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">
-        1. Sin Recolección de Datos
+        1. Datos que Recopilamos
       </h2>
       <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
-        No recolectamos, almacenamos ni compartimos ningún dato personal. La
-        aplicación funciona completamente en tu dispositivo.
+        No recolectamos, almacenamos ni compartimos información personal como
+        tu nombre, correo electrónico o detalles de cuenta. No requerimos
+        ningún registro para usar este sitio.
+      </p>
+      <p class="text-gray-300 leading-relaxed text-sm sm:text-base mt-3">
+        Tus preferencias de visibilidad de juegos (qué juegos se muestran u
+        ocultan en el panel) se guardan localmente en tu navegador usando
+        <code class="text-slate-200 bg-white/[0.05] px-1.5 py-0.5 rounded">localStorage</code>.
+        Estos datos nunca salen de tu dispositivo.
+      </p>
+      <p class="text-gray-300 leading-relaxed text-sm sm:text-base mt-3">
+        No vendemos, alquilamos ni intercambiamos ningún dato personal a
+        terceros.
       </p>
     </section>
 
     <section class="mb-5 sm:mb-6">
       <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">2. Cookies</h2>
       <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
-        No utilizamos cookies ni ninguna tecnología de seguimiento.
+        Usamos cookies de terceros y tecnologías similares con fines de
+        publicidad y análisis. Específicamente, este sitio usa Google AdSense y
+        Google Analytics como se describe abajo. Estas cookies solo se cargan
+        después de que aceptes nuestro banner de consentimiento de cookies.
       </p>
     </section>
 
     <section class="mb-5 sm:mb-6">
       <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">
-        3. Terceros
+        3. Cookies Publicitarias de Google AdSense
       </h2>
       <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
-        No compartimos información con terceros, ya que no recolectamos ningún
-        dato en primer lugar.
+        Google AdSense es un servicio de publicidad de terceros que se usa para
+        mostrar anuncios en este sitio. AdSense puede usar cookies (como la
+        cookie de DoubleClick) para servir anuncios basados en tus visitas
+        anteriores a este sitio y a otros sitios web en internet. Esto permite
+        que Google y sus socios te muestren anuncios personalizados.
+      </p>
+      <p class="text-gray-300 leading-relaxed text-sm sm:text-base mt-3">
+        Puedes rechazar la publicidad personalizada visitando la Configuración
+        de Anuncios de Google en{" "}
+        <a
+          href="https://adssettings.google.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-primary hover:text-primary/80 underline underline-offset-2"
+        >adssettings.google.com</a>{" "}
+        o la página de exclusión en{" "}
+        <a
+          href="https://www.aboutads.info"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-primary hover:text-primary/80 underline underline-offset-2"
+        >www.aboutads.info</a>.
       </p>
     </section>
 
     <section class="mb-5 sm:mb-6">
       <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">
-        4. Cambios en Esta Política
+        4. Google Analytics
       </h2>
       <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
-        Esta política puede cambiar en cualquier momento. Recomendamos
-        revisarla periódicamente.
+        Este sitio usa Google Analytics
+        (ID de medición <code class="text-slate-200 bg-white/[0.05] px-1.5 py-0.5 rounded">G-DE7X8J5NY6</code>)
+        para entender cómo los visitantes usan el sitio. Google Analytics
+        recopila información como páginas vistas, duración de la sesión,
+        ubicación aproximada y fuentes de tráfico. Estos datos se agregan y se
+        usan para mejorar el sitio.
+      </p>
+      <p class="text-gray-300 leading-relaxed text-sm sm:text-base mt-3">
+        Puedes rechazar Google Analytics en todos los sitios web instalando el
+        complemento de exclusión de Google Analytics, disponible en{" "}
+        <a
+          href="https://tools.google.com/dlpage/gaoptout"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-primary hover:text-primary/80 underline underline-offset-2"
+        >tools.google.com/dlpage/gaoptout</a>.
       </p>
     </section>
+
+    <section class="mb-5 sm:mb-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">
+        5. Servicios de Terceros
+      </h2>
+      <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
+        Usamos Google (AdSense y Analytics) como proveedores de servicios de
+        terceros. Estos servicios operan bajo sus propias políticas de
+        privacidad. Puedes revisar la política de privacidad de Google en{" "}
+        <a
+          href="https://policies.google.com/privacy"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-primary hover:text-primary/80 underline underline-offset-2"
+        >policies.google.com/privacy</a>.
+      </p>
+    </section>
+
+    <section class="mb-5 sm:mb-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">
+        6. Cambios en Esta Política
+      </h2>
+      <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
+        Podemos actualizar esta política de vez en cuando. Cualquier cambio se
+        publicará en esta página. Recomendamos revisarla periódicamente.
+      </p>
+    </section>
+
+    <p class="text-xs text-slate-500 font-mono mt-8">
+      Última actualización: 21 de septiembre de 2026
+    </p>
   </main>
 </Layout>

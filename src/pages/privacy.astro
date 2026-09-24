@@ -6,7 +6,7 @@ const canonicalUrl = new URL("/privacy", Astro.site).href;
 
 <Layout
   title="Privacy Policy"
-  description="Privacy policy for Gacha Countdown. We do not collect, store, or share any personal data. Learn how your privacy is protected."
+  description="Privacy policy for Gacha Countdown. We use Google AdSense to serve ads and Google Analytics to analyze traffic. Learn how your data is handled and how to opt out."
   url={canonicalUrl}
   canonical={canonicalUrl}
 >
@@ -15,39 +15,117 @@ const canonicalUrl = new URL("/privacy", Astro.site).href;
 
     <section class="mb-5 sm:mb-6">
       <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">
-        1. No Data Collection
+        1. Data We Collect
       </h2>
       <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
-        We do not collect, store, or share any personal data. The application
-        operates entirely on your device.
+        We do not collect, store, or share any personal information such as
+        your name, email address, or account details. We do not require any
+        registration to use this site.
+      </p>
+      <p class="text-gray-300 leading-relaxed text-sm sm:text-base mt-3">
+        Your game visibility preferences (which games are shown or hidden on
+        the dashboard) are stored locally in your browser using
+        <code class="text-slate-200 bg-white/[0.05] px-1.5 py-0.5 rounded">localStorage</code>.
+        This data never leaves your device.
+      </p>
+      <p class="text-gray-300 leading-relaxed text-sm sm:text-base mt-3">
+        We do not sell, rent, or trade any personal data to any third party.
       </p>
     </section>
 
     <section class="mb-5 sm:mb-6">
       <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">2. Cookies</h2>
       <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
-        We do not use cookies or any tracking technologies.
+        We use third-party cookies and similar technologies for advertising and
+        analytics purposes. Specifically, this site uses Google AdSense and
+        Google Analytics as described below. These cookies are only loaded
+        after you accept our cookie consent banner.
       </p>
     </section>
 
     <section class="mb-5 sm:mb-6">
       <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">
-        3. Third Parties
+        3. Google AdSense Advertising Cookies
       </h2>
       <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
-        We do not share information with third parties, as we do not collect any
-        data in the first place.
+        Google AdSense is a third-party advertising service used to display ads
+        on this site. AdSense may use cookies (such as the DoubleClick cookie)
+        to serve advertisements based on your prior visits to this website and
+        other websites on the internet. This allows Google and its partners to
+        show you personalized ads.
+      </p>
+      <p class="text-gray-300 leading-relaxed text-sm sm:text-base mt-3">
+        You can opt out of personalized advertising by visiting Google Ads
+        Settings at{" "}
+        <a
+          href="https://adssettings.google.com"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-primary hover:text-primary/80 underline underline-offset-2"
+        >adssettings.google.com</a>{" "}
+        or the opt-out page at{" "}
+        <a
+          href="https://www.aboutads.info"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-primary hover:text-primary/80 underline underline-offset-2"
+        >www.aboutads.info</a>.
       </p>
     </section>
 
     <section class="mb-5 sm:mb-6">
       <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">
-        4. Changes to This Policy
+        4. Google Analytics
       </h2>
       <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
-        This policy may change at any time. We recommend reviewing it
-        periodically.
+        This site uses Google Analytics
+        (measurement ID <code class="text-slate-200 bg-white/[0.05] px-1.5 py-0.5 rounded">G-DE7X8J5NY6</code>)
+        to understand how visitors use the site. Google Analytics collects
+        information such as pages viewed, session duration, approximate
+        location, and traffic sources. This data is aggregated and used to
+        improve the site.
+      </p>
+      <p class="text-gray-300 leading-relaxed text-sm sm:text-base mt-3">
+        You can opt out of Google Analytics across all websites by installing
+        the Google Analytics Opt-out Browser Add-on, available at{" "}
+        <a
+          href="https://tools.google.com/dlpage/gaoptout"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-primary hover:text-primary/80 underline underline-offset-2"
+        >tools.google.com/dlpage/gaoptout</a>.
       </p>
     </section>
+
+    <section class="mb-5 sm:mb-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">
+        5. Third-Party Services
+      </h2>
+      <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
+        We use Google (AdSense and Analytics) as third-party service providers.
+        These services operate under their own privacy policies. You can review
+        Google's privacy policy at{" "}
+        <a
+          href="https://policies.google.com/privacy"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-primary hover:text-primary/80 underline underline-offset-2"
+        >policies.google.com/privacy</a>.
+      </p>
+    </section>
+
+    <section class="mb-5 sm:mb-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">
+        6. Changes to This Policy
+      </h2>
+      <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
+        We may update this policy from time to time. Any changes will be posted
+        on this page. We recommend reviewing it periodically.
+      </p>
+    </section>
+
+    <p class="text-xs text-slate-500 font-mono mt-8">
+      Last updated: September 21, 2026
+    </p>
   </main>
 </Layout>

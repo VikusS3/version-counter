@@ -1,0 +1,79 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const canonicalUrl = new URL("/es/about", Astro.site).href;
+---
+
+<Layout
+  title="Sobre Nosotros"
+  description="Conoce a Gacha Countdown, un proyecto fan-made creado por jugadores de gacha que rastrea actualizaciones de versiones, parches y banners para Genshin Impact, Honkai Star Rail, Wuthering Waves, Zenless Zone Zero y más."
+  url={canonicalUrl}
+  canonical={canonicalUrl}
+  lang="es"
+>
+  <main id="main-content" class="max-w-4xl mx-auto w-full px-4 sm:px-6 py-8 sm:py-10">
+    <h1 class="text-3xl sm:text-4xl font-bold text-gray-100 mb-6 sm:mb-8">Sobre Nosotros</h1>
+
+    <section class="mb-5 sm:mb-6 glass-panel rounded-2xl p-5 sm:p-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">Quiénes Somos</h2>
+      <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
+        Gacha Countdown es un proyecto fan-made creado por jugadores de juegos
+        gacha para la comunidad. Nos encantan los juegos como servicio, pero
+        llevar el registro de cada ciclo de versión, ventana de mantenimiento y
+        fecha límite de banner en varios juegos puede ser agotador. Construimos
+        este sitio para resolver ese problema.
+      </p>
+      <p class="text-gray-300 leading-relaxed text-sm sm:text-base mt-3">
+        Cada temporizador y fecha en este sitio es curado y verificado por
+        nuestro pequeño equipo de colaboradores. Somos jugadores primero, lo
+        que significa que sabemos qué fechas realmente te importan: cuándo
+        bajan los servidores, cuándo termina un banner y cuándo llega la
+        próxima versión.
+      </p>
+    </section>
+
+    <section class="mb-5 sm:mb-6 glass-panel rounded-2xl p-5 sm:p-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">Nuestra Misión</h2>
+      <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
+        Nuestra misión es simple: proporcionar temporizadores precisos y
+        siempre actualizados para que nunca te pierdas un parche, un
+        mantenimiento o un banner por tiempo limitado. Sin distracciones, sin
+        ruido: solo las fechas en vivo de los juegos que juegas, en inglés y
+        español.
+      </p>
+    </section>
+
+    <section class="mb-5 sm:mb-6 glass-panel rounded-2xl p-5 sm:p-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">Qué Ofrecemos</h2>
+      <ul class="text-gray-300 leading-relaxed text-sm sm:text-base list-disc pl-5 space-y-2">
+        <li>Temporizadores en vivo de versiones para cada juego soportado.</li>
+        <li>Calendarios de banners actuales y próximos (warps de personaje y arma).</li>
+        <li>Rastreador de próximos estrenos de juegos nuevos.</li>
+        <li>Guías de personajes seleccionadas de la comunidad.</li>
+        <li>Soporte completo en inglés y español (/es).</li>
+      </ul>
+    </section>
+
+    <section class="mb-5 sm:mb-6 glass-panel rounded-2xl p-5 sm:p-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">Aviso Legal</h2>
+      <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
+        Gacha Countdown es un proyecto fan-made y no está afiliado, respaldado
+        ni patrocinado por HoYoverse, Kuro Games, Hypergryph, Perfect World ni
+        ningún editor de juegos. Todos los nombres de juegos, marcas y el
+        material visual relacionado pertenecen a sus respectivos dueños. No
+        alojamos ni distribuimos contenido o archivos de los juegos.
+      </p>
+    </section>
+
+    <section class="mb-5 sm:mb-6 glass-panel rounded-2xl p-5 sm:p-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">Contáctanos</h2>
+      <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
+        ¿Tienes comentarios, encontraste un error o tienes una sugerencia?
+        Visita nuestra{" "}
+        <a href="/es/contact" class="text-primary hover:text-primary/80 underline underline-offset-2">página de contacto</a>{" "}
+        o abre un issue en nuestro repositorio de GitHub. Este proyecto es de
+        código abierto y damos la bienvenida a colaboradores.
+      </p>
+    </section>
+  </main>
+</Layout>

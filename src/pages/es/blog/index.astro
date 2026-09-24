@@ -1,0 +1,54 @@
+---
+import { getCollection } from "astro:content";
+import Layout from "../../../layouts/Layout.astro";
+import BlogCard from "../../../components/blogComponents/BlogCard.astro";
+import { getLangFromUrl, useTranslations } from "../../../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+
+const posts = (await getCollection("blog", ({ id }) => id.startsWith("es/")))
+  .sort(
+    (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime(),
+  );
+
+const canonicalUrl = new URL("/es/blog", Astro.site).href;
+const pageTitle = "Guías y Calendarios de Parches de Juegos Gacha";
+const pageDescription =
+  "Artículos detallados sobre ciclos de versiones de juegos gacha, calendarios de parches, temporizadores de actualización y qué esperar en cada lanzamiento.";
+---
+
+<Layout
+  title={pageTitle}
+  description={pageDescription}
+  url={canonicalUrl}
+  canonical={canonicalUrl}
+  lang="es"
+>
+  <main id="main-content" class="grow max-w-7xl mx-auto px-4 sm:px-6 py-6 sm:py-8 w-full">
+    <div class="mb-6 sm:mb-8">
+      <h1 class="text-3xl sm:text-4xl font-bold mb-2">{pageTitle}</h1>
+      <p class="text-slate-500 dark:text-slate-400 text-sm sm:text-base">
+        {pageDescription}
+      </p>
+    </div>
+
+    {posts.length > 0 ? (
+      <div class="grid gap-4 sm:gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        {posts.map((post) => <BlogCard post={post} lang="es" />)}
+      </div>
+    ) : (
+      <div class="glass-panel rounded-2xl p-8 sm:p-12 text-center">
+        <p class="font-display font-bold text-white text-lg sm:text-xl mb-2">
+          Próximamente nuevos artículos
+        </p>
+        <p class="text-slate-400 text-sm">
+          Estamos escribiendo guías detalladas sobre ciclos de versiones y
+          calendarios de parches. Vuelve pronto.
+        </p>
+      </div>
+    )}
+
+    
+  </main>
+</Layout>

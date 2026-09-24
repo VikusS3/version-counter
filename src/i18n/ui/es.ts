@@ -6,6 +6,8 @@ export const es = {
     characterGuides: "Guías de Personajes",
     pullTracker: "Seguimiento de wished",
     releases: "Próximos Estrenos",
+    about: "Sobre Nosotros",
+    blog: "Blog",
   },
   home: {
     title: "Gacha Countdown - Rastrea Actualizaciones",
@@ -119,6 +121,14 @@ export const es = {
     terms: "Términos",
     language: "Idioma",
     contact: "Contacto",
+    about: "Sobre Nosotros",
+  },
+  cookie: {
+    message:
+      "Usamos cookies para mostrar anuncios (Google AdSense) y analizar el tráfico (Google Analytics). Al hacer clic en Aceptar, aceptas nuestra Política de Privacidad.",
+    accept: "Aceptar",
+    reject: "Rechazar",
+    readMore: "Lee nuestra Política de Privacidad",
   },
   contact: {
     title: "Contacto",

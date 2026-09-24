@@ -1,0 +1,92 @@
+---
+import { getLangFromUrl, useTranslations } from "../i18n/utils";
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const localePrefix = lang === "en" ? "" : "/es";
+---
+
+<div
+  id="cookie-banner"
+  class="fixed bottom-4 left-4 right-4 z-[100] md:left-1/2 md:right-auto md:-translate-x-1/2 md:bottom-6 md:w-full md:max-w-xl"
+  role="dialog"
+  aria-label="Cookie consent"
+  aria-live="polite"
+  hidden
+>
+  <div class="glass-panel-glow rounded-2xl p-5 sm:p-6">
+    <div class="flex items-start gap-3 mb-3">
+      <span
+        class="material-symbols-outlined text-amber-400 text-xl shrink-0 pt-0.5"
+        aria-hidden="true"
+        >cookie</span
+      >
+      <p class="text-slate-300 text-xs sm:text-sm leading-relaxed">
+        {t.cookie.message}
+      </p>
+    </div>
+    <div class="flex flex-wrap items-center gap-2.5 sm:gap-3">
+      <a
+        href={`${localePrefix}/privacy`}
+        class="text-[11px] sm:text-xs text-slate-400 hover:text-indigo-300 underline underline-offset-2 transition-colors"
+        >{t.cookie.readMore}</a
+      >
+      <div class="flex-1"></div>
+      <button
+        type="button"
+        data-cookie-reject
+        class="min-h-[44px] px-4 py-2 rounded-xl text-xs font-display font-bold uppercase tracking-wider text-slate-300 hover:text-white bg-white/[0.04] border border-white/10 hover:border-white/25 transition-all cursor-pointer"
+      >
+        {t.cookie.reject}
+      </button>
+      <button
+        type="button"
+        data-cookie-accept
+        class="min-h-[44px] px-4 py-2 rounded-xl text-xs font-display font-bold uppercase tracking-wider text-white bg-gradient-to-r from-indigo-600 to-purple-600 hover:from-indigo-500 hover:to-purple-500 border border-white/20 transition-all cursor-pointer"
+      >
+        {t.cookie.accept}
+      </button>
+    </div>
+  </div>
+</div>
+
+<script>
+  interface GcWindow extends Window {
+    __gcConsent?: boolean;
+    __gcLoadAds?: () => void;
+    __gcLoadAnalytics?: () => void;
+  }
+
+  function initCookieBanner() {
+    const banner = document.getElementById("cookie-banner");
+    if (!banner) return;
+
+    if (localStorage.getItem("cookie-consent")) {
+      banner.hidden = true;
+      return;
+    }
+
+    banner.hidden = false;
+
+    const w = window as GcWindow;
+    const acceptBtn = banner.querySelector("[data-cookie-accept]");
+    const rejectBtn = banner.querySelector("[data-cookie-reject]");
+    if (!acceptBtn || !rejectBtn) return;
+
+    acceptBtn.addEventListener("click", () => {
+      localStorage.setItem("cookie-consent", "accepted");
+      w.__gcConsent = true;
+      w.__gcLoadAds?.();
+      w.__gcLoadAnalytics?.();
+      banner.hidden = true;
+    });
+
+    rejectBtn.addEventListener("click", () => {
+      localStorage.setItem("cookie-consent", "rejected");
+      w.__gcConsent = false;
+      banner.hidden = true;
+    });
+  }
+
+  document.addEventListener("astro:page-load", initCookieBanner);
+</script>

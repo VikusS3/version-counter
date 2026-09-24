@@ -1,0 +1,74 @@
+---
+import Layout from "../layouts/Layout.astro";
+
+const canonicalUrl = new URL("/about", Astro.site).href;
+---
+
+<Layout
+  title="About Us"
+  description="Learn more about Gacha Countdown, a fan-made project by gacha players that tracks version updates, patch releases, and banner schedules for Genshin Impact, Honkai Star Rail, Wuthering Waves, Zenless Zone Zero, and more."
+  url={canonicalUrl}
+  canonical={canonicalUrl}
+>
+  <main id="main-content" class="max-w-4xl mx-auto w-full px-4 sm:px-6 py-8 sm:py-10">
+    <h1 class="text-3xl sm:text-4xl font-bold text-gray-100 mb-6 sm:mb-8">About Us</h1>
+
+    <section class="mb-5 sm:mb-6 glass-panel rounded-2xl p-5 sm:p-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">Who We Are</h2>
+      <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
+        Gacha Countdown is a fan-made project created by gacha game players for
+        the community. We love live-service games, but keeping track of every
+        version cycle, maintenance window, and banner deadline across multiple
+        games can be exhausting. We built this site to solve that problem.
+      </p>
+      <p class="text-gray-300 leading-relaxed text-sm sm:text-base mt-3">
+        Every timer and date on this site is curated and verified by our small
+        team of contributors. We are players first, which means we know which
+        dates actually matter to you: when the servers go down, when a banner
+        ends, and when the next version drops.
+      </p>
+    </section>
+
+    <section class="mb-5 sm:mb-6 glass-panel rounded-2xl p-5 sm:p-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">Our Mission</h2>
+      <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
+        Our mission is simple: provide precise, always-up-to-date countdown
+        timers so you never miss a patch, maintenance, or limited-time banner
+        again. No clutter, no noise — just the live dates for the games you
+        play, in English and Spanish.
+      </p>
+    </section>
+
+    <section class="mb-5 sm:mb-6 glass-panel rounded-2xl p-5 sm:p-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">What We Offer</h2>
+      <ul class="text-gray-300 leading-relaxed text-sm sm:text-base list-disc pl-5 space-y-2">
+        <li>Live version countdown timers for each supported game.</li>
+        <li>Current and upcoming banner schedules (character and weapon warps).</li>
+        <li>Upcoming release tracker for new games.</li>
+        <li>Character guides curated from the community.</li>
+        <li>Full support in English and Spanish (/es).</li>
+      </ul>
+    </section>
+
+    <section class="mb-5 sm:mb-6 glass-panel rounded-2xl p-5 sm:p-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">Disclaimer</h2>
+      <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
+        Gacha Countdown is a fan-made project and is not affiliated with,
+        endorsed by, or sponsored by HoYoverse, Kuro Games, Hypergryph,
+        Perfect World, or any game publisher. All game names, trademarks, and
+        related imagery are property of their respective owners. We do not host
+        or distribute any game content or files.
+      </p>
+    </section>
+
+    <section class="mb-5 sm:mb-6 glass-panel rounded-2xl p-5 sm:p-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">Get in Touch</h2>
+      <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
+        Have feedback, a bug report, or a suggestion? Visit our{" "}
+        <a href="/contact" class="text-primary hover:text-primary/80 underline underline-offset-2">contact page</a>{" "}
+        or open an issue on our GitHub repository. This project is open source,
+        and we welcome contributors.
+      </p>
+    </section>
+  </main>
+</Layout>

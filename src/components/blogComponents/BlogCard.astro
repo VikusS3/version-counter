@@ -1,0 +1,49 @@
+---
+import type { CollectionEntry } from "astro:content";
+
+interface Props {
+  post: CollectionEntry<"blog">;
+  lang?: "en" | "es";
+}
+
+const { post, lang = "en" } = Astro.props;
+
+const slug = post.id.replace(/^(en|es)\//, "");
+const href = lang === "es" ? `/es/blog/${slug}/` : `/blog/${slug}/`;
+
+const formattedDate = post.data.publishDate.toLocaleDateString(
+  lang === "es" ? "es-ES" : "en-US",
+  {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  },
+);
+---
+
+<a
+  href={href}
+  class="group rounded-2xl border border-white/10 bg-gradient-to-b from-[#101224]/80 to-[#090a16]/90 backdrop-blur-xl p-5 sm:p-6 hover:border-indigo-500/40 transition-all duration-300 shadow-lg flex flex-col gap-3"
+>
+  <div class="flex items-center justify-between gap-2">
+    <span class="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-widest text-indigo-400">
+      {formattedDate}
+    </span>
+    {post.data.game !== "all" && (
+      <span class="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-widest text-slate-400 bg-white/[0.04] border border-white/10 px-2 py-1 rounded-md">
+        {post.data.game}
+      </span>
+    )}
+  </div>
+  <h2
+    class="font-display text-base sm:text-xl font-black text-white group-hover:text-indigo-200 transition-colors leading-snug"
+  >
+    {post.data.title}
+  </h2>
+  <p class="text-slate-400 text-xs sm:text-sm leading-relaxed line-clamp-3">
+    {post.data.description}
+  </p>
+  <div class="mt-auto flex items-center gap-2 text-xs font-mono font-bold uppercase tracking-wider text-indigo-300">
+    {lang === "es" ? "Leer artículo" : "Read article"}<span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-1" aria-hidden="true">arrow_forward</span>
+  </div>
+</a>

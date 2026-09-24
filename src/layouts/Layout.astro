@@ -3,6 +3,7 @@ import "../styles/global.css";
 import "material-symbols/outlined.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import CookieBanner from "../components/CookieBanner.astro";
 import { ClientRouter } from "astro:transitions";
 import { getLangFromUrl, useTranslations, defaultLocale } from "../i18n/utils";
 
@@ -173,31 +174,72 @@ const breadcrumbSchema = {
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={new URL(image, Astro.site).href} />
 
-    <!--meta AdSense -->
-    <script
-      async
-      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1296222480269245"
-      crossorigin="anonymous"></script>
-
     <link rel="sitemap" href="/sitemap-index.xml" />
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-DE7X8J5NY6"
-    ></script>
+    <!-- Consent-gated third-party scripts (AdSense + Google Analytics).
+         Loaded only after the user accepts the cookie consent banner. -->
     <script is:inline>
-      window.dataLayer = window.dataLayer || [];
-      function gtag() {
-        dataLayer.push(arguments);
-      }
-      gtag("js", new Date());
+      (function () {
+        if (typeof localStorage === "undefined") return;
 
-      gtag("config", "G-DE7X8J5NY6");
+        window.__gcConsent =
+          localStorage.getItem("cookie-consent") === "accepted";
+        window.__gcAdLoaded = false;
+        window.__gcAnalyticsLoaded = false;
+
+        window.__gcLoadAds = function () {
+          if (window.__gcAdLoaded) return;
+          window.__gcAdLoaded = true;
+
+          var s = document.createElement("script");
+          s.async = true;
+          s.src =
+            "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1296222480269245";
+          s.crossOrigin = "anonymous";
+          document.head.appendChild(s);
+        };
+
+        window.__gcLoadAnalytics = function () {
+          if (window.__gcAnalyticsLoaded) return;
+          window.__gcAnalyticsLoaded = true;
+
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          window.gtag = gtag;
+          gtag("consent", "default", {
+            ad_storage: "granted",
+            ad_user_data: "granted",
+            ad_personalization: "granted",
+            analytics_storage: "granted",
+          });
+          gtag("js", new Date());
+          gtag("config", "G-DE7X8J5NY6");
+
+          var s = document.createElement("script");
+          s.async = true;
+          s.src = "https://www.googletagmanager.com/gtag/js?id=G-DE7X8J5NY6";
+          document.head.appendChild(s);
+        };
+
+        if (window.__gcConsent) {
+          window.__gcLoadAnalytics();
+          window.__gcLoadAds();
+        }
+      })();
     </script>
 
     <!-- Fix: Re-initialize astro-islands (React client:only components) after View Transitions swap -->
     <script is:inline>
       document.addEventListener("astro:after-swap", () => {
         window.dispatchEvent(new CustomEvent("astro:react-remount"));
+
+        const consented =
+          localStorage.getItem("cookie-consent") === "accepted";
+        window.__gcConsent = consented;
+        if (!consented) return;
+
         reloadAdsense();
       });
 
@@ -281,5 +323,6 @@ const breadcrumbSchema = {
       <slot />
       <Footer />
     </div>
+    <CookieBanner />
   </body>
 </html>

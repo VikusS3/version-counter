@@ -3,10 +3,18 @@ import Layout from "../../layouts/Layout.astro";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 import BannerTracker from "../../components/bannerComponents/BannerTracker.astro";
 import { bannersData } from "../../data/banners";
+import { buildBannersJsonLd } from "../../utils/banner-schema";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 const bannerCanonicalUrl = new URL("/banners", Astro.site).href;
+const bannersJsonLd = buildBannersJsonLd(bannersData, {
+  title: t.banner.title,
+  description: t.banner.subtitle,
+  url: bannerCanonicalUrl,
+  lang: lang === "es" ? "es" : "en",
+  site: Astro.site ?? Astro.url,
+});
 ---
 
 <Layout
@@ -15,28 +23,7 @@ const bannerCanonicalUrl = new URL("/banners", Astro.site).href;
 >
   <script
     type="application/ld+json"
-    set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "CollectionPage",
-      name: t.banner.title,
-      description: t.banner.subtitle,
-      url: bannerCanonicalUrl,
-      mainEntity: bannersData.flatMap((game) =>
-        game.banners.map((banner) => ({
-          "@type": "Event",
-          name: banner.title,
-          description: `${banner.title} - ${game.gameTitle} banner`,
-          startDate: banner.startDate,
-          endDate: banner.endDate,
-          image: banner.image,
-          eventStatus: banner.startDate <= new Date().toISOString() && banner.endDate >= new Date().toISOString()
-            ? "https://schema.org/EventScheduled"
-            : banner.endDate < new Date().toISOString()
-            ? "https://schema.org/EventEnded"
-            : "https://schema.org/EventScheduled",
-        }))
-      ),
-    })}
+    set:html={JSON.stringify(bannersJsonLd)}
   />
   <main
     id="main-content"

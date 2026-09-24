@@ -1,0 +1,214 @@
+---
+import { getCollection, render } from "astro:content";
+import Layout from "../../layouts/Layout.astro";
+import { getLangFromUrl } from "../../i18n/utils";
+
+export async function getStaticPaths() {
+  const posts = await getCollection("blog", ({ id }) => !id.startsWith("es/"));
+  return posts
+    .sort(
+      (a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime(),
+    )
+    .map((post) => ({
+      params: { slug: post.id.replace(/^en\//, "") },
+      props: { post },
+    }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+const lang = getLangFromUrl(Astro.url);
+const localePrefix = lang === "en" ? "" : "/es";
+
+const canonicalUrl = new URL(`/blog/${post.id.replace(/^en\//, "")}`, Astro.site)
+  .href;
+
+const publishedDate = post.data.publishDate.toLocaleDateString("en-US", {
+  year: "numeric",
+  month: "long",
+  day: "numeric",
+});
+
+const gameHrefMap: Record<string, string | undefined> = {
+  genshin: "/games/genshin",
+  hsr: "/games/hsr",
+  wuwa: "/games/wuwa",
+  zzz: "/games/zzz",
+  arknights: "/games/arknights-endfield",
+  nte: "/games/nte",
+};
+
+const gameHref = post.data.game !== "all"
+  ? gameHrefMap[post.data.game]
+  : undefined;
+---
+
+<Layout
+  title={post.data.title}
+  description={post.data.description}
+  url={canonicalUrl}
+  canonical={canonicalUrl}
+>
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      headline: post.data.title,
+      description: post.data.description,
+      datePublished: post.data.publishDate,
+      dateModified: post.data.updatedDate ?? post.data.publishDate,
+      author: {
+        "@type": "Person",
+        name: post.data.author,
+      },
+      mainEntityOfPage: {
+        "@type": "WebPage",
+        "@id": canonicalUrl,
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Gacha Countdown Team",
+      },
+    })}
+  />
+  <main id="main-content" class="grow max-w-3xl mx-auto px-4 sm:px-6 py-6 sm:py-8 w-full">
+    <article>
+      <header class="mb-6 sm:mb-8">
+        <div class="flex flex-wrap items-center gap-2.5 mb-3">
+          <span class="text-[10px] sm:text-xs font-mono font-bold uppercase tracking-widest text-indigo-400">
+            {publishedDate}
+          </span>
+          {post.data.tags.length > 0 &&
+            post.data.tags.map((tag) => (
+              <span class="text-[9px] sm:text-[10px] font-mono font-bold uppercase tracking-widest text-slate-400 bg-white/[0.04] border border-white/10 px-2 py-1 rounded-md">
+                #{tag}
+              </span>
+            ))}
+        </div>
+        <h1 class="font-display text-2xl sm:text-4xl font-black text-white leading-tight">
+          {post.data.title}
+        </h1>
+        <p class="text-slate-400 text-xs sm:text-sm mt-3 font-mono uppercase tracking-wider">
+          By {post.data.author}
+        </p>
+      </header>
+
+      <div class="blog-content text-slate-300">
+        <Content />
+      </div>
+    </article>
+
+    <div class="mt-10 flex flex-wrap gap-3 border-t border-white/[0.06] pt-6">
+      {gameHref && (
+        <a
+          href={`${localePrefix}${gameHref}`}
+          class="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-teal-300 hover:text-teal-200 px-4 py-2 rounded-xl bg-white/[0.04] border border-white/10 hover:border-teal-500/30 transition-colors"
+        >
+          <span class="material-symbols-outlined text-sm" aria-hidden="true">timer</span>
+          Live Version Countdown
+        </a>
+      )}
+      <a
+        href={`${localePrefix}/blog/`}
+        class="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-indigo-300 hover:text-indigo-200 px-4 py-2 rounded-xl bg-white/[0.04] border border-white/10 hover:border-indigo-500/30 transition-colors"
+      >
+        <span class="material-symbols-outlined text-sm" aria-hidden="true">arrow_back</span>
+        All Articles
+      </a>
+    </div>
+  </main>
+</Layout>
+
+<style is:global>
+  .blog-content > * + * {
+    margin-top: 1.25rem;
+  }
+  .blog-content h2 {
+    color: #fff;
+    font-family: var(--font-display, inherit);
+    font-weight: 800;
+    font-size: 1.4rem;
+    margin-top: 2rem;
+  }
+  .blog-content h3 {
+    color: #e2e8f0;
+    font-weight: 700;
+    font-size: 1.15rem;
+    margin-top: 1.75rem;
+  }
+  .blog-content p {
+    line-height: 1.75;
+    color: #cbd5e1;
+  }
+  .blog-content a {
+    color: #818cf8;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+  .blog-content a:hover {
+    color: #a5b4fc;
+  }
+  .blog-content ul,
+  .blog-content ol {
+    padding-left: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  .blog-content ul {
+    list-style: disc;
+  }
+  .blog-content ol {
+    list-style: decimal;
+  }
+  .blog-content li::marker {
+    color: #818cf8;
+  }
+  .blog-content blockquote {
+    border-left: 3px solid #818cf8;
+    padding-left: 1rem;
+    color: #94a3b8;
+    font-style: italic;
+  }
+  .blog-content code {
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.15rem 0.4rem;
+    border-radius: 0.375rem;
+    font-size: 0.85em;
+    color: #e2e8f0;
+  }
+  .blog-content pre {
+    background: #0a0b16;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    padding: 1rem;
+    overflow-x: auto;
+  }
+  .blog-content pre code {
+    background: transparent;
+    border: none;
+    padding: 0;
+  }
+  .blog-content img {
+    border-radius: 0.75rem;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  .blog-content table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.9rem;
+  }
+  .blog-content th,
+  .blog-content td {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 0.5rem 0.75rem;
+    text-align: left;
+  }
+  .blog-content th {
+    background: rgba(99, 102, 241, 0.1);
+    color: #e2e8f0;
+  }
+</style>

@@ -5,6 +5,7 @@ import { CopyButton } from "../../components/react/CopyButton";
 import BannerAlert from "../../components/bannerComponents/BannerAlert.astro";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 import { getLocalizedGame } from "../../data/translations/getGameData";
+import GameContentSections from "../../components/GameContentSections.astro";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
@@ -243,5 +244,7 @@ const gameKeywords = `
         </div>
       </div>
     </section>
+
+    <GameContentSections game={game} lang={lang} />
   </main>
 </Layout>
