@@ -5,6 +5,7 @@ description: >-
   builds de Claret y Roxy, re-emisiones de Nangong Yu y Promeia, eventos,
   recompensas gratis, códigos de canje y fechas de la versión.
 game: zzz
+image: /version-images/zenless-zone-zero-3.2.webp
 publishDate: "2026-09-22"
 author: Gacha Countdown
 tags:

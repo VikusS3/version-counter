@@ -21,6 +21,7 @@ const blog = defineCollection({
     author: z.string().default("Gacha Countdown"),
     tags: z.array(z.string()).default([]),
     slug: z.string().optional(),
+    image: z.string().optional(),
   }),
 });
 

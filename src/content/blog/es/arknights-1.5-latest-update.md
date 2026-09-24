@@ -5,6 +5,7 @@ description: >-
   Winter Hunt y RE-Factor, Typhoeus y Purrchena 5★ gratis, builds, los 14
   eventos, códigos de canje y fechas de la versión.
 game: arknights
+image: /version-images/arknights-endfield-1.5.webp
 publishDate: "2026-09-22"
 author: Gacha Countdown
 tags:

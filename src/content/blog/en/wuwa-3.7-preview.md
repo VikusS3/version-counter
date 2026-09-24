@@ -5,6 +5,7 @@ description: >-
   schedule, Hsin and Suoming builds, Chisa, Iuno, Lynae and Lucilla reruns,
   events, free rewards, redeem codes, and version dates.
 game: wuwa
+image: /version-images/wuthering-waves-3.7.webp
 publishDate: "2026-09-22"
 author: Gacha Countdown
 tags:

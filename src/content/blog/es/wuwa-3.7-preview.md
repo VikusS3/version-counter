@@ -6,6 +6,7 @@ description: >-
   y Lucilla, eventos, recompensas gratis, códigos de canje y fechas de la
   versión.
 game: wuwa
+image: /version-images/wuthering-waves-3.7.webp
 publishDate: "2026-09-22"
 author: Gacha Countdown
 tags:

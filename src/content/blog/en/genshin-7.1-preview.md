@@ -5,6 +5,7 @@ description: >-
   banners, Skirk and Escoffier reruns, anniversary rewards, events, and redeem
   codes.
 game: genshin
+image: /version-images/genshin-impact-7.1.webp
 publishDate: "2026-09-22"
 author: Gacha Countdown
 tags:

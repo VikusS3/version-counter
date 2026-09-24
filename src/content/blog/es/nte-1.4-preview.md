@@ -4,6 +4,7 @@ description: >-
   Neverness to Everness 1.4 llega el 30 de septiembre con Blackbird, Akane Rin,
   rerun de Lacrimosa, Pukaland, banners, eventos, recompensas gratis y códigos.
 game: nte
+image: /version-images/neverness-to-everness-1.4.webp
 publishDate: "2026-09-24"
 author: Gacha Countdown
 tags:

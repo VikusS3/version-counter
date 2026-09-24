@@ -5,6 +5,7 @@ description: >-
   reruns de Skirk y Escoffier, recompensas de aniversario, eventos y códigos de
   canje.
 game: genshin
+image: /version-images/genshin-impact-7.1.webp
 publishDate: "2026-09-22"
 author: Gacha Countdown
 tags:

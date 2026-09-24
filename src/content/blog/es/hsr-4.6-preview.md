@@ -5,6 +5,7 @@ description: >-
   reruns de Evanescia y Mortenax Blade, calendario de banners, eventos,
   recompensas gratis, códigos de canje y fechas de la versión.
 game: hsr
+image: /version-images/honkai-star-rail-4.6.webp
 publishDate: "2026-09-22"
 author: Gacha Countdown
 tags:

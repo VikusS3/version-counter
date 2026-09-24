@@ -5,6 +5,7 @@ description: >-
   RE-Factor banner schedule, Typhoeus and free 5★ Purrchena, builds, all
   14 events, redeem codes, and version dates.
 game: arknights
+image: /version-images/arknights-endfield-1.5.webp
 publishDate: "2026-09-22"
 author: Gacha Countdown
 tags:
