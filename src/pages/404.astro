@@ -1,0 +1,41 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout
+  title="Page Not Found | Página no encontrada"
+  description="The requested page does not exist. La página solicitada no existe."
+  noindex
+  showBreadcrumbs={false}
+>
+  <main
+    id="main-content"
+    class="grow max-w-3xl mx-auto w-full px-4 sm:px-6 py-16 sm:py-24 text-center"
+  >
+    <p class="font-mono text-sm font-bold uppercase tracking-[0.3em] text-indigo-400">
+      404
+    </p>
+    <h1 class="mt-4 text-3xl sm:text-5xl font-black text-white">
+      Page not found / Página no encontrada
+    </h1>
+    <p class="mt-4 text-slate-400 max-w-xl mx-auto">
+      The URL does not exist, has moved, or is no longer available. La URL no existe, fue movida o ya no está disponible.
+    </p>
+    <div class="mt-8 flex flex-wrap justify-center gap-3">
+      <a
+        href="/"
+        class="inline-flex min-h-[48px] items-center gap-2 rounded-xl bg-indigo-600 px-6 py-3 font-bold text-white transition-colors hover:bg-indigo-500"
+      >
+        <span class="material-symbols-outlined" aria-hidden="true">home</span>
+        Back to dashboard
+      </a>
+      <a
+        href="/es/"
+        class="inline-flex min-h-[48px] items-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-6 py-3 font-bold text-white transition-colors hover:bg-white/[0.08]"
+      >
+        <span class="material-symbols-outlined" aria-hidden="true">home</span>
+        Volver al panel
+      </a>
+    </div>
+  </main>
+</Layout>

@@ -6,14 +6,17 @@ import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const guidesCanonicalUrl = new URL("/guides", Astro.site).href;
+const guidesCanonicalUrl = new URL("/guides/", Astro.site).href;
 ---
 
 <Layout
   title={t.guides.title}
   description={t.guides.subtitle}
+  url={guidesCanonicalUrl}
+  canonical={guidesCanonicalUrl}
 >
   <script
+    is:inline
     type="application/ld+json"
     set:html={JSON.stringify({
       "@context": "https://schema.org",
@@ -44,7 +47,7 @@ const guidesCanonicalUrl = new URL("/guides", Astro.site).href;
       </p>
     </div>
     <GuideFilters 
-      client:only="react"
+      client:load
       guides={guides} 
       labels={{
         all: t.guides.all,

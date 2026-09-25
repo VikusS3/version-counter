@@ -1,8 +1,8 @@
 ---
-title: "Genshin Impact 7.1: Banners, Events, Characters, Builds & Redeem Codes"
+title: "Genshin Impact 7.1 Banners, Events & Redeem Codes"
 description: >-
-  Genshin Impact 7.1, "A Rekviem for the Underworld": Vesna and Vodyanitsa
-  banners, Skirk and Escoffier reruns, anniversary rewards, events, and redeem
+  Genshin Impact 7.1 "A Rekviem for the Underworld": Vesna and Vodyanitsa
+  banners, Skirk and Escoffier reruns, anniversary rewards, events, and
   codes.
 game: genshin
 image: /version-images/genshin-impact-7.1.webp
@@ -19,8 +19,6 @@ tags:
   - redeem-codes
   - guides
 ---
-
-# Genshin Impact 7.1: Banners, Events, Characters, Builds & Redeem Codes
 
 > **Version 7.1 — "A Rekviem for the Underworld"**
 >
@@ -71,17 +69,17 @@ HoYoverse's Version 7.1 announcement confirms the update launches on **September
 
 ---
 
-# 🗓️ Genshin Impact 7.1 Banner Schedule
+## 🗓️ Genshin Impact 7.1 Banner Schedule
 
 Version 7.1 uses two Event Wish phases. Server time is **UTC+8**.
 
-## Phase 1 — Vesna & Vodyanitsa
+### Phase 1 — Vesna & Vodyanitsa
 
 **September 23 → October 13, 2026**
 
 Phase 1 begins after the Version 7.1 update and ends on **October 13, 2026 at 17:59 server time (UTC+8)**.
 
-### When Warm Winds Cavort
+#### When Warm Winds Cavort
 
 **5★: Vesna — Anemo, Sword**
 
@@ -89,7 +87,7 @@ Phase 1 begins after the Version 7.1 update and ends on **October 13, 2026 at 17
 - Role: Stellar Swirl DPS
 - Status: **NEW**
 
-### Surging Ballad
+#### Surging Ballad
 
 **5★: Vodyanitsa — Hydro**
 
@@ -97,13 +95,13 @@ Phase 1 begins after the Version 7.1 update and ends on **October 13, 2026 at 17
 - Role: Support / healer for Stellar Swirl and Freeze teams
 - Status: **NEW**
 
-### Featured 4★ Characters
+#### Featured 4★ Characters
 
 - **Diona**
 - **Faruzan**
 - **Chongyun**
 
-### Epitome Invocation (Phase 1)
+#### Epitome Invocation (Phase 1)
 
 Featured 5★ weapons:
 
@@ -126,7 +124,7 @@ Genshin Impact 7.1 Phase 1 Event Wishes featuring Vesna and Vodyanitsa
 
 ---
 
-## Phase 2 — Skirk & Escoffier (Reported)
+### Phase 2 — Skirk & Escoffier (Reported)
 
 **October 13 → November 3, 2026²**
 
@@ -153,7 +151,7 @@ Genshin Impact 7.1 Phase 2 Event Wishes featuring Skirk and Escoffier
 
 ---
 
-# ⚡ Genshin Impact 7.1 Characters
+## ⚡ Genshin Impact 7.1 Characters
 
 Version 7.1 introduces two new 5★ characters:
 
@@ -169,7 +167,7 @@ Version 7.1 introduces two new 5★ characters:
 
 ---
 
-# ⚡ Vesna — New 5★ Anemo Sword
+## ⚡ Vesna — New 5★ Anemo Sword
 
 Vesna is one of the headline additions in Version 7.1, introduced with the Phase 1 Event Wish **"When Warm Winds Cavort."**
 
@@ -209,7 +207,7 @@ Vesna Genshin Impact 7.1 Anemo Sword character
 
 ---
 
-# ⚡ Vodyanitsa — New 5★ Hydro
+## ⚡ Vodyanitsa — New 5★ Hydro
 
 Vodyanitsa is the second new 5★ character in Version 7.1, featured on the Phase 1 Event Wish **"Surging Ballad."**
 
@@ -249,11 +247,11 @@ Vodyanitsa Genshin Impact 7.1 Hydro character
 
 ---
 
-# 🎁 Version 7.1 Free Rewards
+## 🎁 Version 7.1 Free Rewards
 
 Version 7.1 includes the game's **6th anniversary** reward program plus the version login event.
 
-## 10 Free Intertwined Fates
+### 10 Free Intertwined Fates
 
 The **"Rainbow's End"** login event gives players:
 
@@ -261,17 +259,17 @@ The **"Rainbow's End"** login event gives players:
 
 Confirmed by multiple secondary sources reading the official Benefits Overview.
 
-## 1,600 Primogems via Mail
+### 1,600 Primogems via Mail
 
 The anniversary/version Benefits Overview includes **1,600 Primogems** delivered to players' in-game mail.
 
 Reported via secondary reprints of the official Benefits Overview page.
 
-## Top-Up Reset
+### Top-Up Reset
 
 The Version 7.1 Benefits Overview also includes a **Genesis Crystal top-up reset**.
 
-## Two 5★ Character Selectors
+### Two 5★ Character Selectors
 
 - **Standard 5★ selector** — available after login.
 - **Limited 5★ selector** — requires completing the Version 7.1 Archon Quest before **November 3, 2026** (the version end date).
@@ -296,7 +294,7 @@ Primogems
 
 ---
 
-# 📅 Genshin Impact 7.1 Events
+## 📅 Genshin Impact 7.1 Events
 
 The following event calendar entries are sourced from a single secondary tracker reading the official Event Calendar image. **All dates and Primogem amounts below are unconfirmed** and should be treated as preliminary until corroborated by official notices.
 
@@ -316,7 +314,7 @@ The following event calendar entries are sourced from a single secondary tracker
 
 ---
 
-# 🎟️ Active Genshin Impact 7.1 Redeem Codes
+## 🎟️ Active Genshin Impact 7.1 Redeem Codes
 
 > **Last checked: September 22, 2026**
 >
@@ -346,11 +344,11 @@ These codes together awarded approximately **300 Primogems**. Expiry was reporte
 
 ---
 
-# 💬 How to Redeem Genshin Impact Codes
+## 💬 How to Redeem Genshin Impact Codes
 
 You can redeem Genshin Impact codes either in-game or through HoYoverse's official redemption page.
 
-## In-Game
+### In-Game
 
 1. Open **Genshin Impact**.
 2. Open the **Paimon menu** (Esc on PC).
@@ -362,7 +360,7 @@ You can redeem Genshin Impact codes either in-game or through HoYoverse's offici
 
 > **Note:** On iOS, in-game code redemption may be unavailable — use the official website instead.
 
-## Official Website
+### Official Website
 
 Use the official HoYoverse redemption page:
 
@@ -372,21 +370,21 @@ https://genshin.hoyoverse.com/en/gift
 
 ---
 
-# 🆕 What's New in Version 7.1?
+## 🆕 What's New in Version 7.1?
 
 Version 7.1 is more than a banner update.
 
-## Snezhnaya Archon Quest
+### Snezhnaya Archon Quest
 
 The new Archon Quest chapter takes the Traveler to **Snezhnaya** for a face-to-face meeting with the **Tsaritsa**.
 
 The story also features a showdown with **Ronova, Ruler of Death**, and an appearance by **Rhinedottir, Ruler of Life**.
 
-## Moonchase Festival Returns
+### Moonchase Festival Returns
 
 The **Moonchase Festival** returns to Liyue at **Yilong Wharf**.
 
-## 6th Anniversary Program
+### 6th Anniversary Program
 
 Version 7.1 includes the game's 6th anniversary celebration:
 
@@ -395,30 +393,30 @@ Version 7.1 includes the game's 6th anniversary celebration:
 - **Top-up reset**
 - **Two 5★ character selectors** (standard after login; limited after the 7.1 Archon Quest, deadline November 3, 2026)
 
-## Special Assignments & Miliastra Wonderland
+### Special Assignments & Miliastra Wonderland
 
 Secondary reads of the official "What's New" notes indicate the Traveler takes on a role as the **Tsaritsa's consultant** through Special Assignments, and **Miliastra Wonderland** gains editor scripting and collaborative editing tools.
 
 ---
 
-# ❓ Genshin Impact 7.1 FAQ
+## ❓ Genshin Impact 7.1 FAQ
 
-## When does Genshin Impact 7.1 release?
+### When does Genshin Impact 7.1 release?
 
 Version 7.1, **"A Rekviem for the Underworld,"** launches on **September 23, 2026 (UTC+8)** after maintenance.
 
-## When does Version 7.1 end?
+### When does Version 7.1 end?
 
 Secondary sources reading the official Benefits Overview list the end of the version as **November 3, 2026 (Server Time)**. The exact end minute is unconfirmed.
 
-## Who are the new characters in Genshin 7.1?
+### Who are the new characters in Genshin 7.1?
 
 There are two new 5★ characters:
 
 - **Vesna** — Anemo, Sword ("Snowy Banquet's Sharp Blade")
 - **Vodyanitsa** — Hydro ("Lingering Siren-Song")
 
-## Who is rerunning in Genshin 7.1 Phase 2?
+### Who is rerunning in Genshin 7.1 Phase 2?
 
 Secondary reports from the official Special Program point to:
 
@@ -427,7 +425,7 @@ Secondary reports from the official Special Program point to:
 
 The written Phase II Event Wishes Notice had not been published as of September 22, 2026, so exact times are unconfirmed.
 
-## What free rewards does Genshin 7.1 give?
+### What free rewards does Genshin 7.1 give?
 
 The version includes:
 
@@ -436,17 +434,17 @@ The version includes:
 - **Top-up reset**
 - **Two 5★ character selectors**
 
-## Are the Version 7.1 livestream codes still active?
+### Are the Version 7.1 livestream codes still active?
 
 No. `Rekviem`, `Vesna0923`, and `PrimaDonna` expired around September 14–15, 2026.
 
-## What are the maintenance times for Version 7.1?
+### What are the maintenance times for Version 7.1?
 
 Sources disagree: most reports list maintenance as **06:00–11:00 UTC+8** on September 23, while Game8 lists **07:00–12:00 UTC+8**. The official maintenance notice was not verified — treat both windows as tentative and expect go-live around **11:00 UTC+8 on September 23, 2026**.
 
 ---
 
-# 📊 Genshin Impact 7.1 Quick Summary
+## 📊 Genshin Impact 7.1 Quick Summary
 
 | Category                   | Version 7.1                        |
 | -------------------------- | ---------------------------------- |
@@ -470,7 +468,7 @@ Sources disagree: most reports list maintenance as **06:00–11:00 UTC+8** on Se
 
 ---
 
-# 🔗 Official Sources
+## 🔗 Official Sources
 
 - **Genshin Impact — Version 7.1 Special Program Preview**
   https://genshin.hoyoverse.com/en/news/detail/166004

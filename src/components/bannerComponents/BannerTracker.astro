@@ -21,20 +21,28 @@ const totalBanners = games.reduce((acc, g) => acc + g.banners.length, 0);
   </div>
 
   <!-- Header -->
-  <div class="flex items-center justify-between mb-6 sm:mb-8">
-    <div class="flex items-center gap-3">
-      <div class="relative flex h-2 w-2">
-        <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
-        <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400 shadow-[0_0_6px_rgba(52,211,153,0.5)]" />
+  <header class="mb-6 sm:mb-8">
+    <div class="flex items-center justify-between gap-4 mb-4 sm:mb-5">
+      <div class="flex items-center gap-3">
+        <div class="relative flex h-2 w-2">
+          <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
+          <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-400 shadow-[0_0_6px_rgba(52,211,153,0.5)]" />
+        </div>
+        <span class="text-emerald-400/90 font-mono font-bold text-[11px] sm:text-xs uppercase tracking-widest">
+          {t.banner.liveBanners}
+        </span>
       </div>
-      <h2 class="text-white font-bold text-sm sm:text-base tracking-wide">
-        {t.banner.title}
-      </h2>
+      <span class="text-[11px] sm:text-xs text-slate-600 font-mono tabular-nums">
+        {totalBanners} {totalBanners === 1 ? t.banner.banner : t.banner.banners}
+      </span>
     </div>
-    <span class="text-[11px] sm:text-xs text-slate-600 font-mono tabular-nums">
-      {totalBanners} {totalBanners === 1 ? t.banner.banner : t.banner.banners}
-    </span>
-  </div>
+    <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight tracking-tight">
+      {t.banner.title}
+    </h1>
+    <p class="mt-2 sm:mt-3 text-slate-400 text-sm sm:text-base max-w-3xl">
+      {t.banner.subtitle}
+    </p>
+  </header>
 
   <!-- Game Tab Bar -->
   <div class="overflow-x-auto no-scrollbar -mx-4 sm:mx-0 mb-6">
@@ -52,6 +60,8 @@ const totalBanners = games.reduce((acc, g) => acc + g.banners.length, 0);
                 class="img-fade w-full h-full object-cover"
                 src={game.icon}
                 alt={game.gameTitle}
+                width={48}
+                height={48}
                 loading="lazy"
                 decoding="async"
               />
@@ -99,14 +109,16 @@ const totalBanners = games.reduce((acc, g) => acc + g.banners.length, 0);
                   class="img-fade w-full h-full object-cover rounded-lg"
                   src={gameSection.icon}
                   alt={gameSection.gameTitle}
+                  width={48}
+                  height={48}
                   loading="lazy"
                   decoding="async"
                 />
               </div>
               <div>
-                <h3 class="font-display text-base sm:text-lg font-bold text-white leading-tight">
+                <h2 class="font-display text-base sm:text-lg font-bold text-white leading-tight">
                   {gameSection.gameTitle}
-                </h3>
+                </h2>
                 <p class="text-xs sm:text-sm text-slate-400 font-mono font-medium">
                   {gameSection.banners.length} {gameSection.banners.length === 1 ? t.banner.banner : t.banner.banners}
                   {activeBanners.length > 0 && (
@@ -154,8 +166,10 @@ const totalBanners = games.reduce((acc, g) => acc + g.banners.length, 0);
                       <img
                         class="img-fade w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                         src={banner.image}
-                        alt={`${banner.title} - ${banner.game} banner`}
-                        loading="lazy"
+                         alt={`${banner.title} - ${banner.game} banner`}
+                         width={256}
+                         height={256}
+                         loading="lazy"
                         decoding="async"
                       />
                       <div class="absolute inset-0 bg-gradient-to-t from-background-dark/50 to-transparent pointer-events-none" />
@@ -165,9 +179,9 @@ const totalBanners = games.reduce((acc, g) => acc + g.banners.length, 0);
                   <!-- Info -->
                   <div class="flex-1 min-w-0 pt-1">
                     <div class="flex items-start justify-between gap-2">
-                      <h4 class="text-base sm:text-lg font-bold text-white leading-tight truncate">
+                      <h3 class="text-base sm:text-lg font-bold text-white leading-tight truncate">
                         {banner.title}
-                      </h4>
+                      </h3>
                       <span class="shrink-0 relative flex h-2 w-2 mt-2"
                         class:list={[
                           status === "active" && "",

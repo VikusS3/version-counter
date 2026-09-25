@@ -7,7 +7,7 @@ import { buildBannersJsonLd } from "../../utils/banner-schema";
 
 const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
-const bannerCanonicalUrl = new URL("/banners", Astro.site).href;
+const bannerCanonicalUrl = new URL("/banners/", Astro.site).href;
 const bannersJsonLd = buildBannersJsonLd(bannersData, {
   title: t.banner.title,
   description: t.banner.subtitle,
@@ -20,8 +20,11 @@ const bannersJsonLd = buildBannersJsonLd(bannersData, {
 <Layout
   title={t.banner.title}
   description={t.banner.subtitle}
+  url={bannerCanonicalUrl}
+  canonical={bannerCanonicalUrl}
 >
   <script
+    is:inline
     type="application/ld+json"
     set:html={JSON.stringify(bannersJsonLd)}
   />

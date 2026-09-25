@@ -42,7 +42,7 @@ Alt:
 Neverness to Everness 1.4 For Whom the Verses Mourn featuring Blackbird and Akane Rin
 -->
 
-![Neverness to Everness 1.4 For Whom the Verses Mourn featuring Blackbird and Akane Rin](/version-images/neverness-to-everness-1.4.webp)
+![Neverness to Everness 1.4 For Whom the Verses Mourn con Blackbird y Akane Rin](/version-images/neverness-to-everness-1.4.webp)
 
 ## Versión 1.4 de un vistazo
 
@@ -94,7 +94,7 @@ Alt:
 Neverness to Everness 1.4 Phase 1 banners featuring Blackbird and Lacrimosa
 
 Insert when the asset is available:
-![Neverness to Everness 1.4 Phase 1 — Blackbird and Lacrimosa](/banners/neverness-to-everness/blackbird-lacrimosa-1-4.webp)
+![Neverness to Everness 1.4 Fase 1 — Blackbird y Lacrimosa](/banners/neverness-to-everness/blackbird-lacrimosa-1-4.webp)
 -->
 
 ### Fase 2 — Akane Rin
@@ -126,7 +126,7 @@ Alt:
 Neverness to Everness 1.4 Phase 2 banner featuring Akane Rin
 
 Insert when the asset is available:
-![Neverness to Everness 1.4 Phase 2 — Akane Rin](/banners/neverness-to-everness/akane-rin-1-4.webp)
+![Neverness to Everness 1.4 Fase 2 — Akane Rin](/banners/neverness-to-everness/akane-rin-1-4.webp)
 -->
 
 Los contadores de pity de los Limited Board se mantienen entre las fases de la Versión 1.4. Los horarios exactos, las tasas de Personajes A-Class destacados, los detalles de pity de Arc Research y el mantenimiento siguen pendientes de las notas oficiales en inglés.
@@ -338,7 +338,7 @@ Alt:
 Neverness to Everness 1.4 free rewards including Solid Dice Fons and selection boxes
 
 Insert when the asset is available:
-![Neverness to Everness 1.4 free rewards](/events/neverness-to-everness/1-4-free-rewards.webp)
+![Neverness to Everness 1.4 recompensas gratuitas](/events/neverness-to-everness/1-4-free-rewards.webp)
 -->
 
 ## Porsche Collaboration Vol. 2
@@ -391,7 +391,7 @@ Alt:
 Neverness to Everness 1.4 outfits and accessories for Blackbird and Akane Rin
 
 Insert when the asset is available:
-![Neverness to Everness 1.4 outfits and accessories](/events/neverness-to-everness/outfits-accessories-1-4.webp)
+![Neverness to Everness 1.4 atuendos y accesorios](/events/neverness-to-everness/outfits-accessories-1-4.webp)
 -->
 
 ### Mejoras confirmadas
@@ -405,7 +405,7 @@ Insert when the asset is available:
 - Nuevos coleccionables y Blackbird como Ayudante de subasta
 - Límite de Hunter Supplies aumentado al Nivel 80 con recompensas mejoradas
 
-## Calendario de eventos reemitidos
+## Calendario de eventos recurrentes
 
 | Evento | Fechas previstas |
 | --- | --- |

@@ -33,6 +33,7 @@ interface GameDashboardProps {
     finished: string;
   };
   storageKey?: string;
+  locale?: "en" | "es";
 }
 
 const DEFAULT_VISIBILITY: VisibilityState = {
@@ -52,6 +53,12 @@ const colorMap: Record<string, string> = {
   nte: "var(--color-nte)",
   arknights: "var(--color-arknights)",
 };
+
+function buildGameHref(gameHref: string, locale: "en" | "es"): string {
+  const gameSegments = gameHref.split("/").filter(Boolean);
+  const localeSegments = locale === "es" ? ["es"] : [];
+  return `/${[...localeSegments, "games", ...gameSegments].join("/")}/`;
+}
 
 function useTimer(fecha_inicio: string, duracion_dias: number) {
   const finMs = useRef(
@@ -108,10 +115,12 @@ function GameCardComponent({
   game,
   isVisible,
   labels,
+  locale,
 }: {
   game: GameItem;
   isVisible: boolean;
   labels: GameDashboardProps["labels"];
+  locale: "en" | "es";
 }) {
   const accentColor = colorMap[game.alias] || "var(--color-genshin)";
   const timeLeft = useTimer(game.fecha_inicio, game.duracion_dias);
@@ -120,7 +129,7 @@ function GameCardComponent({
 
   return (
     <a
-      href={`games${game.href}`}
+      href={buildGameHref(game.href, locale)}
       className="group relative overflow-hidden rounded-2xl border border-white/10 bg-[#0c0d18] h-96 flex flex-col justify-end p-5 sm:p-7 transition-all duration-500 hover:shadow-2xl hover:border-white/20"
       style={{
         boxShadow: "0 10px 30px -10px rgba(0, 0, 0, 0.5)",
@@ -154,9 +163,9 @@ function GameCardComponent({
       {/* Card Content Overlay */}
       <div className="relative z-10">
         <div className="flex items-center gap-2.5 mb-1.5">
-          <h3 className="font-display text-xl sm:text-2xl font-black text-white tracking-wide group-hover:text-slate-100 transition-colors">
+          <h2 className="font-display text-xl sm:text-2xl font-black text-white tracking-wide group-hover:text-slate-100 transition-colors">
             {game.nombre_oficial}
-          </h3>
+          </h2>
           <span
             className="size-2 rounded-full animate-pulse shrink-0"
             style={{ backgroundColor: accentColor, boxShadow: `0 0 8px ${accentColor}` }}
@@ -242,10 +251,12 @@ export function GameDashboard({
   games,
   labels,
   storageKey = "game-visibility",
+  locale = "en",
 }: GameDashboardProps) {
   const [visibility, setVisibility] =
     useState<VisibilityState>(DEFAULT_VISIBILITY);
-  const [isLoaded, setIsLoaded] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(true);
+  const [preferencesLoaded, setPreferencesLoaded] = useState(false);
   const [filterOpen, setFilterOpen] = useState(false);
   const saveTimeoutRef = useRef<ReturnType<typeof setTimeout> | undefined>(
     undefined,
@@ -262,11 +273,12 @@ export function GameDashboard({
     } catch {
       console.warn("Failed to load visibility preference");
     }
+    setPreferencesLoaded(true);
     setIsLoaded(true);
   }, [storageKey]);
 
   useEffect(() => {
-    if (!isLoaded) return;
+    if (!isLoaded || !preferencesLoaded) return;
     if (saveTimeoutRef.current) clearTimeout(saveTimeoutRef.current);
     saveTimeoutRef.current = setTimeout(() => {
       try {
@@ -279,7 +291,7 @@ export function GameDashboard({
     return () => {
       if (saveTimeoutRef.current) clearTimeout(saveTimeoutRef.current);
     };
-  }, [visibility, isLoaded, storageKey]);
+  }, [visibility, isLoaded, preferencesLoaded, storageKey]);
 
   const toggleGame = useCallback((alias: string) => {
     setVisibility((prev) => ({ ...prev, [alias]: !prev[alias] }));
@@ -404,7 +416,10 @@ export function GameDashboard({
                       src={game.icon}
                       alt=""
                       className="w-full h-full object-cover rounded-lg"
+                      width={48}
+                      height={48}
                       loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   <span
@@ -441,8 +456,9 @@ export function GameDashboard({
           <GameCardComponent
             key={game.alias}
             game={game}
-            isVisible={visibility[game.alias]}
-            labels={labels}
+             isVisible={visibility[game.alias]}
+             labels={labels}
+             locale={locale}
           />
         ))}
       </div>

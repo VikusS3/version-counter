@@ -1,9 +1,9 @@
 ---
-title: "Wuthering Waves 3.7: Banners, Events, Characters, Builds & Redeem Codes"
+title: "Wuthering Waves 3.7 Banners, Events & Redeem Codes"
 description: >-
-  Wuthering Waves 3.7, Prism's Illusion, Heart's Illumination: complete banner
-  schedule, Hsin and Suoming builds, Chisa, Iuno, Lynae and Lucilla reruns,
-  events, free rewards, redeem codes, and version dates.
+  Wuthering Waves 3.7 "Prism's Illusion": full banner schedule, Hsin and
+  Suoming builds, Chisa, Iuno, Lynae and Lucilla reruns, events, and
+  codes.
 game: wuwa
 image: /version-images/wuthering-waves-3.7.webp
 publishDate: "2026-09-22"
@@ -19,8 +19,6 @@ tags:
   - redeem-codes
   - guides
 ---
-
-# Wuthering Waves 3.7: Banners, Events, Characters, Builds & Redeem Codes
 
 > **Version 3.7 — "Prism's Illusion, Heart's Illumination"**
 >
@@ -68,36 +66,36 @@ The **September 30, 2026** release date is confirmed by two independent sources 
 
 ---
 
-# 🗓️ Banner Schedule
+## 🗓️ Banner Schedule
 
 Version 3.7 uses two main Convene phases.
 
-## Phase 1 — Hsin, Chisa & Iuno
+### Phase 1 — Hsin, Chisa & Iuno
 
 **September 30 → October 20 or 22, 2026**¹
 
-### New 5★ — Hsin
+#### New 5★ — Hsin
 
 - Attribute: **Electro**
 - Weapon: **Rectifier**
 - Status: **NEW**
 - Signature weapon: **Blooming Jadeheaven** (Rectifier)
 
-### Rerun 5★ — Chisa
+#### Rerun 5★ — Chisa
 
 - Attribute: **Havoc**
 - Weapon: **Broadblade**
 - Signature weapon: **Kumokiri**
 - Status: **RERUN**
 
-### Rerun 5★ — Iuno
+#### Rerun 5★ — Iuno
 
 - Attribute: **Aero**
 - Weapon type: **Contradicted across sources — TBA**²
 - Signature weapon: **Moongazer's Sigil**
 - Status: **RERUN**
 
-### Featured 4★ Rate-Ups
+#### Featured 4★ Rate-Ups
 
 - **Buling**
 - **Taoqi**
@@ -105,7 +103,7 @@ Version 3.7 uses two main Convene phases.
 
 > Secondary report (single source) — verify in-game on release.
 
-### Phase 1 Weapon Banner
+#### Phase 1 Weapon Banner
 
 - **Blooming Jadeheaven** — Hsin
 - **Kumokiri** — Chisa
@@ -129,36 +127,36 @@ Wuthering Waves 3.7 Phase 1 banners featuring Hsin, Chisa and Iuno
 
 ---
 
-## Phase 2 — Suoming, Lynae & Lucilla
+### Phase 2 — Suoming, Lynae & Lucilla
 
 **October 20 or 22 → November 10, 2026**¹
 
-### New 5★ — Suoming
+#### New 5★ — Suoming
 
 - Attribute: **Electro**
 - Weapon: **Sword**
 - Status: **NEW**
 - Signature weapon: **Unspoken Rue** (Sword)
 
-### Rerun 5★ — Lynae
+#### Rerun 5★ — Lynae
 
 - Attribute: **Spectro**
 - Weapon: **Pistols**
 - Signature weapon: **Spectrum Blaster**
 - Status: **RERUN**
 
-### Rerun 5★ — Lucilla
+#### Rerun 5★ — Lucilla
 
 - Attribute: **Glacio**
 - Weapon: **Rectifier**
 - Signature weapon: **Freeze Frame**
 - Status: **RERUN**
 
-### Featured 4★ Rate-Ups
+#### Featured 4★ Rate-Ups
 
 - **Lumi**, **Danjin**, **Chixia**³
 
-### Phase 2 Weapon Banner
+#### Phase 2 Weapon Banner
 
 - **Unspoken Rue** — Suoming
 - **Spectrum Blaster** — Lynae
@@ -188,7 +186,7 @@ Wuthering Waves 3.7 Phase 2 banners featuring Suoming, Lynae and Lucilla
 
 ---
 
-# ⚡ Characters
+## ⚡ Characters
 
 Version 3.7 introduces two new 5★ Resonators:
 
@@ -203,7 +201,7 @@ Version 3.7 introduces two new 5★ Resonators:
 
 ---
 
-# ⚡ Hsin — New 5★ Electro Rectifier
+## ⚡ Hsin — New 5★ Electro Rectifier
 
 Hsin is the first new 5★ Resonator of Version 3.7 and debuts in **Phase 1** on September 30, 2026.
 
@@ -232,7 +230,7 @@ Hsin Wuthering Waves 3.7 Electro Rectifier Resonator
 
 ---
 
-# ⚡ Suoming — New 5★ Electro Sword
+## ⚡ Suoming — New 5★ Electro Sword
 
 Suoming is the second new 5★ Resonator of Version 3.7 and debuts in **Phase 2**.
 
@@ -261,9 +259,9 @@ Suoming Wuthering Waves 3.7 Electro Sword Resonator
 
 ---
 
-# 🎁 Free Rewards
+## 🎁 Free Rewards
 
-## 10 Free Radiant Tides
+### 10 Free Radiant Tides
 
 The **Gifts of Singing Drizzle** login event awards **10 Radiant Tides** during **Phase 2** (secondary report).
 
@@ -271,7 +269,7 @@ The **Gifts of Singing Drizzle** login event awards **10 Radiant Tides** during 
 - Window: Phase 2 login (exact dates TBA — see phase contradiction above)
 - Status: Secondary report; requirements not yet verified
 
-## Gifts of the Waking Moon
+### Gifts of the Waking Moon
 
 A 7-day login event that grants **Radiant Tides and Lustrous Tides**.
 
@@ -297,7 +295,7 @@ Wuthering Waves 3.7 free rewards including Radiant Tides
 
 ---
 
-# 📅 Events
+## 📅 Events
 
 Version 3.7 includes **12 new and returning events** (secondary report):
 
@@ -320,7 +318,7 @@ Per-event start/end times were **not verified** in this pass (unverified) — tr
 
 ---
 
-# 🎟️ Active Wuthering Waves 3.7 Redeem Codes
+## 🎟️ Active Wuthering Waves 3.7 Redeem Codes
 
 > **Last checked: September 22, 2026**
 >
@@ -340,7 +338,7 @@ All expired **September 21, 2026 at 8:59 PT**:
 
 Combined, the three codes awarded ≈300 Astrites (secondary arithmetic from listed rewards).
 
-### Standing Code
+#### Standing Code
 
 | Code             | Reward | Status                    |
 | ---------------- | ------ | ------------------------- |
@@ -350,11 +348,11 @@ Combined, the three codes awarded ≈300 Astrites (secondary arithmetic from lis
 
 ---
 
-# 💬 How to Redeem WuWa Codes
+## 💬 How to Redeem WuWa Codes
 
 Wuthering Waves codes are redeemed **in-game only**. There is no official web redemption portal.
 
-## In-Game
+### In-Game
 
 1. Open **Wuthering Waves**.
 2. Open the **Terminal**.
@@ -369,29 +367,29 @@ Wuthering Waves codes are redeemed **in-game only**. There is no official web re
 
 ---
 
-# 🆕 What's New in Version 3.7?
+## 🆕 What's New in Version 3.7?
 
 > All content in this section is sourced from **secondary reports** of the September 19, 2026 Preview Special Broadcast. Treat details as provisional until official patch notes are readable.
 
-## New Combat Mechanic: Unison
+### New Combat Mechanic: Unison
 
 Version 3.7 introduces **Unison**, a new combat mechanic associated with Hsin, Suoming, and select Resonators.
 
-## New Main Story: Chapter 4, Act 4
+### New Main Story: Chapter 4, Act 4
 
 The main quest Chapter 4 Act 4, **"Simulacrum of the Heart,"** continues and concludes the Xuanfang saga, available from launch.
 
-## New Tales Quest
+### New Tales Quest
 
 A new quest type debuts with **"Moonlike Heart, Mortal Longing"** — the first Tales Quest.
 
 Exploration quests include **"Tales from the Capsule: Ashen Fox"** and **"Days Without Number."**
 
-## New Area: Simulacrum Nexus of Mengzhou
+### New Area: Simulacrum Nexus of Mengzhou
 
 A new exploration area with **6 scenes**, including Heartscape Labyrinth and elemental heart chambers.
 
-## New Echoes & Sonata Effects
+### New Echoes & Sonata Effects
 
 Named new Echoes: **Jade Nether Serpent**, **Skywatch Lancer**, **Formrender**, **Bloomburst Puppet**, **Soulfrayer**.
 
@@ -399,57 +397,57 @@ Named new Echoes: **Jade Nether Serpent**, **Skywatch Lancer**, **Formrender**, 
 
 New sonata effects: **Heart of Sworn Vigil**, **Flash of Electric Reflection**, **Flower of Tinged Yearning**.
 
-## Quality of Life
+### Quality of Life
 
 - **Story Replay** for Version 1.1–1.3 content
 - **Echo stacking** (same name/attribute, up to 999 per slot)
 - Camera options and 3D party screen
 - SD/HD/UHD download tiers (limited test)
 
-## Collab Tease
+### Collab Tease
 
 **Wuwa Tappo**, a free desktop pet (Bongo Cat / Irox Games), was teased in the livestream. Ship date is **unverified**.
 
 ---
 
-# ❓ Wuthering Waves 3.7 FAQ
+## ❓ Wuthering Waves 3.7 FAQ
 
-## When does Wuthering Waves 3.7 release?
+### When does Wuthering Waves 3.7 release?
 
 Version 3.7 launches on **September 30, 2026**, confirmed by multiple sources (Game8 and Prydwen).
 
-## What is the title of Wuthering Waves 3.7?
+### What is the title of Wuthering Waves 3.7?
 
 The reported title is **"Prism's Illusion, Heart's Illumination"** (secondary report — official page body was not readable at check time).
 
-## Who are the new characters in WuWa 3.7?
+### Who are the new characters in WuWa 3.7?
 
 Two new 5★ Resonators:
 
 - **Hsin** — Electro / Rectifier (Phase 1)
 - **Suoming** — Electro / Sword (Phase 2)
 
-## Who is rerunning in WuWa 3.7?
+### Who is rerunning in WuWa 3.7?
 
 - **Phase 1:** Chisa (Havoc / Broadblade), Iuno (Aero)
 - **Phase 2:** Lynae (Spectro / Pistols), Lucilla (Glacio / Rectifier)
 
-## How many free pulls does WuWa 3.7 give?
+### How many free pulls does WuWa 3.7 give?
 
 - **10 Radiant Tides** from the Gifts of Singing Drizzle Phase 2 login event (secondary report).
 - Gifts of the Waking Moon also grants Radiant and Lustrous Tides, but **exact counts are unverified**.
 
-## Are there any active Wuthering Waves 3.7 redeem codes?
+### Are there any active Wuthering Waves 3.7 redeem codes?
 
 Not as of **September 22, 2026**. All three livestream codes (`FALLINGSANCTUM`, `FINDSENTINEL`, `WAKINGMOON`) expired on **September 21, 2026 at 8:59 PT**. `WUTHERINGGIFT` is listed but **not verified** this cycle.
 
-## When does Version 3.7 end?
+### When does Version 3.7 end?
 
 **TBA — sources contradict.** Game8's release section says **November 11, 2026** (42 days); its phase tables end **November 10, 2026**. Treat the end date as unconfirmed until official.
 
 ---
 
-# 📊 WuWa 3.7 Quick Summary
+## 📊 WuWa 3.7 Quick Summary
 
 | Category              | Version 3.7                                        |
 | --------------------- | -------------------------------------------------- |
@@ -474,7 +472,7 @@ Not as of **September 22, 2026**. All three livestream codes (`FALLINGSANCTUM`, 
 
 ---
 
-# 🔗 Official Sources
+## 🔗 Official Sources
 
 - **Wuthering Waves — 3.7 Special Report (official news page)**
   https://wutheringwaves.kurogames.com/en/main/news/detail/5453

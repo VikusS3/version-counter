@@ -24,7 +24,7 @@ const nextVersionDateText = nextVersionDate.toLocaleDateString("en-US", {
 const faqItems = [
   {
     question: `When does Neverness to Everness ${game?.proxima_version} release?`,
-    answer: `The Neverness to Everness ${game?.proxima_version} update is expected to release around ${nextVersionDateText}, following the standard ${game?.duracion_dias}-day patch cycle. The exact release time is shown in the live countdown above.`,
+    answer: `The Neverness to Everness ${game?.proxima_version} update is expected to release around ${nextVersionDateText}, following the standard ${game?.duracion_dias}-day patch cycle. The live countdown above is an estimate based on the official schedule (UTC), and the real launch window can shift slightly depending on region or editor.`,
   },
   {
     question: "What version is Neverness to Everness on right now?",
@@ -39,11 +39,11 @@ const faqItems = [
     question:
       "What are the scheduled server maintenance times for Neverness to Everness?",
     answer:
-      "Neverness to Everness maintenance usually starts a few hours before version release. The countdown on this page tracks the exact update time for the America, Europe, and Asia servers.",
+      "Neverness to Everness maintenance usually starts a few hours before version release. The countdown on this page estimates the update time from the official schedule in UTC, and the maintenance window can vary by region or editor.",
   },
 ];
 
-const gameCanonicalUrl = new URL("/games/nte", Astro.site).href;
+const gameCanonicalUrl = new URL("/games/nte/", Astro.site).href;
 const gameImage = new URL(game?.imagen ?? "/og-image.webp", Astro.site).href;
 
 const gameKeywords = `
@@ -65,20 +65,21 @@ const gameKeywords = `
 ---
 
 <Layout
-  title={`Neverness to Everness ${game?.proxima_version} Release Countdown - Banners & Patch Notes`}
+  title={`Neverness to Everness ${game?.proxima_version} Release Countdown`}
   description={`Neverness to Everness ${game?.proxima_version} countdown to release for America, Europe, and Asia servers. Track the update time, banner schedule, maintenance, and official patch notes.`}
   keywords={gameKeywords}
   image={gameImage}
   canonical={gameCanonicalUrl}
 >
   <script
+    is:inline
     type="application/ld+json"
     set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "VideoGame",
       "@id": gameCanonicalUrl,
       name: `Neverness to Everness v${game?.version_actual}`,
-      alternatename: `Neverness to Everness ${game?.proxima_version}`,
+      alternateName: `Neverness to Everness ${game?.proxima_version}`,
       description: game?.descripcion,
       url: gameCanonicalUrl,
       image: gameImage,
@@ -87,38 +88,13 @@ const gameKeywords = `
       operatingSystem: "iOS, Android, PC, PS5",
       publisher: {
         "@type": "Organization",
-        name: "Hotta Studio",
-        url: "https://nte.perfectworld.com",
+        name: game?.publisher,
       },
       version: game?.version_actual,
-      datePublished: game?.fecha_inicio,
-      applicationDate: game?.fecha_inicio,
       mainEntityOfPage: {
         "@type": "WebPage",
         "@id": gameCanonicalUrl,
       },
-      offers: {
-        "@type": "Offer",
-        price: "0",
-        priceCurrency: "USD",
-        availability: "https://schema.org/InStock",
-        url: gameCanonicalUrl,
-      },
-    })}
-  />
-  <script
-    type="application/ld+json"
-    set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: faqItems.map((item) => ({
-        "@type": "Question",
-        name: item.question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: item.answer,
-        },
-      })),
     })}
   />
   <div
@@ -151,8 +127,8 @@ const gameKeywords = `
           <h1
             class="text-white text-3xl sm:text-4xl md:text-6xl font-black leading-tight tracking-tight mb-3 sm:mb-4"
           >
-            {game?.nombre_version_actual}
-            <span class="text-gold italic font-serif">{game?.slogan_name}</span>
+            {game?.nombre_oficial} {game?.proxima_version}{" "}
+            {t.gamePage.countdownToVersion}
           </h1>
           <p class="text-slate-400 text-sm sm:text-base md:text-lg max-w-2xl">
             {game?.slogan_desc}
@@ -233,7 +209,7 @@ const gameKeywords = `
         </div>
         <div class="mt-8 text-center">
           <a
-            href="/banners"
+            href="/banners/"
             class="inline-flex items-center gap-2 text-blue-300 hover:text-blue-200 font-semibold text-sm sm:text-base"
           >
             {t.banner.viewBanners}

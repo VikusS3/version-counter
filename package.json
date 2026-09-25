@@ -9,7 +9,10 @@
     "astro": "astro",
     "check": "astro check",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "test:unit": "vitest run",
+    "test:seo": "pnpm build && vitest run --config vitest.seo.config.ts",
+    "verify": "pnpm check && pnpm test && pnpm test:seo"
   },
   "dependencies": {
     "@astrojs/react": "6.0.4",
@@ -26,12 +29,14 @@
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.10",
+    "@astrojs/markdown-remark": "^7.3.1",
     "@eslint/js": "^10.0.1",
     "@testing-library/react": "^16.3.2",
     "eslint": "^10.2.0",
     "eslint-plugin-react-hooks": "^7.0.1",
     "eslint-plugin-react-refresh": "^0.5.2",
     "globals": "^17.5.0",
+    "image-size": "^2.0.4",
     "jsdom": "^29.0.2",
     "typescript": "^5.9.3",
     "vitest": "^4.1.4"

@@ -1,4 +1,5 @@
 import type { GameBanners } from "../types/banners";
+import { toIsoDate } from "./seo";
 
 interface BannersJsonLdOptions {
   title: string;
@@ -8,13 +9,12 @@ interface BannersJsonLdOptions {
   site: string | URL;
 }
 
-function toIsoDate(dateStr: string, context: string): string {
-  const date = new Date(dateStr);
-  if (Number.isNaN(date.getTime())) {
-    console.error(`[banner-schema] Invalid date "${dateStr}" in ${context}`);
-    return new Date(0).toISOString();
+function requireIsoDate(value: string, context: string): string {
+  const result = toIsoDate(value);
+  if (!result) {
+    throw new Error(`[banner-schema] Invalid date "${value}" in ${context}`);
   }
-  return date.toISOString();
+  return result;
 }
 
 function getEventStatus(startDate: string, endDate: string): string {
@@ -35,6 +35,7 @@ export function buildBannersJsonLd(
 ): Record<string, unknown> {
   const baseUrl = new URL(site).origin;
   const localePrefix = lang === "es" ? "/es" : "";
+  const pageUrl = url.endsWith("/") ? url : `${url}/`;
 
   return {
     "@context": "https://schema.org",
@@ -45,37 +46,25 @@ export function buildBannersJsonLd(
     mainEntity: bannersData.flatMap((game) =>
       game.banners.map((banner) => {
         const context = `${game.game}/${banner.id}`;
-        const gameUrl = `${baseUrl}${localePrefix}${game.gamePagePath}`;
+        const gameUrl = `${baseUrl}${localePrefix}${game.gamePagePath}/`;
+        const eventDescription =
+          lang === "es"
+            ? `${banner.title}: banner de ${game.gameTitle}`
+            : `${banner.title} - ${game.gameTitle} banner`;
 
         return {
           "@type": "Event",
           name: banner.title,
-          description: `${banner.title} - ${game.gameTitle} banner`,
-          startDate: toIsoDate(banner.startDate, context),
-          endDate: toIsoDate(banner.endDate, context),
+          description: eventDescription,
+          startDate: requireIsoDate(banner.startDate, context),
+          endDate: requireIsoDate(banner.endDate, context),
           image: new URL(banner.image, site).href,
-          url: `${url}#${game.game}`,
+          url: `${pageUrl}#${game.game}`,
           eventStatus: getEventStatus(banner.startDate, banner.endDate),
           eventAttendanceMode: "https://schema.org/OnlineEventAttendanceMode",
           location: {
             "@type": "VirtualLocation",
             url: gameUrl,
-          },
-          organizer: {
-            "@type": "Organization",
-            name: "Gacha Countdown",
-            url: baseUrl,
-          },
-          performer: {
-            "@type": "PerformingGroup",
-            name: banner.title,
-          },
-          offers: {
-            "@type": "Offer",
-            price: "0",
-            priceCurrency: "USD",
-            availability: "https://schema.org/InStock",
-            url: `${url}#${game.game}`,
           },
         };
       }),

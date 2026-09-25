@@ -1,8 +1,9 @@
 ---
-title: "Neverness to Everness 1.4: Banners & Release Date"
+title: "Neverness to Everness 1.4 Banners, Events & Release Date"
 description: >-
   Neverness to Everness 1.4 launches September 30 with Blackbird, Akane Rin,
-  Lacrimosa rerun, Pukaland, banner dates, events, free rewards, and codes.
+  Lacrimosa rerun, Pukaland, banner dates, events, free rewards, and
+  codes.
 game: nte
 image: /version-images/neverness-to-everness-1.4.webp
 publishDate: "2026-09-24"

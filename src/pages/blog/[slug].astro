@@ -21,8 +21,15 @@ const { Content } = await render(post);
 const lang = getLangFromUrl(Astro.url);
 const localePrefix = lang === "en" ? "" : "/es";
 
-const canonicalUrl = new URL(`/blog/${post.id.replace(/^en\//, "")}`, Astro.site)
-  .href;
+const canonicalUrl = new URL(
+  `/blog/${post.id.replace(/^en\//, "")}/`,
+  Astro.site,
+).href;
+const blogUrl = new URL("/blog/", Astro.site).href;
+const postImage = new URL(
+  post.data.image ?? "/og-image.webp",
+  Astro.site,
+).href;
 
 const publishedDate = post.data.publishDate.toLocaleDateString("en-US", {
   year: "numeric",
@@ -49,20 +56,33 @@ const gameHref = post.data.game !== "all"
   description={post.data.description}
   url={canonicalUrl}
   canonical={canonicalUrl}
-  image={post.data.image}
+  image={postImage}
+  imageAlt={post.data.title}
+  type="article"
+  publishedTime={post.data.publishDate}
+  modifiedTime={post.data.updatedDate ?? post.data.publishDate}
 >
   <script
+    is:inline
     type="application/ld+json"
     set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "BlogPosting",
       headline: post.data.title,
       description: post.data.description,
+      image: postImage,
+      url: canonicalUrl,
+      inLanguage: "en-US",
       datePublished: post.data.publishDate,
       dateModified: post.data.updatedDate ?? post.data.publishDate,
       author: {
         "@type": "Person",
         name: post.data.author,
+      },
+      isPartOf: {
+        "@type": "Blog",
+        name: "Gacha Countdown Blog",
+        url: blogUrl,
       },
       mainEntityOfPage: {
         "@type": "WebPage",
@@ -70,7 +90,11 @@ const gameHref = post.data.game !== "all"
       },
       publisher: {
         "@type": "Organization",
-        name: "Gacha Countdown Team",
+        name: "Gacha Countdown",
+        logo: {
+          "@type": "ImageObject",
+          url: new URL("/logo.webp", Astro.site).href,
+        },
       },
     })}
   />
@@ -104,7 +128,7 @@ const gameHref = post.data.game !== "all"
     <div class="mt-10 flex flex-wrap gap-3 border-t border-white/[0.06] pt-6">
       {gameHref && (
         <a
-          href={`${localePrefix}${gameHref}`}
+          href={`${localePrefix}${gameHref}/`}
           class="inline-flex items-center gap-2 font-mono text-xs font-bold uppercase tracking-wider text-teal-300 hover:text-teal-200 px-4 py-2 rounded-xl bg-white/[0.04] border border-white/10 hover:border-teal-500/30 transition-colors"
         >
           <span class="material-symbols-outlined text-sm" aria-hidden="true">timer</span>
@@ -138,6 +162,12 @@ const gameHref = post.data.game !== "all"
     font-weight: 700;
     font-size: 1.15rem;
     margin-top: 1.75rem;
+  }
+  .blog-content h4 {
+    color: #cbd5e1;
+    font-weight: 700;
+    font-size: 1rem;
+    margin-top: 1.5rem;
   }
   .blog-content p {
     line-height: 1.75;

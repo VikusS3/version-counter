@@ -37,50 +37,28 @@ const dashboardLabels = {
   seconds: t.counter.seconds,
   finished: t.counter.finished,
 };
+
+const faqItems = [
+  {
+    question: "¿Cómo funcionan los contadores de versiones?",
+    answer: "Los contadores muestran el tiempo restante hasta la próxima actualización o parche. Cada juego tiene su propio ciclo, por lo que usamos el último calendario oficial disponible.",
+  },
+  {
+    question: "¿Qué juegos son compatibles?",
+    answer: "Rastreamos Genshin Impact, Honkai Star Rail, Wuthering Waves, Zenless Zone Zero, Arknights Endfield y Neverness to Everness.",
+  },
+  {
+    question: "¿Los contadores son precisos para todas las regiones?",
+    answer: "El contador es una estimación basada en el calendario oficial en UTC. Las ventanas de mantenimiento y lanzamiento pueden variar ligeramente según la región o el editor.",
+  },
+  {
+    question: "¿Puedo recibir una notificación antes de un lanzamiento?",
+    answer: "Usa el botón Recordarme de la página de un juego para copiar y compartir el enlace, o marca la página para acceder rápidamente.",
+  },
+];
 ---
 
 <Layout title={t.home.title} description={t.home.subtitle} lang="es">
-  <script
-    type="application/ld+json"
-    set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "¿Cómo funcionan los contadores de versiones?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Los contadores de versiones muestran el tiempo restante hasta la próxima actualización o lanzamiento de parche de cada juego. Cada juego tiene un ciclo típico de parches de 6 semanas.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "¿Qué juegos son compatibles?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Rastreamos Genshin Impact, Honkai Star Rail, Wuthering Waves, Zenless Zone Zero, Arknights Endfield y Neverness to Everness.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "¿Los contadores son precisos para todas las regiones?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Nuestros contadores se basan en los horarios oficiales de parches. Los tiempos suelen ser consistentes en todos los servidores.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "¿Puedo recibir una notificación antes del lanzamiento de una versión?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "¡Sí! Puedes usar el botón 'Recordarme' en cada página del juego para copiar el enlace y compartirlo, o simplemente marca la página.",
-          },
-        },
-      ],
-    })}
-  />
   <main id="main-content" class="max-w-7xl mx-auto w-full px-4 md:px-6 py-6 md:py-10">
     <section class="mb-6 md:mb-10">
       <h1 class="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2">{t.home.heroTitle}</h1>
@@ -89,9 +67,23 @@ const dashboardLabels = {
       </p>
     </section>
 
-    <GameDashboard client:load games={gameData} labels={dashboardLabels} />
+    <GameDashboard client:load games={gameData} labels={dashboardLabels} locale="es" />
 
     <StatsSection />
+
+    <section class="mt-12 sm:mt-16" aria-labelledby="home-faq-title">
+      <h2 id="home-faq-title" class="text-2xl font-bold text-white mb-4">
+        Preguntas sobre los contadores
+      </h2>
+      <div class="grid gap-3 md:grid-cols-2">
+        {faqItems.map((item) => (
+          <details class="rounded-2xl border border-white/10 bg-white/[0.02] p-5">
+            <summary class="cursor-pointer font-bold text-white">{item.question}</summary>
+            <p class="mt-3 text-sm leading-relaxed text-slate-300">{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
   </main>
 
   

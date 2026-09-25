@@ -1,10 +1,44 @@
 # ============================================================
 # REDIRECT: version-counter.netlify.app -> gachacountdown.online
-# Para desactivar: comentar las 4 lineas de abajo con #
-# Para activar: descomentar las 4 lineas de abajo
 # ============================================================
 [[redirects]]
    from = "https://version-counter.netlify.app/*"
    to = "https://gachacountdown.online/:splat"
+   status = 301
+   force = true
+
+[[redirects]]
+   from = "/es/privacidad"
+   to = "/es/privacy/"
+   status = 301
+   force = true
+
+[[redirects]]
+   from = "/es/terminos"
+   to = "/es/terms/"
+   status = 301
+   force = true
+
+[[redirects]]
+   from = "/releases/neverness-to-everness/"
+   to = "/releases/"
+   status = 301
+   force = true
+
+[[redirects]]
+   from = "/releases/silver-palace/"
+   to = "/releases/"
+   status = 301
+   force = true
+
+[[redirects]]
+   from = "/es/releases/neverness-to-everness/"
+   to = "/es/releases/"
+   status = 301
+   force = true
+
+[[redirects]]
+   from = "/es/releases/silver-palace/"
+   to = "/es/releases/"
    status = 301
    force = true

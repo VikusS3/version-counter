@@ -1,5 +1,5 @@
 import gamesData from "../games.json";
-import { defaultLocale, type Locale } from "../../i18n/config";
+import { type Locale } from "../../i18n/config";
 import { gamesTranslations as gamesEn } from "./games.en";
 import { gamesTranslations as gamesEs } from "./games.es";
 
@@ -12,6 +12,7 @@ export interface LocalizedGame {
   slug: string;
   nombre: string;
   nombre_oficial: string;
+  publisher: string;
   descripcion: string;
   version_actual: string;
   proxima_version: string;

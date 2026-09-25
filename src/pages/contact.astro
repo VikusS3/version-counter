@@ -6,7 +6,7 @@ const lang = getLangFromUrl(Astro.url);
 const t = useTranslations(lang);
 
 const GITHUB_URL = "https://github.com/VikusS3/version-counter";
-const canonicalUrl = new URL("/contact", Astro.site).href;
+const canonicalUrl = new URL("/contact/", Astro.site).href;
 ---
 
 <Layout

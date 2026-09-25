@@ -1,9 +1,9 @@
 ---
-title: "Arknights: Endfield 1.5: Banners, Events, Operators, Builds & Redeem Codes"
+title: "Arknights: Endfield 1.5 Banners, Events & Redeem Codes"
 description: >-
-  Arknights: Endfield 1.5, Dreamscape of Wind and Snow: Winter Hunt and
-  RE-Factor banner schedule, Typhoeus and free 5★ Purrchena, builds, all
-  14 events, redeem codes, and version dates.
+  Arknights: Endfield 1.5 banner schedule for Winter Hunt and RE-Factor,
+  Typhoeus and free 5★ Purrchena, 14 events, redeem codes, and version
+  dates.
 game: arknights
 image: /version-images/arknights-endfield-1.5.webp
 publishDate: "2026-09-22"
@@ -19,8 +19,6 @@ tags:
   - redeem-codes
   - guides
 ---
-
-# Arknights: Endfield 1.5: Banners, Events, Characters, Builds & Redeem Codes
 
 > **Version 1.5 — "Dreamscape of Wind and Snow"**
 >
@@ -65,22 +63,22 @@ Official Version 1.5 update notes confirm the title **"Dreamscape of Wind and Sn
 
 ---
 
-# 🗓️ Arknights: Endfield 1.5 Banner Schedule
+## 🗓️ Arknights: Endfield 1.5 Banner Schedule
 
 Version 1.5 runs two main headhunting banners plus two Arsenal issues.
 
-## Phase 1 — Winter Hunt Chartered Headhunting
+### Phase 1 — Winter Hunt Chartered Headhunting
 
 **After v1.5 release → September 30, 2026, 11:59 (server time)**
 
-### Rate-Up Operator
+#### Rate-Up Operator
 
 **6★: Typhoeus**
 
 - Status: **NEW**
 - Class: **Nature Striker** (Arts Unit weapon — bow)
 
-### Full 6★/5★ Pool
+#### Full 6★/5★ Pool
 
 - **Typhoeus**
 - **Liino**
@@ -91,7 +89,7 @@ Version 1.5 runs two main headhunting banners plus two Arsenal issues.
 - **Last Rite**
 - **Pogranichnik**
 
-### Details
+#### Details
 
 - Entry requirement: complete **[Chapter I Process I: Break the Siege]**
 - Currency: **Fletched Irontip HH Permit**, **Chartered HH Permit**, or **Oroberyls**
@@ -114,17 +112,17 @@ Arknights Endfield 1.5 Winter Hunt Chartered Headhunting banner featuring Typhoe
 
 ---
 
-## Phase 2 — [Resplendent Spectrum] RE-Factor Headhunting #1
+### Phase 2 — [Resplendent Spectrum] RE-Factor Headhunting #1
 
 **September 24, 2026, 12:00 (server time) → before next version update and maintenance**
 
-### Rate-Up Operator
+#### Rate-Up Operator
 
 **6★: Yvonne**
 
 - Status: **RERUN** (debut occurred earlier; kit details not covered here)
 
-### Full Pool
+#### Full Pool
 
 - **Yvonne**
 - **Ember**
@@ -133,7 +131,7 @@ Arknights Endfield 1.5 Winter Hunt Chartered Headhunting banner featuring Typhoe
 - **Last Rite**
 - **Pogranichnik**
 
-### RE-Factor Pity Rules
+#### RE-Factor Pity Rules
 
 - 5★+ guaranteed within **10 pulls**
 - 6★ guaranteed within **80 pulls** (shared across RE-Factor banners)
@@ -160,22 +158,22 @@ Arknights Endfield 1.5 Resplendent Spectrum RE-Factor banner featuring Yvonne
 
 ---
 
-## Arsenal Issues
+### Arsenal Issues
 
-### [Deep Cold Issue] Weapon Banner
+#### [Deep Cold Issue] Weapon Banner
 
 - Opens **after the Version 1.5 update**
 - Ends after **3 Chartered HH banners** from Winter Hunt (relative end only)
 - Rate-up: 6★ weapon **Umbra of Frigid Eventide** (Arts Unit)
 
-### [Tag Artist Issue] RE-Factor Issue #1
+#### [Tag Artist Issue] RE-Factor Issue #1
 
 - **September 24, 2026, 12:00 (server time) → before next version maintenance**
 - Rate-up: 6★ weapon **Artzy Tyrannical** (Handcannon)
 
 ---
 
-# ⚡ Version 1.5 Operators
+## ⚡ Version 1.5 Operators
 
 Version 1.5 introduces two new operators:
 
@@ -187,7 +185,7 @@ Version 1.5 introduces two new operators:
 
 ---
 
-# ⚡ Typhoeus — 6★ Nature Striker
+## ⚡ Typhoeus — 6★ Nature Striker
 
 Typhoeus is the headline new operator of Version 1.5 and the rate-up on **Winter Hunt**.
 
@@ -241,7 +239,7 @@ Typhoeus Arknights Endfield 1.5 Nature Striker operator
 
 ![Typhoeus — Arknights: Endfield 1.5](/characters/arknights-endfield/typhoeus.webp)
 
-### Suggested Typhoeus Build (Secondary Source)
+#### Suggested Typhoeus Build (Secondary Source)
 
 | Build Slot      | Recommendation                          |
 | --------------- | --------------------------------------- |
@@ -256,7 +254,7 @@ Typhoeus Arknights Endfield 1.5 Nature Striker operator
 
 ---
 
-# 🎁 Purrchena — Free 5★ Physical Defender
+## 🎁 Purrchena — Free 5★ Physical Defender
 
 **Purrchena** is a **5★ Physical Defender** and is given away for free — she is **not** on a gacha banner.
 
@@ -288,11 +286,11 @@ Purrchena Arknights Endfield 1.5 free Physical Defender operator
 
 ---
 
-# 🎁 Version 1.5 Free Rewards
+## 🎁 Version 1.5 Free Rewards
 
 Version 1.5 includes several free rewards.
 
-## Free 5★ Purrchena
+### Free 5★ Purrchena
 
 The **Purry Big Feline! RAWR!** event grants:
 
@@ -304,18 +302,18 @@ Event duration:
 
 **September 24, 2026 12:00 (server time) → before next version update**
 
-## Maintenance Compensation
+### Maintenance Compensation
 
 - **Oroberyl ×900** — maintenance compensation
 - **Oroberyl ×900** — bug-fix compensation
 
 Requirements: create your character before the update. Mails expire at the next version update.
 
-## Fletched Irontip Sign-In
+### Fletched Irontip Sign-In
 
 During **Winter Hunt**, a 7-day sign-in grants **Fletched Irontip HH Permit ×5**.
 
-## Preview Celebration Mail (Expired)
+### Preview Celebration Mail (Expired)
 
 The Version Preview Program mail (distributed August 21, 2026 19:30 UTC+8) contained **Oroberyl ×1000, T-Creds ×10000, Elementary Cognitive Carrier ×8, Arms INSP Set ×4**. Login eligibility ended **September 4, 2026**, and the 14-day mail window has elapsed — this reward is **no longer claimable**.
 
@@ -339,7 +337,7 @@ Arknights Endfield 1.5 free rewards including Purrchena and Oroberyl
 
 ---
 
-# 📅 Arknights: Endfield 1.5 Events
+## 📅 Arknights: Endfield 1.5 Events
 
 Version 1.5 contains **14 confirmed official events** (all times server time; Asia UTC+8, Americas/Europe UTC-5).
 
@@ -364,7 +362,7 @@ Dates and requirements are based on GRYPHLINE's official Version 1.5 update note
 
 ---
 
-# 🎟️ Active Arknights: Endfield 1.5 Redeem Codes
+## 🎟️ Active Arknights: Endfield 1.5 Redeem Codes
 
 > **Last checked: September 22, 2026**
 >
@@ -392,17 +390,17 @@ Dates and requirements are based on GRYPHLINE's official Version 1.5 update note
 - Rewards: Sticker: Safety Helmet ×1, T-Creds ×71600
 - Expired: **August 30, 2026**
 
-### ⚠️ Expired Preview Mail
+#### ⚠️ Expired Preview Mail
 
 The Version Preview Program celebration mail is also **expired** — login eligibility closed **September 4, 2026**, and the 14-day mail validity window has passed.
 
 ---
 
-# 💬 How to Redeem Arknights: Endfield Codes
+## 💬 How to Redeem Arknights: Endfield Codes
 
 Codes are **redeemed in-game only**. There is no official web redemption URL for Arknights: Endfield (per secondary sources as of September 22, 2026).
 
-## In-Game
+### In-Game
 
 1. Open **Arknights: Endfield**.
 2. Open the main menu (**Menu**).
@@ -418,33 +416,33 @@ Codes are **redeemed in-game only**. There is no official web redemption URL for
 
 ---
 
-# 🆕 What's New in Version 1.5?
+## 🆕 What's New in Version 1.5?
 
 Version 1.5 is more than a banner update.
 
-## New Areas
+### New Areas
 
 - **Wuling — Snowy Forest**
 - **Wuling — Suiming** (time-loop puzzle city, opens September 24; 15-minute loop where parts are retained across loops — secondary source for loop details)
 
-## New Story Content
+### New Story Content
 
 - Exploration missions: **OD Project: Cloudseeder STN III**, **Cliffbottom Archery Range**, **Bell of Recollection**
 - Side missions: **A Winter Dream Fogged Deep in the Woods**, **Endeavor of a Lifetime**, **Illumination of Fate**
 
-## New Enemies
+### New Enemies
 
 - **Woodcraft Slug**
 - **Woodcraft Wanderer**
 - **Gloomwald's Rage** (regional boss)
 
-## New Weapons
+### New Weapons
 
 - 6★ **Umbra of Frigid Eventide** (Arts Unit)
 - 6★ **Suffering's End** (Arts Unit)
 - 5★ **Dessert Moment** (Sword)
 
-## Systems Improvements
+### Systems Improvements
 
 - Progression Overview
 - Hide UI + Auto-Play for story
@@ -455,65 +453,65 @@ Version 1.5 is more than a banner update.
 - Chartered HH Permit usable in RE-Factor Headhunting
 - New gear set: **Deep Rampart**
 
-## Still in Development (Not Shipped)
+### Still in Development (Not Shipped)
 
 Official notes label these as planned only — they are **not** live in 1.5:
 
 - Gear Plan loadout
 - Auto-Artificer
 
-## Music Collaboration
+### Music Collaboration
 
 Finnish electronic musician **Vilma Jää** collaborates on a Nordic folk-electronic, Sámi-inspired score (secondary source: GRYPHLINE press release via Gematsu).
 
 ---
 
-# ❓ Arknights: Endfield 1.5 FAQ
+## ❓ Arknights: Endfield 1.5 FAQ
 
-## When did Arknights: Endfield 1.5 release?
+### When did Arknights: Endfield 1.5 release?
 
 **"Dreamscape of Wind and Snow"** launched on **September 2, 2026** — Asia maintenance ran 06:00–12:00 (UTC+8); Americas/Europe content went live after **September 1, 2026 23:00 (UTC-5)**.
 
-## When does Version 1.5 end?
+### When does Version 1.5 end?
 
 No exact calendar date has been published. Official wording is **"Before version update and maintenance."** Do not rely on unofficial end-date estimates.
 
-## Who is the new operator in Endfield 1.5?
+### Who is the new operator in Endfield 1.5?
 
 - **Typhoeus** — 6★ Nature Striker (Winter Hunt rate-up)
 - **Purrchena** — 5★ Physical Defender (free via event, not gacha)
 
-## Is Purrchena 5★ or 6★?
+### Is Purrchena 5★ or 6★?
 
 **5★**, per official Version 1.5 update notes. Reports of a 6★ rarity are contradicted by official sources.
 
-## When does the free Purrchena event start?
+### When does the free Purrchena event start?
 
 **Purry Big Feline! RAWR!** begins on **September 24, 2026 at 12:00 (server time)** and runs until the next version update.
 
-## When does Winter Hunt end?
+### When does Winter Hunt end?
 
 **September 30, 2026 at 11:59 (server time)**.
 
-## When does the Yvonne RE-Factor banner start?
+### When does the Yvonne RE-Factor banner start?
 
 **September 24, 2026 at 12:00 (server time)**, running until before the next version maintenance.
 
-## Are there new redeem codes from the 1.5 livestream?
+### Are there new redeem codes from the 1.5 livestream?
 
 No. The preview program sent rewards via in-game mail instead of releasing a new code.
 
-## How do I redeem Endfield codes?
+### How do I redeem Endfield codes?
 
 In-game only: **Menu → Settings → Platform/Account → Exchange Code → Confirm**, then claim via **Mail**. No official web redemption page exists.
 
-## What server time zones does Endfield use?
+### What server time zones does Endfield use?
 
 **Asia: UTC+8. Americas/Europe: UTC-5.**
 
 ---
 
-# 📊 Arknights: Endfield 1.5 Quick Summary
+## 📊 Arknights: Endfield 1.5 Quick Summary
 
 | Category              | Version 1.5                                  |
 | --------------------- | -------------------------------------------- |
@@ -534,7 +532,7 @@ In-game only: **Menu → Settings → Platform/Account → Exchange Code → Con
 
 ---
 
-# 🔗 Official Sources
+## 🔗 Official Sources
 
 - **Arknights: Endfield — [Dreamscape of Wind and Snow] Version Update Notes**
   https://endfield.gryphline.com/en-us/news/5208

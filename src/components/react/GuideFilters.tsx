@@ -10,6 +10,11 @@ interface GuideFiltersProps {
   };
 }
 
+const PAGE_SIZE = 8;
+const THUMBNAIL_WIDTH = 480;
+const THUMBNAIL_HEIGHT = 360;
+const ICON_SIZE = 48;
+
 interface FilterBarProps {
   activeGame: string;
   activeLang: string;
@@ -125,6 +130,10 @@ const FilterBar: React.FC<FilterBarProps> = ({
                   className="w-full h-full object-cover rounded-lg"
                   src={game.icon!}
                   alt=""
+                  width={ICON_SIZE}
+                  height={ICON_SIZE}
+                  loading="lazy"
+                  decoding="async"
                 />
               </div>
               <span
@@ -161,7 +170,7 @@ const FilterBar: React.FC<FilterBarProps> = ({
   );
 };
 
-const GuideCard: React.FC<{ guide: Guide }> = ({ guide }) => {
+const GuideCard: React.FC<{ guide: Guide; index: number }> = ({ guide, index }) => {
   const gameStyle = gameStyles[guide.game];
 
   return (
@@ -176,6 +185,10 @@ const GuideCard: React.FC<{ guide: Guide }> = ({ guide }) => {
           className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
           src={guide.thumbnail}
           alt={guide.title}
+          width={THUMBNAIL_WIDTH}
+          height={THUMBNAIL_HEIGHT}
+          loading={index < PAGE_SIZE ? "eager" : "lazy"}
+          decoding="async"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-[#0c0d18] via-transparent to-transparent opacity-60 group-hover:opacity-40 transition-opacity" />
         {guide.duration && (
@@ -196,15 +209,19 @@ const GuideCard: React.FC<{ guide: Guide }> = ({ guide }) => {
             {guide.language}
           </span>
         </div>
-        <h3 className="font-display font-bold text-sm text-white group-hover:text-indigo-200 transition-colors line-clamp-2 mb-3">
+        <h2 className="font-display font-bold text-sm text-white group-hover:text-indigo-200 transition-colors line-clamp-2 mb-3">
           {guide.title}
-        </h3>
+        </h2>
         <div className="flex items-center gap-2">
           {guide.creator.avatar && (
             <img
               className="w-5 h-5 rounded-full object-cover ring-1 ring-white/20"
               src={guide.creator.avatar}
               alt={guide.creator.name}
+              width={40}
+              height={40}
+              loading="lazy"
+              decoding="async"
             />
           )}
           <span className="font-mono text-xs text-slate-400 font-medium">{guide.creator.name}</span>
@@ -217,7 +234,6 @@ const GuideCard: React.FC<{ guide: Guide }> = ({ guide }) => {
 export const GuideFilters: React.FC<GuideFiltersProps> = ({ guides, labels = defaultLabels }) => {
   const [activeGame, setActiveGame] = useState("all");
   const [activeLang, setActiveLang] = useState("all");
-  const [visibleCount, setVisibleCount] = useState(8);
 
   const filteredGuides = useMemo(() => {
     return guides.filter((guide) => {
@@ -227,24 +243,14 @@ export const GuideFilters: React.FC<GuideFiltersProps> = ({ guides, labels = def
     });
   }, [guides, activeGame, activeLang]);
 
-  const visibleGuides = useMemo(() => {
-    return filteredGuides.slice(0, visibleCount);
-  }, [filteredGuides, visibleCount]);
-
-  const hasMore = visibleCount < filteredGuides.length;
+  const visibleGuides = filteredGuides;
 
   const handleGameChange = (game: string) => {
     setActiveGame(game);
-    setVisibleCount(8);
   };
 
   const handleLangChange = (lang: string) => {
     setActiveLang(lang);
-    setVisibleCount(8);
-  };
-
-  const loadMore = () => {
-    setVisibleCount((prev) => prev + 8);
   };
 
   return (
@@ -258,8 +264,8 @@ export const GuideFilters: React.FC<GuideFiltersProps> = ({ guides, labels = def
       />
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
         {visibleGuides.length > 0 ? (
-          visibleGuides.map((guide) => (
-            <GuideCard key={guide.id} guide={guide} />
+          visibleGuides.map((guide, index) => (
+            <GuideCard key={guide.id} guide={guide} index={index} />
           ))
         ) : (
           <div className="col-span-full text-center py-12 rounded-2xl bg-white/[0.02] border border-white/5">
@@ -269,17 +275,6 @@ export const GuideFilters: React.FC<GuideFiltersProps> = ({ guides, labels = def
           </div>
         )}
       </div>
-      {hasMore && (
-        <div className="mt-8 flex justify-center">
-          <button
-            onClick={loadMore}
-            className="px-6 sm:px-8 py-3 min-h-[48px] bg-white/[0.05] hover:bg-white/[0.1] text-white font-display text-xs sm:text-sm font-bold uppercase tracking-wider rounded-xl transition-all border border-white/15 hover:border-indigo-400/40 shadow-lg cursor-pointer"
-            aria-label={`${labels.loadMore} (${visibleGuides.length} of ${filteredGuides.length} shown)`}
-          >
-            {labels.loadMore}
-          </button>
-        </div>
-      )}
     </div>
   );
 };

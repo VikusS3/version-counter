@@ -19,7 +19,7 @@ export const gamesTranslations: Record<string, GameTranslation> = {
     nombre: "Cuenta Regresiva Nueva Versión Wuthering Waves",
     descripcion:
       "Cuenta regresiva Wuthering Waves 3.7 para todas las regiones como América, Europa, Asia. Cuenta regresiva de banners, notas del parche y más.",
-    slogan_desc: "Version 3.6 está ahora disponible, nueva misión y más.",
+    slogan_desc: "La versión 3.6 está ahora disponible, nueva misión y más.",
     patch_notes_description:
       "Últimas notas del parche para Wuthering Waves 3.6",
   },
@@ -36,7 +36,7 @@ export const gamesTranslations: Record<string, GameTranslation> = {
     nombre: "Cuenta Regresiva Nueva Versión Zenless Zone Zero",
     descripcion:
       "Cuenta regresiva Zenless Zone Zero 3.3 para todas las regiones como América, Europa, Asia. Cuenta regresiva de banners, notas del parche y más.",
-    slogan_desc: "Agonista de la Vacuidad Remille llego a ZZZ",
+    slogan_desc: "Agonista de la Vacuidad Claret llega a ZZZ",
     patch_notes_description:
       "Últimas notas del parche para Zenless Zone Zero 3.2",
   },

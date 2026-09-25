@@ -4,21 +4,21 @@ export const es = {
     currentBanners: "Banners Actuales",
     patchNotes: "Notas del Parche",
     characterGuides: "Guías de Personajes",
-    pullTracker: "Seguimiento de wished",
+    pullTracker: "Seguimiento de tiradas",
     releases: "Próximos Estrenos",
     about: "Sobre Nosotros",
     blog: "Blog",
   },
   home: {
-    title: "Gacha Countdown - Rastrea Actualizaciones",
+    title: "Cuentas Regresivas de Versiones Gacha",
     subtitle:
       "Rastrea cuentas regresivas de versiones, banners y parches para Genshin Impact, Honkai Star Rail, Wuthering Waves, Zenless Zone Zero y más juegos gacha.",
     heroTitle: "Panel de Actualizaciones",
   },
   releases: {
-    title: "Próximos Estrenos - Rastrea Fechas de Lanzamiento",
+    title: "Próximos Lanzamientos de Juegos",
     subtitle:
-      "Rastrea los próximos lanzamientos de juegos, fechas de estreno y cuentas regresivas para juegos gacha.",
+      "Rastrea próximos lanzamientos de juegos gacha, fechas de estreno, plataformas y cuentas regresivas en un solo lugar.",
     heroTitle: "Próximos Estrenos",
   },
   counter: {
@@ -104,8 +104,9 @@ export const es = {
     officialPatchNotes: "Notas Oficiales del Parche",
   },
   guides: {
-    title: "Guías de Personajes",
-    subtitle: "Las mejores guías para construir tus personajes",
+    title: "Guías de Builds para Juegos Gacha",
+    subtitle:
+      "Guías de builds, composiciones de equipo, habilidades y planificación de banners para Genshin Impact, Honkai Star Rail, Wuthering Waves, Zenless Zone Zero y más.",
     noGuidesFound: "No se encontraron guías con los filtros seleccionados.",
     loadMore: "Cargar Más Guías",
     all: "Todos",

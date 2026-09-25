@@ -20,7 +20,12 @@ const isActive = (href: string) => {
 
 const currentLocale = lang;
 const targetLocale = currentLocale === defaultLocale ? "es" : defaultLocale;
-const localizedHomeUrl = getLocalizedUrl(Astro.url, targetLocale);
+const isNotFound = currentPath === "/404" || currentPath === "/404/";
+const localizedHomeUrl = isNotFound
+  ? targetLocale === "es"
+    ? "/es/"
+    : "/"
+  : getLocalizedUrl(Astro.url, targetLocale);
 ---
 
 <header
@@ -67,16 +72,16 @@ const localizedHomeUrl = getLocalizedUrl(Astro.url, targetLocale);
     </a>
     <a
       class={`text-xs font-semibold uppercase tracking-wider px-3.5 py-2 rounded-lg transition-all flex items-center gap-2 ${
-        isActive("/about")
+        isActive("/about/")
           ? "bg-indigo-500/15 text-indigo-300 border border-indigo-500/30 shadow-[0_0_12px_rgba(99,102,241,0.2)] font-bold"
           : "text-slate-400 hover:text-white hover:bg-white/[0.04] border border-transparent"
       }`}
-      href={currentLocale === defaultLocale ? "/about" : "/es/about"}
+      href={currentLocale === defaultLocale ? "/about/" : "/es/about/"}
       aria-current={
-        isActive("/about") || isActive("/es/about") ? "page" : undefined
+        isActive("/about/") || isActive("/es/about/") ? "page" : undefined
       }
     >
-      {isActive("/about") && <span class="size-1.5 rounded-full bg-indigo-400 shadow-[0_0_8px_#818cf8]" aria-hidden="true"></span>}
+      {isActive("/about/") && <span class="size-1.5 rounded-full bg-indigo-400 shadow-[0_0_8px_#818cf8]" aria-hidden="true"></span>}
       {t.nav.about}
     </a>
     <a
@@ -205,15 +210,15 @@ const localizedHomeUrl = getLocalizedUrl(Astro.url, targetLocale);
     </a>
     <a
       class={`mobile-nav-link text-base font-bold py-3.5 px-4 rounded-xl transition-all flex items-center justify-between ${
-        isActive("/about")
+        isActive("/about/")
           ? "text-indigo-300 bg-indigo-500/15 border border-indigo-500/30 font-bold"
           : "text-slate-300 hover:bg-white/5 border border-transparent"
       }`}
-      href={currentLocale === defaultLocale ? "/about" : "/es/about"}
+      href={currentLocale === defaultLocale ? "/about/" : "/es/about/"}
       tabindex="0"
     >
       <span>{t.nav.about}</span>
-      {isActive("/about") && <span class="size-1.5 rounded-full bg-indigo-400 shadow-[0_0_8px_#818cf8]" aria-hidden="true"></span>}
+      {isActive("/about/") && <span class="size-1.5 rounded-full bg-indigo-400 shadow-[0_0_8px_#818cf8]" aria-hidden="true"></span>}
     </a>
     <a
       class={`mobile-nav-link text-base font-bold py-3.5 px-4 rounded-xl transition-all flex items-center justify-between ${

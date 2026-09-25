@@ -4,13 +4,12 @@ import { ReleaseCounter } from "../../components/react/ReleaseCounter";
 import { CopyButton } from "../../components/react/CopyButton";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 import { getLocalizedRelease } from "../../data/translations/getReleaseData";
+import releasesData from "../../data/releases.json";
 
 export function getStaticPaths() {
-  return [
-    { params: { slug: "neverness-to-everness" } },
-    { params: { slug: "silver-palace" } },
-    { params: { slug: "ananta" } },
-  ];
+  return releasesData.releases.map((release) => ({
+    params: { slug: release.slug },
+  }));
 }
 
 const { slug } = Astro.params;
@@ -26,7 +25,7 @@ const now = new Date();
 const releaseDate = new Date(release.fecha_salida);
 const isReleased = releaseDate <= now;
 
-const releaseCanonicalUrl = new URL(`/releases/${slug}`, Astro.site).href;
+const releaseCanonicalUrl = new URL(`/releases/${slug}/`, Astro.site).href;
 const releaseImage = new URL(release.imagen ?? "/og-image.webp", Astro.site).href;
 
 const releaseDateText = releaseDate.toLocaleDateString("en-US", {
@@ -40,7 +39,7 @@ const gameNameLower = gameName.toLowerCase();
 const faqItems = [
   {
     question: `When does ${gameName} release?`,
-    answer: `${gameName} is scheduled to release on ${releaseDateText}. The live countdown above tracks the exact time left until launch for your region.`,
+    answer: `${gameName} is scheduled to release on ${releaseDateText}. The live countdown above is an estimate based on the official schedule (UTC), and the real launch window can vary by region or server.`,
   },
   {
     question: `Which platforms will ${gameName} be available on?`,
@@ -82,53 +81,33 @@ const releaseKeywords = `
   canonical={releaseCanonicalUrl}
 >
   <script
+    is:inline
     type="application/ld+json"
     set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "VideoGame",
       "@id": releaseCanonicalUrl,
       name: release?.nombre_oficial,
-      alternatename: release?.nombre,
+      alternateName: release?.nombre,
       description: release?.descripcion,
       url: releaseCanonicalUrl,
       image: releaseImage,
       genre: "Action RPG",
       applicationCategory: "GameApplication",
       operatingSystem: "iOS, Android, PC, PS5",
-      publisher: {
-        "@type": "Organization",
-        name: release?.publisher ?? "Silver Studio",
-      },
-      datePublished: release?.fecha_salida,
+      ...(release?.publisher
+        ? {
+            publisher: {
+              "@type": "Organization",
+              name: release.publisher,
+            },
+          }
+        : {}),
       playMode: "MultiPlayer",
-      offers: {
-        "@type": "Offer",
-        price: "0",
-        priceCurrency: "USD",
-        availability: isReleased
-          ? "https://schema.org/InStock"
-          : "https://schema.org/PreOrder",
-        url: releaseCanonicalUrl,
-      },
       mainEntityOfPage: {
         "@type": "WebPage",
         "@id": releaseCanonicalUrl,
       },
-    })}
-  />
-  <script
-    type="application/ld+json"
-    set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: faqItems.map((item) => ({
-        "@type": "Question",
-        name: item.question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: item.answer,
-        },
-      })),
     })}
   />
   <div

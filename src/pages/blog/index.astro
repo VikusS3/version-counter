@@ -2,16 +2,12 @@
 import { getCollection } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import BlogCard from "../../components/blogComponents/BlogCard.astro";
-import { getLangFromUrl, useTranslations } from "../../i18n/utils";
-
-const lang = getLangFromUrl(Astro.url);
-const t = useTranslations(lang);
 
 const posts = (
   await getCollection("blog", ({ id }) => !id.startsWith("es/"))
 ).sort((a, b) => b.data.publishDate.getTime() - a.data.publishDate.getTime());
 
-const canonicalUrl = new URL("/blog", Astro.site).href;
+const canonicalUrl = new URL("/blog/", Astro.site).href;
 const pageTitle = "Gacha Game Guides, Patch Cycles & Update Schedules";
 const pageDescription =
   "In-depth articles about gacha game version cycles, patch schedules, update timers, and what to expect with every release.";
@@ -24,6 +20,7 @@ const pageDescription =
   canonical={canonicalUrl}
 >
   <script
+    is:inline
     type="application/ld+json"
     set:html={JSON.stringify({
       "@context": "https://schema.org",
@@ -31,6 +28,7 @@ const pageDescription =
       name: "Gacha Countdown Blog",
       description: pageDescription,
       url: canonicalUrl,
+      inLanguage: "en-US",
       publisher: {
         "@type": "Organization",
         name: "Gacha Countdown Team",
@@ -40,7 +38,7 @@ const pageDescription =
         headline: post.data.title,
         datePublished: post.data.publishDate,
         dateModified: post.data.updatedDate ?? post.data.publishDate,
-        url: new URL(`/blog/${post.id.replace(/^en\//, "")}`, Astro.site).href,
+         url: new URL(`/blog/${post.id.replace(/^en\//, "")}/`, Astro.site).href,
       })),
     })}
   />

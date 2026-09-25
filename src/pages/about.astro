@@ -1,7 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 
-const canonicalUrl = new URL("/about", Astro.site).href;
+const canonicalUrl = new URL("/about/", Astro.site).href;
 ---
 
 <Layout
@@ -40,6 +40,13 @@ const canonicalUrl = new URL("/about", Astro.site).href;
     </section>
 
     <section class="mb-5 sm:mb-6 glass-panel rounded-2xl p-5 sm:p-6">
+      <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">How We Verify Dates</h2>
+      <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
+        We cross-check official patch notes, maintenance notices, and publisher announcements before updating a timer. When a publisher has not announced a final time, the countdown is clearly treated as an estimate and regional differences may apply.
+      </p>
+    </section>
+
+    <section class="mb-5 sm:mb-6 glass-panel rounded-2xl p-5 sm:p-6">
       <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">What We Offer</h2>
       <ul class="text-gray-300 leading-relaxed text-sm sm:text-base list-disc pl-5 space-y-2">
         <li>Live version countdown timers for each supported game.</li>
@@ -65,7 +72,7 @@ const canonicalUrl = new URL("/about", Astro.site).href;
       <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">Get in Touch</h2>
       <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
         Have feedback, a bug report, or a suggestion? Visit our{" "}
-        <a href="/contact" class="text-primary hover:text-primary/80 underline underline-offset-2">contact page</a>{" "}
+        <a href="/contact/" class="text-primary hover:text-primary/80 underline underline-offset-2">contact page</a>{" "}
         or open an issue on our GitHub repository. This project is open source,
         and we welcome contributors.
       </p>

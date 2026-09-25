@@ -1,9 +1,8 @@
 ---
-title: "Honkai: Star Rail 4.6: banners, eventos, personajes, builds y códigos de canje"
+title: "Honkai: Star Rail 4.6 banners, eventos y códigos"
 description: >-
-  Honkai: Star Rail 4.6, Dance With the Beast Before Moonrise: debut de Pearl,
-  reruns de Evanescia y Mortenax Blade, calendario de banners, eventos,
-  recompensas gratis, códigos de canje y fechas de la versión.
+  Honkai: Star Rail 4.6, "Dance With the Beast Before Moonrise": debut de
+  Pearl, reruns de Evanescia y Mortenax Blade, banners, eventos y códigos.
 game: hsr
 image: /version-images/honkai-star-rail-4.6.webp
 publishDate: "2026-09-22"
@@ -19,8 +18,6 @@ tags:
   - redeem-codes
   - guides
 ---
-
-# Honkai: Star Rail 4.6: banners, eventos, builds y códigos de canje
 
 > **Versión 4.6 — "Dance With the Beast Before Moonrise"**
 >
@@ -42,7 +39,7 @@ Alt:
 Honkai: Star Rail Version 4.6 Dance With the Beast Before Moonrise featuring Pearl
 -->
 
-![Honkai: Star Rail Version 4.6 — Dance With the Beast Before Moonrise](/version-images/honkai-star-rail-4.6.webp)
+![Honkai: Star Rail Versión 4.6 — Dance With the Beast Before Moonrise](/version-images/honkai-star-rail-4.6.webp)
 
 ---
 
@@ -65,15 +62,15 @@ Honkai: Star Rail Version 4.6 Dance With the Beast Before Moonrise featuring Pea
 
 ---
 
-# 🗓️ Calendario de banners de Honkai: Star Rail 4.6
+## 🗓️ Calendario de banners de Honkai: Star Rail 4.6
 
 La Versión 4.6 usa un banner de debut de parche completo más dos banners de rerun por fase.
 
-## Fase 1 — Pearl y Evanescia
+### Fase 1 — Pearl y Evanescia
 
 **27 de septiembre de 2026 (NA, UTC-5) / 28 de septiembre de 2026 (EU + Asia) → 21 de octubre de 2026 (Hora del servidor)**
 
-### Pearl — Debut (dura todo el parche)
+#### Pearl — Debut (dura todo el parche)
 
 **5★: Pearl**
 
@@ -88,7 +85,7 @@ La Versión 4.6 usa un banner de debut de parche completo más dos banners de re
 - **Xueyi**
 - **Misha**
 
-### Rerun de Evanescia
+#### Rerun de Evanescia
 
 **5★: Evanescia**
 
@@ -98,7 +95,7 @@ La Versión 4.6 usa un banner de debut de parche completo más dos banners de re
 
 4★ destacadas: **Qingque**, **Xueyi**, **Misha**
 
-### Light Cones de la Fase 1
+#### Light Cones de la Fase 1
 
 - **Colors for Tomorrow** — signature de Pearl (Brilliant Fixation) — 27 sep → 10 nov de 2026
 - **Until the Flowers Bloom Again** — signature de Evanescia (Bygone Reminiscence) — 27 sep → 21 oct de 2026
@@ -118,15 +115,15 @@ Alt:
 Honkai: Star Rail 4.6 Phase 1 banners featuring Pearl and Evanescia
 -->
 
-![Honkai: Star Rail 4.6 Phase 1 — Pearl and Evanescia](/banners/honkai-star-rail/pearl-evanescia-4-6.webp)
+![Honkai: Star Rail 4.6 Fase 1 — Pearl y Evanescia](/banners/honkai-star-rail/pearl-evanescia-4-6.webp)
 
 ---
 
-## Fase 2 — Mortenax Blade
+### Fase 2 — Mortenax Blade
 
 **21 de octubre de 2026 → 10 de noviembre de 2026 (Hora del servidor)**
 
-### Rerun de Mortenax Blade
+#### Rerun de Mortenax Blade
 
 **5★: Mortenax Blade**
 
@@ -136,7 +133,7 @@ Honkai: Star Rail 4.6 Phase 1 banners featuring Pearl and Evanescia
 
 4★ destacadas: **Qingque**, **Xueyi**, **Misha**
 
-### Light Cones de la Fase 2
+#### Light Cones de la Fase 2
 
 - **Reforged in Hellfire** — signature de Mortenax Blade (Bygone Reminiscence) — 21 oct → 10 nov de 2026
 - **Colors for Tomorrow** continúa hasta el 10 de noviembre de 2026
@@ -155,11 +152,11 @@ Alt:
 Honkai: Star Rail 4.6 Phase 2 banner featuring Mortenax Blade
 -->
 
-![Honkai: Star Rail 4.6 Phase 2 — Mortenax Blade](/banners/honkai-star-rail/mortenax-blade-4-6.webp)
+![Honkai: Star Rail 4.6 Fase 2 — Mortenax Blade](/banners/honkai-star-rail/mortenax-blade-4-6.webp)
 
 ---
 
-# ⚡ Personajes de la Versión 4.6
+## ⚡ Personajes de la Versión 4.6
 
 La Versión 4.6 presenta una nueva 5★ limitada y dos reruns:
 
@@ -171,7 +168,7 @@ La Versión 4.6 presenta una nueva 5★ limitada y dos reruns:
 
 ---
 
-# ⚡ Pearl — Nueva 5★ Hielo Elation
+## ⚡ Pearl — Nueva 5★ Hielo Elation
 
 Pearl es la incorporación principal de la Versión 4.6 y la única personaje nueva jugable confirmada para el parche.
 
@@ -203,9 +200,9 @@ Pearl Honkai Star Rail 4.6 Ice Elation character
 
 ---
 
-# 🎁 Recompensas gratis de la Versión 4.6
+## 🎁 Recompensas gratis de la Versión 4.6
 
-## 10 Star Rail Special Passes gratis
+### 10 Star Rail Special Passes gratis
 
 El evento de inicio de sesión **Gift of Odyssey** otorga a los jugadores:
 
@@ -233,11 +230,11 @@ Alt:
 Honkai: Star Rail 4.6 free rewards including Star Rail Special Passes
 -->
 
-![Honkai: Star Rail 4.6 free rewards](/events/honkai-star-rail/4-6-free-rewards.webp)
+![Honkai: Star Rail 4.6 recompensas gratuitas](/events/honkai-star-rail/4-6-free-rewards.webp)
 
 ---
 
-# 🎭 Atuendos de la Versión 4.6
+## 🎭 Atuendos de la Versión 4.6
 
 La Versión 4.6 presenta dos nuevos atuendos de pago con precio promocional:
 
@@ -257,11 +254,11 @@ Alt:
 Honkai: Star Rail Version 4.6 new outfits for Evanescia and Hyacine
 -->
 
-![Honkai: Star Rail 4.6 outfits](/events/honkai-star-rail/outfits-4-6.webp)
+![Honkai: Star Rail 4.6 atuendos](/events/honkai-star-rail/outfits-4-6.webp)
 
 ---
 
-# 📅 Eventos de la Versión 4.6
+## 📅 Eventos de la Versión 4.6
 
 La Versión 4.6 incluye las siguientes actividades por tiempo limitado. Las fechas exactas de inicio/fin **no se han revelado oficialmente** a fecha del 22 de septiembre de 2026.
 
@@ -279,7 +276,7 @@ Los nombres y descripciones de los eventos se basan en la cobertura secundaria d
 
 ---
 
-# 🎟️ Códigos de canje activos de Honkai: Star Rail 4.6
+## 🎟️ Códigos de canje activos de Honkai: Star Rail 4.6
 
 > **Última comprobación: 22 de septiembre de 2026**
 >
@@ -309,11 +306,11 @@ Los tres códigos caducaron el **21 de septiembre de 2026 a las 23:59 UTC+8** (=
 
 ---
 
-# 💻 Cómo canjear códigos de HSR
+## 💻 Cómo canjear códigos de HSR
 
 Puedes canjear códigos de Honkai: Star Rail en el juego o a través de la página oficial de canje de HoYoverse.
 
-## En el juego
+### En el juego
 
 1. Abre **Honkai: Star Rail**.
 2. Abre el menú del teléfono.
@@ -321,7 +318,7 @@ Puedes canjear códigos de Honkai: Star Rail en el juego o a través de la pági
 4. Introduce el código.
 5. Abre tu buzón en el juego para reclamar las recompensas.
 
-## Sitio web oficial
+### Sitio web oficial
 
 Usa la página oficial de canje de HoYoverse:
 
@@ -331,77 +328,77 @@ https://hsr.hoyoverse.com/gift
 
 ---
 
-# 🆕 Novedades de la Versión 4.6
+## 🆕 Novedades de la Versión 4.6
 
 La Versión 4.6 es más que una actualización de banners.
 
-## Nueva Misión de Eco
+### Nueva Misión de Eco
 
 La Misión de Eco de la Versión 4.6 comparte el título de la versión: **"Dance With the Beast Before Moonrise."**
 
-## Nuevo mapa: Life Sciences Institute
+### Nuevo mapa: Life Sciences Institute
 
 Un nuevo mapa de **Astropolis**, el **Life Sciences Institute**, se desbloquea avanzando por la Misión de Eco de 4.6.
 
-## Nuevos sets de reliquias
+### Nuevos sets de reliquias
 
 Dos nuevos sets de reliquias llegan al **Cavern of Corrosion: Path of the Secret Actor**:
 
 - **Dreamlit Actor** — 2pz SPD +6%; 4pz buffs de Elation y CRIT DMG del equipo
 - **The Edacious Heretic** — 2pz CRIT DMG +16%; 4pz buffs de Basic ATK DMG y ATK
 
-## Nuevo jefe
+### Nuevo jefe
 
 **Blood of the Fallen God: Yabuli** debuta en la Versión 4.6.
 
-## Atuendos y tienda
+### Atuendos y tienda
 
 Los nuevos atuendos de **Evanescia** ("Candy-Coated Waves") e **Hyacine** ("Warm Cotton Skies") salen a la venta con precio promocional desde el lanzamiento.
 
-## Actualización de Currency Wars
+### Actualización de Currency Wars
 
 Una nueva ola de contenido de **Currency Wars** añade personajes, actualizaciones de vínculos y efectos (fuentes secundarias).
 
-## Colaboración HSR × ZZZ anunciada (Versión 4.8)
+### Colaboración HSR × ZZZ anunciada (Versión 4.8)
 
 El Programa Especial de la Versión 4.6 también anunció una colaboración **Honkai: Star Rail × Zenless Zone Zero** que llegará en la **Versión 4.8**, con **Ellen Joe** y **Astra Yao**. Esto no forma parte de 4.6 en sí.
 
 ---
 
-# ❓ Preguntas frecuentes de Honkai: Star Rail 4.6
+## ❓ Preguntas frecuentes de Honkai: Star Rail 4.6
 
-## ¿Cuándo se lanza Honkai: Star Rail 4.6?
+### ¿Cuándo se lanza Honkai: Star Rail 4.6?
 
 La ventana de lanzamiento reportada es el **27 de septiembre de 2026 a las 22:00 (UTC-5)** para NA y el **28 de septiembre de 2026** para EU (04:00 UTC+1) y Asia/TW/HK/MO (11:00 UTC+8) — todo equivalente a **2026-09-28 03:00 UTC**. Esta fecha proviene de rastreadores secundarios y no ha sido confirmada por un anuncio oficial de versión a fecha del 22 de septiembre de 2026.
 
-## ¿Cuándo termina la Versión 4.6?
+### ¿Cuándo termina la Versión 4.6?
 
 **Por confirmar.** No se ha anunciado una fecha oficial de fin. El contenido programado más reciente (fin de banners, venta de atuendos) llega hasta el **10 de noviembre de 2026 (Hora del servidor)**.
 
-## ¿Quién es la personaje nueva en HSR 4.6?
+### ¿Quién es la personaje nueva en HSR 4.6?
 
 **Pearl** — una nueva personaje 5★ limitada **Hielo / Elation** y miembro de los IPC Ten Stonehearts.
 
-## ¿Quiénes hacen rerun en HSR 4.6?
+### ¿Quiénes hacen rerun en HSR 4.6?
 
 - **Evanescia** — Físico / Elation (Fase 1)
 - **Mortenax Blade** — Fuego / Nihility (Fase 2)
 
-## ¿Cuánto dura el banner de Pearl?
+### ¿Cuánto dura el banner de Pearl?
 
 El banner de debut de Pearl dura el **parche completo**, desde el lanzamiento hasta el **10 de noviembre de 2026 (Hora del servidor)**.
 
-## ¿Cuántos pulls gratis da HSR 4.6?
+### ¿Cuántos pulls gratis da HSR 4.6?
 
 El evento **Gift of Odyssey** otorga **10 Star Rail Special Passes** por iniciar sesión 7 días durante el período de la versión.
 
-## ¿Hay códigos de canje activos de HSR 4.6?
+### ¿Hay códigos de canje activos de HSR 4.6?
 
 **No.** Los tres códigos del Programa Especial caducaron el **21 de septiembre de 2026 a las 23:59 UTC+8**.
 
 ---
 
-# 📊 Resumen rápido de HSR 4.6
+## 📊 Resumen rápido de HSR 4.6
 
 | Categoría                 | Versión 4.6                               |
 | ------------------------- | ----------------------------------------- |
@@ -423,7 +420,7 @@ El evento **Gift of Odyssey** otorga **10 Star Rail Special Passes** por iniciar
 
 ---
 
-# 🔗 Fuentes oficiales
+## 🔗 Fuentes oficiales
 
 - **Honkai: Star Rail — Anuncio del Programa Especial de la Versión 4.6**
   https://www.hoyolab.com/article/46691962

@@ -119,11 +119,14 @@ const relatedPostLabel = isEs
         {relatedPostLabel}
       </span>
       <span class="flex items-center gap-2 font-mono text-[10px] sm:text-xs font-bold uppercase tracking-widest text-indigo-300">
-        {relatedPost.data.publishDate.toLocaleDateString("en-US", {
-          month: "short",
-          day: "numeric",
-          year: "numeric",
-        })}
+        {relatedPost.data.publishDate.toLocaleDateString(
+          isEs ? "es-ES" : "en-US",
+          {
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+          },
+        )}
         <span class="material-symbols-outlined text-base transition-transform group-hover:translate-x-1" aria-hidden="true">arrow_forward</span>
       </span>
     </a>

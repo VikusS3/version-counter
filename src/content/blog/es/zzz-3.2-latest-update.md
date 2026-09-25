@@ -1,9 +1,8 @@
 ---
-title: "Zenless Zone Zero 3.2: banners, eventos, personajes, builds y códigos de canje"
+title: "Zenless Zone Zero 3.2 banners, eventos y códigos"
 description: >-
-  Zenless Zone Zero 3.2, Their Secret Histories: calendario completo de banners,
-  builds de Claret y Roxy, re-emisiones de Nangong Yu y Promeia, eventos,
-  recompensas gratis, códigos de canje y fechas de la versión.
+  Zenless Zone Zero 3.2, Their Secret Histories: calendario de banners, builds
+  de Claret y Roxy, re-emisiones de Nangong Yu y Promeia, eventos y códigos.
 game: zzz
 image: /version-images/zenless-zone-zero-3.2.webp
 publishDate: "2026-09-22"
@@ -20,11 +19,9 @@ tags:
   - guides
 ---
 
-# Zenless Zone Zero 3.2: banners, eventos, builds y códigos de canje
-
 > **Versión 3.2 — "Their Secret Histories"**
 >
-> Última actualización: **September 22, 2026**
+> Última actualización: **22 de septiembre de 2026**
 
 La Versión 3.2 de Zenless Zone Zero, **"Their Secret Histories,"** ya está disponible. La actualización introduce dos nuevos Agentes de Rango S, **Claret** y **Roxy**, junto con re-emisiones de **Nangong Yu** y **Promeia**.
 
@@ -42,7 +39,7 @@ Alt:
 Zenless Zone Zero Version 3.2 Their Secret Histories featuring Claret and Roxy
 -->
 
-![Zenless Zone Zero Version 3.2 — Their Secret Histories](/version-images/zenless-zone-zero-3.2.webp)
+![Zenless Zone Zero Versión 3.2 — Their Secret Histories](/version-images/zenless-zone-zero-3.2.webp)
 
 ---
 
@@ -52,8 +49,8 @@ Zenless Zone Zero Version 3.2 Their Secret Histories featuring Claret and Roxy
 | ------------------------------------ | ------------------------------------ |
 | **Versión**                          | 3.2                                  |
 | **Título**                           | Their Secret Histories               |
-| **Fecha de lanzamiento**             | September 9, 2026                    |
-| **Fin de la versión**                | October 21, 2026                     |
+| **Fecha de lanzamiento**             | 9 de septiembre de 2026                    |
+| **Fin de la versión**                | 21 de octubre de 2026                     |
 | **Duración**                         | 42 días                              |
 | **Nuevos Agentes de Rango S**        | Claret, Roxy                         |
 | **Agentes de Rango S en re-emisión** | Nangong Yu, Promeia                  |
@@ -62,19 +59,19 @@ Zenless Zone Zero Version 3.2 Their Secret Histories featuring Claret and Roxy
 | **Fase 2**                           | Roxy + Promeia                       |
 | **Recompensas de inicio de sesión**  | 10 Encrypted Master Tapes + 10 Boopons |
 
-El anuncio oficial de la Versión 3.2 de HoYoverse confirma que la actualización se lanzó el **September 9, 2026**, y corre durante 42 días, hasta el **October 21, 2026 at 06:00 UTC+8**.
+El anuncio oficial de la Versión 3.2 de HoYoverse confirma que la actualización se lanzó el **9 de septiembre de 2026**, y corre durante 42 días, hasta el **21 de octubre de 2026 a las 06:00 (UTC+8)**.
 
 ---
 
-# 🗓️ Calendario de banners de Zenless Zone Zero 3.2
+## 🗓️ Calendario de banners de Zenless Zone Zero 3.2
 
 La Versión 3.2 usa dos fases principales de Signal Search.
 
-## Fase 1 — Claret & Nangong Yu
+### Fase 1 — Claret & Nangong Yu
 
-**September 9 → September 30, 2026**
+**9 de septiembre → 30 de septiembre de 2026**
 
-### Bloodmoon Rising
+#### Bloodmoon Rising
 
 **Rango S: Claret**
 
@@ -82,7 +79,7 @@ La Versión 3.2 usa dos fases principales de Signal Search.
 - Especialidad: **Armorer**
 - Estado: **NUEVO**
 
-### Axiom of Captivation
+#### Axiom of Captivation
 
 **Rango S: Nangong Yu**
 
@@ -90,17 +87,17 @@ La Versión 3.2 usa dos fases principales de Signal Search.
 - Especialidad: **Stun**
 - Estado: **RE-EMISIÓN**
 
-### Agentes de Rango A destacados
+#### Agentes de Rango A destacados
 
 - **Anton Ivanov**
 - **Nicole Demara**
 
-### W-Engines destacados
+#### W-Engines destacados
 
 - **Crimson Thirst** — Claret
 - **Neon Fantasies** — Nangong Yu
 
-Los Signal Search de la Fase 1 corren hasta el **September 30 at 11:59 server time**.
+Los Signal Search de la Fase 1 corren hasta el **30 de septiembre a las 11:59 (hora del servidor)**.
 
 <!--
 BANNER IMAGE — PHASE 1
@@ -114,15 +111,15 @@ Alt:
 Zenless Zone Zero 3.2 Phase 1 banners featuring Claret and Nangong Yu
 -->
 
-![Zenless Zone Zero 3.2 Phase 1 — Claret and Nangong Yu](/banners/zenless-zone-zero/claret-nangong-yu-3-2.webp)
+![Zenless Zone Zero 3.2 Fase 1 — Claret y Nangong Yu](/banners/zenless-zone-zero/claret-nangong-yu-3-2.webp)
 
 ---
 
-## Fase 2 — Roxy & Promeia
+### Fase 2 — Roxy & Promeia
 
-**September 30 → October 20, 2026**
+**30 de septiembre → 20 de octubre de 2026**
 
-### Cindernight Respite
+#### Cindernight Respite
 
 **Rango S: Roxy**
 
@@ -130,7 +127,7 @@ Zenless Zone Zero 3.2 Phase 1 banners featuring Claret and Nangong Yu
 - Especialidad: **Stun**
 - Estado: **NUEVO**
 
-### Cold Rain Wanes in the Night
+#### Cold Rain Wanes in the Night
 
 **Rango S: Promeia**
 
@@ -138,12 +135,12 @@ Zenless Zone Zero 3.2 Phase 1 banners featuring Claret and Nangong Yu
 - Especialidad: **Anomaly**
 - Estado: **RE-EMISIÓN**
 
-### W-Engines destacados
+#### W-Engines destacados
 
 - **Crimson Moon Casket** — Roxy
 - **Frostfall Sickle** — Promeia
 
-Los Signal Search de la Fase 2 comienzan el **September 30 at 12:00 server time** y terminan el **October 20 at 03:59 server time** según el calendario actual de banners.
+Los Signal Search de la Fase 2 comienzan el **30 de septiembre a las 12:00 (hora del servidor)** y terminan el **20 de octubre a las 03:59 (hora del servidor)** según el calendario actual de banners.
 
 <!--
 BANNER IMAGE — PHASE 2
@@ -157,11 +154,11 @@ Alt:
 Zenless Zone Zero 3.2 Phase 2 banners featuring Roxy and Promeia
 -->
 
-![Zenless Zone Zero 3.2 Phase 2 — Roxy and Promeia](/banners/zenless-zone-zero/roxy-promeia-3-2.webp)
+![Zenless Zone Zero 3.2 Fase 2 — Roxy y Promeia](/banners/zenless-zone-zero/roxy-promeia-3-2.webp)
 
 ---
 
-# ⚡ Personajes de la Versión 3.2
+## ⚡ Personajes de la Versión 3.2
 
 La Versión 3.2 introduce dos nuevos Agentes de Rango S:
 
@@ -174,7 +171,7 @@ La Versión 3.2 introduce dos nuevos Agentes de Rango S:
 
 ---
 
-# ⚡ Claret — Electric Armorer de Rango S
+## ⚡ Claret — Electric Armorer de Rango S
 
 Claret es una de las incorporaciones principales de la Versión 3.2 e introduce la nueva Especialidad **Armorer** del juego.
 
@@ -220,7 +217,7 @@ Claret Zenless Zone Zero 3.2 Electric Armorer Agent
 
 ![Claret — Zenless Zone Zero 3.2](/banners/zenless-zone-zero/claret-banner.webp)
 
-### Build sugerida de Claret
+#### Build sugerida de Claret
 
 | Ranura de build | Recomendación                   |
 | --------------- | ------------------------------- |
@@ -235,7 +232,7 @@ Claret Zenless Zone Zero 3.2 Electric Armorer Agent
 
 ---
 
-# 🌪️ Roxy — Wind Stun de Rango S
+## 🌪️ Roxy — Wind Stun de Rango S
 
 Roxy es el segundo nuevo Agente de Rango S introducido en la Versión 3.2.
 
@@ -273,13 +270,13 @@ Roxy Zenless Zone Zero 3.2 Wind Stun Agent
 
 ![Roxy — Zenless Zone Zero 3.2](/characters/zenless-zone-zero/roxy.webp)
 
-### Build sugerida de Roxy
+#### Build sugerida de Roxy
 
 | Ranura de build             | Recomendación                     |
 | --------------------------- | --------------------------------- |
 | **W-Engine**                | Crimson Moon Casket               |
-| **Disc 4**                  | CRIT / utility depending on build |
-| **Disc 5**                  | Wind DMG or utility option        |
+| **Disc 4**                  | CRIT / utilidad según la build |
+| **Disc 5**                  | Wind DMG u opción de utilidad   |
 | **Disc 6**                  | Impact                            |
 | **Prioridad de stat principal** | Impact                        |
 | **Rol**                     | Stun                              |
@@ -288,11 +285,11 @@ Roxy Zenless Zone Zero 3.2 Wind Stun Agent
 
 ---
 
-# 🎁 Recompensas gratis de la Versión 3.2
+## 🎁 Recompensas gratis de la Versión 3.2
 
 La Versión 3.2 incluye varias recompensas gratis particularmente útiles para jugadores que ahorran para los nuevos Agentes.
 
-## 10 Encrypted Master Tapes gratis
+### 10 Encrypted Master Tapes gratis
 
 El evento de inicio de sesión **All-New Program** da a los jugadores:
 
@@ -306,9 +303,9 @@ Requisitos:
 
 Duración del evento:
 
-**Tras la actualización de la Versión 3.2 → October 20, 2026 at 03:59 server time**
+**Tras la actualización de la Versión 3.2 → 20 de octubre de 2026 a las 03:59 (hora del servidor)**
 
-## 10 Boopons gratis
+### 10 Boopons gratis
 
 El evento de inicio de sesión **"En-Nah" Into Your Lap** ofrece:
 
@@ -316,7 +313,7 @@ El evento de inicio de sesión **"En-Nah" Into Your Lap** ofrece:
 
 Duración del evento:
 
-**September 30, 2026 at 10:00 → October 20, 2026 at 03:59 server time**
+**30 de septiembre de 2026 a las 10:00 → 20 de octubre de 2026 a las 03:59 (hora del servidor)**
 
 Estos Boopons se usan en el **Bangboo Channel**, no en los Signal Search de Agentes.
 
@@ -336,11 +333,11 @@ Alt:
 Zenless Zone Zero 3.2 free rewards including Encrypted Master Tapes and Boopons
 -->
 
-![Zenless Zone Zero 3.2 free rewards](/events/zenless-zone-zero/3-2-free-rewards.webp)
+![Zenless Zone Zero 3.2 recompensas gratuitas](/events/zenless-zone-zero/3-2-free-rewards.webp)
 
 ---
 
-# 🎭 Atuendos gratis de Angels of Delusion
+## 🎭 Atuendos gratis de Angels of Delusion
 
 La Versión 3.2 también introduce eventos conectados con la facción **Angels of Delusion**.
 
@@ -352,7 +349,7 @@ Los atuendos disponibles incluyen:
 
 Los atuendos se obtienen mediante eventos por tiempo limitado en lugar de compras directas.
 
-El evento **Angels Support Operation** comienza con la Versión 3.2 y permanece disponible hasta el **November 30, 2026 at 03:59 server time**.
+El evento **Angels Support Operation** comienza con la Versión 3.2 y permanece disponible hasta el **30 de noviembre de 2026 a las 03:59 (hora del servidor)**.
 
 <!--
 OUTFIT IMAGE
@@ -367,32 +364,32 @@ Alt:
 Zenless Zone Zero Angels of Delusion free outfits in Version 3.2
 -->
 
-![Angels of Delusion outfits — Zenless Zone Zero 3.2](/events/zenless-zone-zero/angels-of-delusion-3-2.webp)
+![Angels of Delusion atuendos — Zenless Zone Zero 3.2](/events/zenless-zone-zero/angels-of-delusion-3-2.webp)
 
 ---
 
-# 📅 Eventos de Zenless Zone Zero 3.2
+## 📅 Eventos de Zenless Zone Zero 3.2
 
 La Versión 3.2 contiene una gran cantidad de actividades por tiempo limitado.
 
 | Evento                                | Fechas           | Recompensas principales               |
 | ------------------------------------- | ---------------- | ------------------------------------- |
-| **All-New Program**                   | Sep 9 – Oct 20   | 10 Encrypted Master Tapes             |
-| **Angels Support Operation**          | Sep 9 – Nov 30   | Atuendo Angels of Delusion            |
-| **Shadow Chase Showdown**             | Sep 16 – Oct 5   | Polychromes, Tuning Calibrators       |
-| **Advanced Bounty: Area Patrol**      | Sep 23 – Sep 28  | Recompensas de Area Patrol aumentadas |
-| **En-Nah Into Your Lap**              | Sep 30 – Oct 20  | 10 Boopons                            |
-| **Diary of an Orbie Parent**          | Sep 30 – Oct 19  | Recompensas del evento                |
-| **Chronicles of the Hobbling Crow**   | Oct 3 – Oct 19   | Recompensas del evento                |
-| **Data Bounty: Combat Simulation**    | Oct 14 – Oct 19  | Recompensas de Combat Simulation x2   |
+| **All-New Program**                   | 9 sep – 20 oct   | 10 Encrypted Master Tapes             |
+| **Angels Support Operation**          | 9 sep – 30 nov   | Atuendo Angels of Delusion            |
+| **Shadow Chase Showdown**             | 16 sep – 5 oct   | Polychromes, Tuning Calibrators       |
+| **Advanced Bounty: Area Patrol**      | 23 sep – 28 sep  | Recompensas de Area Patrol aumentadas |
+| **En-Nah Into Your Lap**              | 30 sep – 20 oct  | 10 Boopons                            |
+| **Diary of an Orbie Parent**          | 30 sep – 19 oct  | Recompensas del evento                |
+| **Chronicles of the Hobbling Crow**   | 3 oct – 19 oct   | Recompensas del evento                |
+| **Data Bounty: Combat Simulation**    | 14 oct – 19 oct  | Recompensas de Combat Simulation x2   |
 
 Las fechas y los requisitos de los eventos se basan en el anuncio oficial de la Versión 3.2 de HoYoverse.
 
 ---
 
-# 🎟️ Códigos de canje activos de Zenless Zone Zero 3.2
+## 🎟️ Códigos de canje activos de Zenless Zone Zero 3.2
 
-> **Última revisión: September 22, 2026**
+> **Última revisión: 22 de septiembre de 2026**
 >
 > Los códigos de canje pueden expirar sin aviso. Los códigos siguientes deben revisarse de nuevo antes de cada actualización de publicación.
 
@@ -416,15 +413,15 @@ Este código otorgaba:
 - 2 Senior Investigator Logs
 - 3 W-Engine Energy Modules
 
-Sin embargo, su periodo de canje terminó el **August 30, 2026**, por lo que **no** debe listarse como un código activo de la Versión 3.2.
+Sin embargo, su periodo de canje terminó el **30 de agosto de 2026**, por lo que **no** debe listarse como un código activo de la Versión 3.2.
 
 ---
 
-# 💻 Cómo canjear códigos de ZZZ
+## 💻 Cómo canjear códigos de ZZZ
 
 Puedes canjear códigos de Zenless Zone Zero ya sea en el juego o a través de la página oficial de canje de HoYoverse.
 
-## En el juego
+### En el juego
 
 1. Abre **Zenless Zone Zero**.
 2. Abre el menú principal.
@@ -433,7 +430,7 @@ Puedes canjear códigos de Zenless Zone Zero ya sea en el juego o a través de l
 5. Ingresa el código.
 6. Abre tu buzón en el juego para reclamar las recompensas.
 
-## Sitio oficial
+### Sitio oficial
 
 Usa la página oficial de canje de HoYoverse:
 
@@ -443,21 +440,21 @@ https://zenless.hoyoverse.com/redemption
 
 ---
 
-# 🆕 Qué hay de nuevo en la Versión 3.2
+## 🆕 ¿Qué hay de nuevo en la Versión 3.2?
 
 La Versión 3.2 es más que una actualización de banners.
 
-## Nueva Especialidad Armorer
+### Nueva Especialidad Armorer
 
 Claret introduce la nueva Especialidad **Armorer**, que agrega un nuevo sistema de gameplay centrado en mecánicas relacionadas con DEF y el efecto Maim.
 
-## Nueva historia principal
+### Nueva historia principal
 
 La historia de la Versión 3.2 lleva a la Proxy y a sus compañeros a **Vyrium**, una zona especial dentro de Shrouded Reef.
 
 La historia explora la situación en torno a Roscaelifer y la infiltración de TOPS.
 
-## Mejoras en la Guía para principiantes
+### Mejoras en la Guía para principiantes
 
 La Versión 3.2 expande la Guía para principiantes con recompensas seleccionables adicionales.
 
@@ -473,7 +470,7 @@ La selección de W-Engine correspondiente incluye:
 - Myriad Eclipse
 - Severed Innocence
 
-## Mejoras de combate
+### Mejoras de combate
 
 La Versión 3.2 también mejora la legibilidad del combate haciendo más claros los indicadores de Asistencia perfecta:
 
@@ -482,35 +479,35 @@ La Versión 3.2 también mejora la legibilidad del combate haciendo más claros 
 
 ---
 
-# ❓ Preguntas frecuentes de Zenless Zone Zero 3.2
+## ❓ Preguntas frecuentes de Zenless Zone Zero 3.2
 
-## ¿Cuándo se lanzó Zenless Zone Zero 3.2?
+### ¿Cuándo se lanzó Zenless Zone Zero 3.2?
 
-La Versión 3.2, **Their Secret Histories**, se lanzó el **September 9, 2026**.
+La Versión 3.2, **Their Secret Histories**, se lanzó el **9 de septiembre de 2026**.
 
-## ¿Cuándo termina la Versión 3.2?
+### ¿Cuándo termina la Versión 3.2?
 
-El anuncio oficial de la Versión 3.2 lista el fin de la versión como **October 21, 2026 at 06:00 UTC+8**.
+El anuncio oficial de la Versión 3.2 lista el fin de la versión como **21 de octubre de 2026 a las 06:00 (UTC+8)**.
 
-## ¿Quién es el personaje nuevo en ZZZ 3.2?
+### ¿Quién es el personaje nuevo en ZZZ 3.2?
 
 Hay dos nuevos Agentes de Rango S:
 
 - **Claret** — Electric / Armorer
 - **Roxy** — Wind / Stun
 
-## ¿Quiénes reciben re-emisión en ZZZ 3.2?
+### ¿Quiénes reciben re-emisión en ZZZ 3.2?
 
 Los Agentes de Rango S de regreso son:
 
 - **Nangong Yu** — Ether / Stun
 - **Promeia** — Ice / Anomaly
 
-## ¿Cuándo sale Roxy?
+### ¿Cuándo sale Roxy?
 
-El banner de Roxy de la Fase 2 comienza el **September 30, 2026**.
+El banner de Roxy de la Fase 2 comienza el **30 de septiembre de 2026**.
 
-## ¿Cuántos pulls gratis da ZZZ 3.2?
+### ¿Cuántos pulls gratis da ZZZ 3.2?
 
 La versión ofrece:
 
@@ -519,20 +516,20 @@ La versión ofrece:
 
 Son monedas separadas. Los 10 Boopons no pueden usarse para Signal Search de Agentes.
 
-## ¿Qué es la nueva Especialidad Armorer?
+### ¿Qué es la nueva Especialidad Armorer?
 
 Armorer es una nueva Especialidad de Agente introducida con Claret en la Versión 3.2. Su gameplay se enfoca en mecánicas que interactúan con el escalado de DEF y efectos como Maim.
 
 ---
 
-# 📊 Resumen rápido de ZZZ 3.2
+## 📊 Resumen rápido de ZZZ 3.2
 
 | Categoría                        | Versión 3.2            |
 | -------------------------------- | ---------------------- |
 | **Versión**                      | 3.2                    |
 | **Título**                       | Their Secret Histories |
-| **Lanzamiento**                  | September 9, 2026      |
-| **Fin**                          | October 21, 2026       |
+| **Lanzamiento**                  | 9 de septiembre de 2026      |
+| **Fin**                          | 21 de octubre de 2026       |
 | **Nuevo Rango S**                | Claret                 |
 | **Nuevo Rango S**                | Roxy                   |
 | **Re-emisión**                   | Nangong Yu             |
@@ -547,7 +544,7 @@ Armorer es una nueva Especialidad de Agente introducida con Claret en la Versió
 
 ---
 
-# 🔗 Fuentes oficiales
+## 🔗 Fuentes oficiales
 
 - **Zenless Zone Zero — Version 3.2 Update Announcement**
   https://zenless.hoyoverse.com/en-us/news/166000

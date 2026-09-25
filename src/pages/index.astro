@@ -38,50 +38,28 @@ const dashboardLabels = {
   seconds: t.counter.seconds,
   finished: t.counter.finished,
 };
+
+const faqItems = [
+  {
+    question: "How do version countdowns work?",
+    answer: "Version countdowns show the time remaining until the next game update or patch release. Each game has its own patch cycle, so the countdown uses the latest official schedule available.",
+  },
+  {
+    question: "Which games are supported?",
+    answer: "We track Genshin Impact, Honkai Star Rail, Wuthering Waves, Zenless Zone Zero, Arknights Endfield, and Neverness to Everness.",
+  },
+  {
+    question: "Are the countdowns accurate for every region?",
+    answer: "The countdown is an estimate based on the official UTC schedule. Maintenance and launch windows can shift slightly by region or publisher.",
+  },
+  {
+    question: "Can I get notified before a version releases?",
+    answer: "Use the Remind Me button on a game page to copy the page link and share it, or bookmark the page for quick access.",
+  },
+];
 ---
 
 <Layout title={t.home.title} description={t.home.subtitle}>
-  <script
-    type="application/ld+json"
-    set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: [
-        {
-          "@type": "Question",
-          name: "How do version countdowns work?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Version countdowns show the time remaining until the next game update or patch release. Each game has a typical patch cycle of 6 weeks for Honkai games and Kuro games.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Which games are supported?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "We track Genshin Impact, Honkai Star Rail, Wuthering Waves, Zenless Zone Zero, Arknights Endfield, and Neverness to Everness.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Are the countdowns accurate for all regions?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Our countdowns are based on official patch schedules. Times are typically consistent across all servers as game companies usually release updates simultaneously worldwide.",
-          },
-        },
-        {
-          "@type": "Question",
-          name: "Can I get notified before a version releases?",
-          acceptedAnswer: {
-            "@type": "Answer",
-            text: "Yes! You can use the 'Remind Me' button on each game page to copy the link and share it, or simply bookmark the page.",
-          },
-        },
-      ],
-    })}
-  />
   <main
     id="main-content"
     class="max-w-7xl mx-auto w-full px-4 md:px-6 py-6 md:py-10"
@@ -99,9 +77,23 @@ const dashboardLabels = {
     </section>
 
     <!-- Game Dashboard with Filter -->
-    <GameDashboard client:load games={gameData} labels={dashboardLabels} />
+    <GameDashboard client:load games={gameData} labels={dashboardLabels} locale="en" />
 
     <StatsSection />
+
+    <section class="mt-12 sm:mt-16" aria-labelledby="home-faq-title">
+      <h2 id="home-faq-title" class="text-2xl font-bold text-white mb-4">
+        Version Countdown FAQ
+      </h2>
+      <div class="grid gap-3 md:grid-cols-2">
+        {faqItems.map((item) => (
+          <details class="rounded-2xl border border-white/10 bg-white/[0.02] p-5">
+            <summary class="cursor-pointer font-bold text-white">{item.question}</summary>
+            <p class="mt-3 text-sm leading-relaxed text-slate-300">{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </section>
   </main>
   <!-- 
   <PromotionalPopup

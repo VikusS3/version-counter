@@ -56,23 +56,35 @@ export async function createGuideFromYoutube(
 
   if (!videoId) throw new Error("Invalid YouTube URL");
 
-  const meta = await fetchYoutubeMetadata(url);
+  let meta: Awaited<ReturnType<typeof fetchYoutubeMetadata>> | null = null;
+  try {
+    meta = await fetchYoutubeMetadata(url);
+  } catch (error) {
+    console.warn(`[youtube] Metadata unavailable for ${videoId}`, error);
+    meta = null;
+  }
 
-  const duration = await getVideoDuration(videoId);
+  let duration: string | null = null;
+  try {
+    duration = await getVideoDuration(videoId);
+  } catch (error) {
+    console.warn(`[youtube] Duration unavailable for ${videoId}`, error);
+    duration = null;
+  }
 
-  const handle = extractChannelHandle(meta.channelUrl);
+  const handle = meta?.channelUrl ? extractChannelHandle(meta.channelUrl) : null;
 
   return {
-    id: crypto.randomUUID(),
-    title: meta.title,
+    id: videoId,
+    title: meta?.title ?? `YouTube ${game.toUpperCase()} guide`,
     youtubeUrl: url,
-    thumbnail: meta.thumbnail,
+    thumbnail: meta?.thumbnail ?? "/og-image.webp",
     duration,
     game,
     language,
     creator: {
-      name: meta.channel,
-      avatar: handle ? getChannelAvatar(handle) : "/default-avatar.webp",
+      name: meta?.channel ?? "YouTube creator",
+      avatar: handle ? getChannelAvatar(handle) : "/logo.webp",
     },
   };
 }

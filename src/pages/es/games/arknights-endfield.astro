@@ -23,7 +23,7 @@ const nextVersionDateText = nextVersionDate.toLocaleDateString("es-ES", {
 const faqItems = [
   {
     question: `¿Cuándo sale la versión ${game?.proxima_version} de Arknights Endfield?`,
-    answer: `Se espera que la actualización ${game?.proxima_version} de Arknights Endfield salga alrededor del ${nextVersionDateText}, siguiendo el ciclo de parches estándar de ${game?.duracion_dias} días. La hora exacta de lanzamiento se muestra en la cuenta regresiva en vivo.`,
+    answer: `Se espera que la actualización ${game?.proxima_version} de Arknights Endfield salga alrededor del ${nextVersionDateText}, siguiendo el ciclo de parches estándar de ${game?.duracion_dias} días. La cuenta regresiva en vivo es una estimación basada en el calendario oficial (UTC), y la ventana real de lanzamiento puede variar ligeramente según la región o el editor.`,
   },
   {
     question: "¿En qué versión está Arknights Endfield ahora mismo?",
@@ -38,11 +38,11 @@ const faqItems = [
     question:
       "¿Cuáles son los horarios de mantenimiento de los servidores de Arknights Endfield?",
     answer:
-      "El mantenimiento de Arknights Endfield suele comenzar unas horas antes del lanzamiento de la versión. La cuenta regresiva de esta página rastrea la hora exacta de actualización para los servidores de América, Europa y Asia.",
+      "El mantenimiento de Arknights Endfield suele comenzar unas horas antes del lanzamiento de la versión. La cuenta regresiva de esta página estima la hora de actualización a partir del calendario oficial en UTC, y la ventana de mantenimiento puede variar según la región o el editor.",
   },
 ];
 
-const gameCanonicalUrl = new URL("/es/games/arknights-endfield", Astro.site)
+const gameCanonicalUrl = new URL("/es/games/arknights-endfield/", Astro.site)
   .href;
 const gameImage = new URL(game?.imagen ?? "/og-image.webp", Astro.site).href;
 
@@ -63,20 +63,21 @@ const gameKeywords = `
 ---
 
 <Layout
-  title={`Cuenta Regresiva Arknights Endfield ${game?.proxima_version} - Banners y Notas del Parche`}
-  description={`Cuenta regresiva para el lanzamiento de Arknights Endfield ${game?.proxima_version} en servidores de América, Europa y Asia. Sigue la hora de la actualización, los banners, el mantenimiento y las notas del parche oficiales.`}
+  title={`Arknights Endfield ${game?.proxima_version} Cuenta Regresiva`}
+  description={`Cuenta regresiva de Arknights Endfield ${game?.proxima_version}: sigue el lanzamiento, los banners, el mantenimiento y las notas oficiales del parche.`}
   keywords={gameKeywords}
   image={gameImage}
   lang="es"
 >
   <script
+    is:inline
     type="application/ld+json"
     set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "VideoGame",
       "@id": gameCanonicalUrl,
       name: `Arknights Endfield v${game?.version_actual}`,
-      alternatename: `Arknights Endfield ${game?.proxima_version}`,
+      alternateName: `Arknights Endfield ${game?.proxima_version}`,
       description: game?.descripcion,
       url: gameCanonicalUrl,
       image: gameImage,
@@ -85,39 +86,14 @@ const gameKeywords = `
       operatingSystem: "iOS, Android, PC, PS5",
       publisher: {
         "@type": "Organization",
-        name: "Hypergryph",
-        url: "https://endfield.gryphline.com",
+        name: game?.publisher,
       },
       version: game?.version_actual,
-      datePublished: game?.fecha_inicio,
-      applicationDate: game?.fecha_inicio,
       mainEntityOfPage: {
         "@type": "WebPage",
         "@id": gameCanonicalUrl,
       },
-      offers: {
-        "@type": "Offer",
-        price: "0",
-        priceCurrency: "USD",
-        availability: "https://schema.org/InStock",
-        url: gameCanonicalUrl,
-      },
       inLanguage: "es",
-    })}
-  />
-  <script
-    type="application/ld+json"
-    set:html={JSON.stringify({
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      mainEntity: faqItems.map((item) => ({
-        "@type": "Question",
-        name: item.question,
-        acceptedAnswer: {
-          "@type": "Answer",
-          text: item.answer,
-        },
-      })),
     })}
   />
   <div
@@ -149,8 +125,8 @@ const gameKeywords = `
           <h1
             class="text-white text-3xl sm:text-4xl md:text-6xl font-black leading-tight tracking-tight mb-3 sm:mb-4"
           >
-            {game?.nombre_version_actual}
-            <span class="text-gold italic font-serif">{game?.slogan_name}</span>
+            {game?.nombre_oficial} {game?.proxima_version}{" "}
+            {t.gamePage.countdownToVersion}
           </h1>
           <p class="text-slate-400 text-sm sm:text-base md:text-lg max-w-2xl">
             {game?.slogan_desc}
@@ -230,7 +206,7 @@ const gameKeywords = `
         </div>
         <div class="mt-8 text-center">
           <a
-            href="/es/banners"
+            href="/es/banners/"
             class="inline-flex items-center gap-2 text-blue-300 hover:text-blue-200 font-semibold text-sm sm:text-base"
           >
             {t.banner.viewBanners}

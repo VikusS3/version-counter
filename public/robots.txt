@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://gachacountdown.online/sitemap-0.xml
+Sitemap: https://gachacountdown.online/sitemap-index.xml

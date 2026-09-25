@@ -1,0 +1,40 @@
+---
+import type { BreadcrumbItem, SeoLocale } from "../utils/seo";
+
+interface Props {
+  items: BreadcrumbItem[];
+  locale: SeoLocale;
+}
+
+const { items, locale } = Astro.props;
+const label = locale === "es" ? "Migas de pan" : "Breadcrumb";
+---
+
+<nav aria-label={label} class="max-w-7xl mx-auto w-full px-4 md:px-6 pt-4">
+  <ol class="flex flex-wrap items-center gap-2 text-xs font-mono text-slate-500">
+    {
+      items.map((item, index) => {
+        const isLast = index === items.length - 1;
+        return (
+          <li class="flex items-center gap-2 min-w-0">
+            {index > 0 && (
+              <span class="text-slate-700" aria-hidden="true">
+                /
+              </span>
+            )}
+            <a
+              href={new URL(item.item).pathname}
+              aria-current={isLast ? "page" : undefined}
+              class:list={[
+                "hover:text-indigo-300 transition-colors truncate",
+                isLast && "text-slate-300",
+              ]}
+            >
+              {item.name}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ol>
+</nav>

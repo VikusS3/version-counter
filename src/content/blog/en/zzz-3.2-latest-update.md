@@ -1,9 +1,8 @@
 ---
-title: "Zenless Zone Zero 3.2: Banners, Events, Characters, Builds & Redeem Codes"
+title: "Zenless Zone Zero 3.2 Banners, Events & Redeem Codes"
 description: >-
-  Zenless Zone Zero 3.2, Their Secret Histories: complete banner schedule,
-  Claret and Roxy builds, Nangong Yu and Promeia reruns, events, free rewards,
-  redeem codes, and version dates.
+  Zenless Zone Zero 3.2 "Their Secret Histories": full banner schedule, Claret
+  and Roxy builds, Nangong Yu and Promeia reruns, events, and codes.
 game: zzz
 image: /version-images/zenless-zone-zero-3.2.webp
 publishDate: "2026-09-22"
@@ -19,8 +18,6 @@ tags:
   - redeem-codes
   - guides
 ---
-
-# Zenless Zone Zero 3.2: Banners, Events, Builds & Redeem Codes
 
 > **Version 3.2 — "Their Secret Histories"**
 >
@@ -66,15 +63,15 @@ HoYoverse's official Version 3.2 announcement confirms that the update launched 
 
 ---
 
-# 🗓️ Zenless Zone Zero 3.2 Banner Schedule
+## 🗓️ Zenless Zone Zero 3.2 Banner Schedule
 
 Version 3.2 uses two main Signal Search phases.
 
-## Phase 1 — Claret & Nangong Yu
+### Phase 1 — Claret & Nangong Yu
 
 **September 9 → September 30, 2026**
 
-### Bloodmoon Rising
+#### Bloodmoon Rising
 
 **S-Rank: Claret**
 
@@ -82,7 +79,7 @@ Version 3.2 uses two main Signal Search phases.
 - Specialty: **Armorer**
 - Status: **NEW**
 
-### Axiom of Captivation
+#### Axiom of Captivation
 
 **S-Rank: Nangong Yu**
 
@@ -90,12 +87,12 @@ Version 3.2 uses two main Signal Search phases.
 - Specialty: **Stun**
 - Status: **RERUN**
 
-### Featured A-Rank Agents
+#### Featured A-Rank Agents
 
 - **Anton Ivanov**
 - **Nicole Demara**
 
-### Featured W-Engines
+#### Featured W-Engines
 
 - **Crimson Thirst** — Claret
 - **Neon Fantasies** — Nangong Yu
@@ -118,11 +115,11 @@ Zenless Zone Zero 3.2 Phase 1 banners featuring Claret and Nangong Yu
 
 ---
 
-## Phase 2 — Roxy & Promeia
+### Phase 2 — Roxy & Promeia
 
 **September 30 → October 20, 2026**
 
-### Cindernight Respite
+#### Cindernight Respite
 
 **S-Rank: Roxy**
 
@@ -130,7 +127,7 @@ Zenless Zone Zero 3.2 Phase 1 banners featuring Claret and Nangong Yu
 - Specialty: **Stun**
 - Status: **NEW**
 
-### Cold Rain Wanes in the Night
+#### Cold Rain Wanes in the Night
 
 **S-Rank: Promeia**
 
@@ -138,7 +135,7 @@ Zenless Zone Zero 3.2 Phase 1 banners featuring Claret and Nangong Yu
 - Specialty: **Anomaly**
 - Status: **RERUN**
 
-### Featured W-Engines
+#### Featured W-Engines
 
 - **Crimson Moon Casket** — Roxy
 - **Frostfall Sickle** — Promeia
@@ -161,7 +158,7 @@ Zenless Zone Zero 3.2 Phase 2 banners featuring Roxy and Promeia
 
 ---
 
-# ⚡ Version 3.2 Characters
+## ⚡ Version 3.2 Characters
 
 Version 3.2 introduces two new S-Rank Agents:
 
@@ -174,7 +171,7 @@ Version 3.2 introduces two new S-Rank Agents:
 
 ---
 
-# ⚡ Claret — S-Rank Electric Armorer
+## ⚡ Claret — S-Rank Electric Armorer
 
 Claret is one of the main additions in Version 3.2 and introduces the game's new **Armorer** Specialty.
 
@@ -220,7 +217,7 @@ Claret Zenless Zone Zero 3.2 Electric Armorer Agent
 
 ![Claret — Zenless Zone Zero 3.2](/characters/zenless-zone-zero/claret.webp)
 
-### Suggested Claret Build
+#### Suggested Claret Build
 
 | Build Slot   | Recommendation                  |
 | ------------ | ------------------------------- |
@@ -235,7 +232,7 @@ Claret Zenless Zone Zero 3.2 Electric Armorer Agent
 
 ---
 
-# 🌪️ Roxy — S-Rank Wind Stun
+## 🌪️ Roxy — S-Rank Wind Stun
 
 Roxy is the second new S-Rank Agent introduced in Version 3.2.
 
@@ -273,7 +270,7 @@ Roxy Zenless Zone Zero 3.2 Wind Stun Agent
 
 ![Roxy — Zenless Zone Zero 3.2](/characters/zenless-zone-zero/roxy.webp)
 
-### Suggested Roxy Build
+#### Suggested Roxy Build
 
 | Build Slot             | Recommendation                    |
 | ---------------------- | --------------------------------- |
@@ -288,11 +285,11 @@ Roxy Zenless Zone Zero 3.2 Wind Stun Agent
 
 ---
 
-# 🎁 Version 3.2 Free Rewards
+## 🎁 Version 3.2 Free Rewards
 
 Version 3.2 includes several free rewards that are particularly useful for players saving for the new Agents.
 
-## 10 Free Encrypted Master Tapes
+### 10 Free Encrypted Master Tapes
 
 The **All-New Program** login event gives players:
 
@@ -308,7 +305,7 @@ Event duration:
 
 **After Version 3.2 update → October 20, 2026 at 03:59 server time**
 
-## 10 Free Boopons
+### 10 Free Boopons
 
 The **"En-Nah" Into Your Lap** login event provides:
 
@@ -340,7 +337,7 @@ Zenless Zone Zero 3.2 free rewards including Encrypted Master Tapes and Boopons
 
 ---
 
-# 🎭 Free Angels of Delusion Outfits
+## 🎭 Free Angels of Delusion Outfits
 
 Version 3.2 also introduces events connected to the **Angels of Delusion** faction.
 
@@ -371,7 +368,7 @@ Zenless Zone Zero Angels of Delusion free outfits in Version 3.2
 
 ---
 
-# 📅 Zenless Zone Zero 3.2 Events
+## 📅 Zenless Zone Zero 3.2 Events
 
 Version 3.2 contains a large number of limited-time activities.
 
@@ -390,7 +387,7 @@ Dates and event requirements are based on HoYoverse's official Version 3.2 annou
 
 ---
 
-# 🎟️ Active Zenless Zone Zero 3.2 Redeem Codes
+## 🎟️ Active Zenless Zone Zero 3.2 Redeem Codes
 
 > **Last checked: September 22, 2026**
 >
@@ -420,11 +417,11 @@ However, its redemption period ended on **August 30, 2026**, so it should **not*
 
 ---
 
-# 💻 How to Redeem ZZZ Codes
+## 💻 How to Redeem ZZZ Codes
 
 You can redeem Zenless Zone Zero codes either in-game or through HoYoverse's official redemption page.
 
-## In-Game
+### In-Game
 
 1. Open **Zenless Zone Zero**.
 2. Open the main menu.
@@ -433,7 +430,7 @@ You can redeem Zenless Zone Zero codes either in-game or through HoYoverse's off
 5. Enter the code.
 6. Open your in-game mailbox to claim the rewards.
 
-## Official Website
+### Official Website
 
 Use the official HoYoverse redemption page:
 
@@ -443,21 +440,21 @@ https://zenless.hoyoverse.com/redemption
 
 ---
 
-# 🆕 What's New in Version 3.2?
+## 🆕 What's New in Version 3.2?
 
 Version 3.2 is more than a banner update.
 
-## New Armorer Specialty
+### New Armorer Specialty
 
 Claret introduces the new **Armorer** Specialty, adding a new gameplay system centered around DEF-related mechanics and the Maim effect.
 
-## New Main Story
+### New Main Story
 
 The Version 3.2 story takes the Proxy and their companions to **Vyrium**, a special zone within the Shrouded Reef.
 
 The story explores the situation surrounding Roscaelifer and the infiltration of TOPS.
 
-## Beginner Guide Improvements
+### Beginner Guide Improvements
 
 Version 3.2 expands the Beginner Guide with additional selectable rewards.
 
@@ -473,7 +470,7 @@ The corresponding W-Engine selection includes:
 - Myriad Eclipse
 - Severed Innocence
 
-## Combat Improvements
+### Combat Improvements
 
 Version 3.2 also improves combat readability by making Perfect Assist indicators clearer:
 
@@ -482,35 +479,35 @@ Version 3.2 also improves combat readability by making Perfect Assist indicators
 
 ---
 
-# ❓ Zenless Zone Zero 3.2 FAQ
+## ❓ Zenless Zone Zero 3.2 FAQ
 
-## When did Zenless Zone Zero 3.2 release?
+### When did Zenless Zone Zero 3.2 release?
 
 Version 3.2, **Their Secret Histories**, launched on **September 9, 2026**.
 
-## When does Version 3.2 end?
+### When does Version 3.2 end?
 
 The official Version 3.2 announcement lists the end of the version as **October 21, 2026 at 06:00 UTC+8**.
 
-## Who is the new character in ZZZ 3.2?
+### Who is the new character in ZZZ 3.2?
 
 There are two new S-Rank Agents:
 
 - **Claret** — Electric / Armorer
 - **Roxy** — Wind / Stun
 
-## Who is rerunning in ZZZ 3.2?
+### Who is rerunning in ZZZ 3.2?
 
 The returning S-Rank Agents are:
 
 - **Nangong Yu** — Ether / Stun
 - **Promeia** — Ice / Anomaly
 
-## When does Roxy release?
+### When does Roxy release?
 
 Roxy's Phase 2 banner begins on **September 30, 2026**.
 
-## How many free pulls does ZZZ 3.2 give?
+### How many free pulls does ZZZ 3.2 give?
 
 The version provides:
 
@@ -519,13 +516,13 @@ The version provides:
 
 These are separate currencies. The 10 Boopons cannot be used for Agent Signal Searches.
 
-## What is the new Armorer Specialty?
+### What is the new Armorer Specialty?
 
 Armorer is a new Agent Specialty introduced with Claret in Version 3.2. Its gameplay focuses on mechanics that interact with DEF scaling and effects such as Maim.
 
 ---
 
-# 📊 ZZZ 3.2 Quick Summary
+## 📊 ZZZ 3.2 Quick Summary
 
 | Category                        | Version 3.2            |
 | ------------------------------- | ---------------------- |
@@ -547,7 +544,7 @@ Armorer is a new Agent Specialty introduced with Claret in Version 3.2. Its game
 
 ---
 
-# 🔗 Official Sources
+## 🔗 Official Sources
 
 - **Zenless Zone Zero — Version 3.2 Update Announcement**
   https://zenless.hoyoverse.com/en-us/news/166000
