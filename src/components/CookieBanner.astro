@@ -54,7 +54,7 @@ const localePrefix = lang === "en" ? "" : "/es";
   interface GcWindow extends Window {
     __gcConsent?: boolean;
     __gcLoadAds?: () => void;
-    __gcLoadAnalytics?: () => void;
+    gtag?: (...args: unknown[]) => void;
   }
 
   function initCookieBanner() {
@@ -76,14 +76,25 @@ const localePrefix = lang === "en" ? "" : "/es";
     acceptBtn.addEventListener("click", () => {
       localStorage.setItem("cookie-consent", "accepted");
       w.__gcConsent = true;
+      w.gtag?.("consent", "update", {
+        ad_storage: "granted",
+        ad_user_data: "granted",
+        ad_personalization: "granted",
+        analytics_storage: "granted",
+      });
       w.__gcLoadAds?.();
-      w.__gcLoadAnalytics?.();
       banner.hidden = true;
     });
 
     rejectBtn.addEventListener("click", () => {
       localStorage.setItem("cookie-consent", "rejected");
       w.__gcConsent = false;
+      w.gtag?.("consent", "update", {
+        ad_storage: "denied",
+        ad_user_data: "denied",
+        ad_personalization: "denied",
+        analytics_storage: "denied",
+      });
       banner.hidden = true;
     });
   }
