@@ -214,6 +214,22 @@ const alternateLocale = locale === "es" ? "en_US" : "es_ES";
       })();
     </script>
 
+    <!-- Silence Chrome View Transitions' benign skip error surfaced by
+         ClientRouter (astro finished promise rejects when the viewport
+         resizes mid-transition). Navigation still completes normally. -->
+    <script is:inline>
+      window.addEventListener("unhandledrejection", function (event) {
+        var reason = event.reason;
+        if (
+          reason &&
+          reason.name === "InvalidStateError" &&
+          String(reason.message).indexOf("Viewport size changed") !== -1
+        ) {
+          event.preventDefault();
+        }
+      });
+    </script>
+
     <!-- Fix: Re-initialize astro-islands (React client:only components) after View Transitions swap -->
     <script is:inline>
       document.addEventListener("astro:after-swap", () => {

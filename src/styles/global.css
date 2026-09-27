@@ -87,6 +87,13 @@ body {
   }
 }
 
+/* Keep html width stable when the viewport scrollbar appears/disappears.
+   Prevents Chrome View Transitions from aborting with
+   "InvalidStateError: Viewport size changed" between page navigations. */
+html {
+  scrollbar-gutter: stable;
+}
+
 /* Gamer Custom Scrollbar */
 ::-webkit-scrollbar {
   width: 8px;
