@@ -53,7 +53,6 @@ const localePrefix = lang === "en" ? "" : "/es";
 <script>
   interface GcWindow extends Window {
     __gcConsent?: boolean;
-    __mtLoadAds?: () => void;
     gtag?: (...args: unknown[]) => void;
   }
 
@@ -82,7 +81,6 @@ const localePrefix = lang === "en" ? "" : "/es";
         ad_personalization: "granted",
         analytics_storage: "granted",
       });
-      w.__mtLoadAds?.();
       banner.hidden = true;
     });
 

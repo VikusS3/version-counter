@@ -91,6 +91,14 @@ const alternateLocale = locale === "es" ? "en_US" : "es_ES";
 <!doctype html>
 <html lang={locale}>
   <head>
+    <!-- Monetag Multitag (required for site verification + ad serving).
+         Must stay a static tag right after <head>: the verifier reads raw HTML
+         and will not execute consent-gated JS injection. -->
+    <script
+      src="https://quge5.com/88/tag.min.js"
+      data-zone="293766"
+      async
+      data-cfasync="false"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/logo.ico" />
@@ -98,18 +106,28 @@ const alternateLocale = locale === "es" ? "en_US" : "es_ES";
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <title>{title} | {SITE_NAME}</title>
     <meta name="description" content={description} />
-    {keywords && <meta name="keywords" content={keywords.replace(/\s+/g, " ").trim()} />}
+    {
+      keywords && (
+        <meta name="keywords" content={keywords.replace(/\s+/g, " ").trim()} />
+      )
+    }
     <meta name="author" content={author} />
     <meta name="robots" content={robotsContent({ noindex, nofollow })} />
     <meta name="theme-color" content="#0f172a" />
     <link rel="canonical" href={pageUrl} />
-    {!noindex && (
-      <>
-        <link rel="alternate" hreflang="en" href={alternates.en} />
-        <link rel="alternate" hreflang="es" href={alternates.es} />
-        <link rel="alternate" hreflang="x-default" href={alternates["x-default"]} />
-      </>
-    )}
+    {
+      !noindex && (
+        <>
+          <link rel="alternate" hreflang="en" href={alternates.en} />
+          <link rel="alternate" hreflang="es" href={alternates.es} />
+          <link
+            rel="alternate"
+            hreflang="x-default"
+            href={alternates["x-default"]}
+          />
+        </>
+      )
+    }
 
     <meta property="og:type" content={type} />
     <meta property="og:title" content={title} />
@@ -127,12 +145,22 @@ const alternateLocale = locale === "es" ? "en_US" : "es_ES";
     <meta name="twitter:image" content={pageImage} />
     <meta name="twitter:image:alt" content={imageAlt} />
 
-    {type === "article" && publishedTime && (
-      <meta property="article:published_time" content={new Date(publishedTime).toISOString()} />
-    )}
-    {type === "article" && modifiedTime && (
-      <meta property="article:modified_time" content={new Date(modifiedTime).toISOString()} />
-    )}
+    {
+      type === "article" && publishedTime && (
+        <meta
+          property="article:published_time"
+          content={new Date(publishedTime).toISOString()}
+        />
+      )
+    }
+    {
+      type === "article" && modifiedTime && (
+        <meta
+          property="article:modified_time"
+          content={new Date(modifiedTime).toISOString()}
+        />
+      )
+    }
     {type === "article" && <meta property="article:author" content={author} />}
 
     <script
@@ -147,7 +175,8 @@ const alternateLocale = locale === "es" ? "en_US" : "es_ES";
          Default consent is denied only for EEA/GB (cookieless pings +
          GA4 modeling); every other region defaults to granted.
          The cookie banner updates the consent state afterwards.
-         Monetag stays gated behind the "Accept" button. -->
+         Monetag loads via its own static tag above (required for
+         verification); only analytics stays gated behind "Accept". -->
     <script is:inline>
       (function () {
         var storedConsent = null;
@@ -156,7 +185,6 @@ const alternateLocale = locale === "es" ? "en_US" : "es_ES";
         } catch (e) {}
 
         window.__gcConsent = storedConsent === "accepted";
-        window.__mtLoaded = false;
 
         window.dataLayer = window.dataLayer || [];
         function gtag() {
@@ -195,31 +223,6 @@ const alternateLocale = locale === "es" ? "en_US" : "es_ES";
         ga.async = true;
         ga.src = "https://www.googletagmanager.com/gtag/js?id=G-DE7X8J5NY6";
         document.head.appendChild(ga);
-
-        // Monetag Multitag (consent-gated, idempotent).
-        // Mirrors the snippet from the Monetag dashboard:
-        // <script src="https://quge5.com/88/tag.min.js" data-zone="293766" async>
-        // NOTE: inline scripts are raw text (no Astro interpolation), so the
-        // URL/zone are hardcoded here. Keep them in sync with src/config/ads.ts.
-        window.__mtLoadAds = function () {
-          if (window.__mtLoaded) return;
-          var tagSrc = "https://quge5.com/88/tag.min.js";
-          var tagZone = "293766";
-          if (!tagSrc || !tagZone) return;
-          window.__mtLoaded = true;
-
-          var s = document.createElement("script");
-          s.async = true;
-          s.src = tagSrc;
-          s.setAttribute("data-zone", tagZone);
-          s.setAttribute("data-cfasync", "false");
-          document.head.appendChild(s);
-          window.dispatchEvent(new CustomEvent("monetag:loaded"));
-        };
-
-        if (window.__gcConsent) {
-          window.__mtLoadAds();
-        }
       })();
     </script>
 
@@ -240,21 +243,14 @@ const alternateLocale = locale === "es" ? "en_US" : "es_ES";
     </script>
 
     <!-- Fix: Re-initialize astro-islands (React client:only components) after View Transitions swap.
-         Monetag slots re-observe themselves via the "monetag:loaded" /
-         "astro:page-load" events, so no ad reload is needed here. -->
+         The static Monetag tag persists in <head> across swaps, so nothing
+         ad-related needs reloading here. -->
     <script is:inline>
       document.addEventListener("astro:after-swap", () => {
         window.dispatchEvent(new CustomEvent("astro:react-remount"));
 
-        const consented =
-          localStorage.getItem("cookie-consent") === "accepted";
+        const consented = localStorage.getItem("cookie-consent") === "accepted";
         window.__gcConsent = consented;
-        if (!consented) return;
-
-        if (typeof window.__mtLoadAds === "function") {
-          window.__mtLoadAds();
-        }
-        window.dispatchEvent(new CustomEvent("monetag:page"));
       });
     </script>
   </head>
@@ -284,7 +280,11 @@ const alternateLocale = locale === "es" ? "en_US" : "es_ES";
     </a>
     <div class="text-white relative z-10 flex h-full grow flex-col">
       <Header />
-      {showBreadcrumbs && breadcrumbItems.length > 1 && <Breadcrumbs items={breadcrumbItems} locale={locale} />}
+      {
+        showBreadcrumbs && breadcrumbItems.length > 1 && (
+          <Breadcrumbs items={breadcrumbItems} locale={locale} />
+        )
+      }
       <slot />
       <Footer />
     </div>
