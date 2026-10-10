@@ -1,7 +1,6 @@
 ---
 import StatsSection from "../components/StatsSections.astro";
 import Layout from "../layouts/Layout.astro";
-import MonetagSlot from "../components/ads/MonetagSlot.astro";
 import { GameDashboard } from "../components/react/GameDashboard";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 import { getLocalizedGames } from "../data/translations/getGameData";
@@ -79,8 +78,6 @@ const faqItems = [
 
     <!-- Game Dashboard with Filter -->
     <GameDashboard client:load games={gameData} labels={dashboardLabels} locale="en" />
-
-    <MonetagSlot placement="home-infeed" />
 
     <StatsSection />
 

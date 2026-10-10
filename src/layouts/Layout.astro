@@ -91,14 +91,6 @@ const alternateLocale = locale === "es" ? "en_US" : "es_ES";
 <!doctype html>
 <html lang={locale}>
   <head>
-    <!-- Monetag Multitag (required for site verification + ad serving).
-         Must stay a static tag right after <head>: the verifier reads raw HTML
-         and will not execute consent-gated JS injection. -->
-    <script
-      src="https://quge5.com/88/tag.min.js"
-      data-zone="293766"
-      async
-      data-cfasync="false"></script>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/x-icon" href="/logo.ico" />
@@ -174,9 +166,7 @@ const alternateLocale = locale === "es" ? "en_US" : "es_ES";
     <!-- Google Consent Mode v2 (advanced): gtag.js always loads.
          Default consent is denied only for EEA/GB (cookieless pings +
          GA4 modeling); every other region defaults to granted.
-         The cookie banner updates the consent state afterwards.
-         Monetag loads via its own static tag above (required for
-         verification); only analytics stays gated behind "Accept". -->
+         The cookie banner updates the consent state afterwards. -->
     <script is:inline>
       (function () {
         var storedConsent = null;
@@ -242,9 +232,7 @@ const alternateLocale = locale === "es" ? "en_US" : "es_ES";
       });
     </script>
 
-    <!-- Fix: Re-initialize astro-islands (React client:only components) after View Transitions swap.
-         The static Monetag tag persists in <head> across swaps, so nothing
-         ad-related needs reloading here. -->
+    <!-- Fix: Re-initialize astro-islands (React client:only components) after View Transitions swap. -->
     <script is:inline>
       document.addEventListener("astro:after-swap", () => {
         window.dispatchEvent(new CustomEvent("astro:react-remount"));

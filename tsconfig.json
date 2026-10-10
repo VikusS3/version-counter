@@ -5,8 +5,7 @@
     "**/*"
   ],
   "exclude": [
-    "dist",
-    "public/sw.js"
+    "dist"
   ],
   "compilerOptions": {
     "jsx": "react-jsx",

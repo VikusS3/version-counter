@@ -1,7 +1,6 @@
 ---
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
-import MonetagSlot from "../../components/ads/MonetagSlot.astro";
 import { getLangFromUrl } from "../../i18n/utils";
 
 export async function getStaticPaths() {
@@ -125,8 +124,6 @@ const gameHref = post.data.game !== "all"
         <Content />
       </div>
     </article>
-
-    <MonetagSlot placement="blog-after-article" />
 
     <div class="mt-10 flex flex-wrap gap-3 border-t border-white/[0.06] pt-6">      {gameHref && (
         <a

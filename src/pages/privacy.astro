@@ -6,7 +6,7 @@ const canonicalUrl = new URL("/privacy/", Astro.site).href;
 
 <Layout
   title="Privacy Policy"
-  description="Privacy policy for Gacha Countdown. We use Monetag to serve ads and Google Analytics to analyze traffic. Learn how your data is handled and how to opt out."
+  description="Privacy policy for Gacha Countdown. We use Google Analytics to analyze traffic. Learn how your data is handled and how to opt out."
   url={canonicalUrl}
   canonical={canonicalUrl}
 >
@@ -36,39 +36,16 @@ const canonicalUrl = new URL("/privacy/", Astro.site).href;
     <section class="mb-5 sm:mb-6">
       <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">2. Cookies</h2>
       <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
-        We use third-party cookies and similar technologies for advertising and
-        analytics purposes. The Monetag ad tag loads automatically on every
-        visit (it is required to serve and verify ads), while Google Analytics
-        is only loaded after you accept our cookie consent banner.
+        We use third-party cookies and similar technologies for analytics
+        purposes. Specifically, this site uses Google Analytics as described
+        below. These cookies are only loaded
+        after you accept our cookie consent banner.
       </p>
     </section>
 
     <section class="mb-5 sm:mb-6">
       <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">
-        3. Monetag Advertising Cookies
-      </h2>
-      <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
-        Monetag is a third-party advertising service used to display ads
-        on this site. Monetag may use cookies and similar technologies
-        to serve advertisements based on your prior visits to this website and
-        other websites on the internet. This allows Monetag and its partners to
-        show you personalized ads.
-      </p>
-      <p class="text-gray-300 leading-relaxed text-sm sm:text-base mt-3">
-        You can learn more about how Monetag handles data and your opt-out
-        options at{" "}
-        <a
-          href="https://monetag.com/privacy-policy/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-primary hover:text-primary/80 underline underline-offset-2"
-        >monetag.com/privacy-policy</a>.
-      </p>
-    </section>
-
-    <section class="mb-5 sm:mb-6">
-      <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">
-        4. Google Analytics
+        3. Google Analytics
       </h2>
       <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
         This site uses Google Analytics
@@ -92,19 +69,12 @@ const canonicalUrl = new URL("/privacy/", Astro.site).href;
 
     <section class="mb-5 sm:mb-6">
       <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">
-        5. Third-Party Services
+        4. Third-Party Services
       </h2>
       <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
-        We use Monetag (advertising) and Google (Analytics) as third-party service providers.
-        These services operate under their own privacy policies. You can review
-        Monetag's privacy policy at{" "}
-        <a
-          href="https://monetag.com/privacy-policy/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-primary hover:text-primary/80 underline underline-offset-2"
-        >monetag.com/privacy-policy</a>{" "}
-        and Google's privacy policy at{" "}
+        We use Google (Analytics) as a third-party service provider.
+        This service operates under its own privacy policy. You can review
+        Google's privacy policy at{" "}
         <a
           href="https://policies.google.com/privacy"
           target="_blank"
@@ -116,7 +86,7 @@ const canonicalUrl = new URL("/privacy/", Astro.site).href;
 
     <section class="mb-5 sm:mb-6">
       <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">
-        6. Changes to This Policy
+        5. Changes to This Policy
       </h2>
       <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
         We may update this policy from time to time. Any changes will be posted

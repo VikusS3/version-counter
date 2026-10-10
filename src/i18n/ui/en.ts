@@ -124,7 +124,7 @@ export const en = {
   },
   cookie: {
     message:
-      "We use cookies to serve ads (Monetag) and analyze traffic (Google Analytics). By clicking Accept, you agree to our Privacy Policy.",
+      "We use cookies to analyze traffic (Google Analytics). By clicking Accept, you agree to our Privacy Policy.",
     accept: "Accept",
     reject: "Reject",
     readMore: "Read our Privacy Policy",

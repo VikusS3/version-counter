@@ -126,7 +126,7 @@ export const es = {
   },
   cookie: {
     message:
-      "Usamos cookies para mostrar anuncios (Monetag) y analizar el tráfico (Google Analytics). Al hacer clic en Aceptar, aceptas nuestra Política de Privacidad.",
+      "Usamos cookies para analizar el tráfico (Google Analytics). Al hacer clic en Aceptar, aceptas nuestra Política de Privacidad.",
     accept: "Aceptar",
     reject: "Rechazar",
     readMore: "Lee nuestra Política de Privacidad",

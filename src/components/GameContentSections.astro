@@ -1,7 +1,6 @@
 ---
 import { getCollection } from "astro:content";
 import type { LocalizedGame } from "../data/translations/getGameData";
-import MonetagSlot from "./ads/MonetagSlot.astro";
 
 interface Props {
   game?: LocalizedGame;
@@ -132,5 +131,4 @@ const relatedPostLabel = isEs
       </span>
     </a>
   )}
-  <MonetagSlot placement="game-after-content" />
 </section>
