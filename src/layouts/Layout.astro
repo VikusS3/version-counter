@@ -147,7 +147,7 @@ const alternateLocale = locale === "es" ? "en_US" : "es_ES";
          Default consent is denied only for EEA/GB (cookieless pings +
          GA4 modeling); every other region defaults to granted.
          The cookie banner updates the consent state afterwards.
-         AdSense stays gated behind the "Accept" button. -->
+         Monetag stays gated behind the "Accept" button. -->
     <script is:inline>
       (function () {
         var storedConsent = null;
@@ -156,7 +156,7 @@ const alternateLocale = locale === "es" ? "en_US" : "es_ES";
         } catch (e) {}
 
         window.__gcConsent = storedConsent === "accepted";
-        window.__gcAdLoaded = false;
+        window.__mtLoaded = false;
 
         window.dataLayer = window.dataLayer || [];
         function gtag() {
@@ -196,20 +196,29 @@ const alternateLocale = locale === "es" ? "en_US" : "es_ES";
         ga.src = "https://www.googletagmanager.com/gtag/js?id=G-DE7X8J5NY6";
         document.head.appendChild(ga);
 
-        window.__gcLoadAds = function () {
-          if (window.__gcAdLoaded) return;
-          window.__gcAdLoaded = true;
+        // Monetag Multitag (consent-gated, idempotent).
+        // Mirrors the snippet from the Monetag dashboard:
+        // <script src="https://quge5.com/88/tag.min.js" data-zone="293766" async>
+        // NOTE: inline scripts are raw text (no Astro interpolation), so the
+        // URL/zone are hardcoded here. Keep them in sync with src/config/ads.ts.
+        window.__mtLoadAds = function () {
+          if (window.__mtLoaded) return;
+          var tagSrc = "https://quge5.com/88/tag.min.js";
+          var tagZone = "293766";
+          if (!tagSrc || !tagZone) return;
+          window.__mtLoaded = true;
 
           var s = document.createElement("script");
           s.async = true;
-          s.src =
-            "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1296222480269245";
-          s.crossOrigin = "anonymous";
+          s.src = tagSrc;
+          s.setAttribute("data-zone", tagZone);
+          s.setAttribute("data-cfasync", "false");
           document.head.appendChild(s);
+          window.dispatchEvent(new CustomEvent("monetag:loaded"));
         };
 
         if (window.__gcConsent) {
-          window.__gcLoadAds();
+          window.__mtLoadAds();
         }
       })();
     </script>
@@ -230,7 +239,9 @@ const alternateLocale = locale === "es" ? "en_US" : "es_ES";
       });
     </script>
 
-    <!-- Fix: Re-initialize astro-islands (React client:only components) after View Transitions swap -->
+    <!-- Fix: Re-initialize astro-islands (React client:only components) after View Transitions swap.
+         Monetag slots re-observe themselves via the "monetag:loaded" /
+         "astro:page-load" events, so no ad reload is needed here. -->
     <script is:inline>
       document.addEventListener("astro:after-swap", () => {
         window.dispatchEvent(new CustomEvent("astro:react-remount"));
@@ -240,28 +251,11 @@ const alternateLocale = locale === "es" ? "en_US" : "es_ES";
         window.__gcConsent = consented;
         if (!consented) return;
 
-        reloadAdsense();
+        if (typeof window.__mtLoadAds === "function") {
+          window.__mtLoadAds();
+        }
+        window.dispatchEvent(new CustomEvent("monetag:page"));
       });
-
-      function reloadAdsense() {
-        const adSlot = document.querySelector("ins.adsbygoogle");
-        const adScript = document.querySelector(
-          'script[src*="adsbygoogle.js"]',
-        );
-        if (!adSlot || !adScript) return;
-
-        document
-          .querySelectorAll('script[src*="adsbygoogle.js"]')
-          .forEach((s) => s.remove());
-
-        const newScript = document.createElement("script");
-        newScript.async = true;
-        newScript.src = adScript.src;
-        newScript.crossOrigin = "anonymous";
-        document.head.appendChild(newScript);
-
-        (window.adsbygoogle = window.adsbygoogle || []).push({});
-      }
     </script>
   </head>
 

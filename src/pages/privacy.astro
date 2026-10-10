@@ -6,7 +6,7 @@ const canonicalUrl = new URL("/privacy/", Astro.site).href;
 
 <Layout
   title="Privacy Policy"
-  description="Privacy policy for Gacha Countdown. We use Google AdSense to serve ads and Google Analytics to analyze traffic. Learn how your data is handled and how to opt out."
+  description="Privacy policy for Gacha Countdown. We use Monetag to serve ads and Google Analytics to analyze traffic. Learn how your data is handled and how to opt out."
   url={canonicalUrl}
   canonical={canonicalUrl}
 >
@@ -37,7 +37,7 @@ const canonicalUrl = new URL("/privacy/", Astro.site).href;
       <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">2. Cookies</h2>
       <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
         We use third-party cookies and similar technologies for advertising and
-        analytics purposes. Specifically, this site uses Google AdSense and
+        analytics purposes. Specifically, this site uses Monetag and
         Google Analytics as described below. These cookies are only loaded
         after you accept our cookie consent banner.
       </p>
@@ -45,31 +45,24 @@ const canonicalUrl = new URL("/privacy/", Astro.site).href;
 
     <section class="mb-5 sm:mb-6">
       <h2 class="text-xl sm:text-2xl font-semibold text-gray-200 mb-2">
-        3. Google AdSense Advertising Cookies
+        3. Monetag Advertising Cookies
       </h2>
       <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
-        Google AdSense is a third-party advertising service used to display ads
-        on this site. AdSense may use cookies (such as the DoubleClick cookie)
+        Monetag is a third-party advertising service used to display ads
+        on this site. Monetag may use cookies and similar technologies
         to serve advertisements based on your prior visits to this website and
-        other websites on the internet. This allows Google and its partners to
+        other websites on the internet. This allows Monetag and its partners to
         show you personalized ads.
       </p>
       <p class="text-gray-300 leading-relaxed text-sm sm:text-base mt-3">
-        You can opt out of personalized advertising by visiting Google Ads
-        Settings at{" "}
+        You can learn more about how Monetag handles data and your opt-out
+        options at{" "}
         <a
-          href="https://adssettings.google.com"
+          href="https://monetag.com/privacy-policy/"
           target="_blank"
           rel="noopener noreferrer"
           class="text-primary hover:text-primary/80 underline underline-offset-2"
-        >adssettings.google.com</a>{" "}
-        or the opt-out page at{" "}
-        <a
-          href="https://www.aboutads.info"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="text-primary hover:text-primary/80 underline underline-offset-2"
-        >www.aboutads.info</a>.
+        >monetag.com/privacy-policy</a>.
       </p>
     </section>
 
@@ -102,9 +95,16 @@ const canonicalUrl = new URL("/privacy/", Astro.site).href;
         5. Third-Party Services
       </h2>
       <p class="text-gray-300 leading-relaxed text-sm sm:text-base">
-        We use Google (AdSense and Analytics) as third-party service providers.
+        We use Monetag (advertising) and Google (Analytics) as third-party service providers.
         These services operate under their own privacy policies. You can review
-        Google's privacy policy at{" "}
+        Monetag's privacy policy at{" "}
+        <a
+          href="https://monetag.com/privacy-policy/"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="text-primary hover:text-primary/80 underline underline-offset-2"
+        >monetag.com/privacy-policy</a>{" "}
+        and Google's privacy policy at{" "}
         <a
           href="https://policies.google.com/privacy"
           target="_blank"
@@ -125,7 +125,7 @@ const canonicalUrl = new URL("/privacy/", Astro.site).href;
     </section>
 
     <p class="text-xs text-slate-500 font-mono mt-8">
-      Last updated: September 21, 2026
+      Last updated: October 10, 2026
     </p>
   </main>
 </Layout>

@@ -1,0 +1,55 @@
+---
+/**
+ * Monetag in-content ad slot (non-intrusive).
+ *
+ * - Renders NOTHING until `MONETAG_ENABLED` is true (no empty boxes, no CLS).
+ * - Stays hidden until cookie consent is "accepted".
+ * - Must be placed below the fold / after main content (never between
+ *   the H1 and the countdown timer).
+ */
+import { MONETAG_ENABLED, MONETAG_ZONE_ID } from "../../config/ads";
+
+interface Props {
+  /** Unique placement id, e.g. "home-infeed", "game-after-counter". */
+  placement: string;
+}
+
+const { placement } = Astro.props;
+---
+
+{MONETAG_ENABLED && (
+  <div
+    class="monetag-slot mx-auto my-8 w-full max-w-3xl"
+    data-monetag-slot={placement}
+    data-zone={MONETAG_ZONE_ID}
+    role="complementary"
+    aria-label="Advertisement"
+    hidden
+  >
+    <p class="mb-1 text-center text-[10px] font-mono uppercase tracking-widest text-slate-600">
+      Advertisement
+    </p>
+    <div class="monetag-slot-body flex min-h-[90px] items-center justify-center rounded-2xl border border-white/10 bg-white/[0.02]" />
+  </div>
+)}
+
+<script>
+  function revealSlots() {
+    let consented = false;
+    try {
+      consented = localStorage.getItem("cookie-consent") === "accepted";
+    } catch {
+      return;
+    }
+    if (!consented) return;
+    document
+      .querySelectorAll<HTMLElement>("[data-monetag-slot][hidden]")
+      .forEach((slot) => {
+        slot.hidden = false;
+      });
+  }
+
+  document.addEventListener("astro:page-load", revealSlots);
+  window.addEventListener("monetag:loaded", revealSlots);
+  window.addEventListener("monetag:page", revealSlots);
+</script>
