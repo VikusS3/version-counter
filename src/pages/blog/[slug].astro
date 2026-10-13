@@ -2,6 +2,7 @@
 import { getCollection, render } from "astro:content";
 import Layout from "../../layouts/Layout.astro";
 import { getLangFromUrl } from "../../i18n/utils";
+import EnebaBanner from "../../components/bannerComponents/EnebaBanner.astro";
 
 export async function getStaticPaths() {
   const posts = await getCollection("blog", ({ id }) => !id.startsWith("es/"));
@@ -18,13 +19,12 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 
+const postSlug = post.id.replace(/^en\//, "");
+
 const lang = getLangFromUrl(Astro.url);
 const localePrefix = lang === "en" ? "" : "/es";
 
-const canonicalUrl = new URL(
-  `/blog/${post.id.replace(/^en\//, "")}/`,
-  Astro.site,
-).href;
+const canonicalUrl = new URL(`/blog/${postSlug}/`, Astro.site).href;
 const blogUrl = new URL("/blog/", Astro.site).href;
 const postImage = new URL(
   post.data.image ?? "/og-image.webp",
@@ -122,6 +122,10 @@ const gameHref = post.data.game !== "all"
 
       <div class="blog-content text-slate-300">
         <Content />
+      </div>
+
+      <div class="mt-8">
+        <EnebaBanner placement={`blog-${postSlug}`} />
       </div>
     </article>
 

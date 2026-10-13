@@ -1,0 +1,157 @@
+---
+import {
+  ENEBA_GAME_PLACEMENTS,
+  enebaGameUrl,
+  enebaUrl,
+} from "../../constants/eneba";
+import {
+  getLangFromUrl,
+  replaceParams,
+  useTranslations,
+} from "../../i18n/utils";
+import { getLocalizedGame } from "../../data/translations/getGameData";
+
+interface Props {
+  /** Slug del juego (ej. "genshin-impact"). Si se omite, usa copy genérico. */
+  game?: string;
+  /** Placement de tracking cuando no hay `game` (ej. "prefooter"). */
+  placement?: string;
+  /** "card" = bloque promocional completo · "strip" = barra compacta. */
+  variant?: "card" | "strip";
+  color?: string;
+}
+
+const lang = getLangFromUrl(Astro.url);
+const t = useTranslations(lang);
+const {
+  game,
+  placement = "banner",
+  variant = "card",
+  color = "var(--color-primary)",
+} = Astro.props;
+
+const localizedGame = game ? getLocalizedGame(game, lang) : undefined;
+const gameName = localizedGame?.nombre_oficial;
+
+const { url: href, placement: placementId } = game
+  ? enebaGameUrl(game as keyof typeof ENEBA_GAME_PLACEMENTS)
+  : { url: enebaUrl(placement), placement };
+
+const ariaLabel = gameName
+  ? replaceParams(t.eneba.ariaLabel, { game: gameName })
+  : t.eneba.ariaLabelGeneric;
+
+const title = gameName
+  ? replaceParams(t.eneba.titleGame, { game: gameName })
+  : t.eneba.titleGeneric;
+
+const trusts = [
+  { icon: "bolt", label: t.eneba.trustDelivery },
+  { icon: "star", label: t.eneba.trustRating },
+  { icon: "group", label: t.eneba.trustBuyers },
+];
+
+const linkProps = {
+  href,
+  target: "_blank",
+  rel: "sponsored noopener noreferrer",
+  "data-eneba-placement": placementId,
+  "aria-label": ariaLabel,
+  title: ariaLabel,
+};
+---
+
+{
+  variant === "strip" ? (
+    <a
+      {...linkProps}
+      class="group flex w-full items-center justify-between gap-3 rounded-xl border border-amber-500/25 bg-amber-500/[0.07] hover:bg-amber-500/[0.13] hover:border-amber-400/50 px-4 py-3 min-h-[48px] transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400"
+    >
+      <span class="flex items-center gap-2.5 min-w-0">
+        <span
+          class="material-symbols-outlined text-lg text-amber-300 shrink-0"
+          aria-hidden="true"
+        >
+          local_offer
+        </span>
+        <span class="min-w-0">
+          <span class="block text-xs sm:text-sm font-bold text-amber-100 leading-tight truncate">
+            {title}
+          </span>
+          <span class="block text-[10px] text-slate-500 truncate">
+            {t.eneba.savings} · {t.eneba.disclosure}
+          </span>
+        </span>
+      </span>
+      <span class="shrink-0 inline-flex items-center gap-1 text-[11px] sm:text-xs font-display font-bold uppercase tracking-wider text-amber-300 group-hover:text-amber-200">
+        {t.eneba.cta}
+        <span class="material-symbols-outlined text-sm" aria-hidden="true">
+          open_in_new
+        </span>
+      </span>
+    </a>
+  ) : (
+    <a
+      {...linkProps}
+      class="group relative block w-full overflow-hidden rounded-2xl border border-amber-500/25 bg-gradient-to-br from-amber-500/[0.10] via-[#0a0b16]/90 to-indigo-500/[0.10] hover:border-amber-400/60 p-5 sm:p-6 transition-all shadow-[0_0_40px_-18px_rgba(245,158,11,0.6)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-400"
+      style={`--sales-color: ${color}`}
+    >
+      <span
+        class="absolute inset-y-0 left-0 w-[3px] bg-gradient-to-b from-amber-400 via-amber-500 to-transparent opacity-70 group-hover:opacity-100"
+        aria-hidden="true"
+      />
+
+      <div class="flex flex-col gap-5 lg:flex-row lg:items-center lg:justify-between">
+        <div class="min-w-0">
+          <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-amber-500/15 border border-amber-500/40 text-amber-300 text-[10px] font-bold tracking-[0.15em] uppercase mb-3">
+            <span
+              class="material-symbols-outlined text-xs"
+              aria-hidden="true"
+            >
+              trending_down
+            </span>
+            {t.eneba.badge}
+          </span>
+
+          <h3 class="text-base sm:text-lg font-display font-black text-white uppercase tracking-wide leading-tight mb-2">
+            {title}
+          </h3>
+
+          <p class="text-xs sm:text-sm text-slate-400 leading-relaxed max-w-2xl mb-3">
+            {t.eneba.description}
+          </p>
+
+          <ul class="flex flex-wrap gap-2">
+            {trusts.map((item) => (
+              <li class="inline-flex items-center gap-1.5 rounded-lg border border-white/10 bg-white/[0.04] px-2 py-1 text-[10px] sm:text-[11px] font-semibold text-slate-300">
+                <span
+                  class="material-symbols-outlined text-xs text-amber-300"
+                  aria-hidden="true"
+                >
+                  {item.icon}
+                </span>
+                {item.label}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="flex shrink-0 flex-col items-start gap-2 lg:items-end">
+          <span class="rounded-lg bg-emerald-500/15 border border-emerald-500/40 px-2.5 py-1 text-[11px] font-black text-emerald-300 uppercase tracking-wider">
+            {t.eneba.savings}
+          </span>
+          <span class="inline-flex items-center gap-2 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 group-hover:from-amber-400 group-hover:to-amber-500 text-black font-display font-black text-xs sm:text-sm uppercase tracking-wider px-5 py-3 min-h-[48px] transition-all transform group-hover:scale-105 shadow-[0_6px_20px_-6px_rgba(245,158,11,0.7)]">
+            {t.eneba.cta}
+            <span class="material-symbols-outlined text-base" aria-hidden="true">
+              open_in_new
+            </span>
+          </span>
+        </div>
+      </div>
+
+      <p class="mt-4 pt-3 border-t border-white/[0.07] text-[10px] leading-relaxed text-slate-500">
+        {t.eneba.disclosure}
+      </p>
+    </a>
+  )
+}

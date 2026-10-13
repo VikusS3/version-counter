@@ -2,7 +2,8 @@ import { useState, useEffect, useRef, useCallback, useMemo } from "react";
 
 export interface PromoCampaign {
   storageKey: string;
-  videoSrc: string;
+  /** Opcional: si no hay vídeo se renderiza solo el póster/fondo. */
+  videoSrc?: string;
   posterSrc?: string;
   title: string;
   description: string;
@@ -10,6 +11,19 @@ export interface PromoCampaign {
   ctaLabel: string;
   ctaHref: string;
   accentColor?: string;
+  /** Etiquetas localizadas (todas opcionales, con fallback EN). */
+  badgeLabel?: string;
+  countdownLabel?: string;
+  dontShowAgainLabel?: string;
+  closeLabel?: string;
+  /** Oculta el bloque de countdown (por defecto se muestra). */
+  showCountdown?: boolean;
+  countdownUnits?: {
+    days: string;
+    hours: string;
+    minutes: string;
+    seconds: string;
+  };
 }
 
 interface PromotionalPopupProps {
@@ -140,7 +154,7 @@ export function PromotionalPopup({
   }, [visible, targetMs, autoCloseDelay]);
 
   useEffect(() => {
-    if (!visible || videoError) return;
+    if (!visible || videoError || !campaign.videoSrc) return;
 
     const video = videoRef.current;
     if (!video) return;
@@ -162,7 +176,7 @@ export function PromotionalPopup({
     return () => {
       window.clearTimeout(id);
     };
-  }, [visible, videoError]);
+  }, [visible, videoError, campaign.videoSrc]);
 
   const handleDismiss = useCallback(() => {
     dismissedRef.current = true;
@@ -218,6 +232,12 @@ export function PromotionalPopup({
   }, [visible]);
 
   const accent = campaign.accentColor || "#a855f7";
+  const units = campaign.countdownUnits ?? {
+    days: "Days",
+    hours: "Hours",
+    minutes: "Mins",
+    seconds: "Secs",
+  };
 
   return (
     <div
@@ -254,13 +274,7 @@ export function PromotionalPopup({
         />
 
         <div className="relative w-full h-40 sm:h-48 overflow-hidden bg-black">
-          {videoError ? (
-            <div
-              className="w-full h-full bg-cover bg-center"
-              style={{ backgroundImage: `url(${campaign.posterSrc})` }}
-              aria-hidden="true"
-            />
-          ) : (
+          {campaign.videoSrc && !videoError ? (
             <video
               ref={videoRef}
               src={campaign.videoSrc}
@@ -272,6 +286,16 @@ export function PromotionalPopup({
               className="w-full h-full object-cover"
               aria-hidden="true"
               onError={() => setVideoError(true)}
+            />
+          ) : (
+            <div
+              className="w-full h-full bg-cover bg-center"
+              style={{
+                backgroundImage: campaign.posterSrc
+                  ? `url(${campaign.posterSrc})`
+                  : `radial-gradient(circle at 30% 20%, ${accent}55 0%, transparent 60%), radial-gradient(circle at 75% 80%, ${accent}44 0%, transparent 55%), linear-gradient(135deg, #120e1e 0%, #0b0a14 100%)`,
+              }}
+              aria-hidden="true"
             />
           )}
           <div className="absolute inset-0 bg-gradient-to-t from-[#120e1e] via-[#120e1e]/10 to-transparent" />
@@ -290,7 +314,7 @@ export function PromotionalPopup({
               className="w-1 h-1 rounded-full animate-pulse"
               style={{ backgroundColor: accent }}
             />
-            Special Event
+            {campaign.badgeLabel ?? "Special Event"}
           </div>
 
           <h2 className="text-sm sm:text-base font-bold text-white mb-1 leading-snug">
@@ -301,17 +325,18 @@ export function PromotionalPopup({
             {campaign.description}
           </p>
 
-          <div className="mb-3">
-            <p className="text-[8px] uppercase tracking-[0.2em] font-semibold mb-1.5 text-amber-400/80">
-              Event start in
-            </p>
-            <div className="grid grid-cols-4 gap-1.5 sm:gap-2">
-              {[
-                { value: timeLeft.dias, label: "Days" },
-                { value: timeLeft.horas, label: "Hours" },
-                { value: timeLeft.minutos, label: "Mins" },
-                { value: timeLeft.segundos, label: "Secs" },
-              ].map(({ value, label }) => (
+          {campaign.showCountdown !== false && (
+            <div className="mb-3">
+              <p className="text-[8px] uppercase tracking-[0.2em] font-semibold mb-1.5 text-amber-400/80">
+                {campaign.countdownLabel ?? "Event start in"}
+              </p>
+              <div className="grid grid-cols-4 gap-1.5 sm:gap-2">
+                {[
+                  { value: timeLeft.dias, label: units.days },
+                  { value: timeLeft.horas, label: units.hours },
+                  { value: timeLeft.minutos, label: units.minutes },
+                  { value: timeLeft.segundos, label: units.seconds },
+                ].map(({ value, label }) => (
                 <div key={label} className="flex flex-col items-center">
                   <div
                     className="w-full rounded-lg py-1.5 px-1 text-center"
@@ -328,13 +353,15 @@ export function PromotionalPopup({
                     {label}
                   </span>
                 </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
+          )}
 
           <a
             href={campaign.ctaHref}
             onClick={handleDismiss}
+            data-eneba-placement={campaign.storageKey}
             className="block w-full text-center text-white font-bold py-2.5 px-4 rounded-lg text-sm transition-all transform hover:scale-[1.02] active:scale-[0.98] focus-visible:outline-2 focus-visible:outline-offset-2"
             style={{
               background: `linear-gradient(135deg, ${accent} 0%, ${accent}CC 100%)`,
@@ -353,7 +380,7 @@ export function PromotionalPopup({
               style={{ accentColor: accent }}
             />
             <span className="text-[11px] text-slate-500 group-hover:text-slate-400 transition-colors select-none">
-              Don't show this again
+              {campaign.dontShowAgainLabel ?? "Don't show this again"}
             </span>
           </label>
         </div>
@@ -362,7 +389,7 @@ export function PromotionalPopup({
           onClick={handleDismiss}
           className="absolute top-2 right-2 w-7 h-7 flex items-center justify-center rounded-full bg-black/50 hover:bg-black/70 text-white/60 hover:text-white transition-all z-20 focus-visible:outline-2 focus-visible:outline-offset-2"
           style={{ outlineColor: accent }}
-          aria-label="Close promotion"
+          aria-label={campaign.closeLabel ?? "Close promotion"}
           type="button"
         >
           <svg

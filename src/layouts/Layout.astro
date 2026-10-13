@@ -5,6 +5,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Breadcrumbs from "../components/Breadcrumbs.astro";
 import CookieBanner from "../components/CookieBanner.astro";
+import EnebaBanner from "../components/bannerComponents/EnebaBanner.astro";
 import { ClientRouter } from "astro:transitions";
 import { getLangFromUrl, useTranslations } from "../i18n/utils";
 import {
@@ -39,6 +40,8 @@ export interface Props {
   noindex?: boolean;
   nofollow?: boolean;
   showBreadcrumbs?: boolean;
+  /** Muestra el banner de ofertas Eneba antes del footer (por defecto sí). */
+  showEnebaBanner?: boolean;
   publishedTime?: Date | string;
   modifiedTime?: Date | string;
 }
@@ -61,6 +64,7 @@ const {
   noindex = false,
   nofollow = false,
   showBreadcrumbs = true,
+  showEnebaBanner = true,
   publishedTime,
   modifiedTime,
 } = Astro.props;
@@ -274,8 +278,38 @@ const alternateLocale = locale === "es" ? "en_US" : "es_ES";
         )
       }
       <slot />
+      {
+        showEnebaBanner && (
+          <div class="w-full max-w-7xl mx-auto px-4 md:px-6 pt-6 md:pt-8">
+            <EnebaBanner variant="strip" placement="prefooter" />
+          </div>
+        )
+      }
       <Footer />
     </div>
     <CookieBanner />
+    <script is:inline>
+      // GA4: registra clics en los enlaces de afiliado de Eneba por placement.
+      (function () {
+        if (window.__enebaTracked) return;
+        window.__enebaTracked = true;
+        document.addEventListener("click", function (e) {
+          var target = e.target;
+          if (!(target instanceof Element)) return;
+          var link = target.closest(
+            'a[data-eneba-placement], a[href*="af_id=vikus"]',
+          );
+          if (!link) return;
+          if (typeof window.gtag !== "function") return;
+          var placement =
+            link.getAttribute("data-eneba-placement") ||
+            ("auto-" + window.location.pathname);
+          window.gtag("event", "eneba_click", {
+            placement: placement,
+            page_path: window.location.pathname,
+          });
+        });
+      })();
+    </script>
   </body>
 </html>

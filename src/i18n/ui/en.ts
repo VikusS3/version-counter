@@ -97,6 +97,31 @@ export const en = {
     cta: "View Sales",
     ariaLabel: "View {game} banner sales on Gacha Sells",
   },
+  eneba: {
+    badge: "Featured Deal",
+    titleGame: "Top up {game} for less",
+    titleGeneric: "Game credits & gift cards, discounted",
+    description:
+      "Gift cards and in-game currency below store price. Instant digital delivery, buyer protection and thousands of verified sellers.",
+    cta: "Get the deal on Eneba",
+    savings: "Save up to 90%",
+    trustDelivery: "Instant digital delivery",
+    trustRating: "4.5/5 on Trustpilot",
+    trustBuyers: "+6M happy buyers",
+    disclosure:
+      "Affiliate link — we may earn a commission if you buy, at no extra cost to you.",
+    ariaLabel: "Buy {game} top-ups and gift cards on Eneba",
+    ariaLabelGeneric: "Shop game gift cards and top-ups on Eneba",
+    popupBadge: "Limited-Time Deal",
+    popupTitle: "Top up your gacha for less",
+    popupDescription:
+      "Gift cards and in-game currency below store price, delivered in seconds. Discounted every day on Eneba.",
+    popupCta: "Claim the discount →",
+    popupCountdown: "Featured deals refresh in",
+    popupDismiss: "Don't show this again",
+    popupClose: "Close promotion",
+    popupUnits: { days: "Days", hours: "Hours", minutes: "Mins", seconds: "Secs" },
+  },
   patch: {
     title: "Patch Notes Database",
     subtitle: "Official patch notes from all gacha games",

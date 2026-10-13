@@ -2,6 +2,7 @@
 import Layout from "../../layouts/Layout.astro";
 import { Counter } from "../../components/react/Counter";
 import { CopyButton } from "../../components/react/CopyButton";
+import EnebaBanner from "../../components/bannerComponents/EnebaBanner.astro";
 import BannerAlert from "../../components/bannerComponents/BannerAlert.astro";
 import { getLangFromUrl, useTranslations } from "../../i18n/utils";
 import { getLocalizedGame } from "../../data/translations/getGameData";
@@ -177,6 +178,9 @@ const gameKeywords = `
             successMessage={t.gamePage.toastSuccess}
             errorMessage={t.gamePage.toastError}
           />
+        </div>
+        <div class="mt-6 sm:mt-8">
+          <EnebaBanner game="arknights-endfield" />
         </div>
       </div>
     </section>

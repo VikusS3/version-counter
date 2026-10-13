@@ -98,6 +98,36 @@ export const es = {
     cta: "Ver Ventas",
     ariaLabel: "Ver ventas de banners de {game} en Gacha Sells",
   },
+  eneba: {
+    badge: "Oferta Destacada",
+    titleGame: "Recarga {game} por menos",
+    titleGeneric: "Créditos de juegos y tarjetas regalo, con descuento",
+    description:
+      "Tarjetas regalo y moneda del juego por debajo del precio de tienda. Entrega digital instantánea, protección al comprador y miles de vendedores verificados.",
+    cta: "Ver oferta en Eneba",
+    savings: "Ahorra hasta 90%",
+    trustDelivery: "Entrega digital instantánea",
+    trustRating: "4.5/5 en Trustpilot",
+    trustBuyers: "+6M compradores felices",
+    disclosure:
+      "Enlace de afiliado — podemos recibir una comisión si compras, sin coste adicional para ti.",
+    ariaLabel: "Comprar recargas y tarjetas regalo de {game} en Eneba",
+    ariaLabelGeneric: "Comprar tarjetas regalo y recargas de juegos en Eneba",
+    popupBadge: "Oferta por Tiempo Limitado",
+    popupTitle: "Recarga tu gacha por menos",
+    popupDescription:
+      "Tarjetas regalo y moneda del juego por debajo del precio de tienda, entregadas en segundos. Con descuento cada día en Eneba.",
+    popupCta: "Quiero el descuento →",
+    popupCountdown: "Las ofertas destacadas se renuevan en",
+    popupDismiss: "No mostrar de nuevo",
+    popupClose: "Cerrar promoción",
+    popupUnits: {
+      days: "Días",
+      hours: "Horas",
+      minutes: "Min",
+      seconds: "Seg",
+    },
+  },
   patch: {
     title: "Base de Datos de Parches",
     subtitle: "Notas oficiales de parches de todos los juegos gacha",
