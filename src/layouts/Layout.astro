@@ -3,7 +3,6 @@ import "../styles/global.css";
 import "material-symbols/outlined.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
-import Breadcrumbs from "../components/Breadcrumbs.astro";
 import CookieBanner from "../components/CookieBanner.astro";
 import EnebaBanner from "../components/bannerComponents/EnebaBanner.astro";
 import { ClientRouter } from "astro:transitions";
@@ -39,7 +38,6 @@ export interface Props {
   lang?: string;
   noindex?: boolean;
   nofollow?: boolean;
-  showBreadcrumbs?: boolean;
   /** Muestra el banner de ofertas Eneba antes del footer (por defecto sí). */
   showEnebaBanner?: boolean;
   publishedTime?: Date | string;
@@ -63,7 +61,6 @@ const {
   canonical,
   noindex = false,
   nofollow = false,
-  showBreadcrumbs = true,
   showEnebaBanner = true,
   publishedTime,
   modifiedTime,
@@ -272,11 +269,6 @@ const alternateLocale = locale === "es" ? "en_US" : "es_ES";
     </a>
     <div class="text-white relative z-10 flex h-full grow flex-col">
       <Header />
-      {
-        showBreadcrumbs && breadcrumbItems.length > 1 && (
-          <Breadcrumbs items={breadcrumbItems} locale={locale} />
-        )
-      }
       <slot />
       {
         showEnebaBanner && (

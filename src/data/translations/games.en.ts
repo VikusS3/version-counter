@@ -25,9 +25,9 @@ export const gamesTranslations: Record<string, GameTranslation> = {
   "honkai-star-rail": {
     nombre: "Honkai Star Rail New Version Countdown",
     descripcion:
-      "Honkai Star Rail 4.7 Countdown for all region like America, Europe, Asia. Honkai Banner Countdown, Patch Notes, and more.",
-    slogan_desc: "Pearl is now available, new characters, and more.",
-    patch_notes_description: "Latest patch notes for Honkai Star Rail 4.6",
+      "Honkai Star Rail 4.8 Countdown for all region like America, Europe, Asia. Honkai Banner Countdown, Patch Notes, and more.",
+    slogan_desc: "EON Aha is now available, new characters, and more.",
+    patch_notes_description: "Latest patch notes for Honkai Star Rail 4.7",
   },
   "zenless-zone-zero": {
     nombre: "Zenless Zone Zero New Version Countdown",
@@ -46,9 +46,9 @@ export const gamesTranslations: Record<string, GameTranslation> = {
   "neverness-to-everness": {
     nombre: "Neverness to Everness New Version Countdown",
     descripcion:
-      "Neverness to Everness 1.4 Countdown for all region like America, Europe, Asia. Neverness Banner Countdown, Patch Notes, and more.",
+      "Neverness to Everness 1.6 Countdown for all region like America, Europe, Asia. Neverness Banner Countdown, Patch Notes, and more.",
     slogan_desc:
-      "Neverness to Everness 1.4 is now available, new characters, and more.",
-    patch_notes_description: "Latest patch notes for Neverness to Everness 1.3",
+      "Neverness to Everness 1.5 is now available, new characters, and more.",
+    patch_notes_description: "Latest patch notes for Neverness to Everness 1.5",
   },
 };

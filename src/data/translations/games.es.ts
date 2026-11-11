@@ -27,10 +27,10 @@ export const gamesTranslations: Record<string, GameTranslation> = {
   "honkai-star-rail": {
     nombre: "Cuenta Regresiva Nueva Versión Honkai Star Rail",
     descripcion:
-      "Cuenta regresiva Honkai Star Rail 4.7 para todas las regiones como América, Europa, Asia. Cuenta regresiva de banners, notas del parche y más.",
-    slogan_desc: "Pearl está ahora disponible, nuevos personajes y más.",
+      "Cuenta regresiva Honkai Star Rail 4.8 para todas las regiones como América, Europa, Asia. Cuenta regresiva de banners, notas del parche y más.",
+    slogan_desc: "EON Aha está ahora disponible, nuevos personajes y más.",
     patch_notes_description:
-      "Últimas notas del parche para Honkai Star Rail 4.6",
+      "Últimas notas del parche para Honkai Star Rail 4.7",
   },
   "zenless-zone-zero": {
     nombre: "Cuenta Regresiva Nueva Versión Zenless Zone Zero",
@@ -51,10 +51,10 @@ export const gamesTranslations: Record<string, GameTranslation> = {
   "neverness-to-everness": {
     nombre: "Cuenta Regresiva Nueva Versión Neverness to Everness",
     descripcion:
-      "Cuenta regresiva Neverness to Everness 1.4 para todas las regiones como América, Europa, Asia. Cuenta regresiva de banners, notas del parche y más.",
+      "Cuenta regresiva Neverness to Everness 1.6 para todas las regiones como América, Europa, Asia. Cuenta regresiva de banners, notas del parche y más.",
     slogan_desc:
-      "La versión 1.3 de Neverness to Everness ya está disponible, nuevos personajes y más.",
+      "La versión 1.5 de Neverness to Everness ya está disponible, nuevos personajes y más.",
     patch_notes_description:
-      "Últimas notas del parche para Neverness to Everness 1.3",
+      "Últimas notas del parche para Neverness to Everness 1.5",
   },
 };
